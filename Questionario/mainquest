@@ -1,0 +1,91 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Pergunta: Género de Filme Favorito
+        // Identifica a preferência central do utilizador para filtrar os filmes de acordo com o gosto.
+        System.out.println("## Qual o teu género de filme favorito? (ex: ação, fantasia, aventura, comédia, drama, ficção científica, terror, suspense, romance, animação, documentário, crime, musical, biográfico, histórico, western)");
+        System.out.println("Escolha uma opção:");
+        System.out.println("1. Ação");
+        System.out.println("2. Fantasia");
+        System.out.println("3. Aventura");
+        System.out.println("4. Comédia");
+        System.out.println("5. Drama");
+        System.out.println("6. Ficção Científica");
+        System.out.println("7. Terror");
+        System.out.println("8. Suspense");
+        System.out.println("9. Romance");
+        System.out.println("10. Animação");
+        System.out.println("11. Documentário");
+        System.out.println("12. Crime");
+        System.out.println("13. Musical");
+        System.out.println("14. Biográfico");
+        System.out.println("15. Histórico");
+        System.out.println("16. Western");
+        System.out.print("Digite o número correspondente: ");
+        int genreChoice = scanner.nextInt();
+        scanner.nextLine(); // Consumir o newline
+
+        // 2. Pergunta: Horário Preferido para Assistir Filmes
+        // Sincroniza as recomendações conforme o momento de visualização (ex.: séries curtas na hora do almoço).
+        System.out.println("\n## Qual o horário preferido para assistires a filmes? (manhã, tarde, noite)");
+        System.out.println("Escolha uma opção:");
+        System.out.println("1. Manhã");
+        System.out.println("2. Tarde");
+        System.out.println("3. Noite");
+        System.out.print("Digite o número correspondente: ");
+        int timeChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        // 3. Pergunta: Dispositivo Utilizado para Assistir
+        // Permite adaptar a experiência visual conforme o dispositivo (TV, smartphone, PC).
+        System.out.println("\n## Em que dispositivo costumas assistir? (TV, smartphone, PC)");
+        System.out.println("Escolha uma opção:");
+        System.out.println("1. TV");
+        System.out.println("2. Smartphone");
+        System.out.println("3. PC");
+        System.out.print("Digite o número correspondente: ");
+        int deviceChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        // 4. Pergunta: Atores, Realizadores ou Franquias Favoritos
+        // Identifica afinidades específicas que influenciam as recomendações.
+        System.out.println("\n## Quais atores, realizadores ou franquias são os teus favoritos?");
+        String favorites = scanner.nextLine();
+
+        // 5. Pergunta: Preferência por Filmes Novos ou Clássicos
+        // Alinha o catálogo com o gosto temporal do utilizador.
+        System.out.println("\n## Preferes filmes novos ou clássicos?");
+        System.out.println("Escolha uma opção:");
+        System.out.println("1. Novos");
+        System.out.println("2. Clássicos");
+        System.out.print("Digite o número correspondente: ");
+        int preferenceChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        // 6. Pergunta: Géneros ou Filmes que o Utilizador Não Gosta
+        // Evita recomendações irrelevantes ou que possam causar insatisfação.
+        System.out.println("\n## Há algum género ou filme que definitivamente não gostarias de ver?");
+        System.out.println("Digite o nome do género ou filme (ou 'Nenhum' caso não haja):");
+        String avoid = scanner.nextLine();
+
+        // 7. Pergunta: Faixa Etária e Gênero (Dados Demográficos)
+        // Dados demográficos ajudam a criar perfis precisos e a correlacionar preferências com grupos específicos.
+        System.out.println("\n## Qual a tua faixa etária e género? (exemplo: 25 anos, Masculino)");
+        String demographics = scanner.nextLine();
+
+        // Exibição das respostas para confirmação (pode ser adaptado conforme necessário)
+        System.out.println("\n--- Respostas do Questionário ---");
+        System.out.println("Género favorito (número): " + genreChoice);
+        System.out.println("Horário preferido (número): " + timeChoice);
+        System.out.println("Dispositivo utilizado (número): " + deviceChoice);
+        System.out.println("Atores/Realizadores/Franquias favoritos: " + favorites);
+        System.out.println("Preferência por filmes: " + (preferenceChoice == 1 ? "Novos" : "Clássicos"));
+        System.out.println("Géneros ou filmes evitados: " + avoid);
+        System.out.println("Faixa etária e género: " + demographics);
+
+        scanner.close();
+    }
+}
