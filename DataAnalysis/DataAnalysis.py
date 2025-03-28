@@ -2,9 +2,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os  # Import os for file existence check
 
 # Load dataset
 def load_data(filepath):
+    if not os.path.exists(filepath):
+        raise FileNotFoundError(f"The file '{filepath}' does not exist. Please provide a valid path.")
     return pd.read_csv(filepath)
 
 # EDA: Distribution of ratings
@@ -38,6 +41,15 @@ def analyze_correlations(data):
     sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
     plt.title('Correlation Matrix')
     plt.show()
+
+# Statistical analysis
+def perform_statistical_analysis(data):
+    numeric_data = data.select_dtypes(include=[np.number])  # Select only numeric columns
+    stats = numeric_data.describe().T  # Transpose for better readability
+    stats['range'] = stats['max'] - stats['min']  # Add range calculation
+    print("Statistical Analysis:")
+    print(stats)
+    return stats
 
 # Weighted rating formula
 def calculate_weighted_rating(data, m, C):
@@ -86,7 +98,11 @@ def test_sensitivity(data, m_values, C):
 
 # Main function to execute the analysis
 def main():
+<<<<<<< HEAD
     filepath = 'DataAnalysis/movies.csv'  # Adjusted dataset path to match folder structure
+=======
+    filepath = input("/Users/andreferreira/Documents/GitHub/7.1-Hackaton/DataAnalysis/movies.csv")  # Prompt user for file path
+>>>>>>> 09232106bcb65b66f70c14e7da5c32d488391193
     data = load_data(filepath)
     
     # Perform EDA
@@ -94,6 +110,9 @@ def main():
     genre_stats = analyze_genre_statistics(data)
     analyze_vote_distribution(data)
     analyze_correlations(data)
+    
+    # Perform statistical analysis
+    perform_statistical_analysis(data)
     
     # Calculate metrics and rankings
     C = data['averageRating'].mean()
