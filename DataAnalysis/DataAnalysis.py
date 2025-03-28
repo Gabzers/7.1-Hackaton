@@ -98,11 +98,7 @@ def test_sensitivity(data, m_values, C):
 
 # Main function to execute the analysis
 def main():
-<<<<<<< HEAD
     filepath = 'DataAnalysis/movies.csv'  # Adjusted dataset path to match folder structure
-=======
-    filepath = input("/Users/andreferreira/Documents/GitHub/7.1-Hackaton/DataAnalysis/movies.csv")  # Prompt user for file path
->>>>>>> 09232106bcb65b66f70c14e7da5c32d488391193
     data = load_data(filepath)
     
     # Perform EDA
