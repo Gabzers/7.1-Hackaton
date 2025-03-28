@@ -86,7 +86,7 @@ def test_sensitivity(data, m_values, C):
 
 # Main function to execute the analysis
 def main():
-    filepath = 'movies.csv'  # Replace with your dataset path
+    filepath = 'DataAnalysis/movies.csv'  # Adjusted dataset path to match folder structure
     data = load_data(filepath)
     
     # Perform EDA

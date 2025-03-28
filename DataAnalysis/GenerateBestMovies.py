@@ -40,8 +40,8 @@ def generate_best_movies(data, output_filepath, top_n=100000):  # Adjusted top_n
 
 # Main function
 def main():
-    input_filepath = 'd:\\Documentos\\Programação\\7.1-Hackaton\\DataAnalysis\\movies.csv'  # Adjusted dataset path
-    output_filepath = 'd:\\Documentos\\Programação\\7.1-Hackaton\\DataAnalysis\\BestMovies.csv'
+    input_filepath = os.path.join('DataAnalysis', 'movies.csv')  # Relative dataset path
+    output_filepath = os.path.join('DataAnalysis', 'BestMovies.csv')
     
     # Prompt user for file path if the default file is not found
     while not os.path.exists(input_filepath):
