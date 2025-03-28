@@ -6,14 +6,13 @@
   <title>StreamFlix - Home</title>
   <!-- Fonte de ícones (Font Awesome) -->
   <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pap4G6D6ypf1uB9o4KZlX3Sd6tzS8ZP4KnVR8X1gLEu/73Q9mCfjkYu6J2L29qSNY5YF8LA/0K9Ch/d+l+/1gw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  referrerpolicy="no-referrer"
+/>
+
   <!-- Arquivo CSS -->
-  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="Style/home.css" />
 </head>
 <body>
   <!-- Top Nav estilo Netflix -->
@@ -21,29 +20,17 @@
     <div class="nav-left">
       <img src="images/logo.png" alt="Logo" class="logo" />
       <ul class="nav-menu">
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Séries</a></li>
-        <li><a href="#">Filmes</a></li>
-        <li><a href="#">Top 10</a></li>
-        <li><a href="#">Minha Lista</a></li>
+        <li><a href="#"><i class="fa-solid fa-house"></i> Início</a></li>
+        <li><a href="shop.html"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
       </ul>
     </div>
+    <!-- Lado direito da barra com o ícone de logout -->
     <div class="nav-right">
-      <a href="#" class="nav-icon" title="Buscar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </a>
-      <a href="login.html" class="nav-icon" title="Login">
-        <i class="fa-solid fa-user"></i>
-      </a>
-      <a href="#" class="nav-icon" id="chatbot-toggle" title="Chatbot">
-        <i class="fa-solid fa-comment-dots"></i>
-      </a>
-      <a href="shop.html" class="nav-icon" title="Shop">
-        <i class="fa-solid fa-shop"></i>
-      </a>
+      <a href="#" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </header>
-
+  
+  
   <!-- Chatbot (oculto por padrão) -->
   <div id="chatbot" class="chatbot">
     <div class="chatbot-header">
@@ -117,7 +104,7 @@
     <h2>Séries & Filmes</h2>
     <div class="movie-grid">
       <div class="movie-card">
-        <img src="images/series1.jpg" alt="Série 1" />
+        <img src="Style/images/FaíscMcQueen.jpg" alt="Série 1" />
         <p>Série Título 1</p>
       </div>
       <div class="movie-card">
