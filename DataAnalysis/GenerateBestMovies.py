@@ -5,7 +5,9 @@ import os
 # Load dataset
 def load_data(filepath):
     if not os.path.exists(filepath):
-        raise FileNotFoundError(f"File not found: {filepath}. Please provide the correct path.")
+        filepath = input("File 'movies.csv' not found.\nPlease enter the correct path to the dataset: ")
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f"File not found: {filepath}. Please provide the correct path.")
     return pd.read_csv(filepath)
 
 # Calculate weighted rating
@@ -38,8 +40,8 @@ def generate_best_movies(data, output_filepath, top_n=100000):  # Adjusted top_n
 
 # Main function
 def main():
-    input_filepath = 'movies.csv'  # Default dataset path
-    output_filepath = 'BestMovies.csv'
+    input_filepath = 'd:\\Documentos\\Programação\\7.1-Hackaton\\DataAnalysis\\movies.csv'  # Adjusted dataset path
+    output_filepath = 'd:\\Documentos\\Programação\\7.1-Hackaton\\DataAnalysis\\BestMovies.csv'
     
     # Prompt user for file path if the default file is not found
     while not os.path.exists(input_filepath):
