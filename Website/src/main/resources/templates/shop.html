@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" type="text/css" href="/css/shop.css">
+    <script>
+        function atualizarPontos() {
+            let pontos = 1200; // Simulação de pontos do usuário
+            document.getElementById("user-points").innerText = pontos + " points";
+        }
+        window.onload = atualizarPontos;
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">SHOP</div>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="#">Rewards</a></li>
+            </ul>
+        </nav>
+        <div class="user-points-container">
+            <button class="button" id="user-points">Loading..</button>
+        </div>
+    </header>
+    <div class="banner">
+        <h1>Win Exclusive Rewards!</h1>
+        <p>Trade your points for rewards.</p>
+        <a href="#recompensas" class="button">Search Rewards</a>
+    </div>
+    <div class="container" id="recompensas">
+        <h2>Available Rewards</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" >
+                <h3>Product 1</h3>
+                <p>More info soon.</p>
+                <span class="points">500 points</span>
+                <a href="#" class="button">Withdraw</a>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300">
+                <h3>Product 2</h3>
+                <p>More info soon.</p>
+                <span class="points">1000 points</span>
+                <a href="#" class="button">Withdraw</a>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300">
+                <h3>Product 3</h3>
+                <p>More info soon.</p>
+                <span class="points">1500 points</span>
+                <a href="#" class="button">Withdraw</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
