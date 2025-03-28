@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StreamFlix - Home</title>
+  <!-- Fonte de ícones (Font Awesome) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pap4G6D6ypf1uB9o4KZlX3Sd6tzS8ZP4KnVR8X1gLEu/73Q9mCfjkYu6J2L29qSNY5YF8LA/0K9Ch/d+l+/1gw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Arquivo CSS -->
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <!-- Top Nav estilo Netflix -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <img src="images/logo.png" alt="Logo" class="logo" />
+      <ul class="nav-menu">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Séries</a></li>
+        <li><a href="#">Filmes</a></li>
+        <li><a href="#">Top 10</a></li>
+        <li><a href="#">Minha Lista</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-icon" title="Buscar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+      <a href="login.html" class="nav-icon" title="Login">
+        <i class="fa-solid fa-user"></i>
+      </a>
+      <a href="#" class="nav-icon" id="chatbot-toggle" title="Chatbot">
+        <i class="fa-solid fa-comment-dots"></i>
+      </a>
+      <a href="shop.html" class="nav-icon" title="Shop">
+        <i class="fa-solid fa-shop"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Chatbot (oculto por padrão) -->
+  <div id="chatbot" class="chatbot">
+    <div class="chatbot-header">
+      <h3>Chatbot</h3>
+      <button id="close-chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="chatbot-body">
+      <p>Olá! Como posso ajudar?</p>
+      <!-- Conteúdo do chatbot -->
+    </div>
+  </div>
+
+  <!-- Banner Principal -->
+  <section class="banner">
+    <div class="banner-content">
+      <h1>Bem-vindo(a) ao StreamFlix</h1>
+      <p>Assista às melhores séries e filmes em um só lugar!</p>
+    </div>
+  </section>
+
+  <!-- Filtro de gênero (opcional) -->
+  <section class="genre-filter">
+    <label for="genre">Escolha um Gênero:</label>
+    <select id="genre">
+      <option value="all">Todos</option>
+      <option value="acao">Ação</option>
+      <option value="comedia">Comédia</option>
+      <option value="drama">Drama</option>
+      <option value="terror">Terror</option>
+      <option value="sci-fi">Ficção Científica</option>
+      <option value="romance">Romance</option>
+    </select>
+  </section>
+
+  <!-- Seção: Top 10 no seu País -->
+  <section class="movies-section">
+    <h2>Top 10 no seu País</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="images/movie1.jpg" alt="Filme 1" />
+        <p>Filme Título 1</p>
+      </div>
+      <div class="movie-card">
+        <img src="images/movie2.jpg" alt="Filme 2" />
+        <p>Filme Título 2</p>
+      </div>
+      <!-- Repita até 10 itens -->
+    </div>
+  </section>
+
+  <!-- Seção: Top 10 Mundial -->
+  <section class="movies-section">
+    <h2>Top 10 Mundial</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="images/movie3.jpg" alt="Filme 3" />
+        <p>Filme Título 3</p>
+      </div>
+      <div class="movie-card">
+        <img src="images/movie4.jpg" alt="Filme 4" />
+        <p>Filme Título 4</p>
+      </div>
+      <!-- Repita até 10 itens -->
+    </div>
+  </section>
+
+  <!-- Seção: Séries & Filmes -->
+  <section class="movies-section">
+    <h2>Séries & Filmes</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="images/series1.jpg" alt="Série 1" />
+        <p>Série Título 1</p>
+      </div>
+      <div class="movie-card">
+        <img src="images/series2.jpg" alt="Série 2" />
+        <p>Série Título 2</p>
+      </div>
+      <!-- Adicione mais itens -->
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 StreamFlix. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script para exibir/ocultar o chatbot -->
+  <script>
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const chatbot = document.getElementById("chatbot");
+    const closeChat = document.getElementById("close-chat");
+
+    chatbotToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      chatbot.classList.toggle("active");
+    });
+
+    closeChat.addEventListener("click", () => {
+      chatbot.classList.remove("active");
+    });
+  </script>
+</body>
+</html>
