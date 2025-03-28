@@ -12,7 +12,10 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 def load_data(filepath):
     if not os.path.exists(filepath):
         raise FileNotFoundError(f"The file '{filepath}' does not exist. Please provide a valid path.")
-    return pd.read_csv(filepath)
+    data = pd.read_csv(filepath)
+    # Filter movies up to the year 2024
+    data = data[data['releaseYear'] <= 2024]
+    return data
 
 # EDA: Distribution of ratings
 def analyze_rating_distribution(data):
@@ -49,17 +52,16 @@ def analyze_correlations(data):
 # Statistical analysis
 def perform_statistical_analysis(data):
     numeric_data = data.select_dtypes(include=[np.number])  # Select only numeric columns
-    stats = numeric_data.describe().T  # Transpose for better readability
+    stats = numeric_data.describe().T  # Transpose for better visualization
     stats['range'] = stats['max'] - stats['min']  # Add range calculation
-    stats['variance'] = numeric_data.var()  # Add variance
-    stats['cv'] = stats['std'] / stats['mean']  # Add coefficient of variation (CV)
-    stats['skewness'] = numeric_data.skew()  # Add skewness
-    stats['kurtosis'] = numeric_data.kurt()  # Add kurtosis
+    stats['variance'] = numeric_data.var()  # Variance
+    stats['cv'] = stats['std'] / stats['mean']  # Coefficient of variation
+    stats['skewness'] = numeric_data.skew()  # Skewness
+    stats['kurtosis'] = numeric_data.kurt()  # Kurtosis
 
-    print("Statistical Analysis:")
-    print(stats)
-
-    return stats  # Retornar apenas stats para evitar confusão
+    # Add the "Name" column at the beginning
+    stats.insert(0, 'Name', ['averageRating', 'numVotes', 'releaseYear'])
+    return stats
 
 # Weighted rating formula
 def calculate_weighted_rating(data, m, C):
@@ -209,19 +211,19 @@ def show_genre_statistics():
 # Function to display distribution by release year
 def show_release_year_distribution():
     explanation = (
-        "Este gráfico mostra a distribuição do número de filmes lançados por ano. "
-        "Ajuda a identificar tendências na produção de filmes ao longo do tempo."
+        "This chart shows the distribution of the number of movies released per year. "
+        "It helps to identify trends in movie production over time."
     )
-    show_explanation("Distribuição por Ano de Lançamento", explanation)
+    show_explanation("Distribution by Release Year", explanation)
 
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.histplot(data['releaseYear'], bins=50, color='purple', ax=ax)
-    ax.set_title('Distribuição por Ano de Lançamento')
-    ax.set_xlabel('Ano de Lançamento')
-    ax.set_ylabel('Número de Filmes')
+    ax.set_title('Distribution by Release Year')
+    ax.set_xlabel('Release Year')
+    ax.set_ylabel('Number of Movies')
 
     plot_window = tk.Toplevel(root)
-    plot_window.title("Distribuição por Ano de Lançamento")
+    plot_window.title("Distribution by Release Year")
     canvas = FigureCanvasTkAgg(fig, master=plot_window)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
@@ -229,20 +231,20 @@ def show_release_year_distribution():
 # Function to display popularity by genre
 def show_popularity_by_genre():
     explanation = (
-        "Este gráfico mostra a popularidade dos géneros com base no número total de votos. "
-        "Ajuda a identificar quais géneros são mais populares entre os espectadores."
+        "This chart shows the popularity of genres based on the total number of votes. "
+        "It helps to identify which genres are most popular among viewers."
     )
-    show_explanation("Popularidade por Género", explanation)
+    show_explanation("Popularity by Genre", explanation)
 
     genre_popularity = data.groupby('genres')['numVotes'].sum().reset_index().sort_values(by='numVotes', ascending=False)
     fig, ax = plt.subplots(figsize=(12, 8))
     sns.barplot(x='numVotes', y='genres', data=genre_popularity, palette='viridis', ax=ax)
-    ax.set_title('Popularidade por Género')
-    ax.set_xlabel('Número Total de Votos')
-    ax.set_ylabel('Género')
+    ax.set_title('Popularity by Genre')
+    ax.set_xlabel('Total Number of Votes')
+    ax.set_ylabel('Genre')
 
     plot_window = tk.Toplevel(root)
-    plot_window.title("Popularidade por Género")
+    plot_window.title("Popularity by Genre")
     canvas = FigureCanvasTkAgg(fig, master=plot_window)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
@@ -250,20 +252,24 @@ def show_popularity_by_genre():
 # Function to display ratings trend over time
 def show_ratings_trend():
     explanation = (
-        "Este gráfico mostra a tendência da média dos ratings ao longo do tempo. "
-        "Ajuda a perceber se os filmes mais recentes têm recebido melhores ou piores avaliações."
+        "This chart shows the trend of average ratings over time. "
+        "It helps to understand whether recent movies are receiving better or worse ratings."
     )
-    show_explanation("Tendência dos Ratings ao Longo do Tempo", explanation)
+    show_explanation("Ratings Trend Over Time", explanation)
 
     ratings_trend = data.groupby('releaseYear')['averageRating'].mean().reset_index()
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.lineplot(x='releaseYear', y='averageRating', data=ratings_trend, marker='o', ax=ax)
-    ax.set_title('Tendência dos Ratings ao Longo do Tempo')
-    ax.set_xlabel('Ano de Lançamento')
-    ax.set_ylabel('Média dos Ratings')
+    ax.set_title('Ratings Trend Over Time')
+    ax.set_xlabel('Release Year')
+    ax.set_ylabel('Average Ratings')
+
+    # Ajustar os intervalos dos eixos
+    ax.set_xticks(range(int(ratings_trend['releaseYear'].min()), int(ratings_trend['releaseYear'].max()) + 1, 5))  # De 5 em 5 anos
+    ax.set_yticks(range(1, 11))  # De 1 em 1 para os ratings
 
     plot_window = tk.Toplevel(root)
-    plot_window.title("Tendência dos Ratings ao Longo do Tempo")
+    plot_window.title("Ratings Trend Over Time")
     canvas = FigureCanvasTkAgg(fig, master=plot_window)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
@@ -271,20 +277,20 @@ def show_ratings_trend():
 # Function to display popularity trend over time
 def show_popularity_trend():
     explanation = (
-        "Este gráfico mostra a tendência da popularidade dos filmes ao longo do tempo, "
-        "com base no número total de votos por ano."
+        "This chart shows the trend of movie popularity over time, "
+        "based on the total number of votes per year."
     )
-    show_explanation("Tendência da Popularidade ao Longo do Tempo", explanation)
+    show_explanation("Popularity Trend Over Time", explanation)
 
     popularity_trend = data.groupby('releaseYear')['numVotes'].sum().reset_index()
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.lineplot(x='releaseYear', y='numVotes', data=popularity_trend, marker='o', ax=ax)
-    ax.set_title('Tendência da Popularidade ao Longo do Tempo')
-    ax.set_xlabel('Ano de Lançamento')
-    ax.set_ylabel('Número Total de Votos')
+    ax.set_title('Popularity Trend Over Time')
+    ax.set_xlabel('Release Year')
+    ax.set_ylabel('Total Number of Votes')
 
     plot_window = tk.Toplevel(root)
-    plot_window.title("Tendência da Popularidade ao Longo do Tempo")
+    plot_window.title("Popularity Trend Over Time")
     canvas = FigureCanvasTkAgg(fig, master=plot_window)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
@@ -292,20 +298,20 @@ def show_popularity_trend():
 # Function to display top genres by ratings
 def show_top_genres_by_ratings():
     explanation = (
-        "Este gráfico mostra os géneros com as melhores médias de ratings. "
-        "Ajuda a identificar quais géneros têm maior qualidade percebida pelos espectadores."
+        "This chart shows the genres with the highest average ratings. "
+        "It helps to identify which genres are perceived as having the highest quality by viewers."
     )
-    show_explanation("Melhores Géneros por Ratings", explanation)
+    show_explanation("Top Genres by Ratings", explanation)
 
     top_genres = data.groupby('genres')['averageRating'].mean().reset_index().sort_values(by='averageRating', ascending=False).head(10)
     fig, ax = plt.subplots(figsize=(12, 8))
     sns.barplot(x='averageRating', y='genres', data=top_genres, palette='coolwarm', ax=ax)
-    ax.set_title('Melhores Géneros por Ratings')
-    ax.set_xlabel('Média dos Ratings')
-    ax.set_ylabel('Género')
+    ax.set_title('Top Genres by Ratings')
+    ax.set_xlabel('Average Ratings')
+    ax.set_ylabel('Genre')
 
     plot_window = tk.Toplevel(root)
-    plot_window.title("Melhores Géneros por Ratings")
+    plot_window.title("Top Genres by Ratings")
     canvas = FigureCanvasTkAgg(fig, master=plot_window)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
@@ -325,10 +331,10 @@ tk.Button(root, text="Correlation Matrix", command=show_correlation_matrix).pack
 tk.Button(root, text="Distribution of Ratings", command=show_rating_distribution).pack(pady=5)
 tk.Button(root, text="Distribution of Votes", command=show_vote_distribution).pack(pady=5)
 tk.Button(root, text="Genre Statistics", command=show_genre_statistics).pack(pady=5)
-tk.Button(root, text="Distribuição por Ano de Lançamento", command=show_release_year_distribution).pack(pady=5)
-tk.Button(root, text="Popularidade por Género", command=show_popularity_by_genre).pack(pady=5)
-tk.Button(root, text="Tendência dos Ratings ao Longo do Tempo", command=show_ratings_trend).pack(pady=5)
-tk.Button(root, text="Tendência da Popularidade ao Longo do Tempo", command=show_popularity_trend).pack(pady=5)
-tk.Button(root, text="Melhores Géneros por Ratings", command=show_top_genres_by_ratings).pack(pady=5)
+tk.Button(root, text="Distribution by Release Year", command=show_release_year_distribution).pack(pady=5)
+tk.Button(root, text="Popularity by Genre", command=show_popularity_by_genre).pack(pady=5)
+tk.Button(root, text="Ratings Trend Over Time", command=show_ratings_trend).pack(pady=5)
+tk.Button(root, text="Popularity Trend Over Time", command=show_popularity_trend).pack(pady=5)
+tk.Button(root, text="Top Genres by Ratings", command=show_top_genres_by_ratings).pack(pady=5)
 
 root.mainloop()
