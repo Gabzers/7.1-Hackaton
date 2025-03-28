@@ -53,6 +53,7 @@ def analyze_correlations(data):
 def perform_statistical_analysis(data):
     numeric_data = data.select_dtypes(include=[np.number])  # Select only numeric columns
     stats = numeric_data.describe().T  # Transpose for better visualization
+    stats = stats.drop(['25%', '50%', '75%'], axis=1)  # Remove quartiles
     stats['range'] = stats['max'] - stats['min']  # Add range calculation
     stats['variance'] = numeric_data.var()  # Variance
     stats['cv'] = stats['std'] / stats['mean']  # Coefficient of variation
@@ -111,17 +112,39 @@ correlation_matrix = data.select_dtypes(include=[np.number]).corr()
 def show_summary_statistics():
     stats_window = tk.Toplevel(root)
     stats_window.title("Summary Statistics")
-    stats_window.geometry("800x400")
+    stats_window.geometry("800x600")
 
-    tree = ttk.Treeview(stats_window, columns=list(stats.columns), show='headings')
-    tree.pack(fill=tk.BOTH, expand=True)
+    # Format the stats DataFrame to one decimal place
+    formatted_stats = stats.copy()
+    formatted_stats.iloc[:, 1:] = formatted_stats.iloc[:, 1:].round(1)  # Round all numeric columns to 1 decimal place
 
-    for col in stats.columns:
-        tree.heading(col, text=col)
-        tree.column(col, width=100)
+    # Separate quantitative and qualitative data
+    qualitative_data = data.select_dtypes(include=['object']).nunique().reset_index()
+    qualitative_data.columns = ['Column', 'Unique Values']
 
-    for _, row in stats.iterrows():
-        tree.insert("", tk.END, values=list(row))
+    # Quantitative data table
+    tk.Label(stats_window, text="Quantitative Data", font=("Arial", 14)).pack(pady=5)
+    tree_quantitative = ttk.Treeview(stats_window, columns=list(formatted_stats.columns), show='headings')
+    tree_quantitative.pack(fill=tk.BOTH, expand=True)
+
+    for col in formatted_stats.columns:
+        tree_quantitative.heading(col, text=col, anchor="center")  # Center the column headers
+        tree_quantitative.column(col, width=100, anchor="center")  # Center the column values
+
+    for _, row in formatted_stats.iterrows():
+        tree_quantitative.insert("", tk.END, values=list(row))
+
+    # Qualitative data table
+    tk.Label(stats_window, text="Qualitative Data", font=("Arial", 14)).pack(pady=5)
+    tree_qualitative = ttk.Treeview(stats_window, columns=list(qualitative_data.columns), show='headings')
+    tree_qualitative.pack(fill=tk.BOTH, expand=True)
+
+    for col in qualitative_data.columns:
+        tree_qualitative.heading(col, text=col, anchor="center")  # Center the column headers
+        tree_qualitative.column(col, width=150, anchor="center")  # Center the column values
+
+    for _, row in qualitative_data.iterrows():
+        tree_qualitative.insert("", tk.END, values=list(row))
 
 # Function to display correlation matrix
 def show_correlation_matrix():
