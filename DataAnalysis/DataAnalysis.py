@@ -39,6 +39,7 @@ def perform_statistical_analysis(data):
     stats = stats.drop(['25%', '50%', '75%'], axis=1)  # Remove quartiles
     stats['range'] = stats['max'] - stats['min']  # Add range calculation
     stats['variance'] = numeric_data.var()  # Variance
+    stats['mode'] = numeric_data.mode().iloc[0]  # Add mode calculation
 
     # Add the "Name" column at the beginning
     stats.insert(0, 'Name', ['averageRating', 'numVotes', 'releaseYear'])
@@ -171,6 +172,9 @@ def show_genre_statistics():
 
     # Arredondar os valores para no máximo uma casa decimal
     genre_stats.iloc[:, 1:] = genre_stats.iloc[:, 1:].round(1)
+
+    # Ordenar os gêneros pela média (mean) em ordem decrescente
+    genre_stats = genre_stats.sort_values(by='mean', ascending=False)
 
     stats_window = tk.Toplevel(root)
     stats_window.title("Genre Statistics")
@@ -342,10 +346,150 @@ def show_top_genres_by_ratings():
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
+# Function to display the relationship between averageRating and numVotes
+def show_rating_votes_relationship():
+    explanation = (
+        "This bar chart shows the relationship between the average rating of movies "
+        "and the number of votes they received. It helps to identify whether movies "
+        "with more votes tend to have higher ratings or if popular movies often have low ratings."
+    )
+    show_explanation("Relationship Between Ratings and Votes", explanation)
+
+    # Agrupar os dados por faixas de votos e calcular a média de ratings
+    data['vote_bins'] = pd.cut(data['numVotes'], bins=[0, 100, 1000, 10000, 100000, 1000000], 
+                               labels=['0-100', '101-1k', '1k-10k', '10k-100k', '100k+'])
+    grouped_data = data.groupby('vote_bins')['averageRating'].mean().reset_index()
+
+    # Criar o gráfico de barras
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.barplot(x='vote_bins', y='averageRating', data=grouped_data, palette='coolwarm', ax=ax)
+    ax.set_title('Relationship Between Ratings and Votes')
+    ax.set_xlabel('Number of Votes (Bins)')
+    ax.set_ylabel('Average Rating')
+
+    plot_window = tk.Toplevel(root)
+    plot_window.title("Ratings vs Votes")
+    canvas = FigureCanvasTkAgg(fig, master=plot_window)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+# Function to display the top 10 genres with the most movies
+def show_top_genres_by_movie_count():
+    explanation = (
+        "This bar chart shows the top 10 genres with the most movies. "
+        "Only isolated genres (no combinations) are considered."
+    )
+    show_explanation("Top Genres by Movie Count", explanation)
+
+    # Filtrar apenas gêneros isolados (sem combinações)
+    isolated_genres = data['genres'].str.split(',').explode().str.strip().value_counts().reset_index()
+    isolated_genres.columns = ['Genre', 'Movie Count']
+
+    # Corrigir duplicatas de gêneros (ex.: "Drama" e "drama")
+    isolated_genres['Genre'] = isolated_genres['Genre'].str.capitalize()
+    isolated_genres = isolated_genres.groupby('Genre', as_index=False).sum()
+
+    # Selecionar os 10 gêneros com mais filmes
+    top_genres = isolated_genres.sort_values(by='Movie Count', ascending=False).head(10)
+
+    # Criar o gráfico de barras
+    fig, ax = plt.subplots(figsize=(12, 8))
+    sns.barplot(x='Movie Count', y='Genre', data=top_genres, palette='viridis', ax=ax)
+    ax.set_title('Top 10 Genres by Movie Count')
+    ax.set_xlabel('Number of Movies')
+    ax.set_ylabel('Genre')
+
+    plot_window = tk.Toplevel(root)
+    plot_window.title("Top Genres by Movie Count")
+    canvas = FigureCanvasTkAgg(fig, master=plot_window)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+    # Fechar o gráfico do Matplotlib para evitar conflitos
+    plt.close(fig)
+
+# Function to display the 30 highest-rated and 30 lowest-rated movies
+def show_extreme_ratings():
+    explanation = (
+        "This bar chart shows the 30 movies with the highest ratings and the 30 movies with the lowest ratings. "
+        "The movies are separated into two sections: highest-rated and lowest-rated."
+    )
+    show_explanation("Extreme Ratings", explanation)
+
+    # Selecionar os 30 filmes com as notas mais altas
+    highest_rated = data.nlargest(30, 'averageRating')[['title', 'averageRating']]
+    highest_rated['Category'] = 'Highest Rated'
+
+    # Selecionar os 30 filmes com as notas mais baixas
+    lowest_rated = data.nsmallest(30, 'averageRating')[['title', 'averageRating']]
+    lowest_rated['Category'] = 'Lowest Rated'
+
+    # Combinar os dois conjuntos de dados
+    extreme_ratings = pd.concat([highest_rated, lowest_rated])
+
+    # Criar o gráfico de barras
+    fig, ax = plt.subplots(figsize=(12, 16))  # Aumentar a altura para acomodar mais filmes
+    sns.barplot(
+        x='averageRating', 
+        y='title', 
+        hue='Category', 
+        data=extreme_ratings, 
+        dodge=False, 
+        palette={'Highest Rated': 'green', 'Lowest Rated': 'red'}, 
+        ax=ax
+    )
+    ax.set_title('Movies with Extreme Ratings (Highest and Lowest)')
+    ax.set_xlabel('Average Rating')
+    ax.set_ylabel('Movie Title')
+    ax.legend(title='Category')
+
+    # Ajustar a escala do eixo X para 1 em 1
+    ax.set_xticks(range(1, 11))
+
+    plot_window = tk.Toplevel(root)
+    plot_window.title("Extreme Ratings")
+    canvas = FigureCanvasTkAgg(fig, master=plot_window)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+    # Fechar o gráfico do Matplotlib para evitar conflitos
+    plt.close(fig)
+
+# Function to display 100 movies with many votes but relatively low ratings in a table
+def show_high_votes_low_ratings():
+    explanation = (
+        "This table shows 100 movies that have a high number of votes but relatively low ratings. "
+        "It helps to identify popular movies that are not well-rated."
+    )
+    show_explanation("High Votes, Low Ratings", explanation)
+
+    # Filtrar filmes com muitos votos e ratings baixos
+    high_votes_low_ratings = data[(data['numVotes'] > data['numVotes'].quantile(0.9)) & 
+                                  (data['averageRating'] < data['averageRating'].median())]
+    top_100 = high_votes_low_ratings.nsmallest(100, 'averageRating')[['title', 'numVotes', 'averageRating']]
+
+    # Criar uma nova janela para exibir a tabela
+    table_window = tk.Toplevel(root)
+    table_window.title("High Votes, Low Ratings")
+    table_window.geometry("800x600")
+
+    # Criar a tabela interativa
+    tree = ttk.Treeview(table_window, columns=list(top_100.columns), show='headings')
+    tree.pack(fill=tk.BOTH, expand=True)
+
+    # Configurar os cabeçalhos das colunas
+    for col in top_100.columns:
+        tree.heading(col, text=col, anchor="center")
+        tree.column(col, anchor="center", width=200)
+
+    # Inserir os dados na tabela
+    for _, row in top_100.iterrows():
+        tree.insert("", tk.END, values=list(row))
+
 # Main Tkinter window
 root = tk.Tk()
 root.title("Statistical Analysis Interface")
-root.geometry("400x700")
+root.geometry("400x850")  # Adjusted height to accommodate the new button
 
 tk.Label(root, text="Statistical Analysis Dashboard", font=("Arial", 16)).pack(pady=10)
 
@@ -360,5 +504,9 @@ tk.Button(root, text="Popularity by Genre", command=show_popularity_by_genre).pa
 tk.Button(root, text="Ratings Trend Over Time", command=show_ratings_trend).pack(pady=5)
 tk.Button(root, text="Popularity Trend Over Time", command=show_popularity_trend).pack(pady=5)
 tk.Button(root, text="Top Genres by Ratings", command=show_top_genres_by_ratings).pack(pady=5)
+tk.Button(root, text="Ratings vs Votes", command=show_rating_votes_relationship).pack(pady=5)
+tk.Button(root, text="Top Genres by Movie Count", command=show_top_genres_by_movie_count).pack(pady=5)
+tk.Button(root, text="Extreme Ratings", command=show_extreme_ratings).pack(pady=5)
+tk.Button(root, text="High Votes, Low Ratings", command=show_high_votes_low_ratings).pack(pady=5)  # Updated button
 
 root.mainloop()
