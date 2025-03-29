@@ -1,79 +1,87 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Reseta margens e paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #141414; /* Fundo estilo Netflix */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+/* Container do Registro */
 .register-container {
-    background-color: #fff;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 300px;
 }
 
 h2 {
-    margin-bottom: 10px;
-    color: #333;
+  margin-bottom: 10px;
 }
 
 p {
-    margin-bottom: 20px;
-    color: #666;
+  font-size: 14px;
+  color: #bbb;
 }
 
+/* Campos de Entrada */
 .input-group {
-    margin-bottom: 15px;
-    text-align: left;
+  margin: 10px 0;
+  text-align: left;
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
 }
 
+/* Botão de Registro */
 .register-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
+  width: 100%;
+  padding: 10px;
+  background-color: #e50914;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .register-btn:hover {
-    background-color: #0056b3;
+  background-color: #b20710;
 }
 
+/* Link de Login */
 .login-link {
-    margin-top: 15px;
-    color: #007bff;
+  margin-top: 10px;
 }
 
 .login-link a {
-    color: #007bff;
-    text-decoration: none;
+  color: #e50914;
+  text-decoration: none;
 }
 
 .login-link a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
