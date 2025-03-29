@@ -25,8 +25,8 @@ def generate_best_movies(data, output_filepath, top_n=10000):  # Adjusted top_n 
     C = data['averageRating'].mean()
     m = data['numVotes'].quantile(0.75)
     
-    # Filter movies with sufficient votes
-    filtered_data = data[data['numVotes'] >= m]
+    # Filter movies with sufficient votes and release year <= 2025
+    filtered_data = data[(data['numVotes'] >= m) & (data['startYear'] <= 2025)]
     
     # Calculate weighted rating
     filtered_data = calculate_weighted_rating(filtered_data, m, C)
