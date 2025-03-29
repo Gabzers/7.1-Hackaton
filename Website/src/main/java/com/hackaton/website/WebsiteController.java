@@ -25,4 +25,9 @@ public class WebsiteController {
     public String serveShopPage() {
         return "shop"; // Serve shop.html
     }
+
+    @GetMapping("/register")
+    public String serveRegistrationPage() {
+        return "registration"; // Serve registration.html
+    }
 }
