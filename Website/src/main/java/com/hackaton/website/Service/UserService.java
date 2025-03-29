@@ -114,4 +114,45 @@ public class UserService {
                                ", Rating: " + movie.get("averageRating"));
         }
     }
+
+    public Map<String, List<Map<String, String>>> generateTop10ByTop3Genres(User user) {
+        List<String[]> movieGenres = user.getMovieGenres();
+        if (movieGenres == null || movieGenres.isEmpty()) {
+            throw new IllegalArgumentException("User has no movie genres defined.");
+        }
+
+        // Sort genres by user preference (descending order of scores)
+        List<String[]> sortedGenres = movieGenres.stream()
+                .sorted((a, b) -> Integer.compare(Integer.parseInt(b[1]), Integer.parseInt(a[1])))
+                .collect(Collectors.toList());
+
+        // Get the top 3 genres
+        List<String[]> top3Genres = sortedGenres.stream().limit(3).collect(Collectors.toList());
+
+        // Debug: Print the top 3 genres with their scores
+        System.out.println("Top 3 genres by score:");
+        top3Genres.forEach(genre -> System.out.println("  Genre: " + genre[0] + ", Score: " + genre[1]));
+
+        // Load movies from CSVs
+        Map<String, List<Map<String, String>>> genreMovies = loadMoviesByGenre();
+
+        Map<String, List<Map<String, String>>> top10ByGenre = new HashMap<>();
+
+        for (String[] genrePreference : top3Genres) {
+            String genre = genrePreference[0];
+            if (!genreMovies.containsKey(genre)) {
+                System.out.println("Genre not found: " + genre);
+                continue;
+            }
+
+            List<Map<String, String>> movies = genreMovies.get(genre);
+            Collections.shuffle(movies);
+
+            // Select up to 10 random movies for this genre
+            List<Map<String, String>> top10Movies = movies.stream().limit(10).collect(Collectors.toList());
+            top10ByGenre.put(genre, top10Movies);
+        }
+
+        return top10ByGenre;
+    }
 }
