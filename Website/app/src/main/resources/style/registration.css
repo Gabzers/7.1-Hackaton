@@ -23,7 +23,7 @@ h2 {
 }
 
 .input-group {
-  margin: 20px 0; /* Add more spacing between input fields and the form */
+  margin-bottom: 15px;
   text-align: left;
 }
 
@@ -34,9 +34,8 @@ label {
 }
 
 input {
-  width: calc(100% - 16px); /* Add padding space to both sides */
+  width: 100%;
   padding: 8px;
-  margin: 0 auto; /* Center the input field */
   border: none;
   border-radius: 5px;
   background-color: #333;

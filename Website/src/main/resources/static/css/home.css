@@ -122,7 +122,8 @@ body {
 /* ---------- BANNER ---------- */
 .banner {
   width: 100%;
-  height: 100vh; /* Make the banner occupy the full viewport height */
+  height: 50vh;
+  background: url("images/banner.jpg") no-repeat center center/cover;
   position: relative;
   display: flex;
   align-items: center;
@@ -137,27 +138,6 @@ body {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.video-background iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill; /* Stretch the video to fill the entire background */
-  pointer-events: none; /* Prevent interaction with the video */
-}
-
-/* Adjust banner content to overlay the video */
 .banner-content {
   position: relative;
   z-index: 1;
@@ -213,28 +193,33 @@ body {
 .movie-card {
   background: #222;
   border-radius: 5px;
-  width: 150px; /* Fixed width for all cards */
-  height: 225px; /* Fixed height for all cards */
+  width: 180px;
   overflow: hidden;
   transition: transform 0.3s ease;
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
 }
 
 .movie-card img {
-  width: 150px; /* Fixed width for uniformity */
-  height: 225px; /* Fixed height for uniformity */
-  object-fit: cover; /* Maintain aspect ratio and crop excess */
+  width: 100%;
   display: block;
 }
 
 .movie-card p {
-  margin: 5px;
-  font-size: 12px; /* Adjust font size for consistency */
+  margin: 10px;
+  font-size: 14px;
   color: #fff;
-  text-align: center;
 }
 
+/* ---------- FOOTER ---------- */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 30px;
+}
