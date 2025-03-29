@@ -30,7 +30,7 @@ p {
 
 /* Campos de Entrada */
 .input-group {
-    margin: 10px 0;
+    margin: 20px 0; /* Add more spacing between input fields and the form */
     text-align: left;
 }
 
@@ -41,8 +41,9 @@ label {
 }
 
 input {
-    width: 100%;
+    width: calc(100% - 16px); /* Add padding space to both sides */
     padding: 8px;
+    margin: 0 auto; /* Center the input field */
     border: none;
     border-radius: 5px;
     background-color: #333;
