@@ -30,22 +30,19 @@
     </div>
   </header>
   
-  <!-- Chatbot (hidden by default) -->
-  <div id="chatbot" class="chatbot">
-    <div class="chatbot-header">
-      <h3>Chatbot</h3>
-      <button id="close-chat">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-    <div class="chatbot-body">
-      <p>Hello! How can I help you?</p>
-      <!-- Chatbot content -->
-    </div>
-  </div>
+
 
   <!-- Main Banner -->
   <section class="banner" id="dynamic-banner">
+    <div class="video-background">
+      <iframe
+        src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&mute=1&loop=1&playlist=6ZfuNTqbHE8&controls=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&playsinline=1"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none;"
+      ></iframe>
+    </div>
     <div class="banner-content" id="banner-content">
       <h1>Welcome to StreamFlix</h1>
       <p>Watch the best series and movies in one place!</p>
@@ -68,15 +65,19 @@
 
   <!-- Section: Top 10 in Your Country -->
   <section class="movies-section">
-    <h2>Top 10 in Your Country</h2>
+    <h2>Top 10 Action</h2>
     <div class="movie-grid">
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
         <p>Movie Title 1</p>
       </div>
       <div class="movie-card">
-        <img src="/images/transferir (1).jpg" alt="Movie 2" />
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
         <p>Movie Title 2</p>
+      </div>
+      <div class="movie-card">
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
+        <p>Movie Title 3</p>
       </div>
       <!-- Repeat up to 10 items -->
     </div>
@@ -84,15 +85,19 @@
 
   <!-- Section: Top 10 Worldwide -->
   <section class="movies-section">
-    <h2>Top 10 Worldwide</h2>
+    <h2>Top 10 Comedy</h2>
     <div class="movie-grid">
       <div class="movie-card">
-        <img src="/images/movie3.jpg" alt="Movie 3" />
-        <p>Movie Title 3</p>
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 3"  />
+        <p>Movie Title 1</p>
       </div>
       <div class="movie-card">
-        <img src="/images/movie4.jpg" alt="Movie 4" />
-        <p>Movie Title 4</p>
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 4"/>
+        <p>Movie Title 2</p>
+      </div>
+      <div class="movie-card">
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
+        <p>Movie Title 3</p>
       </div>
       <!-- Repeat up to 10 items -->
     </div>
@@ -100,25 +105,45 @@
 
   <!-- Section: Series & Movies -->
   <section class="movies-section">
-    <h2>Series & Movies</h2>
+    <h2>Top 10p </h2>
     <div class="movie-grid">
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Series 1" />
         <p>Series Title 1</p>
       </div>
       <div class="movie-card">
-        <img src="/images/series2.jpg" alt="Series 2" />
+        <img src="/images/FaíscMcQueen.jpg" alt="Series 2"  />
         <p>Series Title 2</p>
+      </div>
+      <div class="movie-card">
+        <img src="/images/FaíscMcQueen.jpg" alt="Series 2"  />
+        <p>Series Title 3</p>
       </div>
       <!-- Add more items -->
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 StreamFlix. All rights reserved.</p>
-  </footer>
-
+  
+  <!-- Section: Top 10 in Your Country -->
+  <section class="movies-section">
+    <h2>Top 10 romance</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
+        <p>Movie Title 1</p>
+      </div>
+      <div class="movie-card">
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
+        <p>Movie Title 2</p>
+      </div>
+      <div class="movie-card">
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
+        <p>Movie Title 3</p>
+      </div>
+      <!-- Repeat up to 10 items -->
+    </div>
+  </section>
+ 
   <!-- Script to show/hide the chatbot -->
   <script>
     const chatbotToggle = document.getElementById("chatbot-toggle");
@@ -134,38 +159,21 @@
     });
   </script>
 
-  <!-- Script to dynamically change the background color and image -->
+  <!-- Script to dynamically extract the dominant color of the image and apply it as the border color on hover -->
   <script>
-    const header = document.getElementById("dynamic-menu");
-    const chatbot = document.getElementById("chatbot");
-    const banner = document.getElementById("dynamic-banner");
-    const bannerContent = document.getElementById("banner-content");
-
-    const images = [
-      { src: "/images/FaíscMcQueen.jpg", color: "#ff4500" }, // Movie 1
-      { src: "/images/transferir (1).jpg", color: "#1e90ff" } // Movie 2
-    ];
-
-    let currentIndex = 0;
-
-    function changeTheme() {
-      const { src, color } = images[currentIndex];
-      banner.style.backgroundImage = `url(${src})`;
-      banner.style.backgroundSize = "cover";
-      banner.style.backgroundPosition = "center";
-      header.style.backgroundColor = color;
-      chatbot.style.backgroundColor = color;
-      bannerContent.style.backgroundColor = color;
-
-      banner.style.transition = "background 1s ease-in-out";
-      header.style.transition = "background-color 1s ease-in-out";
-      chatbot.style.transition = "background-color 1s ease-in-out";
-      bannerContent.style.transition = "background-color 1s ease-in-out";
-
-      currentIndex = (currentIndex + 1) % images.length;
-    }
-
-    setInterval(changeTheme, 5000); // Change every 5 seconds
+    document.querySelectorAll('.movie-card img').forEach((img) => {
+      img.addEventListener('mouseenter', () => {
+        const colorThief = new ColorThief();
+        if (img.complete) {
+          const dominantColor = colorThief.getColor(img);
+          img.style.borderColor = `rgb(${dominantColor.join(',')})`;
+        }
+      });
+      img.addEventListener('mouseleave', () => {
+        img.style.borderColor = 'transparent';
+      });
+    });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
 </body>
 </html>
