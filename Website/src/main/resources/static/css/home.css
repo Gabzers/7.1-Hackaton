@@ -17,10 +17,10 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
-  background: rgba(0, 0, 0, 0.7);
-  position: sticky;
+  background: transparent; /* Keep the top-nav background transparent */
+  position: absolute; /* Allow the video to show behind the top-nav */
   top: 0;
-  z-index: 999;
+  z-index: 2; /* Ensure it stays above the video background */
 }
 
 /* Lado Esquerdo do Nav */
@@ -52,17 +52,29 @@ body {
   transition: color 0.3s ease;
 }
 
-.nav-menu li a i {
-  font-size: 18px; /* Ajuste o tamanho do ícone */
+.nav-menu li a#logout {
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a#logout:hover {
+  color: #e50914; /* cor similar ao botão de logout do Netflix */
 }
 
 /* Lado Direito do Nav (Ícones) */
 .nav-right {
+  position: absolute; /* Position it absolutely */
+  top: 10px; /* Align to the top */
+  right: 30px; /* Align to the right */
   display: flex;
-  gap: 15px;
+  align-items: center; /* Align items vertically */
+  gap: 5px; /* Reduce gap between icon and text */
 }
 
 .nav-icon {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
   color: #fff;
   font-size: 18px; /* Tamanho do ícone de logout */
   text-decoration: none;
@@ -122,19 +134,23 @@ body {
 /* ---------- BANNER ---------- */
 .banner {
   width: 100%;
-  height: 50%; /* Make the banner occupy the full viewport height */
+  height: 70vh; /* Reduced height */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -70px; /* Shift the banner up to overlap the top-nav */
 }
 
 .banner::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.4);
+  z-index: 1; /* Ensure the overlay is above the video */
 }
 
 .video-background {
@@ -144,7 +160,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 0;
+  z-index: 0; /* Ensure the video is below other elements */
 }
 
 .video-background iframe {
@@ -214,28 +230,39 @@ body {
 .movie-card {
   background: #222;
   border-radius: 5px;
-  width: 100px; /* Reduced width */
-  height: 100px; /* Reduced height */
+  width: 200px; /* Fixed width */
+  height: 200px; /* Fixed height */
   overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
 
+.movie-card:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
+}
+
 .movie-card img {
-  width: 100px; /* Reduced width */
-  height: 100px; /* Reduced height */
+  width: 100%; /* Fill the card width */
+  height: 80%; /* Occupy 80% of the card height */
   object-fit: cover; /* Maintain aspect ratio and crop excess */
   display: block;
+  border: 3px solid transparent; /* Default border */
+  transition: border-color 0.3s ease; /* Smooth border color transition */
 }
 
 .movie-card p {
   margin: 5px;
-  font-size: 12px; /* Adjust font size for consistency */
+  font-size: 14px; /* Adjust font size for consistency */
   color: #fff;
   text-align: center;
+  height: 20%; /* Occupy 20% of the card height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 

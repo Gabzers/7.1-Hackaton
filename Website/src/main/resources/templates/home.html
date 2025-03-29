@@ -22,11 +22,8 @@
       <ul class="nav-menu">
         <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
+        <li><a href="/login" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
       </ul>
-    </div>
-    <!-- Right side of the bar with the logout icon -->
-    <div class="nav-right">
-      <a href="/login" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </header>
   
@@ -36,11 +33,11 @@
   <section class="banner" id="dynamic-banner">
     <div class="video-background">
       <iframe
-        src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&mute=1&loop=1&playlist=6ZfuNTqbHE8&controls=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&playsinline=1"
+        src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&mute=1&loop=1&playlist=6ZfuNTqbHE8&controls=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&playsinline=1&showinfo=0&fs=0"
         frameborder="0"
         allow="autoplay; fullscreen"
         allowfullscreen
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none;"
+       
       ></iframe>
     </div>
     <div class="banner-content" id="banner-content">
@@ -72,7 +69,7 @@
         <p>Movie Title 1</p>
       </div>
       <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
+        <img src="/images/3q01acg0mwm0dekhvkpfcxypzsu.avif" alt="Movie 2" />
         <p>Movie Title 2</p>
       </div>
       <div class="movie-card">
@@ -166,11 +163,11 @@
         const colorThief = new ColorThief();
         if (img.complete) {
           const dominantColor = colorThief.getColor(img);
-          img.style.borderColor = `rgb(${dominantColor.join(',')})`;
+          img.style.borderColor = `rgb(${dominantColor.join(',')})`; // Apply dominant color to border
         }
       });
       img.addEventListener('mouseleave', () => {
-        img.style.borderColor = 'transparent';
+        img.style.borderColor = 'transparent'; // Reset border color
       });
     });
   </script>
