@@ -1,31 +1,51 @@
+
 package com.hackaton.website.Controller;
 
 import com.hackaton.website.Entity.User;
+import com.hackaton.website.Repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
+@Controller
 public class UserController {
 
-    // Method to add default movie genres to a user with scores initialized to 0
-    public void addDefaultMovieGenres(User user) {
-        // List of default genres
-        String[] defaultGenres = {
-            "Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-            "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-            "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-            "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"
-        };
+    @Autowired
+    private UserRepository userRepository;
 
-        // Initialize movieGenres if null
-        if (user.getMovieGenres() == null) {
-            user.setMovieGenres(new ArrayList<>());
-        }
+    @PostMapping("/register")
+    public String registerUser(@RequestParam("name") String name,
+                               @RequestParam("email") String email,
+                               @RequestParam("password") String password) {
+        // Criar um novo objeto User com os dados recebidos
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        user.setPassword(password);
 
-        // Add each genre with a score of 0
-        List<String[]> movieGenres = user.getMovieGenres();
-        for (String genre : defaultGenres) {
-            movieGenres.add(new String[]{genre, "0"}); // Add genre with score 0
+        // Salvar o usuário na base de dados
+        userRepository.save(user);
+
+        // Redirecionar para uma página de sucesso
+        return "home"; // Certifique-se de que a página success.html existe
+    }
+
+    @PostMapping("/login")
+    public String loginUser(@RequestParam("email") String email,
+                            @RequestParam("password") String password,
+                            Model model) {
+        // Verificar se o usuário existe na base de dados
+        User user = userRepository.findByEmailAndPassword(email, password);
+
+        if (user != null) {
+            // Login bem-sucedido, redirecionar para a página inicial ou dashboard
+            return "home"; // Certifique-se de que a página dashboard.html existe
+        } else {
+            // Login falhou, adicionar mensagem de erro e redirecionar para a página de login
+            model.addAttribute("error", "Email ou senha incorretos. Tente novamente.");
+            return "login"; // Certifique-se de que a página login.html existe
         }
     }
 }

@@ -10,10 +10,16 @@
     <div class="login-container">
         <h2>Welcome to StreamFlix</h2>
         <p>Log in to continue</p>
-        <form action="#" method="POST">
+
+        <!-- Exibir mensagem de erro, se existir -->
+        <div class="error-message" style="color: red;">
+            <p th:if="${error}" th:text="${error}"></p>
+        </div>
+
+        <form action="/login" method="POST">
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
@@ -21,7 +27,7 @@
             </div>
             <button type="submit" class="login-btn">Log In</button>
         </form>
-        <p class="register-link">Don't have an account? <a href="#">Sign Up</a></p>
+        <p class="register-link">Don't have an account? <a href="/register">Sign Up</a></p>
     </div>
 </body>
 </html>

@@ -17,21 +17,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true) // Permitir que o nome seja opcional
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true, unique = true) // Permitir que o email seja opcional
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = true) // Permitir que a senha seja opcional
     private String password;
 
     @ElementCollection
-    @Column(name = "movie_genre")
-    private List<String[]> movieGenres; // Alterado para armazenar pares [gênero, pontuação]
+    @Column(name = "movie_genre", nullable = true) // Permitir que os gêneros sejam opcionais
+    private List<String[]> movieGenres;
 
     @Column(nullable = false)
-    private int points = 0; // Novo atributo para armazenar os pontos do utilizador
+    private int points = 0; // Inicializa os pontos com 0
 
     // Default constructor
     public User() {}
@@ -58,9 +58,9 @@ public class User {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public List<String[]> getMovieGenres() { return movieGenres; } // Getter atualizado
-    public void setMovieGenres(List<String[]> movieGenres) { this.movieGenres = movieGenres; } // Setter atualizado
+    public List<String[]> getMovieGenres() { return movieGenres; }
+    public void setMovieGenres(List<String[]> movieGenres) { this.movieGenres = movieGenres; }
 
-    public int getPoints() { return points; } // Getter para pontos
-    public void setPoints(int points) { this.points = points; } // Setter para pontos
+    public int getPoints() { return points; }
+    public void setPoints(int points) { this.points = points; }
 }
