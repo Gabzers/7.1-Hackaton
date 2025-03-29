@@ -63,6 +63,7 @@
             <label><input type="checkbox" name="genres" value="Western" /> Western</label>
           </div>
         </div>
+        <p class="reward-message">By completing this questionnaire, you will receive 50 points!</p>
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
@@ -75,8 +76,11 @@
       <ul class="nav-menu">
         <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
-        <li><a href="/login" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
       </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/coins" class="nav-icon" id="coins"><i class="fa-solid fa-coins"></i> Coins</a>
+      <a href="/login" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </header>
   
@@ -96,7 +100,7 @@
     <div class="banner-content" id="banner-content">
       <h1>Avengers: Infinity War</h1>
       <p>The Avengers must stop Thanos, an intergalactic warlord, from acquiring all six Infinity Stones.</p>
-      <button>Play</button>
+      <a href="/movie" class="play-button">Play</a>
       <button>More Info</button>
     </div>
   </section>
@@ -119,8 +123,8 @@
   <section class="movies-section">
     <h2>Trending Now</h2>
     <div class="movie-grid">
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
+      <div class="movie-card" >
+        <img src="/images/FaíscMcQueen.jpg"  alt="Movie 1" />
         <p class="movie-title">Movie Title 1</p>
         <p class="movie-info">Rating: 8.5 | Year: 2023</p>
       </div>
@@ -226,10 +230,9 @@
         <p class="movie-info">Rating: 7.8 | Year: 2022</p>
       </div>
       <div class="movie-card">
-    closeChat.addEventListener("click", () => {
-      chatbot.classList.remove("active");
-    });
-  </script>
+      </div>
+    </div>
+  </section>
 
   <!-- Script to dynamically extract the dominant color of the image and apply it as the border color on hover -->
   <script>

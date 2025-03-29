@@ -1,0 +1,80 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e50914;
+  cursor: pointer;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  color: #e50914;
+}
+
+.movie-container {
+  margin-top: 80px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.movie-player iframe {
+  width: 80%;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.movie-details {
+  text-align: center;
+}
+
+.movie-details h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.movie-details p {
+  font-size: 18px;
+  margin: 5px 0;
+}

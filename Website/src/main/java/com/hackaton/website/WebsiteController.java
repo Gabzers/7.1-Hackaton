@@ -30,4 +30,9 @@ public class WebsiteController {
     public String serveRegistrationPage() {
         return "registration"; // Serve registration.html
     }
+
+    @GetMapping("/movie")
+    public String serveMoviePage() {
+        return "movie"; // Serve movie.html
+    }
 }

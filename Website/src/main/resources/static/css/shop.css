@@ -1,10 +1,10 @@
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #141414; /* Netflix-style dark background */
+    color: #fff;
 }
 
 /* Cabeçalho */
@@ -44,38 +44,107 @@ nav ul li a:hover {
     color: #ff9900;
 }
 
+/* Top Navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px; /* Match padding with home page */
+    background: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Match gap with home page */
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e50914; /* Netflix red */
+    cursor: pointer;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #e50914; /* Netflix red */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Match gap with nav-menu */
+    margin-right: 50px; /* Align with padding of .top-nav */
+    position: relative; /* Remove fixed positioning for alignment */
+    top: 0; /* Ensure alignment with nav-left */
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 16px; /* Match font size with nav-menu */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-icon:hover {
+    color: #e50914; /* Netflix red */
+}
+
 /* Banner */
 .banner {
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(to right, #ff9900, #ff6600);
+    background: linear-gradient(to top, #141414, transparent); /* Gradient overlay */
     color: white;
+    margin-top: 70px; /* Adjust for fixed top-nav */
 }
 
 .banner h1 {
     font-size: 36px;
     margin-bottom: 10px;
+    color: #fff;
 }
 
 .banner p {
     font-size: 18px;
     margin-bottom: 20px;
+    color: #ddd;
 }
 
 .button {
     display: inline-block;
     padding: 12px 20px;
-    background: white;
-    color: #ff6600;
+    background: #e50914; /* Netflix red */
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background: #ddd;
+    background: #f40612; /* Slightly lighter red */
 }
 
 /* Container principal */
@@ -94,16 +163,17 @@ nav ul li a:hover {
 }
 
 .card {
-    background: #292929;
+    background: #222; /* Netflix-style card background */
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     text-align: center;
-    transition: 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
 }
 
 .card img {
@@ -113,11 +183,12 @@ nav ul li a:hover {
 
 .card h3 {
     margin: 10px 0;
+    color: #fff;
 }
 
 .points {
     display: block;
     font-size: 14px;
-    color: #ff9900;
+    color: #e50914; /* Netflix red */
     margin: 10px 0;
 }
