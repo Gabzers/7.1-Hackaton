@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #141414; /* Fundo estilo Netflix */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #141414; /* Netflix-style dark background */
   color: #fff;
 }
 
@@ -16,40 +16,48 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
-  background: transparent; /* Keep the top-nav background transparent */
-  position: absolute; /* Allow the video to show behind the top-nav */
+  padding: 10px 50px; /* Increased padding for a cleaner look */
+  background: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
+  position: fixed; /* Fixed navigation bar */
   top: 0;
-  z-index: 2; /* Ensure it stays above the video background */
+  width: 100%;
+  z-index: 999;
 }
 
-/* Lado Esquerdo do Nav */
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px; /* Increased gap for better spacing */
 }
 
 .logo {
-  width: 70px;
+  width: 100px; /* Larger logo */
   cursor: pointer;
 }
 
-/* Menu Principal */
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e50914; /* Netflix red */
+  cursor: pointer;
+}
+
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .nav-menu li a {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Espaço entre o ícone e o texto */
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+  font-weight: 500;
   transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  color: #e50914; /* Netflix red */
 }
 
 .nav-menu li a#logout {
@@ -134,12 +142,13 @@ body {
 /* ---------- BANNER ---------- */
 .banner {
   width: 100%;
-  height: 70vh; /* Reduced height */
+  height: 90vh; /* Larger banner height */
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -70px; /* Shift the banner up to overlap the top-nav */
+  align-items: flex-end; /* Align content to the bottom */
+  justify-content: flex-start; /* Align content to the left */
+  padding: 50px;
+  background: linear-gradient(to top, #141414, transparent); /* Gradient overlay */
 }
 
 .banner::before {
@@ -173,86 +182,170 @@ body {
   pointer-events: none; /* Prevent interaction with the video */
 }
 
-/* Adjust banner content to overlay the video */
 .banner-content {
+  max-width: 600px; /* Limit content width */
   position: relative;
   z-index: 1;
   text-align: center;
 }
 
 .banner-content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: 60px; /* Larger title */
+  margin-bottom: 20px;
   color: #fff;
 }
 
 .banner-content p {
-  font-size: 20px;
+  font-size: 18px;
   color: #ddd;
+  margin-bottom: 20px;
+}
+
+.banner-content button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner-content button:hover {
+  background-color: #f40612;
 }
 
 /* ---------- GENRE FILTER ---------- */
 .genre-filter {
-  margin: 20px 30px;
+  margin: 30px 50px;
+  text-align: center;
 }
 
-.genre-filter label {
-  font-size: 16px;
-  margin-right: 10px;
+.genre-filter h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
-.genre-filter select {
-  padding: 5px 10px;
+.genre-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.genre-button {
+  padding: 10px 20px; /* Adjust padding for consistent size */
   font-size: 16px;
-  border-radius: 5px;
-  border: none;
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 25px; /* Rounded corners */
+  min-width: 100px; /* Ensure all buttons have the same minimum width */
+  height: auto; /* Adjust height automatically based on content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.genre-button:hover {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.genre-button.active {
+  background-color: #e50914;
+  color: #fff;
+  border-color: #e50914;
+}
+
+/* Genre Grid in Modal */
+.genre-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.genre-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start; /* Align labels and checkboxes to the left */
+}
+
+.genre-column label {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add spacing between checkbox and label text */
+  font-size: 16px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.genre-column input[type="checkbox"] {
+  margin: 0; /* Remove default margin for better alignment */
 }
 
 /* ---------- MOVIES SECTIONS ---------- */
 .movies-section {
-  margin: 20px 30px;
+  margin: 50px 50px;
 }
 
 .movies-section h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  border-left: 4px solid #e50914;
-  padding-left: 10px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
 .movie-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  
+  gap: 10px;
+  overflow-x: auto; /* Horizontal scrolling for movie rows */
+  padding-bottom: 10px;
 }
 
 .movie-card {
+  position: relative; /* Enable positioning for child elements */
   background: #222;
   border-radius: 5px;
-  width: 200px; /* Fixed width */
-  height: 200px; /* Fixed height */
+  width: 150px; /* Fixed width */
+  height: 225px; /* Fixed height */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0; /* Prevent shrinking in horizontal scroll */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
 
+.movie-card .rank-number {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  font-size: 100px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  z-index: 1; /* Ensure it appears behind the image */
+  pointer-events: none; /* Prevent interaction */
+}
+
 .movie-card:hover {
-  transform: scale(1.05); /* Slight zoom effect */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
 }
 
 .movie-card img {
-  width: 100%; /* Fill the card width */
-  height: 80%; /* Occupy 80% of the card height */
+  width: 100%;
+  height: 100%;
   object-fit: cover; /* Maintain aspect ratio and crop excess */
   display: block;
-  border: 3px solid transparent; /* Default border */
-  transition: border-color 0.3s ease; /* Smooth border color transition */
+  z-index: 2; /* Ensure the image appears above the rank number */
 }
 
 .movie-card p {
@@ -264,5 +357,109 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.movie-card p.movie-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.movie-card p.movie-info {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
+  text-align: center;
+}
+
+/* ---------- MODAL STYLES ---------- */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+}
+
+.modal-content {
+  background-color: #1c1c1c;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 60%;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.modal-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #e50914;
+}
+
+.form-label {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: block;
+  color: #ddd;
+}
+
+.genre-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.genre-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start; /* Align labels and checkboxes to the left */
+}
+
+.genre-column label {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add spacing between checkbox and label text */
+  font-size: 16px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.genre-column input[type="checkbox"] {
+  margin: 0; /* Remove default margin for better alignment */
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 16px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #f40612;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
 }
 

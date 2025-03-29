@@ -15,10 +15,63 @@
   <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body>
+  <!-- Popup Modal -->
+  <div id="questionnaire-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Quick Questionnaire</h2>
+      <form id="questionnaire-form">
+        <label for="favorite-genres" class="form-label">Select at least 3 favorite genres:</label>
+        <div id="genre-checkboxes" class="genre-grid">
+          <div class="genre-column">
+            <label><input type="checkbox" name="genres" value="Action" /> Action</label>
+            <label><input type="checkbox" name="genres" value="Adventure" /> Adventure</label>
+            <label><input type="checkbox" name="genres" value="Animation" /> Animation</label>
+            <label><input type="checkbox" name="genres" value="Biography" /> Biography</label>
+            <label><input type="checkbox" name="genres" value="Comedy" /> Comedy</label>
+          </div>
+          <div class="genre-column">
+            <label><input type="checkbox" name="genres" value="Crime" /> Crime</label>
+            <label><input type="checkbox" name="genres" value="Documentary" /> Documentary</label>
+            <label><input type="checkbox" name="genres" value="Drama" /> Drama</label>
+            <label><input type="checkbox" name="genres" value="Family" /> Family</label>
+            <label><input type="checkbox" name="genres" value="Fantasy" /> Fantasy</label>
+          </div>
+          <div class="genre-column">
+            <label><input type="checkbox" name="genres" value="Film-Noir" /> Film-Noir</label>
+            <label><input type="checkbox" name="genres" value="Game-Show" /> Game-Show</label>
+            <label><input type="checkbox" name="genres" value="History" /> History</label>
+            <label><input type="checkbox" name="genres" value="Horror" /> Horror</label>
+            <label><input type="checkbox" name="genres" value="Music" /> Music</label>
+          </div>
+          <div class="genre-column">
+            <label><input type="checkbox" name="genres" value="Musical" /> Musical</label>
+            <label><input type="checkbox" name="genres" value="Mystery" /> Mystery</label>
+            <label><input type="checkbox" name="genres" value="News" /> News</label>
+            <label><input type="checkbox" name="genres" value="Reality-TV" /> Reality-TV</label>
+            <label><input type="checkbox" name="genres" value="Romance" /> Romance</label>
+          </div>
+          <div class="genre-column">
+            <label><input type="checkbox" name="genres" value="Sci-Fi" /> Sci-Fi</label>
+            <label><input type="checkbox" name="genres" value="Short" /> Short</label>
+            <label><input type="checkbox" name="genres" value="Sport" /> Sport</label>
+            <label><input type="checkbox" name="genres" value="Talk-Show" /> Talk-Show</label>
+            <label><input type="checkbox" name="genres" value="Thriller" /> Thriller</label>
+          </div>
+          <div class="genre-column">
+            <label><input type="checkbox" name="genres" value="War" /> War</label>
+            <label><input type="checkbox" name="genres" value="Western" /> Western</label>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Netflix-style Top Nav -->
   <header class="top-nav" id="dynamic-menu">
     <div class="nav-left">
-      <img src="/static/images/logo.png" alt="Logo" class="logo" />
+      <span class="logo-text">StreamFlix</span>
       <ul class="nav-menu">
         <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
@@ -41,40 +94,71 @@
       ></iframe>
     </div>
     <div class="banner-content" id="banner-content">
-      <h1>Welcome to StreamFlix</h1>
-      <p>Watch the best series and movies in one place!</p>
+      <h1>Avengers: Infinity War</h1>
+      <p>The Avengers must stop Thanos, an intergalactic warlord, from acquiring all six Infinity Stones.</p>
+      <button>Play</button>
+      <button>More Info</button>
     </div>
   </section>
 
   <!-- Genre Filter (optional) -->
   <section class="genre-filter">
-    <label for="genre">Choose a Genre:</label>
-    <select id="genre">
-      <option value="all">All</option>
-      <option value="action">Action</option>
-      <option value="comedy">Comedy</option>
-      <option value="drama">Drama</option>
-      <option value="horror">Horror</option>
-      <option value="sci-fi">Science Fiction</option>
-      <option value="romance">Romance</option>
-    </select>
+    <h2>Choose a Genre</h2>
+    <div class="genre-buttons">
+      <button class="genre-button" data-genre="all">All</button>
+      <button class="genre-button" data-genre="action">Action</button>
+      <button class="genre-button" data-genre="comedy">Comedy</button>
+      <button class="genre-button" data-genre="drama">Drama</button>
+      <button class="genre-button" data-genre="horror">Horror</button>
+      <button class="genre-button" data-genre="sci-fi">Sci-Fi</button>
+      <button class="genre-button" data-genre="romance">Romance</button>
+    </div>
   </section>
 
   <!-- Section: Top 10 in Your Country -->
   <section class="movies-section">
-    <h2>Top 10 Action</h2>
+    <h2>Trending Now</h2>
     <div class="movie-grid">
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
-        <p>Movie Title 1</p>
+        <p class="movie-title">Movie Title 1</p>
+        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
       </div>
       <div class="movie-card">
         <img src="/images/3q01acg0mwm0dekhvkpfcxypzsu.avif" alt="Movie 2" />
-        <p>Movie Title 2</p>
+        <p class="movie-title">Movie Title 2</p>
+        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
       </div>
       <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 3" />
+        <p class="movie-title">Movie Title 3</p>
+        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
+      </div>
+      <!-- Add more movie cards -->
+    </div>
+  </section>
+
+  <!-- Section: Top 10 Action -->
+  <section class="movies-section">
+    <h2>Top 10 Action</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <div class="rank-number">1</div>
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
+        <p>Movie Title 1</p>
+        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
+      </div>
+      <div class="movie-card">
+        <div class="rank-number">2</div>
+        <img src="/images/3q01acg0mwm0dekhvkpfcxypzsu.avif" alt="Movie 2" />
+        <p>Movie Title 2</p>
+        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
+      </div>
+      <div class="movie-card">
+        <div class="rank-number">3</div>
+        <img src="/images/FaíscMcQueen.jpg" alt="Movie 3" />
         <p>Movie Title 3</p>
+        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
       </div>
       <!-- Repeat up to 10 items -->
     </div>
@@ -87,14 +171,17 @@
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Movie 3"  />
         <p>Movie Title 1</p>
+        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
       </div>
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Movie 4"/>
         <p>Movie Title 2</p>
+        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
       </div>
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
         <p>Movie Title 3</p>
+        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
       </div>
       <!-- Repeat up to 10 items -->
     </div>
@@ -107,14 +194,17 @@
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Series 1" />
         <p>Series Title 1</p>
+        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
       </div>
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Series 2"  />
         <p>Series Title 2</p>
+        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
       </div>
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Series 2"  />
         <p>Series Title 3</p>
+        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
       </div>
       <!-- Add more items -->
     </div>
@@ -128,29 +218,14 @@
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
         <p>Movie Title 1</p>
+        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
       </div>
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
         <p>Movie Title 2</p>
+        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
       </div>
       <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
-        <p>Movie Title 3</p>
-      </div>
-      <!-- Repeat up to 10 items -->
-    </div>
-  </section>
- 
-  <!-- Script to show/hide the chatbot -->
-  <script>
-    const chatbotToggle = document.getElementById("chatbot-toggle");
-    const closeChat = document.getElementById("close-chat");
-
-    chatbotToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      chatbot.classList.toggle("active");
-    });
-
     closeChat.addEventListener("click", () => {
       chatbot.classList.remove("active");
     });
@@ -170,6 +245,39 @@
         img.style.borderColor = 'transparent'; // Reset border color
       });
     });
+
+    // Modal functionality
+    const modal = document.getElementById('questionnaire-modal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Show modal on page load
+    window.onload = () => {
+      modal.style.display = 'block';
+    };
+
+    // Close modal on close button click
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+    };
+
+    // Close modal on outside click
+    window.onclick = (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+
+    // Handle form submission
+    document.getElementById('questionnaire-form').onsubmit = (e) => {
+      e.preventDefault();
+      const selectedGenres = document.querySelectorAll('input[name="genres"]:checked');
+      if (selectedGenres.length < 3) {
+        alert('Please select at least 3 genres.');
+        return;
+      }
+      alert('Thank you for your feedback!');
+      modal.style.display = 'none';
+    };
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
 </body>
