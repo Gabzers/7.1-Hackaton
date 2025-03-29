@@ -1,4 +1,3 @@
-
 package com.hackaton.website.Controller;
 
 import com.hackaton.website.Entity.User;
@@ -19,33 +18,33 @@ public class UserController {
     public String registerUser(@RequestParam("name") String name,
                                @RequestParam("email") String email,
                                @RequestParam("password") String password) {
-        // Criar um novo objeto User com os dados recebidos
+        // Create a new User object with the received data
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setPassword(password);
 
-        // Salvar o usuário na base de dados
+        // Save the user in the database
         userRepository.save(user);
 
-        // Redirecionar para uma página de sucesso
-        return "home"; // Certifique-se de que a página success.html existe
+        // Redirect to the login page
+        return "login"; // Ensure that the login.html page exists
     }
 
     @PostMapping("/login")
     public String loginUser(@RequestParam("email") String email,
                             @RequestParam("password") String password,
                             Model model) {
-        // Verificar se o usuário existe na base de dados
+        // Check if the user exists in the database
         User user = userRepository.findByEmailAndPassword(email, password);
 
         if (user != null) {
-            // Login bem-sucedido, redirecionar para a página inicial ou dashboard
-            return "home"; // Certifique-se de que a página dashboard.html existe
+            // Successful login, redirect to the home or dashboard page
+            return "home"; // Ensure that the dashboard.html page exists
         } else {
-            // Login falhou, adicionar mensagem de erro e redirecionar para a página de login
-            model.addAttribute("error", "Email ou senha incorretos. Tente novamente.");
-            return "login"; // Certifique-se de que a página login.html existe
+            // Login failed, add an error message and redirect to the login page
+            model.addAttribute("error", "Incorrect email or password. Please try again.");
+            return "login"; // Ensure that the login.html page exists
         }
     }
 }
