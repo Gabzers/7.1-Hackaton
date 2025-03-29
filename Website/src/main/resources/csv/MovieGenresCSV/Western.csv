@@ -1,0 +1,63 @@
+id,title,type,genres,averageRating,numVotes,releaseYear,weightedRating
+tt0060196,"The Good, the Bad and the Ugly",movie,"Adventure, Western",8.8,847885.0,1966.0,8.799253078197834
+tt13991232,1883,tvMiniSeries,"Drama, Western",8.7,136533.0,2021.0,8.695558239919164
+tt0096639,Lonesome Dove,tvMiniSeries,"Adventure, Drama, Western",8.7,27885.0,1989.0,8.67841112688397
+tt4236770,Yellowstone,tvSeries,"Drama, Western",8.6,267930.0,2018.0,8.597831017510122
+tt1853728,Django Unchained,movie,Western,8.5,1777639.0,2012.0,8.499687385190278
+tt0064116,Once Upon a Time in the West,movie,"Drama, Western",8.5,365954.0,1968.0,8.498482311537336
+tt18335752,1923,tvSeries,"Drama, Western",8.3,70637.0,2022.0,8.29289103412072
+tt1699748,Hell on Wheels,tvSeries,"Drama, Western",8.3,57664.0,2011.0,8.291298840789022
+tt0050025,Have Gun - Will Travel,tvSeries,Western,8.4,3547.0,1957.0,8.260773188392655
+tt0051308,The Rifleman,tvSeries,"Family, Western",8.3,5426.0,1958.0,8.211346131050561
+tt0105695,Unforgiven,movie,"Drama, Western",8.2,452065.0,1992.0,8.1989430203903
+tt0059578,For a Few Dollars More,movie,"Drama, Western",8.2,286530.0,1965.0,8.19833293032516
+tt0040897,The Treasure of the Sierra Madre,movie,"Adventure, Drama, Western",8.2,136711.0,1948.0,8.196509474739157
+tt5516154,Godless,tvMiniSeries,"Action, Drama, Western",8.2,85002.0,2017.0,8.194392544715901
+tt0050079,Zorro,tvSeries,"Adventure, Family, Western",8.2,4583.0,1957.0,8.101260378980264
+tt0056217,The Man Who Shot Liberty Valance,movie,"Drama, Western",8.1,85315.0,1962.0,8.094715716865199
+tt0047736,Gunsmoke,tvSeries,Western,8.1,9360.0,1955.0,8.052989162597196
+tt0077027,How the West Was Won,tvSeries,"Drama, Western",8.2,2734.0,1976.0,8.040261528574153
+tt1663202,The Revenant,movie,"Adventure, Drama, Western",8.0,907058.0,2015.0,7.999530156224366
+tt0099348,Dances with Wolves,movie,"Adventure, Drama, Western",8.0,299975.0,1990.0,7.998580116692388
+tt0053221,Rio Bravo,movie,Western,8.0,70663.0,1959.0,7.993989210047975
+tt0036244,The Ox-Bow Incident,movie,"Drama, Western",8.0,25776.0,1942.0,7.983625994047338
+tt0015881,Greed,movie,"Drama, Thriller, Western",8.0,11194.0,1924.0,7.962778551909757
+tt0238343,Kapitan Petko Voyvoda,tvSeries,"Drama, Western",8.8,477.0,1981.0,7.93927004758484
+tt0069035,The New Land,movie,"Drama, Western",8.0,5568.0,1972.0,7.926841042564345
+tt0058461,A Fistful of Dollars,movie,"Drama, Western",7.9,242445.0,1964.0,7.898350265158475
+tt0050037,Maverick,tvSeries,Western,8.0,3865.0,1957.0,7.896630153982163
+tt0044706,High Noon,movie,"Drama, Thriller, Western",7.9,113174.0,1952.0,7.896470187291374
+tt0051411,The Big Country,movie,"Drama, Romance, Western",7.9,22393.0,1958.0,7.882323978236909
+tt0051327,Wanted: Dead or Alive,tvSeries,Western,8.0,2961.0,1958.0,7.867609551249205
+tt0047720,Cheyenne,tvSeries,Western,8.0,2152.0,1955.0,7.823186542937553
+tt0052504,Rawhide,tvSeries,Western,7.9,4866.0,1959.0,7.821873708297062
+tt0049730,The Searchers,movie,"Adventure, Western",7.8,99790.0,1956.0,7.796256861687997
+tt0075029,The Outlaw Josey Wales,movie,"Drama, Western",7.8,82841.0,1976.0,7.795493414621208
+tt0031971,Stagecoach,movie,"Adventure, Drama, Western",7.8,56196.0,1939.0,7.793366446816446
+tt11771270,The English,tvMiniSeries,"Drama, Western",7.8,31342.0,2022.0,7.788149196386899
+tt0057163,Hud,movie,"Drama, Western",7.8,24888.0,1963.0,7.785107677059786
+tt0051290,Lawman,tvSeries,Western,8.1,1055.0,1958.0,7.755862066227124
+tt0076974,Against the Wind,tvMiniSeries,"Drama, History, Western",8.1,992.0,1978.0,7.738531378914821
+tt33038128,Wyatt Earp and the Cowboy War,tvSeries,"Documentary, Drama, Western",7.8,3821.0,2024.0,7.708211459564324
+tt0071230,Blazing Saddles,movie,"Comedy, Western",7.7,157924.0,1974.0,7.697796240778228
+tt0040724,Red River,movie,"Drama, Western",7.7,36093.0,1948.0,7.690410507125398
+tt0038762,My Darling Clementine,movie,"Drama, Romance, Western",7.7,27032.0,1946.0,7.687226659155855
+tt0063032,The Great Silence,movie,"Drama, Western",7.7,19098.0,1968.0,7.681991153330704
+tt0042531,The Gunfighter,movie,Western,7.7,13513.0,1950.0,7.674687972336803
+tt0050066,Tales of Wells Fargo,tvSeries,Western,7.9,1371.0,1957.0,7.654357518418676
+tt1403865,True Grit,movie,"Drama, Western",7.6,365752.0,2010.0,7.599118340036289
+tt0041038,The Lone Ranger,tvSeries,Western,7.7,3069.0,1949.0,7.595253231677416
+tt0046303,Shane,movie,"Drama, Western",7.6,45851.0,1953.0,7.593001577857784
+tt0049261,Giant,movie,"Drama, Western",7.6,43647.0,1956.0,7.592650270009165
+tt0067140,"Duck, You Sucker!",movie,"Drama, War, Western",7.6,39366.0,1971.0,7.591856220946939
+tt0068762,Jeremiah Johnson,movie,"Adventure, Drama, Western",7.6,36499.0,1972.0,7.591221033653149
+tt0067411,McCabe & Mrs. Miller,movie,"Drama, Western",7.6,28899.0,1971.0,7.588932805920243
+tt0075213,The Shootist,movie,"Drama, Romance, Western",7.6,28033.0,1976.0,7.588594046197597
+tt0043137,Winchester '73,movie,"Action, Drama, Western",7.6,22966.0,1950.0,7.586105608397091
+tt0047136,Johnny Guitar,movie,"Drama, Western",7.6,20627.0,1954.0,7.584549590875344
+tt0096732,The Young Riders,tvSeries,"Drama, Romance, Western",7.7,2676.0,1989.0,7.581227514488055
+tt0031225,Destry Rides Again,movie,"Comedy, Western",7.6,12993.0,1939.0,7.575649166542592
+tt14271652,Joe Pickett,tvSeries,"Drama, Western",7.6,12089.0,2021.0,7.573866436266799
+tt0029747,Way Out West,movie,"Comedy, Family, Western",7.6,9276.0,1937.0,7.5661565553248495
+tt6106704,Damnation,tvSeries,"Crime, Drama, Western",7.6,9195.0,2017.0,7.565866591392262
+tt0068093,Kung Fu,tvSeries,"Adventure, Drama, Western",7.6,7742.0,1972.0,7.559667885892068
