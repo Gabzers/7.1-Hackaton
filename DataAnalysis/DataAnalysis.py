@@ -32,14 +32,6 @@ def analyze_genre_statistics(data):
     print(genre_stats)
     return genre_stats
 
-# EDA: Correlation analysis
-def analyze_correlations(data):
-    numeric_data = data.select_dtypes(include=[np.number])  # Select only numeric columns
-    correlation_matrix = numeric_data.corr()
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
-    plt.title('Correlation Matrix')
-    plt.show()
-
 # Statistical analysis
 def perform_statistical_analysis(data):
     numeric_data = data.select_dtypes(include=[np.number])  # Select only numeric columns
@@ -47,9 +39,6 @@ def perform_statistical_analysis(data):
     stats = stats.drop(['25%', '50%', '75%'], axis=1)  # Remove quartiles
     stats['range'] = stats['max'] - stats['min']  # Add range calculation
     stats['variance'] = numeric_data.var()  # Variance
-    stats['cv'] = stats['std'] / stats['mean']  # Coefficient of variation
-    stats['skewness'] = numeric_data.skew()  # Skewness
-    stats['kurtosis'] = numeric_data.kurt()  # Kurtosis
 
     # Add the "Name" column at the beginning
     stats.insert(0, 'Name', ['averageRating', 'numVotes', 'releaseYear'])
@@ -97,7 +86,6 @@ data = load_data(filepath)
 
 # Perform statistical analysis
 stats = perform_statistical_analysis(data)
-correlation_matrix = data.select_dtypes(include=[np.number]).corr()
 
 # Function to display summary statistics
 def show_summary_statistics():
@@ -138,20 +126,6 @@ def show_summary_statistics():
     for _, row in qualitative_data.iterrows():
         tree_qualitative.insert("", tk.END, values=list(row))
 
-# Function to display correlation matrix
-def show_correlation_matrix():
-    corr_window = tk.Toplevel(root)
-    corr_window.title("Correlation Matrix")
-    corr_window.geometry("600x600")
-
-    fig, ax = plt.subplots(figsize=(8, 6))
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax)
-    ax.set_title("Correlation Matrix")
-
-    canvas = FigureCanvasTkAgg(fig, master=corr_window)
-    canvas.draw()
-    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
-
 # Function to display a brief explanation
 def show_explanation(title, explanation):
     explanation_window = tk.Toplevel(root)
@@ -183,11 +157,14 @@ def show_rating_distribution():
 def show_genre_statistics():
     explanation = (
         "This analysis groups movies by genres and calculates statistical metrics "
-        "such as mean, median, and standard deviation of ratings for each genre."
+        "such as mean and standard deviation of ratings for each genre."
     )
     show_explanation("Genre Statistics", explanation)
 
     genre_stats = analyze_genre_statistics(data)
+
+    # Remover a coluna "Median"
+    genre_stats = genre_stats.drop(columns=['median'])
 
     # Remover linhas com valores NaN
     genre_stats = genre_stats.dropna()
@@ -312,6 +289,9 @@ def show_popularity_trend():
     ax.set_xlabel('Release Year')
     ax.set_ylabel('Total Number of Votes')
 
+    # Ajustar os intervalos dos anos no eixo X para 10 em 10
+    ax.set_xticks(range(int(popularity_trend['releaseYear'].min()), int(popularity_trend['releaseYear'].max()) + 1, 10))
+
     plot_window = tk.Toplevel(root)
     plot_window.title("Popularity Trend Over Time")
     canvas = FigureCanvasTkAgg(fig, master=plot_window)
@@ -321,15 +301,38 @@ def show_popularity_trend():
 # Function to display top genres by ratings
 def show_top_genres_by_ratings():
     explanation = (
-        "This chart shows the genres with the highest average ratings. "
+        "This chart shows the genres with the highest average ratings, "
+        "considering only individual genres (no combinations). "
         "It helps to identify which genres are perceived as having the highest quality by viewers."
     )
     show_explanation("Top Genres by Ratings", explanation)
 
-    top_genres = data.groupby('genres')['averageRating'].mean().reset_index().sort_values(by='averageRating', ascending=False).head(10)
+    # Filtrar apenas gêneros individuais (sem combinações)
+    individual_genres = data['genres'].str.split(',').explode().str.strip().value_counts().reset_index()
+    individual_genres.columns = ['Genre', 'Count']
+
+    # Corrigir duplicatas de gêneros (ex.: "Drama" e "drama")
+    individual_genres['Genre'] = individual_genres['Genre'].str.capitalize()
+    individual_genres = individual_genres.groupby('Genre', as_index=False).sum()
+
+    # Calcular a média de ratings por gênero individual
+    genre_ratings = (
+        data.assign(genres=data['genres'].str.split(','))
+        .explode('genres')
+        .assign(genres=lambda df: df['genres'].str.strip().str.capitalize())  # Corrigir duplicatas
+        .groupby('genres')['averageRating']
+        .mean()
+        .reset_index()
+        .sort_values(by='averageRating', ascending=False)
+    )
+
+    # Filtrar apenas gêneros individuais
+    genre_ratings = genre_ratings[genre_ratings['genres'].isin(individual_genres['Genre'])].head(10)
+
+    # Criar o gráfico
     fig, ax = plt.subplots(figsize=(12, 8))
-    sns.barplot(x='averageRating', y='genres', data=top_genres, palette='coolwarm', ax=ax)
-    ax.set_title('Top Genres by Ratings')
+    sns.barplot(x='averageRating', y='genres', data=genre_ratings, palette='coolwarm', ax=ax)
+    ax.set_title('Top Genres by Ratings (Individual Genres)')
     ax.set_xlabel('Average Ratings')
     ax.set_ylabel('Genre')
 
@@ -348,7 +351,6 @@ tk.Label(root, text="Statistical Analysis Dashboard", font=("Arial", 16)).pack(p
 
 # Buttons for statistical analyses
 tk.Button(root, text="Summary Statistics", command=show_summary_statistics).pack(pady=5)
-tk.Button(root, text="Correlation Matrix", command=show_correlation_matrix).pack(pady=5)
 
 # Buttons for visualizations
 tk.Button(root, text="Distribution of Ratings", command=show_rating_distribution).pack(pady=5)
