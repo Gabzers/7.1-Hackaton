@@ -32,15 +32,6 @@ def analyze_genre_statistics(data):
     print(genre_stats)
     return genre_stats
 
-# EDA: Distribution of votes
-def analyze_vote_distribution(data):
-    plt.figure(figsize=(10, 6))
-    sns.histplot(data['numVotes'], kde=True, bins=30, color='green')
-    plt.title('Distribution of Votes')
-    plt.xlabel('Number of Votes')
-    plt.ylabel('Frequency')
-    plt.show()
-
 # EDA: Correlation analysis
 def analyze_correlations(data):
     numeric_data = data.select_dtypes(include=[np.number])  # Select only numeric columns
@@ -116,6 +107,7 @@ def show_summary_statistics():
 
     # Format the stats DataFrame to one decimal place
     formatted_stats = stats.copy()
+    formatted_stats = formatted_stats.dropna()  # Remove rows with NaN values
     formatted_stats.iloc[:, 1:] = formatted_stats.iloc[:, 1:].round(1)  # Round all numeric columns to 1 decimal place
 
     # Separate quantitative and qualitative data
@@ -187,27 +179,6 @@ def show_rating_distribution():
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
-# Function to display distribution of votes
-def show_vote_distribution():
-    explanation = (
-        "This analysis shows the distribution of the number of votes for movies. "
-        "It helps to understand how popular movies are based on the number of votes."
-    )
-    show_explanation("Distribution of Votes", explanation)
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.histplot(data['numVotes'], kde=False, bins=50, color='green', ax=ax)
-    ax.set_xscale('log')
-    ax.set_title('Distribution of Votes (Log Scale)')
-    ax.set_xlabel('Number of Votes (Log Scale)')
-    ax.set_ylabel('Frequency')
-
-    plot_window = tk.Toplevel(root)
-    plot_window.title("Distribution of Votes")
-    canvas = FigureCanvasTkAgg(fig, master=plot_window)
-    canvas.draw()
-    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
-
 # Function to display genre statistics
 def show_genre_statistics():
     explanation = (
@@ -217,6 +188,13 @@ def show_genre_statistics():
     show_explanation("Genre Statistics", explanation)
 
     genre_stats = analyze_genre_statistics(data)
+
+    # Remover linhas com valores NaN
+    genre_stats = genre_stats.dropna()
+
+    # Arredondar os valores para no máximo uma casa decimal
+    genre_stats.iloc[:, 1:] = genre_stats.iloc[:, 1:].round(1)
+
     stats_window = tk.Toplevel(root)
     stats_window.title("Genre Statistics")
     stats_window.geometry("800x400")
@@ -225,8 +203,8 @@ def show_genre_statistics():
     tree.pack(fill=tk.BOTH, expand=True)
 
     for col in genre_stats.columns:
-        tree.heading(col, text=col)
-        tree.column(col, width=100)
+        tree.heading(col, text=col, anchor="center")  # Center the column headers
+        tree.column(col, width=100, anchor="center")  # Center the column values
 
     for _, row in genre_stats.iterrows():
         tree.insert("", tk.END, values=list(row))
@@ -254,15 +232,37 @@ def show_release_year_distribution():
 # Function to display popularity by genre
 def show_popularity_by_genre():
     explanation = (
-        "This chart shows the popularity of genres based on the total number of votes. "
+        "This chart shows the popularity of the top 10 independent genres based on the total number of votes. "
         "It helps to identify which genres are most popular among viewers."
     )
     show_explanation("Popularity by Genre", explanation)
 
-    genre_popularity = data.groupby('genres')['numVotes'].sum().reset_index().sort_values(by='numVotes', ascending=False)
+    # Filtrar apenas gêneros independentes (sem combinações)
+    independent_genres = data['genres'].str.split(',').explode().str.strip().value_counts().reset_index()
+    independent_genres.columns = ['Genre', 'Count']
+
+    # Corrigir duplicatas de gêneros (ex.: "Drama" e "drama")
+    independent_genres['Genre'] = independent_genres['Genre'].str.capitalize()
+    independent_genres = independent_genres.groupby('Genre', as_index=False).sum()
+
+    # Calcular a popularidade por gênero independente
+    genre_popularity = (
+        data.assign(genres=data['genres'].str.split(','))
+        .explode('genres')
+        .assign(genres=lambda df: df['genres'].str.strip().str.capitalize())  # Corrigir duplicatas
+        .groupby('genres')['numVotes']
+        .sum()
+        .reset_index()
+        .sort_values(by='numVotes', ascending=False)
+    )
+
+    # Filtrar os 10 gêneros mais populares
+    top_genres = genre_popularity[genre_popularity['genres'].isin(independent_genres['Genre'])].head(10)
+
+    # Criar o gráfico
     fig, ax = plt.subplots(figsize=(12, 8))
-    sns.barplot(x='numVotes', y='genres', data=genre_popularity, palette='viridis', ax=ax)
-    ax.set_title('Popularity by Genre')
+    sns.barplot(x='numVotes', y='genres', data=top_genres, palette='viridis', ax=ax)
+    ax.set_title('Popularity by Genre (Top 10 Independent Genres)')
     ax.set_xlabel('Total Number of Votes')
     ax.set_ylabel('Genre')
 
@@ -352,7 +352,6 @@ tk.Button(root, text="Correlation Matrix", command=show_correlation_matrix).pack
 
 # Buttons for visualizations
 tk.Button(root, text="Distribution of Ratings", command=show_rating_distribution).pack(pady=5)
-tk.Button(root, text="Distribution of Votes", command=show_vote_distribution).pack(pady=5)
 tk.Button(root, text="Genre Statistics", command=show_genre_statistics).pack(pady=5)
 tk.Button(root, text="Distribution by Release Year", command=show_release_year_distribution).pack(pady=5)
 tk.Button(root, text="Popularity by Genre", command=show_popularity_by_genre).pack(pady=5)
