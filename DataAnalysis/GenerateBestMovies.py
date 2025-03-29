@@ -20,7 +20,7 @@ def calculate_weighted_rating(data, m, C):
     return data
 
 # Generate best movies
-def generate_best_movies(data, output_filepath, top_n=100000):  # Adjusted top_n default to 10000
+def generate_best_movies(data, output_filepath, top_n=10000):  # Adjusted top_n default to 10000
     # Calculate global mean and minimum votes threshold
     C = data['averageRating'].mean()
     m = data['numVotes'].quantile(0.75)
