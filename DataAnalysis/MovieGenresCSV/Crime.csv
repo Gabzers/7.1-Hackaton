@@ -1,0 +1,1455 @@
+id,title,type,genres,averageRating,numVotes,releaseYear,weightedRating
+tt0903747,Breaking Bad,tvSeries,"Crime, Drama, Thriller",9.5,2303332.0,2008.0,9.499646292573214
+tt0809488,The Godfather: A Novel for Television,tvMiniSeries,"Crime, Drama, Thriller",9.5,6656.0,1977.0,9.382169595809463
+tt0306414,The Wire,tvSeries,"Crime, Drama, Thriller",9.3,400152.0,2002.0,9.298094464824947
+tt0068646,The Godfather,movie,"Crime, Drama",9.2,2110507.0,1972.0,9.199650791587043
+tt0141842,The Sopranos,tvSeries,"Crime, Drama",9.2,517833.0,1999.0,9.198577285028572
+tt12392504,Scam 1992: The Harshad Mehta Story,tvMiniSeries,"Biography, Crime, Drama",9.2,164183.0,2020.0,9.19551758525816
+tt9471962,Halka,tvSeries,"Action, Crime, Drama",9.2,24246.0,2019.0,9.169920536830135
+tt5721762,Kothao Keu Nei,tvMiniSeries,"Crime, Drama",9.6,1421.0,1990.0,9.099584973227644
+tt1475582,Sherlock,tvSeries,"Crime, Drama, Mystery",9.1,1041988.0,2010.0,9.099317630806343
+tt7450814,Koombiyo,tvSeries,"Crime, Drama, Thriller",9.1,18197.0,2017.0,9.06146525547369
+tt1043822,Vratice se rode,tvSeries,"Comedy, Crime, Drama",9.1,9328.0,2007.0,9.02581649682095
+tt0468569,The Dark Knight,movie,"Action, Crime, Drama",9.0,3000297.0,2008.0,8.999771609913303
+tt0071562,The Godfather Part II,movie,"Crime, Drama",9.0,1421137.0,1974.0,8.999517870287395
+tt0050083,12 Angry Men,movie,"Crime, Drama",9.0,918192.0,1957.0,8.99925385540984
+tt3032476,Better Call Saul,tvSeries,"Crime, Drama",9.0,720399.0,2015.0,8.999049067317678
+tt0157217,Byomkesh Bakshi,tvSeries,"Adventure, Crime, Mystery",9.2,3279.0,1993.0,8.991662734602158
+tt7920978,Persona,tvSeries,"Crime, Drama, Mystery",9.0,51316.0,2018.0,8.986712607950023
+tt1114271,Thursday,movie,"Action, Adventure, Crime",9.1,5166.0,2006.0,8.968903733644689
+tt13733810,The Why Files,tvSeries,"Comedy, Crime, Reality-TV",9.6,1004.0,2020.0,8.934364809994015
+tt0110912,Pulp Fiction,movie,"Crime, Drama",8.9,2320508.0,1994.0,8.899715870983611
+tt2356777,True Detective,tvSeries,"Crime, Drama, Mystery",8.9,696355.0,2014.0,8.899053425218302
+tt0877057,Death Note,tvSeries,"Animation, Crime, Drama",8.9,417983.0,2006.0,8.89842340739338
+tt5354160,Mirror Game,movie,"Crime, Mystery, Thriller",8.9,30279.0,2016.0,8.878407320552178
+tt1909015,Undercover,tvSeries,"Action, Crime, Drama",8.9,28050.0,2011.0,8.876707151613353
+tt5275892,O.J.: Made in America,movie,"Biography, Crime, Documentary",8.9,23020.0,2016.0,8.871674159329116
+tt3189256,Om,movie,"Crime, Drama, Romance",9.0,4295.0,1995.0,8.849517513180158
+tt10478048,The Other Me,tvSeries,"Crime, Drama, Mystery",8.9,7595.0,2019.0,8.816043131528195
+tt0137523,Fight Club,movie,"Crime, Drama, Thriller",8.8,2445807.0,1999.0,8.799741013838148
+tt2802850,Fargo,tvSeries,"Crime, Drama, Thriller",8.8,442093.0,2014.0,8.798567888819363
+tt7137906,When They See Us,tvMiniSeries,"Biography, Crime, Drama",8.8,146946.0,2019.0,8.795696496416713
+tt1795096,Behzat Ç: An Ankara Detective Story,tvSeries,"Crime, Drama, Mystery",8.8,34710.0,2010.0,8.781884033144284
+tt6108262,Black Sun,tvSeries,"Crime, Drama, Thriller",8.8,13249.0,2017.0,8.753102069516025
+tt13661118,Not Me,tvMiniSeries,"Action, Crime, Romance",8.8,12451.0,2021.0,8.750157573172498
+tt0247882,Forensic Files,tvSeries,"Crime, Documentary",8.8,7694.0,1996.0,8.720344870491948
+tt0289649,Okupas,tvMiniSeries,"Crime, Drama",8.9,3327.0,2000.0,8.716119005862366
+tt0386950,Air Crash Investigation,tvSeries,"Crime, Documentary, History",8.8,6356.0,2003.0,8.704233220713899
+tt36203068,Anaganaga Australia Lo,movie,"Action, Comedy, Crime",9.0,2052.0,2025.0,8.70346289702399
+tt0099685,Goodfellas,movie,"Biography, Crime, Drama",8.7,1316405.0,1990.0,8.699538532803373
+tt2442560,Peaky Blinders,tvSeries,"Crime, Drama",8.7,703446.0,2013.0,8.699136573926607
+tt2085059,Black Mirror,tvSeries,"Crime, Drama, Mystery",8.7,675537.0,2011.0,8.699100916186278
+tt2707408,Narcos,tvSeries,"Biography, Crime, Drama",8.7,496962.0,2015.0,8.698778013710246
+tt5753856,Dark,tvSeries,"Crime, Drama, Mystery",8.7,485514.0,2017.0,8.698749215693383
+tt27426266,Gally Gang Stars,movie,"Action, Comedy, Crime",9.0,2011.0,2024.0,8.698106940538521
+tt0098936,Twin Peaks,tvSeries,"Crime, Drama, Mystery",8.7,229780.0,1990.0,8.69735872071702
+tt15097216,Jai Bhim,movie,"Crime, Drama",8.7,224443.0,2021.0,8.69729598648442
+tt0118421,Oz,tvSeries,"Crime, Drama, Thriller",8.7,111660.0,1997.0,8.694571098339178
+tt0286486,The Shield,tvSeries,"Crime, Drama, Thriller",8.7,92490.0,2002.0,8.693449015676961
+tt2303687,Line of Duty,tvSeries,"Crime, Drama, Mystery",8.7,75244.0,2012.0,8.69195267413245
+tt4062640,Pyarey Afzal,tvSeries,"Crime, Drama, Romance",8.9,2901.0,2013.0,8.691329985766595
+tt0434706,Monster,tvSeries,"Animation, Crime, Drama",8.7,55370.0,2004.0,8.689077688885696
+tt9170318,Besa: Blood Oath,tvSeries,"Crime, Drama",8.8,5343.0,2018.0,8.68691587915431
+tt7472896,Mr Inbetween,tvSeries,"Comedy, Crime, Drama",8.7,39339.0,2018.0,8.684655860271286
+tt0086661,The Adventures of Sherlock Holmes,tvSeries,"Crime, Drama, Mystery",8.7,25869.0,1984.0,8.676745359576792
+tt18923754,Daredevil: Born Again,tvSeries,"Action, Crime, Drama",8.7,23459.0,2025.0,8.674382441817288
+tt6019206,Kill Bill: The Whole Bloody Affair,movie,"Action, Crime, Thriller",8.7,18407.0,2006.0,8.66744898505424
+tt0106028,Homicide: Life on the Street,tvSeries,"Crime, Drama, Mystery",8.7,15886.0,1993.0,8.662366228245428
+tt0090509,The Return of Sherlock Holmes,tvSeries,"Crime, Drama, Mystery",8.7,14487.0,1986.0,8.658795792419804
+tt6111552,Content Cop,tvSeries,"Comedy, Crime, Talk-Show",8.7,12600.0,2015.0,8.652749261608403
+tt4269716,Umbre,tvSeries,"Crime, Drama, Thriller",8.7,12248.0,2014.0,8.651419425523502
+tt1621830,Monpura,movie,"Crime, Drama, Musical",8.7,9505.0,2009.0,8.637771687323069
+tt27555270,Suraari,movie,"Action, Crime, Drama",9.4,773.0,2023.0,8.635564685099265
+tt5099020,Aranyélet,tvSeries,"Action, Crime, Drama",8.7,8836.0,2015.0,8.633194365587954
+tt6439480,Jerma985,tvSeries,"Comedy, Crime, Horror",9.5,671.0,2011.0,8.623873930131657
+tt30150229,Koose Munisamy Veerappan,tvSeries,"Crime, Documentary",9.0,1557.0,2023.0,8.62263367567315
+tt0291855,Devasuram,movie,"Action, Crime, Drama",8.7,6747.0,1993.0,8.613274729520759
+tt0098765,The Case-Book of Sherlock Holmes,tvSeries,"Crime, Drama, Mystery",8.7,6421.0,1991.0,8.609042328596171
+tt10073114,The World Between Us,tvSeries,"Crime, Drama",8.8,3058.0,2019.0,8.609015000006767
+tt0114369,Se7en,movie,"Crime, Drama, Mystery",8.6,1896634.0,1995.0,8.599693342088889
+tt0102926,The Silence of the Lambs,movie,"Crime, Drama, Horror",8.6,1623428.0,1991.0,8.599641742992967
+tt0120689,The Green Mile,movie,"Crime, Drama, Fantasy",8.6,1475749.0,1999.0,8.599605898311543
+tt0773262,Dexter,tvSeries,"Crime, Drama, Mystery",8.6,833681.0,2006.0,8.599302471107059
+tt0317248,City of God,movie,"Crime, Drama",8.6,833130.0,2002.0,8.599302009931764
+tt1190634,The Boys,tvSeries,"Action, Comedy, Crime",8.6,765834.0,2019.0,8.599240696305829
+tt3322312,Daredevil,tvSeries,"Action, Crime, Drama",8.6,498281.0,2015.0,8.598833198449517
+tt5290382,Mindhunter,tvSeries,"Crime, Drama, Mystery",8.6,363843.0,2017.0,8.598402378330858
+tt0106179,The X-Files,tvSeries,"Adventure, Crime, Drama",8.6,260810.0,1993.0,8.597771863970914
+tt0979432,Boardwalk Empire,tvSeries,"Crime, Drama",8.6,210284.0,2010.0,8.59723715704166
+tt15435876,The Penguin,tvMiniSeries,"Crime, Drama",8.6,186394.0,2024.0,8.596883536589406
+tt1489428,Justified,tvSeries,"Action, Crime, Drama",8.6,124361.0,2010.0,8.595332232025537
+tt0348914,Deadwood,tvSeries,"Crime, Drama, History",8.6,123023.0,2004.0,8.59528157196527
+tt10110350,Nouba,tvSeries,"Crime, Drama, Music",8.9,1897.0,2019.0,8.594157121995567
+tt1733785,The Bridge,tvSeries,"Crime, Mystery, Thriller",8.6,80608.0,2011.0,8.592806741378094
+tt0078655,The Meeting Place Cannot Be Changed,tvMiniSeries,"Action, Adventure, Crime",8.7,5256.0,1979.0,8.589828242071158
+tt4299972,The Jinx: The Life and Deaths of Robert Durst,tvSeries,"Biography, Crime, Documentary",8.6,55940.0,2015.0,8.589649331038316
+tt0094525,Poirot,tvSeries,"Crime, Drama, Mystery",8.6,55400.0,1989.0,8.589548909520875
+tt2049116,Gomorrah,tvSeries,"Crime, Drama, Thriller",8.6,47202.0,2014.0,8.587743679126492
+tt13111040,The Offer,tvMiniSeries,"Biography, Crime, Drama",8.6,45323.0,2022.0,8.587238444013478
+tt1534360,Ezel,tvSeries,"Crime, Drama, Thriller",8.6,40256.0,2009.0,8.58564242268351
+tt11854694,Special OPS,tvSeries,"Action, Crime, Thriller",8.6,38736.0,2020.0,8.585082773561288
+tt2701582,Endeavour,tvSeries,"Crime, Drama, Mystery",8.6,35797.0,2012.0,8.583866839222942
+tt29084914,Kadaisi Thotta,movie,Crime,9.1,1105.0,2025.0,8.578594395177742
+tt2433738,Wentworth,tvSeries,"Crime, Drama, Thriller",8.6,26053.0,2013.0,8.577892321185104
+tt0093603,Nayakan,movie,"Crime, Drama",8.6,26050.0,1987.0,8.57788980025932
+tt0310455,Foyle's War,tvSeries,"Crime, Drama, Mystery",8.6,19568.0,2002.0,8.570661358502166
+tt13634792,Mouse,tvSeries,"Action, Crime, Mystery",8.6,13990.0,2021.0,8.559176275880585
+tt1934673,Homicide Hunter,tvSeries,"Crime, Documentary",8.7,3868.0,2011.0,8.552775079966668
+tt0108855,The Memoirs of Sherlock Holmes,tvMiniSeries,"Crime, Drama, Mystery",8.6,8514.0,1994.0,8.533694603330952
+tt13582638,Taqdeer,tvSeries,"Crime, Mystery, Thriller",8.6,8043.0,2020.0,8.529932878224818
+tt19370256,KinnPorsche the Series La 'forte,tvSeries,"Action, Comedy, Crime",8.6,6278.0,2022.0,8.51101464816008
+tt0407887,The Departed,movie,"Crime, Drama, Thriller",8.5,1479067.0,2006.0,8.499624290220696
+tt0110413,Léon: The Professional,movie,"Action, Crime, Drama",8.5,1296129.0,1994.0,8.499571272454714
+tt0120586,American History X,movie,"Crime, Drama",8.5,1225944.0,1998.0,8.49954673308989
+tt0114814,The Usual Suspects,movie,"Crime, Drama, Mystery",8.5,1184319.0,1995.0,8.499530805700447
+tt4158110,Mr. Robot,tvSeries,"Crime, Drama, Thriller",8.5,438292.0,2015.0,8.498732650831995
+tt5071412,Ozark,tvSeries,"Crime, Drama, Thriller",8.5,367345.0,2017.0,8.498488054414594
+tt1124373,Sons of Anarchy,tvSeries,"Crime, Drama, Thriller",8.5,338166.0,2008.0,8.498357694481857
+tt2243973,Hannibal,tvSeries,"Crime, Drama, Horror",8.5,290029.0,2013.0,8.498085359212308
+tt1839578,Person of Interest,tvSeries,"Action, Crime, Drama",8.5,196983.0,2011.0,8.497182155702246
+tt5189670,Making a Murderer,tvSeries,"Crime, Documentary",8.5,105686.0,2015.0,8.494753907735358
+tt6077448,Sacred Games,tvSeries,"Action, Crime, Drama",8.5,95073.0,2018.0,8.494169877428591
+tt3502248,Bosch,tvSeries,"Crime, Drama",8.5,88067.0,2014.0,8.493707433315471
+tt4093826,Twin Peaks,tvSeries,"Crime, Drama, Horror",8.5,82215.0,2017.0,8.493260939872231
+tt3428912,Happy Valley,tvSeries,"Crime, Drama, Thriller",8.5,69027.0,2014.0,8.491978217172624
+tt11912196,Asur: Welcome to Your Dark Side,tvSeries,"Crime, Drama, Mystery",8.5,68032.0,2020.0,8.491861339781558
+tt0290988,Trailer Park Boys,tvSeries,"Comedy, Crime",8.5,54285.0,2001.0,8.489810112111734
+tt0402711,Boston Legal,tvSeries,"Comedy, Crime, Drama",8.5,51578.0,2004.0,8.489277982040289
+tt1152758,Dear Zachary: A Letter to a Son About His Father,movie,"Biography, Crime, Documentary",8.5,42870.0,2008.0,8.487113143245205
+tt0140348,Mahanadi,movie,"Crime, Drama",8.6,4723.0,1994.0,8.4832402157813
+tt1299368,Southland,tvSeries,"Crime, Drama, Thriller",8.5,29983.0,2009.0,8.481621676973164
+tt9398466,Delhi Crime,tvSeries,"Crime, Drama",8.5,27467.0,2019.0,8.479953933312501
+tt2674806,Inside No. 9,tvSeries,"Comedy, Crime, Drama",8.5,22253.0,2014.0,8.475311067653804
+tt0054407,The Hole,movie,"Crime, Drama, Thriller",8.5,21715.0,1960.0,8.47470659666071
+tt0346314,Ghost in the Shell: Stand Alone Complex,tvSeries,"Action, Animation, Crime",8.5,21648.0,2002.0,8.474629239741747
+tt0047708,Alfred Hitchcock Presents,tvSeries,"Crime, Drama, Mystery",8.5,19934.0,1955.0,8.472475746794554
+tt0278501,In Harihar Nagar,movie,"Comedy, Crime, Mystery",8.6,4270.0,1990.0,8.471561659311645
+tt12402000,The Evandro Case: A Devilish Plot,tvMiniSeries,"Crime, Documentary",9.1,869.0,2021.0,8.469505988495072
+tt11691684,Flower of Evil,tvSeries,"Crime, Mystery, Romance",8.5,16509.0,2020.0,8.466853694836738
+tt6958022,The Defiant Ones,tvMiniSeries,"Biography, Crime, Documentary",8.5,15860.0,2017.0,8.465519123706336
+tt0101649,Thalapathi,movie,"Action, Crime, Drama",8.5,14199.0,1991.0,8.461557805714651
+tt9027566,The Trial,tvMiniSeries,"Comedy, Crime",9.0,985.0,2017.0,8.449117970275275
+tt5332206,Signal,tvSeries,"Crime, Drama, Fantasy",8.5,10510.0,2016.0,8.448389149876723
+tt1625724,Love/Hate,tvSeries,"Crime, Drama",8.5,9140.0,2010.0,8.440866342698419
+tt31051322,Mukhya Gamanika,movie,"Crime, Thriller",8.7,2076.0,2024.0,8.439787047118818
+tt2147995,Der Tatortreiniger,tvSeries,"Comedy, Crime",8.5,8373.0,2011.0,8.435611996643008
+tt35401682,Khadpanch,tvSeries,"Crime, Drama, Mystery",9.1,810.0,2025.0,8.434707909281984
+tt20122396,Gangs of Puri,tvSeries,Crime,9.1,807.0,2022.0,8.432835605086717
+tt7194764,BuzzFeed Unsolved: True Crime,tvSeries,"Comedy, Crime, Documentary",8.7,1984.0,2016.0,8.429114023639071
+tt21095396,The Hammer and the Rose: A Behzat Ç. Story,tvSeries,"Action, Crime, Drama",8.6,3093.0,2022.0,8.426462635746551
+tt0477507,Spiral,tvSeries,"Crime, Drama, Mystery",8.5,7010.0,2005.0,8.423538692395438
+tt1242773,Romanzo criminale - La serie,tvSeries,"Crime, Drama, Thriller",8.5,6998.0,2008.0,8.423412257823127
+tt27628576,The Long Season,tvMiniSeries,"Crime, Drama, Family",8.8,1412.0,2023.0,8.420887345914089
+tt0083100,The Adventures of Sherlock Holmes and Dr. Watson: The Hound of the Baskervilles,tvMiniSeries,"Adventure, Crime, Mystery",8.5,6728.0,1981.0,8.420452662805559
+tt6722972,Hot Dog,tvSeries,"Comedy, Crime, Thriller",9.3,608.0,2003.0,8.419957041548376
+tt0224853,The Corner,tvMiniSeries,"Crime, Drama",8.5,5690.0,2000.0,8.406572996305671
+tt0055657,The Alfred Hitchcock Hour,tvSeries,"Crime, Drama, Horror",8.5,5456.0,1962.0,8.402747638674093
+tt14976292,Link Click,tvSeries,"Animation, Crime, Drama",8.5,5416.0,2021.0,8.402062159475319
+tt2467372,Brooklyn Nine-Nine,tvSeries,"Comedy, Crime",8.4,390788.0,2013.0,8.398644926965359
+tt5675620,The Punisher,tvSeries,"Action, Crime, Drama",8.4,280858.0,2017.0,8.398115029525153
+tt3920596,Big Little Lies,tvSeries,"Crime, Drama, Mystery",8.4,235131.0,2017.0,8.397748854050821
+tt10155688,Mare of Easttown,tvMiniSeries,"Crime, Drama, Mystery",8.4,203203.0,2021.0,8.39739559600821
+tt0285331,24,tvSeries,"Action, Crime, Drama",8.4,201780.0,2001.0,8.397377252683999
+tt2401256,The Night Of,tvMiniSeries,"Crime, Drama, Mystery",8.4,181606.0,2016.0,8.397086315426401
+tt1474684,Luther,tvSeries,"Crime, Drama, Mystery",8.4,158740.0,2010.0,8.396667291964242
+tt0051201,Witness for the Prosecution,movie,"Crime, Drama, Mystery",8.4,148761.0,1957.0,8.396444119950493
+tt2017109,Banshee,tvSeries,"Action, Crime, Drama",8.4,134479.0,2013.0,8.39606720268241
+tt2149175,The Americans,tvSeries,"Crime, Drama, Mystery",8.4,116816.0,2013.0,8.395473865086675
+tt0491738,Psych,tvSeries,"Comedy, Crime, Mystery",8.4,115189.0,2006.0,8.395410078607014
+tt2788432,American Crime Story,tvSeries,"Biography, Crime, Drama",8.4,100691.0,2016.0,8.394750894056687
+tt6473300,Mirzapur,tvSeries,"Action, Crime, Thriller",8.4,89274.0,2018.0,8.394081542615824
+tt10742800,Yakeen Ka Safar,tvMiniSeries,"Crime, Drama, Romance",8.8,1301.0,2017.0,8.393912022450284
+tt1442462,The Good Wife,tvSeries,"Crime, Drama, Mystery",8.4,85855.0,2009.0,8.393846561012408
+tt31806037,Adolescence,tvMiniSeries,"Crime, Drama, Mystery",8.4,85203.0,2025.0,8.393799615677407
+tt0412253,Veronica Mars,tvSeries,"Crime, Drama, Mystery",8.4,80110.0,2004.0,8.393406696052239
+tt26548265,Maharaja,movie,"Action, Crime, Drama",8.4,65565.0,2024.0,8.39194978662832
+tt5249462,Erased,tvMiniSeries,"Animation, Crime, Drama",8.4,65225.0,2016.0,8.391907989051104
+tt0057565,High and Low,movie,"Crime, Drama, Mystery",8.4,59078.0,1963.0,8.391069699429066
+tt1313104,The Cove,movie,"Biography, Crime, Documentary",8.4,52224.0,2009.0,8.389903449784168
+tt5743796,Warrior,tvSeries,"Action, Crime, Drama",8.4,49388.0,2019.0,8.389326701613843
+tt9900782,Kaithi,movie,"Action, Crime, Thriller",8.4,46117.0,2019.0,8.38857389069826
+tt1830379,Top Boy,tvSeries,"Crime, Drama, Thriller",8.4,43864.0,2011.0,8.387990452938887
+tt12361178,Drishyam 2,movie,"Crime, Drama, Mystery",8.4,42692.0,2021.0,8.387662749529056
+tt6439752,Snowfall,tvSeries,"Crime, Drama",8.4,38066.0,2017.0,8.386173587867514
+tt4192812,Unforgotten,tvSeries,"Crime, Drama, Mystery",8.4,33956.0,2015.0,8.384512721175579
+tt0478942,Life on Mars,tvSeries,"Crime, Drama, Mystery",8.4,33770.0,2006.0,8.384428068853696
+tt13433812,Vincenzo,tvSeries,"Action, Comedy, Crime",8.4,33753.0,2021.0,8.384420285635143
+tt4378376,Babylon Berlin,tvSeries,"Crime, Drama, Thriller",8.4,31714.0,2017.0,8.383426727395692
+tt0826760,The Killing,tvSeries,"Crime, Drama, Mystery",8.4,31183.0,2007.0,8.383146834012546
+tt14168162,Bosch: Legacy,tvSeries,"Crime, Drama",8.4,30823.0,2022.0,8.382951636156697
+tt0079902,Sherlock Holmes and Doctor Watson,tvMiniSeries,"Crime, Mystery",8.5,4416.0,1980.0,8.381112888774854
+tt0400234,Black Friday,movie,"Action, Crime, Drama",8.4,22587.0,2004.0,8.37680568830528
+tt4987556,Thani Oruvan,movie,"Action, Crime, Drama",8.4,22531.0,2015.0,8.376748694823275
+tt0083466,Police Squad!,tvSeries,"Comedy, Crime",8.4,21893.0,1982.0,8.376079033722574
+tt5959980,Vada Chennai,movie,"Action, Crime, Drama",8.4,21112.0,2018.0,8.37520484558619
+tt10140990,Mindgame,movie,"Crime, Drama",9.1,722.0,2023.0,8.37502829258149
+tt1666988,Psych Webisodes,tvMiniSeries,"Comedy, Crime, Mystery",8.9,995.0,2006.0,8.37416487641343
+tt0059550,Operation 'Y' & Other Shurik's Adventures,movie,"Comedy, Crime, Drama",8.4,15579.0,1965.0,8.366542666689131
+tt0115323,Profit,tvSeries,"Crime, Drama",8.6,2232.0,1996.0,8.366480431562602
+tt4969748,The Hunter,tvSeries,"Action, Crime, Drama",8.6,2221.0,2014.0,8.365444659283241
+tt4991384,Visaaranai,movie,"Crime, Drama, Thriller",8.4,12829.0,2015.0,8.359512741062229
+tt4284216,Healer,tvSeries,"Action, Comedy, Crime",8.4,12381.0,2014.0,8.358077749606206
+tt0123392,Miscellaneous Brigade in the Mountains and at the Sea,movie,"Action, Comedy, Crime",8.6,2119.0,1971.0,8.355383833062422
+tt6461346,Stranger,tvSeries,"Crime, Drama, Mystery",8.4,11051.0,2017.0,8.353147900532488
+tt0080249,Masterpiece Mystery,tvSeries,"Crime, Drama, Mystery",8.9,941.0,1980.0,8.350502295852035
+tt2528254,This Is England '90,tvMiniSeries,"Comedy, Crime, Drama",8.4,9999.0,2015.0,8.348343025445745
+tt0123390,The Miscellaneous Brigade on the Watch,movie,"Action, Comedy, Crime",8.6,2049.0,1971.0,8.347964798536585
+tt3394420,Ulidavaru Kandanthe,movie,"Crime, Drama, Thriller",8.4,9762.0,2014.0,8.347121320728714
+tt18163024,Cherasaala,movie,"Crime, Drama, Romance",8.6,2003.0,2022.0,8.34283941424511
+tt4429128,Papanasam,movie,"Crime, Drama, Mystery",8.4,8964.0,2015.0,8.34254610810175
+tt0459516,Pudhu Pettai,movie,"Action, Crime, Drama",8.4,8432.0,2006.0,8.339029197448216
+tt0364647,Virumandi,movie,"Action, Crime, Drama",8.4,8325.0,2004.0,8.338269193269157
+tt0105977,Cracker,tvSeries,"Crime, Drama, Mystery",8.4,8274.0,1993.0,8.33790024083235
+tt12163674,The Last Narc,tvMiniSeries,"Crime, Documentary",8.5,3120.0,2020.0,8.335514280858964
+tt20883058,On Patrol: Live,tvSeries,"Crime, Reality-TV",9.0,764.0,2022.0,8.330110219963286
+tt14134550,Odd Taxi,tvSeries,"Animation, Comedy, Crime",8.4,6651.0,2021.0,8.323314436327415
+tt12125238,Ek Thi Begum,tvSeries,"Crime, Drama",8.4,6476.0,2020.0,8.321321864145872
+tt2187850,Pablo Escobar: El Patrón del Mal,tvSeries,"Biography, Crime, Drama",8.4,6363.0,2012.0,8.319979274391791
+tt1840973,19-2,tvSeries,"Crime, Drama",8.6,1814.0,2011.0,8.319393514241408
+tt27042206,The Good Bad Mother,tvSeries,"Comedy, Crime, Drama",8.4,6177.0,2023.0,8.317666680395035
+tt1496729,Aaranya Kaandam,movie,"Action, Comedy, Crime",8.4,5689.0,2010.0,8.310911693850445
+tt0080196,Berlin Alexanderplatz,tvMiniSeries,"Crime, Drama",8.4,5048.0,1980.0,8.300151263429893
+tt7286456,Joker,movie,"Crime, Drama, Thriller",8.3,1596452.0,2019.0,8.299684352869757
+tt0105236,Reservoir Dogs,movie,"Crime, Thriller",8.3,1126892.0,1992.0,8.299552857385589
+tt0086250,Scarface,movie,"Crime, Drama",8.3,957800.0,1983.0,8.299473939240718
+tt0113277,Heat,movie,"Action, Crime, Drama",8.3,750336.0,1995.0,8.299328536367847
+tt0455275,Prison Break,tvSeries,"Action, Crime, Drama",8.3,621074.0,2005.0,8.299188845200597
+tt0087843,Once Upon a Time in America,movie,"Crime, Drama",8.3,392775.0,1984.0,8.298717675201186
+tt1796960,Homeland,tvSeries,"Crime, Drama, Mystery",8.3,368618.0,2011.0,8.298633698373775
+tt0056592,To Kill a Mockingbird,movie,"Crime, Drama",8.3,341984.0,1962.0,8.298527370187331
+tt0070735,The Sting,movie,"Comedy, Crime, Drama",8.3,288887.0,1973.0,8.298256945470532
+tt0022100,M,movie,"Crime, Mystery, Thriller",8.3,175990.0,1931.0,8.297140424938709
+tt0036775,Double Indemnity,movie,"Crime, Drama, Film-Noir",8.3,173916.0,1944.0,8.297106374364994
+tt2249364,Broadchurch,tvSeries,"Crime, Drama, Mystery",8.3,133536.0,2013.0,8.296233063679677
+tt5348176,Barry,tvSeries,"Action, Comedy, Crime",8.3,131685.0,2018.0,8.296180218539854
+tt1637727,The Killing,tvSeries,"Crime, Drama, Mystery",8.3,128540.0,2011.0,8.296086947530823
+tt7909970,Unbelievable,tvMiniSeries,"Crime, Drama",8.3,127939.0,2019.0,8.296068602903498
+tt8714904,Narcos: Mexico,tvSeries,"Crime, Drama",8.3,97155.0,2018.0,8.294826233960443
+tt2249007,Ray Donovan,tvSeries,"Crime, Drama",8.3,96338.0,2013.0,8.294782475180623
+tt9179430,Vikram,movie,"Action, Crime, Thriller",8.3,80191.0,2022.0,8.293735273524208
+tt7060344,Raatchasan,movie,"Crime, Mystery, Thriller",8.3,53425.0,2018.0,8.290611779208376
+tt15477488,Farzi,tvSeries,"Crime, Drama, Thriller",8.3,50243.0,2023.0,8.290020251772653
+tt28080602,90 Bidi Manig Nadi,movie,"Comedy, Crime",9.2,551.0,2023.0,8.290003401262272
+tt10280296,Sardar Udham,movie,"Crime, Drama, History",8.3,48956.0,2021.0,8.2897592757294
+tt1598754,24: Live Another Day,tvMiniSeries,"Action, Crime, Drama",8.3,47345.0,2014.0,8.289412712272549
+tt3417422,Drishyam,movie,"Crime, Drama, Mystery",8.3,45609.0,2013.0,8.289012007391264
+tt1466074,Columbo,tvSeries,"Crime, Drama, Mystery",8.3,44707.0,1971.0,8.288791592648279
+tt1836037,Longmire,tvSeries,"Action, Crime, Drama",8.3,41851.0,2012.0,8.288031411897945
+tt0874936,Life,tvSeries,"Crime, Drama, Mystery",8.3,35887.0,2007.0,8.286056624661718
+tt9054904,Why Women Kill,tvSeries,"Comedy, Crime, Drama",8.3,34787.0,2019.0,8.285618979484749
+tt5853176,The Good Fight,tvSeries,"Crime, Drama",8.3,34013.0,2017.0,8.285294198034036
+tt29039514,Jalandhara,movie,Crime,9.2,545.0,2024.0,8.283212381868708
+tt2396135,Shetland,tvSeries,"Crime, Drama, Mystery",8.3,28772.0,2013.0,8.282639342600064
+tt5906126,Above Justice,tvSeries,"Crime, Drama, Thriller",8.8,964.0,2016.0,8.282013699936583
+tt13623580,Reservation Dogs,tvSeries,"Comedy, Crime",8.3,26453.0,2021.0,8.281132178609706
+tt0086779,La piovra,tvSeries,"Action, Crime, Drama",8.4,4133.0,1984.0,8.279349443311121
+tt0376127,Anniyan,movie,"Action, Crime, Drama",8.3,23011.0,2005.0,8.278341330254511
+tt6478318,Masum,tvMiniSeries,"Crime, Drama, Mystery",8.3,21001.0,2017.0,8.276293638524104
+tt0160904,MI-5,tvSeries,"Action, Crime, Drama",8.3,19320.0,2002.0,8.27425827442783
+tt1047931,Corleone,tvMiniSeries,"Biography, Crime, Drama",8.4,3953.0,2007.0,8.274193436615015
+tt13899566,Special Ops 1.5: The Himmat Story,tvMiniSeries,"Action, Crime, Drama",8.3,18115.0,2021.0,8.272570085720174
+tt10214826,Agent Sai Srinivasa Athreya,movie,"Comedy, Crime, Mystery",8.3,17915.0,2019.0,8.272268226863787
+tt0195231,Satya,movie,"Action, Crime, Drama",8.3,17557.0,1998.0,8.271710976370816
+tt0062759,The Diamond Arm,movie,"Adventure, Comedy, Crime",8.3,17040.0,1969.0,8.270865527199401
+tt0085743,Jaane Bhi Do Yaaro,movie,"Comedy, Crime, Drama",8.3,15080.0,1983.0,8.267142757352007
+tt1685471,This Is England '86,tvMiniSeries,"Comedy, Crime, Drama",8.3,15067.0,2010.0,8.26711488679515
+tt0068519,Gentlemen of Fortune,movie,"Comedy, Crime, Drama",8.3,13531.0,1971.0,8.263451976433826
+tt0050051,Perry Mason,tvSeries,"Crime, Drama, Mystery",8.3,12621.0,1957.0,8.260869779116652
+tt2877108,Soodhu Kavvum,movie,"Comedy, Crime, Thriller",8.3,12310.0,2013.0,8.259901563769787
+tt0337898,Law of the Lawless,tvSeries,"Action, Crime, Drama",8.3,12156.0,2002.0,8.259404168749292
+tt0139876,Baasha,movie,"Action, Crime, Drama",8.3,12053.0,1995.0,8.259064551252635
+tt2126154,This Is England '88,tvMiniSeries,"Comedy, Crime, Drama",8.3,12010.0,2011.0,8.258921081997102
+tt2006421,Gran Hotel,tvSeries,"Crime, Drama, History",8.3,11606.0,2011.0,8.25752235609123
+tt11576692,Every Week Has a Friday,tvMiniSeries,"Crime, Drama, Mystery",8.4,3458.0,2020.0,8.2574395359221
+tt1493239,Terriers,tvSeries,"Comedy, Crime, Drama",8.3,11501.0,2010.0,8.257143091413473
+tt0442632,Bleak House,tvMiniSeries,"Crime, Drama",8.3,11004.0,2005.0,8.255251953744335
+tt0362192,State of Play,tvMiniSeries,"Crime, Drama, Mystery",8.3,10851.0,2003.0,8.254635711523173
+tt1634549,Millennium,tvMiniSeries,"Action, Crime, Mystery",8.3,10732.0,2010.0,8.254144550543394
+tt0098898,Prime Suspect,tvMiniSeries,"Crime, Drama, Mystery",8.3,9816.0,1991.0,8.249975459555579
+tt0054518,The Avengers,tvSeries,"Action, Comedy, Crime",8.3,9350.0,1961.0,8.24754945936335
+tt0376076,Pithamagan,movie,"Action, Crime, Drama",8.3,7907.0,2003.0,8.238281013350777
+tt15119154,Life of Crime 1984-2020,movie,"Biography, Crime, Documentary",8.4,2980.0,2021.0,8.236400974072998
+tt0071036,Porridge,tvSeries,"Comedy, Crime",8.3,7161.0,1974.0,8.23207584299494
+tt0094574,Unsolved Mysteries,tvSeries,"Crime, Documentary, Drama",8.3,6987.0,1987.0,8.23044476332079
+tt2275071,Game of Silence,tvSeries,"Crime, Drama",8.3,6517.0,2012.0,8.225620241296111
+tt20600022,The Worst of Evil,tvSeries,"Action, Crime, Drama",8.3,6137.0,2023.0,8.221201181210514
+tt10451240,Kosti,tvSeries,"Crime, Drama, Thriller",8.5,1687.0,2020.0,8.21438990494473
+tt0461097,Outrageous Fortune,tvSeries,"Comedy, Crime, Drama",8.4,2494.0,2005.0,8.207520070839971
+tt22817100,Where Is Gilgamesh?,movie,"Action, Crime, Drama",9.0,605.0,2024.0,8.206831892387086
+tt0158421,Vengeance Unlimited,tvSeries,"Crime, Drama",8.6,1213.0,1998.0,8.204825241183723
+tt0318390,Keen Eddie,tvSeries,"Comedy, Crime, Drama",8.4,2421.0,2003.0,8.202277147396433
+tt0993846,The Wolf of Wall Street,movie,"Biography, Comedy, Crime",8.2,1670509.0,2013.0,8.199713845821217
+tt0266697,Kill Bill: Vol. 1,movie,"Action, Crime, Thriller",8.2,1243891.0,2003.0,8.19961572379136
+tt0477348,No Country for Old Men,movie,"Crime, Drama, Thriller",8.2,1114063.0,2007.0,8.199570952341443
+tt0075314,Taxi Driver,movie,"Crime, Drama",8.2,971735.0,1976.0,8.19950812737015
+tt0208092,Snatch,movie,"Comedy, Crime",8.2,941295.0,2000.0,8.199492225358313
+tt0066921,A Clockwork Orange,movie,"Crime, Sci-Fi",8.2,907668.0,1971.0,8.199473418848676
+tt1392214,Prisoners,movie,"Crime, Drama, Mystery",8.2,863673.0,2013.0,8.19944660315282
+tt0119488,L.A. Confidential,movie,"Crime, Drama, Mystery",8.2,638245.0,1997.0,8.199251222787987
+tt0112641,Casino,movie,"Crime, Drama",8.2,588497.0,1995.0,8.199187953507094
+tt6468322,Money Heist,tvSeries,"Action, Crime, Drama",8.2,566513.0,2017.0,8.199156455779436
+tt6144672,De Dag,tvSeries,"Action, Crime, Drama",8.3,4717.0,2018.0,8.198714380028626
+tt8127644,The Adventures of Sherlock Holmes and Dr. Watson,tvMiniSeries,"Crime, Drama, Mystery",8.5,1585.0,1980.0,8.198591515738851
+tt1196946,The Mentalist,tvSeries,"Crime, Drama, Mystery",8.2,210663.0,2008.0,8.197733298352103
+tt0920489,Detective Montalbano,tvSeries,"Crime, Drama, Mystery",8.3,4662.0,1999.0,8.197582352168755
+tt0046912,Dial M for Murder,movie,"Crime, Drama, Mystery",8.2,196765.0,1954.0,8.197573406057243
+tt0042876,Rashomon,movie,"Crime, Drama, Mystery",8.2,188317.0,1950.0,8.197464697283973
+tt10698680,K.G.F: Chapter 2,movie,"Action, Crime, Drama",8.2,157925.0,2022.0,8.196977587840884
+tt1358522,White Collar,tvSeries,"Comedy, Crime, Drama",8.2,148288.0,2009.0,8.196781508579926
+tt7049682,Watchmen,tvMiniSeries,"Crime, Drama, Mystery",8.2,140270.0,2019.0,8.196597874851612
+tt8108198,Andhadhun,movie,"Crime, Mystery, Thriller",8.2,107890.0,2018.0,8.195579272624087
+tt1954470,Gangs of Wasseypur,movie,"Action, Comedy, Crime",8.2,107055.0,2012.0,8.195544875365957
+tt7838252,K.G.F: Chapter 1,movie,"Action, Crime, Drama",8.2,104079.0,2018.0,8.195417803245437
+tt4430212,Drishyam,movie,"Crime, Drama, Mystery",8.2,100317.0,2015.0,8.195246408238768
+tt24053860,The Day of the Jackal,tvSeries,"Action, Crime, Drama",8.2,88860.0,2024.0,8.194635293876978
+tt1645089,Inside Job,movie,"Crime, Documentary",8.2,80988.0,2010.0,8.194115508942145
+tt0242519,Hera Pheri,movie,"Action, Comedy, Crime",8.2,75614.0,2000.0,8.193698717001073
+tt9680440,Paatal Lok,tvSeries,"Action, Crime, Drama",8.2,71600.0,2020.0,8.193346731168294
+tt3487382,Forever,tvSeries,"Crime, Drama, Fantasy",8.2,64163.0,2014.0,8.192578664975047
+tt11712058,Mayor of Kingstown,tvSeries,"Crime, Drama, Thriller",8.2,60222.0,2021.0,8.192095083663009
+tt6148156,Vikram Vedha,movie,"Action, Crime, Drama",8.2,52620.0,2017.0,8.190958655704957
+tt15501640,Drishyam 2,movie,"Crime, Drama, Mystery",8.2,48218.0,2022.0,8.190137647854083
+tt5574490,Animal Kingdom,tvSeries,"Crime, Drama",8.2,45864.0,2016.0,8.18963429861506
+tt0090424,Edge of Darkness,tvMiniSeries,"Crime, Drama, Mystery",8.3,4284.0,1985.0,8.189060698882333
+tt2375605,The Act of Killing,movie,"Biography, Crime, Documentary",8.2,42183.0,2012.0,8.188735280029745
+tt14515452,Mouse: The Predator,tvMiniSeries,"Action, Crime, Mystery",8.5,1524.0,2021.0,8.188279727999127
+tt1620933,Paan Singh Tomar,movie,"Action, Biography, Crime",8.2,38821.0,2012.0,8.187766191274884
+tt5895028,13th,movie,"Crime, Documentary, History",8.2,38431.0,2016.0,8.18764287296517
+tt32252772,Dexter: Original Sin,tvSeries,"Crime, Drama, Mystery",8.2,31355.0,2024.0,8.184877040394205
+tt0229924,Raid,tvSeries,"Action, Comedy, Crime",8.5,1503.0,2000.0,8.184564560171646
+tt13138834,Time,tvSeries,"Crime, Drama",8.2,29612.0,2021.0,8.183994601955824
+tt0466460,Khosla Ka Ghosla!,movie,"Comedy, Crime, Drama",8.2,25738.0,2006.0,8.18160952244576
+tt0100234,Close-Up,movie,"Biography, Crime, Drama",8.2,24759.0,1990.0,8.18088986949486
+tt0054248,Rocco and His Brothers,movie,"Crime, Drama, Sport",8.2,24052.0,1960.0,8.180334118506948
+tt0379632,Hustle,tvSeries,"Crime, Drama, Mystery",8.2,23940.0,2004.0,8.18024309909593
+tt11398870,Caliphate,tvSeries,"Crime, Drama, Thriller",8.2,23503.0,2020.0,8.179879755703325
+tt0042804,The Young and the Damned,movie,"Crime, Drama",8.2,22788.0,1950.0,8.179255554086104
+tt1693592,Vera,tvSeries,"Crime, Drama, Mystery",8.2,22504.0,2011.0,8.178996738348303
+tt6466208,Breathe,tvSeries,"Crime, Drama, Thriller",8.2,22317.0,2018.0,8.178822765548476
+tt12197698,Leverage: Redemption,tvSeries,"Crime, Mystery, Thriller",8.2,20923.0,2021.0,8.177429079172054
+tt8392006,Apharan,tvSeries,"Crime, Thriller",8.2,20387.0,2018.0,8.17684310544524
+tt1091909,Murdoch Mysteries,tvSeries,"Crime, Drama, Mystery",8.2,18828.0,2008.0,8.174951682036069
+tt0117293,Paradise Lost: The Child Murders at Robin Hood Hills,movie,"Crime, Documentary",8.2,18779.0,1996.0,8.174887212681082
+tt7019942,Super Deluxe,movie,"Comedy, Crime, Drama",8.2,18760.0,2019.0,8.174862124981463
+tt1988386,Miss Fisher's Murder Mysteries,tvSeries,"Crime, Drama, History",8.2,18380.0,2012.0,8.174349630077925
+tt4218258,Ray Donovan: Behind the Fix,tvMiniSeries,"Crime, Drama",8.3,3746.0,2014.0,8.174157991266528
+tt7060460,Theeran Adhigaram Ondru,movie,"Action, Crime, Thriller",8.2,17899.0,2017.0,8.173670159435092
+tt6380520,Dhuruvangal Pathinaaru,movie,"Crime, Drama, Mystery",8.2,17557.0,2016.0,8.173164725809523
+tt0874608,Inspector Lewis,tvSeries,"Crime, Drama, Mystery",8.2,16676.0,2006.0,8.171768689401974
+tt0471571,Athadu,movie,"Action, Crime, Drama",8.2,15606.0,2005.0,8.169864655217298
+tt0090410,Crime Story,tvSeries,"Crime, Drama, Mystery",8.3,3590.0,1986.0,8.169057613671718
+tt0092379,Inspector Morse,tvSeries,"Crime, Drama, Mystery",8.2,15114.0,1987.0,8.168900198726497
+tt9612102,Exit,tvSeries,"Crime, Drama, Thriller",8.2,15007.0,2019.0,8.168682218984832
+tt0023042,I Am a Fugitive from a Chain Gang,movie,"Crime, Drama, Film-Noir",8.2,14999.0,1932.0,8.168665798598926
+tt3569782,Jigarthanda,movie,"Comedy, Crime, Drama",8.2,14148.0,2014.0,8.16681493406139
+tt0101985,A Brighter Summer Day,movie,"Crime, Drama, Romance",8.2,13848.0,1991.0,8.166109219183555
+tt0071042,The Rockford Files,tvSeries,"Crime, Drama, Mystery",8.2,11726.0,1974.0,8.160108698792026
+tt0050322,Do Ankhen Barah Haath,movie,"Comedy, Crime, Drama",8.4,1941.0,1957.0,8.159137615919292
+tt0081873,Hill Street Blues,tvSeries,"Crime, Drama, Mystery",8.2,11157.0,1981.0,8.158120423530345
+tt11396310,Viduthalai: Part 1,movie,"Action, Crime, Drama",8.2,10648.0,2023.0,8.156166017697116
+tt4343334,For My Son,tvSeries,"Crime, Drama",8.2,10608.0,2015.0,8.156004670564316
+tt13024974,D.P.,tvSeries,"Action, Crime, Drama",8.2,10534.0,2021.0,8.155703025574208
+tt5754602,4 Blocks,tvSeries,"Crime, Drama",8.2,10104.0,2017.0,8.153864976842849
+tt0337792,Wire in the Blood,tvSeries,"Crime, Drama, Mystery",8.2,10052.0,2002.0,8.1536323106413
+tt27208330,New Bandits,tvSeries,"Action, Crime, Drama",8.3,3128.0,2023.0,8.151196561860774
+tt0078680,Rumpole of the Bailey,tvSeries,"Crime, Drama, Mystery",8.4,1846.0,1978.0,8.148267342053417
+tt5761496,Get Shorty,tvSeries,"Comedy, Crime",8.2,8799.0,2017.0,8.147218233056131
+tt11953248,Garuda Gamana Vrishabha Vahana,movie,"Crime, Drama, Thriller",8.2,8700.0,2021.0,8.146634976562387
+tt0065670,Twelve Chairs,movie,"Adventure, Comedy, Crime",8.2,7654.0,1971.0,8.13958078541924
+tt6794424,LA 92,movie,"Crime, Documentary, History",8.2,7116.0,2017.0,8.135173254918296
+tt2303077,Brazil Avenue,tvSeries,"Comedy, Crime, Drama",8.3,2798.0,2012.0,8.135133384043979
+tt13174524,High,tvSeries,"Crime, Drama, Thriller",8.2,7049.0,2020.0,8.1345789210485
+tt0969670,Jefferson Anderson,tvSeries,"Animation, Comedy, Crime",8.4,1732.0,2007.0,8.133853719247837
+tt11408218,Kouklotheatro,tvMiniSeries,"Crime, Horror, Mystery",8.7,814.0,2019.0,8.133739753049804
+tt29719218,Vale o Escrito: A Guerra do Jogo do Bicho,tvMiniSeries,"Biography, Crime, Documentary",8.7,810.0,2023.0,8.131620912088344
+tt12979628,Family Secrets,tvSeries,"Crime, Drama",8.2,6520.0,2021.0,8.129473780059365
+tt0108429,Sun of the Sleepless,movie,"Crime, Drama",8.4,1694.0,1992.0,8.128675245787221
+tt0072496,Ellery Queen,tvSeries,"Crime, Drama, Family",8.4,1682.0,1975.0,8.126997812994562
+tt0149539,Vale Tudo,tvSeries,"Crime, Drama, Mystery",9.0,525.0,1988.0,8.125896371202092
+tt21339770,A Brutal Pact: The Murder of Daniella Perez,tvMiniSeries,"Crime, Documentary",8.4,1672.0,2022.0,8.125584026422807
+tt0096716,Traffik,tvMiniSeries,"Crime, Drama, Mystery",8.4,1627.0,1989.0,8.119036455473193
+tt11469744,Mathu Vadalara,movie,"Comedy, Crime, Thriller",8.2,5536.0,2019.0,8.117498318381784
+tt3810932,Drushyam,movie,"Crime, Drama, Mystery",8.2,5355.0,2014.0,8.114838395978348
+tt14169770,The Devil Judge,tvSeries,"Crime, Drama, Mystery",8.2,5237.0,2021.0,8.11300996270423
+tt3480144,Série Noire,tvSeries,"Comedy, Crime, Drama",8.5,1165.0,2014.0,8.109692945942726
+tt21987088,The Children of Evil,tvSeries,"Crime, Mystery, Thriller",8.2,4830.0,2023.0,8.106052810969237
+tt0375411,Playmakers,tvSeries,"Crime, Drama, Sport",8.4,1533.0,2003.0,8.104298412400917
+tt0423652,The First 48,tvSeries,"Crime, Mystery, Reality-TV",8.2,4504.0,2004.0,8.099622665341684
+tt0264464,Catch Me If You Can,movie,"Biography, Crime, Drama",8.1,1155321.0,2002.0,8.099608683738921
+tt2278388,The Grand Budapest Hotel,movie,"Adventure, Comedy, Crime",8.1,921596.0,2014.0,8.099509470312599
+tt0118715,The Big Lebowski,movie,"Comedy, Crime",8.1,886709.0,1998.0,8.099490176370535
+tt0116282,Fargo,movie,"Crime, Drama, Thriller",8.1,752107.0,1996.0,8.099398966400692
+tt0120735,"Lock, Stock and Two Smoking Barrels",movie,"Comedy, Crime",8.1,632712.0,1998.0,8.099285595635537
+tt5027774,"Three Billboards Outside Ebbing, Missouri",movie,"Comedy, Crime, Drama",8.1,579429.0,2017.0,8.099219929953737
+tt1895587,Spotlight,movie,"Biography, Crime, Drama",8.1,516618.0,2015.0,8.099125135680291
+tt0353969,Memories of Murder,movie,"Crime, Drama, Mystery",8.1,237680.0,2003.0,8.098099524479057
+tt0452046,Criminal Minds,tvSeries,"Crime, Drama, Mystery",8.1,228992.0,2005.0,8.098027501537713
+tt0113247,La haine,movie,"Crime, Drama",8.1,209717.0,1995.0,8.097846433663953
+tt0107207,In the Name of the Father,movie,"Biography, Crime, Drama",8.1,194748.0,1993.0,8.097681123011084
+tt11691774,Only Murders in the Building,tvSeries,"Comedy, Crime, Drama",8.1,184315.0,2021.0,8.097550049059034
+tt1219024,Castle,tvSeries,"Comedy, Crime, Drama",8.1,180233.0,2009.0,8.097494641064548
+tt3205802,How to Get Away with Murder,tvSeries,"Crime, Drama, Mystery",8.1,172811.0,2014.0,8.097387200294808
+tt0047296,On the Waterfront,movie,"Crime, Drama, Thriller",8.1,171285.0,1954.0,8.097363957672798
+tt0203259,Law & Order: Special Victims Unit,tvSeries,"Crime, Drama, Mystery",8.1,135079.0,1999.0,8.096658756262265
+tt2294189,The Fall,tvSeries,"Crime, Drama, Thriller",8.1,125547.0,2013.0,8.096405598739505
+tt0405508,Rang De Basanti,movie,"Comedy, Crime, Drama",8.1,124096.0,2006.0,8.096363658518133
+tt4301160,Black Bird,tvMiniSeries,"Biography, Crime, Drama",8.1,122985.0,2022.0,8.096330878217376
+tt0312172,Monk,tvSeries,"Comedy, Crime, Drama",8.1,97971.0,2002.0,8.095396546421892
+tt1280558,A Wednesday,movie,"Action, Crime, Drama",8.1,83889.0,2008.0,8.094626167645368
+tt0116231,The Bandit,movie,"Crime, Drama",8.1,73769.0,1996.0,8.09389153772927
+tt0046911,Diabolique,movie,"Crime, Drama, Horror",8.1,71276.0,1955.0,8.09367865737083
+tt15425948,Tschugger,tvSeries,"Comedy, Crime",8.4,1470.0,2021.0,8.093523860626052
+tt5618256,Manhunt,tvSeries,"Biography, Crime, Drama",8.1,65425.0,2017.0,8.093115564749747
+tt1674553,Penoza,tvSeries,"Crime, Drama, Thriller",8.2,4212.0,2010.0,8.093067044290414
+tt11016042,Ripley,tvMiniSeries,"Crime, Drama, Thriller",8.1,59778.0,2024.0,8.092468023968925
+tt3281796,Power,tvSeries,"Crime, Drama",8.1,55341.0,2014.0,8.091866956025584
+tt0070510,Paper Moon,movie,"Comedy, Crime, Drama",8.1,54679.0,1973.0,8.09176895327501
+tt2887954,Tokyo Vice,tvSeries,"Crime, Drama, Thriller",8.1,52339.0,2022.0,8.09140276731097
+tt2805096,Chicago P.D.,tvSeries,"Action, Crime, Drama",8.1,48650.0,2014.0,8.090754314237103
+tt2452242,Happy!,tvSeries,"Action, Comedy, Crime",8.1,44471.0,2017.0,8.08989051542639
+tt1356380,The No. 1 Ladies' Detective Agency,tvSeries,"Comedy, Crime, Drama",8.2,4051.0,2008.0,8.089072564970403
+tt2187153,Thuppakki,movie,"Action, Crime, Thriller",8.1,39681.0,2012.0,8.088678086004567
+tt4934950,Guilty,movie,"Crime, Drama, Mystery",8.1,39502.0,2015.0,8.088627115893022
+tt11950864,Astrid et Raphaëlle,tvSeries,"Crime, Drama, Thriller",8.2,4026.0,2019.0,8.088425380401969
+tt10324144,Article 15,movie,"Crime, Drama, Mystery",8.1,38201.0,2019.0,8.088242401326637
+tt0048021,Rififi,movie,"Crime, Drama, Thriller",8.1,37886.0,1955.0,8.088145307511404
+tt0042041,White Heat,movie,"Action, Crime, Drama",8.1,37039.0,1949.0,8.087876099389309
+tt7768848,Wild Wild Country,tvMiniSeries,"Crime, Documentary",8.1,36772.0,2018.0,8.087788683941088
+tt6877772,American Vandal,tvSeries,"Comedy, Crime, Drama",8.1,34001.0,2017.0,8.08680101444899
+tt0097223,Time of the Gypsies,movie,"Comedy, Crime, Drama",8.1,33521.0,1988.0,8.086613462256437
+tt4998350,The Deuce,tvSeries,"Crime, Drama, Mystery",8.1,33394.0,2017.0,8.086562944017546
+tt0065234,Z,movie,"Crime, Drama, Thriller",8.1,32551.0,1969.0,8.086217700549296
+tt0914387,Damages,tvSeries,"Crime, Drama, Mystery",8.1,32232.0,2007.0,8.086082384507169
+tt3877200,The Missing,tvSeries,"Crime, Drama, Mystery",8.1,31441.0,2014.0,8.085735102682095
+tt8332438,ZeroZeroZero,tvMiniSeries,"Crime, Drama, Thriller",8.1,31009.0,2019.0,8.085538018262199
+tt12920838,The Frog,tvSeries,"Crime, Drama, Mystery",8.1,30705.0,2020.0,8.085396032651545
+tt7222902,Dev,tvSeries,"Crime, Drama, Mystery",8.5,1079.0,2017.0,8.084605945457728
+tt8194716,November 13: Attack on Paris,tvMiniSeries,"Crime, Documentary",8.2,3877.0,2018.0,8.084405888545078
+tt0200087,Sarfarosh,movie,"Action, Crime, Drama",8.1,27845.0,1999.0,8.08390986176425
+tt6356086,Tunnel,tvSeries,"Crime, Drama, Fantasy",8.2,3846.0,2017.0,8.08353294884834
+tt2379308,Psycho-Pass,tvSeries,"Action, Animation, Crime",8.1,23982.0,2012.0,8.081345767708529
+tt0421384,The Valley of the Wolves,tvSeries,"Action, Crime, Drama",8.1,23606.0,2003.0,8.081051864865804
+tt2183641,Ripper Street,tvSeries,"Crime, Drama, Mystery",8.1,23199.0,2012.0,8.080723111732562
+tt8080122,Godfather of Harlem,tvSeries,"Crime, Drama",8.1,23027.0,2019.0,8.080580724685323
+tt6051216,Insider,tvSeries,"Action, Crime, Drama",8.1,22049.0,2016.0,8.079729368613163
+tt9095260,Criminal Justice,tvSeries,"Crime, Drama, Mystery",8.1,20594.0,2019.0,8.078315002878359
+tt6263222,Strong Girl Bong-soon,tvSeries,"Comedy, Crime, Drama",8.1,20272.0,2017.0,8.07797490404863
+tt0811026,Prime Suspect 7: The Final Act,tvMiniSeries,"Crime, Drama, Mystery",8.2,3656.0,2006.0,8.077880652623866
+tt8144834,Section 375,movie,"Crime, Drama, Mystery",8.1,19092.0,2019.0,8.076631840991288
+tt1833285,Boss,tvSeries,"Crime, Drama",8.1,18624.0,2011.0,8.076052679924928
+tt26315487,Bloodhounds,tvSeries,"Action, Crime, Drama",8.1,17567.0,2023.0,8.074632713734008
+tt14466018,Blue Lights,tvSeries,"Crime, Drama, Thriller",8.1,16394.0,2023.0,8.072845898938477
+tt27880828,Raktaksha,movie,"Action, Crime, Mystery",8.4,1353.0,2024.0,8.071279624703747
+tt21148238,Kaiser,tvSeries,"Crime, Mystery, Thriller",8.2,3442.0,2022.0,8.070819442048753
+tt33054648,Jack and Joker,tvMiniSeries,"Action, Crime, Drama",8.5,1035.0,2024.0,8.070481263541298
+tt11822998,The Trials of Gabriel Fernandez,tvMiniSeries,"Crime, Documentary",8.1,14554.0,2020.0,8.069472946399948
+tt0805661,The Black Donnellys,tvSeries,"Crime, Drama",8.1,14510.0,2007.0,8.06938199979839
+tt13304700,Snowdrop,tvSeries,"Crime, Drama, Romance",8.1,14491.0,2021.0,8.069342559662537
+tt0365651,Prime Suspect: The Last Witness,tvMiniSeries,"Crime, Drama, Thriller",8.2,3367.0,2003.0,8.06814747794331
+tt10706602,Collective,movie,"Crime, Documentary",8.1,13872.0,2019.0,8.067999628831819
+tt0086333,The Adventures of Sherlock Holmes and Dr. Watson: The Treasures of Agra,tvMiniSeries,"Crime, Mystery, Romance",8.2,3361.0,1983.0,8.067928937851502
+tt22297578,Cat,tvSeries,"Crime, Drama, Thriller",8.1,13264.0,2022.0,8.06656087813521
+tt1610860,"Rainbow: The Seven from Compound Two, Cell Six",tvSeries,"Animation, Crime, Drama",8.2,3315.0,2010.0,8.06622908646403
+tt0063845,The Golden Calf,movie,"Comedy, Crime",8.2,3299.0,1968.0,8.065627530922551
+tt23037654,Khakee: The Bihar Chapter,tvSeries,"Action, Crime, Drama",8.1,12820.0,2022.0,8.06542570189024
+tt16447750,Maestro,tvSeries,"Crime, Drama, Mystery",8.1,12395.0,2022.0,8.064264481983754
+tt27846061,Ludwig,tvSeries,"Comedy, Crime, Drama",8.1,12011.0,2024.0,8.063146108803785
+tt10078462,Civil Servant,tvSeries,"Action, Crime, Drama",8.2,3229.0,2019.0,8.06293083572891
+tt1008108,Ashes to Ashes,tvSeries,"Crime, Drama, Fantasy",8.1,11635.0,2008.0,8.061981062302205
+tt30825000,Nimma Vasthugalige Neeve Javaabdaararu,movie,"Crime, Drama, Thriller",8.2,3162.0,2025.0,8.060246347565753
+tt11761194,Power Book IV: Force,tvSeries,"Crime, Drama",8.1,10717.0,2022.0,8.058801271412394
+tt27004349,Great Kills,tvSeries,"Comedy, Crime, Thriller",8.2,3112.0,2023.0,8.058173466337124
+tt20873118,Suzhal - The Vortex,tvSeries,"Crime, Drama, Thriller",8.1,10480.0,2022.0,8.057892052800302
+tt7889220,Dirty Money,tvSeries,"Crime, Documentary",8.1,10479.0,2018.0,8.057888131404585
+tt0364801,City of Men,tvSeries,"Comedy, Crime, Drama",8.2,3043.0,2002.0,8.055209798613701
+tt0118363,Jonathan Creek,tvSeries,"Comedy, Crime, Drama",8.1,9527.0,1997.0,8.053791411712899
+tt7822438,Thadam,movie,"Action, Crime, Drama",8.1,9359.0,2019.0,8.052984274799588
+tt2488050,El Reemplazante,tvMiniSeries,"Crime, Drama",8.5,983.0,2012.0,8.052498192449631
+tt1430509,Inspector George Gently,tvSeries,"Crime, Drama, Mystery",8.1,9138.0,2007.0,8.051878552199897
+tt33144102,Reeta Sanyal,tvSeries,"Action, Crime, Drama",8.1,8440.0,2024.0,8.04801733015547
+tt5595912,Udaari,tvSeries,"Crime, Drama",8.6,788.0,2016.0,8.044415238798893
+tt17514144,3E,movie,"Crime, Drama, Thriller",8.4,1231.0,2022.0,8.044364265115734
+tt11615234,Outcry,tvMiniSeries,"Crime, Documentary",8.2,2772.0,2020.0,8.042264188394075
+tt31272285,5D,movie,Crime,8.8,577.0,2024.0,8.042228175864164
+tt13759970,Taxi Driver,tvSeries,"Action, Crime, Drama",8.1,7298.0,2021.0,8.040161804290385
+tt0314994,City Confidential,tvSeries,"Crime, Documentary",8.6,779.0,1998.0,8.039598029886744
+tt20205276,The Lion Skin,tvSeries,"Crime, Drama, Romance",8.1,6445.0,2022.0,8.032548143648933
+tt2075108,22 Shey Shraban,movie,"Action, Crime, Drama",8.1,6371.0,2011.0,8.0317952873337
+tt7976532,Live,tvSeries,"Comedy, Crime, Drama",8.3,1608.0,2018.0,8.03004968131893
+tt0112086,Murder One,tvSeries,"Crime, Drama, Mystery",8.2,2553.0,1995.0,8.02997964261111
+tt10952900,Juzni vetar,tvSeries,"Crime, Drama, Thriller",8.1,6117.0,2019.0,8.029078223811549
+tt23777466,Nelugtie Viesi,tvSeries,"Comedy, Crime, Drama",8.9,497.0,2023.0,8.027781421987356
+tt9310280,Mulshi Pattern,movie,"Crime, Drama, Thriller",8.2,2471.0,2018.0,8.024872804037523
+tt6835252,Three Girls,tvMiniSeries,"Biography, Crime, Drama",8.1,5658.0,2017.0,8.02357660216705
+tt2146960,Vazhakku Enn 18/9,movie,"Crime, Drama, Thriller",8.2,2422.0,2012.0,8.021672045886774
+tt10883660,Antidisturbios,tvSeries,"Action, Adventure, Crime",8.1,5513.0,2020.0,8.021656748964388
+tt0446233,"Minuit, le soir",tvSeries,"Action, Comedy, Crime",8.6,744.0,2005.0,8.020042627141018
+tt3438658,Moudawala,tvSeries,"Crime, Drama",8.5,888.0,2019.0,8.015433962530462
+tt5820976,El marginal,tvSeries,"Crime, Drama, Mystery",8.1,4962.0,2016.0,8.013388767481793
+tt0056757,The Fugitive,tvSeries,"Adventure, Crime, Drama",8.1,4956.0,1963.0,8.013289118892127
+tt8810204,Mocro maffia,tvSeries,Crime,8.1,4909.0,2018.0,8.012500533092577
+tt4116046,24 Hours in Police Custody,tvSeries,"Crime, Documentary",8.4,1105.0,2014.0,8.011512283740792
+tt5606154,46 Yok Olan,tvSeries,"Action, Crime, Drama",8.1,4830.0,2016.0,8.011142219497435
+tt0805668,Traveler,tvSeries,"Action, Crime, Mystery",8.1,4817.0,2007.0,8.010914648349575
+tt7449708,Active Shooter: America Under Fire,tvSeries,"Crime, Documentary",8.5,873.0,2017.0,8.009013034472122
+tt14055432,The Crime of the Century,tvMiniSeries,"Crime, Documentary",8.1,4651.0,2021.0,8.007902801430232
+tt21996840,Ghost Files,tvSeries,"Adventure, Crime, Horror",9.0,430.0,2022.0,8.00537410017771
+tt0220261,Unit One,tvSeries,"Crime, Drama",8.1,4409.0,2000.0,8.003128267999665
+tt5857914,Grand Hotel,tvSeries,"Crime, Drama, Mystery",8.2,2161.0,2015.0,8.00243915496795
+tt0103516,Prime Suspect 2,tvMiniSeries,"Crime, Drama, Mystery",8.1,4307.0,1992.0,8.000964247705308
+tt1010048,Slumdog Millionaire,movie,"Crime, Drama, Romance",8.0,893334.0,2008.0,7.999522940259181
+tt0378194,Kill Bill: Vol. 2,movie,"Action, Crime, Thriller",8.0,834095.0,2004.0,7.9994890690942
+tt0401792,Sin City,movie,"Crime, Thriller",8.0,805706.0,2005.0,7.9994710722612306
+tt19638504,120db Dhwani,movie,"Crime, Drama, Thriller",8.4,1063.0,2022.0,7.99917001136342
+tt0106104,Prime Suspect 3,tvMiniSeries,"Crime, Drama, Mystery",8.1,4224.0,1993.0,7.999130661392469
+tt13443470,Wednesday,tvSeries,"Comedy, Crime, Fantasy",8.0,408373.0,2022.0,7.998956769795372
+tt4052886,Lucifer,tvSeries,"Crime, Drama, Fantasy",8.0,373256.0,2016.0,7.998858687750217
+tt2372162,Orange Is the New Black,tvSeries,"Comedy, Crime, Drama",8.0,327803.0,2013.0,7.998700558903568
+tt0072890,Dog Day Afternoon,movie,"Biography, Crime, Drama",8.0,280859.0,1975.0,7.998483564748691
+tt9288030,Reacher,tvSeries,"Action, Crime, Drama",8.0,251080.0,2022.0,7.998303895356559
+tt6257970,The End of the F***ing World,tvSeries,"Adventure, Comedy, Crime",8.0,233612.0,2017.0,7.998177212031515
+tt0064115,Butch Cassidy and the Sundance Kid,movie,"Biography, Crime, Drama",8.0,231616.0,1969.0,7.998161521315461
+tt1814642,Bad Hero,movie,"Comedy, Crime, Drama",8.2,2109.0,2010.0,7.998100825600693
+tt4857264,The Invisible Guest,movie,"Crime, Drama, Mystery",8.0,201421.0,2016.0,7.99788626911455
+tt0061512,Cool Hand Luke,movie,"Crime, Drama",8.0,193908.0,1967.0,7.9978044814774
+tt0276919,Dogville,movie,"Crime, Drama",8.0,163358.0,2003.0,7.997394541857035
+tt7493974,Bodyguard,tvSeries,"Crime, Drama, Thriller",8.0,159695.0,2018.0,7.997334875995739
+tt13210838,The Gentlemen,tvSeries,"Action, Comedy, Crime",8.0,158826.0,2024.0,7.997320317786229
+tt0310793,Bowling for Columbine,movie,"Crime, Documentary, Drama",8.0,150545.0,2002.0,7.99717317017468
+tt0070511,Papillon,movie,"Biography, Crime, Drama",8.0,141812.0,1973.0,7.996999407021999
+tt0338564,Infernal Affairs,movie,"Crime, Drama, Mystery",8.0,134443.0,2002.0,7.9968352567521075
+tt1235099,Lie to Me,tvSeries,"Crime, Drama, Mystery",8.0,131253.0,2009.0,7.996758491658726
+tt0053198,The 400 Blows,movie,"Crime, Drama",8.0,131092.0,1959.0,7.996754518465961
+tt2649356,Sharp Objects,tvMiniSeries,"Crime, Drama, Mystery",8.0,128160.0,2018.0,7.996680419213843
+tt0233234,Land of Fear,movie,"Crime, Drama, Thriller",8.2,2091.0,1999.0,7.996554363839337
+tt14164730,Dexter: New Blood,tvMiniSeries,"Crime, Drama, Mystery",8.0,118307.0,2021.0,7.996404557419686
+tt0861739,Elite Squad,movie,"Action, Crime, Drama",8.0,114464.0,2007.0,7.996284117003761
+tt1399664,The Night Manager,tvSeries,"Crime, Drama, Mystery",8.0,109980.0,2016.0,7.996132972496326
+tt0156887,Perfect Blue,movie,"Animation, Crime, Drama",8.0,106269.0,1997.0,7.995998261067724
+tt0048424,The Night of the Hunter,movie,"Crime, Drama, Film-Noir",8.0,102129.0,1955.0,7.995836453051358
+tt16358384,Tulsa King,tvSeries,"Crime, Drama",8.0,96414.0,2022.0,7.99559031741047
+tt7587890,The Rookie,tvSeries,"Action, Crime, Drama",8.0,93945.0,2018.0,7.995474743694774
+tt1555149,Elite Squad 2: The Enemy Within,movie,"Crime, Drama, Thriller",8.0,89215.0,2010.0,7.99523551819548
+tt0810788,Burn Notice,tvSeries,"Action, Crime, Drama",8.0,80891.0,2007.0,7.994746799199291
+tt0272980,The Job,tvSeries,"Comedy, Crime",8.2,2068.0,2001.0,7.994543513116647
+tt11318602,Don't F**k with Cats: Hunting an Internet Killer,tvMiniSeries,"Crime, Documentary, Mystery",8.0,65704.0,2019.0,7.993537327820482
+tt0062229,Le Samouraï,movie,"Crime, Drama, Thriller",8.0,62041.0,1967.0,7.993157347592655
+tt2377938,Special 26,movie,"Crime, Drama, History",8.0,60588.0,2013.0,7.992993948017527
+tt3390572,Haider,movie,"Action, Crime, Drama",8.0,59199.0,2014.0,7.992830279441327
+tt0118843,"Black Cat, White Cat",movie,"Comedy, Crime, Romance",8.0,57525.0,1998.0,7.992622572944456
+tt5571734,Pink,movie,"Crime, Drama, Thriller",8.0,49762.0,2016.0,7.991477634493961
+tt7661390,Gangs of London,tvSeries,"Action, Crime, Drama",8.0,46198.0,2020.0,7.99082383182346
+tt0039689,Out of the Past,movie,"Crime, Drama, Film-Noir",8.0,42433.0,1947.0,7.990014587159712
+tt5011816,Sneaky Pete,tvSeries,"Comedy, Crime, Drama",8.0,42289.0,2015.0,7.989980792399701
+tt0041546,Kind Hearts and Coronets,movie,"Comedy, Crime",8.0,40677.0,1949.0,7.989586250611258
+tt3711164,Sathuranga Vettai,movie,"Crime, Thriller",8.1,3826.0,2014.0,7.989303000005493
+tt1739744,Powder,tvSeries,"Crime, Thriller",8.5,829.0,2010.0,7.98915694395445
+tt6873658,The Mechanism,tvSeries,"Crime, Drama, Thriller",8.0,36926.0,2018.0,7.988535773968601
+tt1064899,Queen of the South,tvSeries,"Action, Crime, Drama",8.0,36048.0,2016.0,7.988258538436733
+tt3461252,The Blue Elephant,movie,"Crime, Drama, Horror",8.0,30445.0,2014.0,7.986115905257375
+tt24485052,Sirf Ek Bandaa Kaafi Hai,movie,"Crime, Drama, Thriller",8.0,30270.0,2023.0,7.98603631809173
+tt27540542,Lucky Baskhar,movie,"Crime, Drama, Thriller",8.0,30026.0,2024.0,7.985923815586014
+tt0096708,Tales from the Crypt,tvSeries,"Comedy, Crime, Fantasy",8.0,28270.0,1989.0,7.985057406674697
+tt6792200,The Keepers,tvMiniSeries,"Crime, Documentary, Mystery",8.0,26205.0,2017.0,7.983891428167413
+tt8201186,The Capture,tvSeries,"Crime, Mystery, Thriller",8.0,25920.0,2019.0,7.983716060774761
+tt3561180,Trapped,tvSeries,"Crime, Drama, Mystery",8.0,25915.0,2015.0,7.983712950065807
+tt2070649,Silenced,movie,"Crime, Drama, Thriller",8.0,24407.0,2011.0,7.9827172121552925
+tt0370194,Reno 911!,tvSeries,"Comedy, Crime",8.0,24148.0,2003.0,7.98253381222692
+tt0095468,A Short Film About Killing,movie,"Crime, Drama",8.0,23355.0,1988.0,7.981947266664794
+tt0488414,Omkara,movie,"Action, Crime, Drama",8.0,22923.0,2006.0,7.981610851308017
+tt0377260,Shameless,tvSeries,"Comedy, Crime, Drama",8.0,19590.0,2004.0,7.978522986297669
+tt3268458,The Internet's Own Boy: The Story of Aaron Swartz,movie,"Biography, Crime, Documentary",8.0,18298.0,2014.0,7.97702768524128
+tt3340712,19-2,tvSeries,"Crime, Drama",8.1,3401.0,2014.0,7.9764488401700655
+tt3560686,The Fool,movie,"Crime, Drama, Thriller",8.0,17363.0,2014.0,7.975808804620499
+tt13444408,Kin,tvSeries,"Crime, Drama",8.0,16991.0,2021.0,7.975287116233185
+tt0296574,Company,movie,"Action, Crime, Drama",8.0,16667.0,2002.0,7.974814058550304
+tt1261047,Gulaal,movie,"Crime, Drama, Thriller",8.0,16424.0,2009.0,7.974447207038449
+tt0816258,Pokiri,movie,"Action, Crime, Thriller",8.0,16259.0,2006.0,7.974191957562806
+tt1336685,Capitu,tvMiniSeries,"Crime, Drama, Mystery",8.9,453.0,2008.0,7.973880273907923
+tt0395404,Nighty Night,tvSeries,"Comedy, Crime, Thriller",8.1,3304.0,2004.0,7.973085252602424
+tt25434834,Viduthalai Part 2,movie,"Action, Crime, Drama",8.0,15546.0,2024.0,7.973027697249127
+tt0220832,Vaastav: The Reality,movie,"Action, Crime, Drama",8.0,15330.0,1999.0,7.972653971070783
+tt0108717,Mystery!: Cadfael,tvSeries,"Crime, Drama, Mystery",8.1,3279.0,1994.0,7.972188455348344
+tt2792284,24: India,tvSeries,"Action, Adventure, Crime",8.1,3274.0,2013.0,7.972007572890586
+tt2980696,Quarry,tvSeries,"Crime, Drama, Thriller",8.0,14829.0,2016.0,7.971745940815379
+tt0054460,The Bad Sleep Well,movie,"Crime, Drama, Thriller",8.0,14736.0,1960.0,7.971570707237242
+tt10919240,Malik,movie,"Action, Biography, Crime",8.0,14545.0,2021.0,7.971203914821835
+tt0222012,Hey Ram,movie,"Crime, Drama, History",8.0,14509.0,2000.0,7.971133718514521
+tt20285780,The Artful Dodger,tvSeries,"Crime, Drama, History",8.0,14331.0,2023.0,7.970781545923402
+tt1096980,Pitbull,tvSeries,Crime,8.3,1271.0,2005.0,7.970590035962381
+tt0065889,Investigation of a Citizen Above Suspicion,movie,"Crime, Drama",8.0,14195.0,1970.0,7.970506624811294
+tt0115355,Silent Witness,tvSeries,"Crime, Drama, Mystery",8.0,13862.0,1996.0,7.969811115007609
+tt1000779,10th Commandment,tvSeries,"Crime, Drama, Romance",8.2,1817.0,2004.0,7.969702675829692
+tt11388348,C'est comme ça que je t'aime,tvSeries,"Comedy, Crime, Drama",8.3,1266.0,2020.0,7.969510003293404
+tt9778022,Abhay,tvSeries,"Crime, Thriller",8.0,13683.0,2019.0,7.969423522810389
+tt0115270,Millennium,tvSeries,"Crime, Drama, Horror",8.0,12739.0,1996.0,7.967202858518421
+tt0379370,Maqbool,movie,"Crime, Drama, Thriller",8.0,12654.0,2003.0,7.966986970883795
+tt4855114,Good Behavior,tvSeries,"Crime, Drama, Mystery",8.0,12298.0,2016.0,7.966051027715412
+tt0072860,Deewaar,movie,"Action, Crime, Drama",8.0,12292.0,1975.0,7.966034798424224
+tt3185772,The Wolf and the Goat,movie,"Crime, Thriller",8.1,3112.0,2013.0,7.965856646402385
+tt0165546,The Wounds,movie,"Comedy, Crime, Drama",8.0,12109.0,1998.0,7.965532240865333
+tt15392100,The Billion Dollar Code,tvMiniSeries,"Biography, Crime, Drama",8.0,12101.0,2021.0,7.96550993163612
+tt0197182,Third Watch,tvSeries,"Action, Crime, Drama",8.0,11910.0,1999.0,7.964968588628683
+tt0063633,The Cremator,movie,"Comedy, Crime, Drama",8.0,11778.0,1969.0,7.964584427600103
+tt1843678,Scott & Bailey,tvSeries,"Crime, Drama, Mystery",8.0,11653.0,2011.0,7.964212790045537
+tt10515086,The Blue Elephant 2,movie,"Crime, Drama, Horror",8.0,11503.0,2019.0,7.963756398148482
+tt27542289,Por Thozhil,movie,"Action, Crime, Thriller",8.0,11387.0,2023.0,7.963395393699334
+tt6905756,Pagan Peak,tvSeries,"Crime, Drama, Mystery",8.0,11365.0,2018.0,7.963326114506404
+tt2028530,Paradise Lost 3: Purgatory,movie,"Crime, Documentary",8.0,11193.0,2011.0,7.962775301695987
+tt0456788,Karanlikta Kosanlar,tvMiniSeries,"Crime, Drama, Mystery",8.5,772.0,2001.0,7.960914408363183
+tt0053546,Thriller,tvSeries,"Crime, Drama, Horror",8.2,1738.0,1960.0,7.960592265910085
+tt11604676,Nayattu,movie,"Crime, Thriller",8.0,9487.0,2021.0,7.95625926072465
+tt0362357,New Tricks,tvSeries,"Comedy, Crime, Drama",8.0,9388.0,2003.0,7.955810381986362
+tt0071059,The Sweeney,tvSeries,"Action, Crime, Drama",8.1,2815.0,1975.0,7.952896146721678
+tt5906392,Thondi Muthalum Driksakshiyum,movie,"Crime, Drama, Thriller",8.0,8560.0,2017.0,7.951661498471759
+tt3124456,Memories,movie,"Crime, Mystery, Thriller",8.0,8284.0,2013.0,7.950099819152808
+tt1048097,Liquidation,tvSeries,"Action, Crime, Mystery",8.1,2713.0,2007.0,7.9478474949604445
+tt0497298,Jekyll,tvMiniSeries,"Crime, Horror, Sci-Fi",8.0,7893.0,2007.0,7.947706422353097
+tt9106768,Michael Jackson: Smooth Criminal (II),movie,"Action, Crime, Fantasy",8.5,747.0,1988.0,7.947517649127675
+tt0108756,Due South,tvSeries,"Adventure, Comedy, Crime",8.0,7832.0,1994.0,7.947312168461555
+tt3823996,Professor T.,tvSeries,"Comedy, Crime, Drama",8.1,2698.0,2015.0,7.947075669605153
+tt0058846,Secret Agent,tvSeries,"Action, Adventure, Crime",8.2,1626.0,1964.0,7.946367509295724
+tt7510448,Who Killed Markiplier?,tvMiniSeries,"Comedy, Crime, Drama",8.8,483.0,2017.0,7.94623012806259
+tt3320542,Ugramm,movie,"Action, Crime, Drama",8.0,7423.0,2014.0,7.944506997529607
+tt0320882,Matrioshki,tvSeries,"Crime, Drama",8.1,2633.0,2005.0,7.943638573659211
+tt3922704,No Offence,tvSeries,"Crime, Drama, Mystery",8.0,7195.0,2015.0,7.94280959954688
+tt0375878,Kaakha Kaakha,movie,"Action, Crime, Drama",8.0,7157.0,2003.0,7.942516552726866
+tt0465353,Sleeper Cell,tvSeries,"Crime, Drama, Thriller",8.0,6865.0,2005.0,7.9401604091833855
+tt8561086,Joseph,movie,"Crime, Drama, Mystery",8.0,6816.0,2018.0,7.939745972441335
+tt23472724,Sangharshana,movie,"Crime, Romance, Thriller",8.2,1577.0,2024.0,7.939598450447952
+tt3908868,Decker,tvSeries,"Action, Comedy, Crime",8.2,1574.0,2014.0,7.939172261332483
+tt31227639,Operation Sabre,tvMiniSeries,"Crime, Drama, Thriller",8.1,2507.0,2024.0,7.936515818880131
+tt14779088,The Walten Files,tvSeries,"Animation, Crime, Drama",8.4,883.0,2020.0,7.935991904573067
+tt13210138,420,tvMiniSeries,"Comedy, Crime, Drama",8.9,425.0,2007.0,7.935968940091288
+tt0060161,Watch Out for the Automobile,movie,"Comedy, Crime, Romance",8.0,6378.0,1966.0,7.935769587919609
+tt12258710,Tunna blå linjen,tvSeries,"Crime, Drama",8.0,6119.0,2021.0,7.9331612974321795
+tt14188930,"Nna, Thaan Case Kodu",movie,"Comedy, Crime, Drama",8.0,6079.0,2022.0,7.9327394690789585
+tt35064818,Black Warrant,tvSeries,"Crime, Drama",8.0,6018.0,2025.0,7.932085830017913
+tt4588194,Born from the Flank: Wilada Min Alkhasira,tvSeries,"Action, Crime, Drama",8.5,717.0,2011.0,7.93053560965414
+tt21908550,Vadhandhi: The Fable of Velonie,tvSeries,"Crime, Drama, Mystery",8.0,5826.0,2022.0,7.929942934268273
+tt3044834,A Crime to Remember,tvSeries,"Crime, Documentary",8.2,1511.0,2013.0,7.929888562159571
+tt0051297,Naked City,tvSeries,"Crime, Drama, Thriller",8.2,1504.0,1958.0,7.92881608339333
+tt15146202,Bad and Crazy,tvSeries,"Action, Comedy, Crime",8.0,5702.0,2021.0,7.928485615672277
+tt0077064,Prisoner,tvSeries,"Crime, Drama",8.1,2370.0,1979.0,7.927996483462321
+tt0319960,Boomtown,tvSeries,"Crime, Drama, Mystery",8.1,2369.0,2002.0,7.927931033113562
+tt2375720,The Doctor Blake Mysteries,tvSeries,"Crime, Drama, Mystery",8.0,5496.0,2013.0,7.925925761081223
+tt1119176,Underbelly,tvSeries,"Action, Crime, Drama",8.0,5473.0,2008.0,7.925628533674536
+tt11651550,Operation Java,movie,"Crime, Drama, Thriller",8.0,5468.0,2021.0,7.925563603112003
+tt5907796,Ubice mog oca,tvSeries,"Action, Crime, Thriller",8.0,5451.0,2016.0,7.925341988620393
+tt9674954,The Fiery Priest,tvSeries,"Action, Comedy, Crime",8.1,2325.0,2019.0,7.925001066185154
+tt0845746,Intelligence,tvSeries,"Crime, Drama, Mystery",8.1,2292.0,2005.0,7.922737261866891
+tt5458088,Kammatti Paadam,movie,"Action, Crime, Drama",8.0,5203.0,2016.0,7.921952170454493
+tt7605494,Byomkesh,tvSeries,"Crime, Drama, Mystery",8.2,1446.0,2017.0,7.919591058664189
+tt8105958,Wild District,tvMiniSeries,"Action, Crime, Drama",8.1,2231.0,2018.0,7.918394680731904
+tt0085178,Ardh Satya,movie,"Crime, Drama",8.1,2191.0,1983.0,7.915429695927526
+tt6256692,Defendant,tvSeries,"Crime, Drama, Mystery",8.1,2186.0,2017.0,7.915052251542921
+tt13322702,Last Summer,tvSeries,"Action, Crime, Drama",8.0,4714.0,2021.0,7.914277650316196
+tt0986110,Ross Kemp on Gangs,tvSeries,"Crime, Documentary",8.3,1047.0,2005.0,7.914090930338776
+tt12831098,Moriarty the Patriot,tvSeries,"Animation, Crime, Mystery",8.0,4700.0,2020.0,7.914035643279379
+tt1970923,Kenny Hotz's Triumph of the Will,tvSeries,"Comedy, Crime, Reality-TV",8.1,2172.0,2011.0,7.9139871472737315
+tt0085058,Monaco Franze - Der ewige Stenz,tvSeries,"Comedy, Crime, Drama",8.3,1046.0,1983.0,7.913795214576584
+tt0087123,Strangler vs. Strangler,movie,"Comedy, Crime, Horror",8.0,4664.0,1984.0,7.9134070190986066
+tt9332962,The InBESTigators,tvSeries,"Comedy, Crime, Family",8.2,1399.0,2019.0,7.911642192414018
+tt14176094,Drushyam 2,movie,"Crime, Drama, Mystery",8.1,2119.0,2021.0,7.9098413603963165
+tt13206564,The Three Deaths of Marisela Escobedo,movie,"Crime, Documentary",8.1,2102.0,2020.0,7.908472153757916
+tt14932842,Kudi Yedamaithe,tvSeries,"Crime, Sci-Fi, Thriller",8.2,1378.0,2021.0,7.907943039109615
+tt0187115,Kshana Kshanam,movie,"Comedy, Crime, Drama",8.1,2094.0,1991.0,7.907820975360154
+tt0248428,Shiva,movie,"Action, Crime, Drama",8.0,4107.0,1989.0,7.902359769817325
+tt4341996,Gangland Undercover,tvSeries,"Biography, Crime, Drama",8.0,4065.0,2015.0,7.901411367951535
+tt11080420,Red River,tvSeries,"Crime, Drama, History",8.6,573.0,2019.0,7.900844657478895
+tt8946378,Knives Out,movie,"Comedy, Crime, Drama",7.9,812100.0,2019.0,7.899507117856788
+tt0327056,Mystic River,movie,"Crime, Drama, Mystery",7.9,501790.0,2003.0,7.899202473772525
+tt0780536,In Bruges,movie,"Comedy, Crime, Drama",7.9,477421.0,2008.0,7.89916178771358
+tt2741602,The Blacklist,tvSeries,"Crime, Drama, Mystery",7.9,288566.0,2013.0,7.898613702951692
+tt0108399,True Romance,movie,"Crime, Drama, Romance",7.9,250898.0,1993.0,7.898405789028466
+tt0106519,Carlito's Way,movie,"Crime, Drama, Thriller",7.9,239166.0,1993.0,7.898327671525624
+tt0080455,The Blues Brothers,movie,"Adventure, Comedy, Crime",7.9,221109.0,1980.0,7.8981912595995025
+tt0033870,The Maltese Falcon,movie,"Crime, Drama, Film-Noir",7.9,170511.0,1941.0,7.897655342009853
+tt0113568,Ghost in the Shell,movie,"Action, Animation, Crime",7.9,164081.0,1995.0,7.897563604448232
+tt0040746,Rope,movie,"Crime, Drama, Mystery",7.9,159844.0,1948.0,7.897499127155784
+tt0044079,Strangers on a Train,movie,"Crime, Drama, Film-Noir",7.9,145145.0,1951.0,7.897246312034212
+tt1830617,Grimm,tvSeries,"Crime, Drama, Fantasy",7.9,135264.0,2011.0,7.897045540277461
+tt2265171,The Raid 2,movie,"Action, Crime, Thriller",7.9,134956.0,2014.0,7.89703881045019
+tt2191671,Elementary,tvSeries,"Crime, Drama, Mystery",7.9,122781.0,2012.0,7.896745796123395
+tt0168629,Dancer in the Dark,movie,"Crime, Drama, Musical",7.9,120141.0,2000.0,7.896674441486898
+tt0439100,Weeds,tvSeries,"Comedy, Crime, Drama",7.9,119446.0,2005.0,7.89665513349503
+tt0052311,Touch of Evil,movie,"Crime, Drama, Film-Noir",7.9,112236.0,1958.0,7.896440755189319
+tt8064302,Dead to Me,tvSeries,"Comedy, Crime, Drama",7.9,105262.0,2019.0,7.896205520749637
+tt0109424,Chungking Express,movie,"Comedy, Crime, Drama",7.9,102745.0,1994.0,7.896112799066274
+tt0049406,The Killing,movie,"Crime, Drama, Film-Noir",7.9,101426.0,1956.0,7.896062376506097
+tt0038355,The Big Sleep,movie,"Crime, Drama, Film-Noir",7.9,92919.0,1946.0,7.89570287787914
+tt8075192,Shoplifters,movie,"Crime, Drama, Thriller",7.9,91001.0,2018.0,7.895612565801254
+tt0075561,The Professionals,tvSeries,"Action, Comedy, Crime",8.0,3810.0,1977.0,7.895232920870592
+tt0036613,Arsenic and Old Lace,movie,"Comedy, Crime, Thriller",7.9,76685.0,1944.0,7.894796251234956
+tt1587707,Exit Through the Gift Shop,movie,"Comedy, Crime, Documentary",7.9,69833.0,2010.0,7.894287547152635
+tt0423866,3-Iron,movie,"Crime, Drama, Romance",7.9,59736.0,2004.0,7.893326156430077
+tt0247586,Nine Queens,movie,"Crime, Drama, Thriller",7.9,59361.0,2000.0,7.893284179051031
+tt1103987,Leverage,tvSeries,"Crime, Mystery, Thriller",7.9,55510.0,2008.0,7.892820433484955
+tt1582457,The Borgias,tvSeries,"Crime, Drama, History",7.9,55054.0,2011.0,7.89276124518689
+tt2654580,Almost Human,tvSeries,"Action, Crime, Drama",7.9,52845.0,2013.0,7.892460130216603
+tt5299008,Real Detective,tvSeries,"Crime, Documentary, Drama",8.0,3676.0,2016.0,7.891665249052718
+tt0118401,Midsomer Murders,tvSeries,"Crime, Drama, Mystery",7.9,41797.0,1997.0,7.890479426360626
+tt0110729,Once Were Warriors,movie,"Crime, Drama",7.9,38017.0,1994.0,7.889539208773709
+tt0106469,"Blood In, Blood Out",movie,"Biography, Crime, Drama",7.9,35895.0,1993.0,7.8889252297124095
+tt1255913,Bored to Death,tvSeries,"Comedy, Crime, Drama",7.9,35335.0,2009.0,7.888750990476553
+tt8299654,At the Heart of Gold: Inside the USA Gymnastics Scandal,movie,"Crime, Documentary, Sport",8.0,3571.0,2019.0,7.888695236298288
+tt0025878,The Thin Man,movie,"Comedy, Crime, Mystery",7.9,33689.0,1934.0,7.888205571904749
+tt1958961,Lilyhammer,tvSeries,"Comedy, Crime, Drama",7.9,33408.0,2012.0,7.888107130276604
+tt0084997,Chiefs,tvMiniSeries,"Crime, Drama, Mystery",8.1,1869.0,1983.0,7.887501294653402
+tt6543986,Sifir Bir,tvSeries,"Action, Crime, Drama",8.0,3529.0,2016.0,7.887461128569811
+tt6866266,Escape at Dannemora,tvMiniSeries,"Biography, Crime, Drama",7.9,31251.0,2018.0,7.887293010314898
+tt0045555,The Big Heat,movie,"Crime, Drama, Film-Noir",7.9,30902.0,1953.0,7.887150693335337
+tt0061809,In Cold Blood,movie,"Biography, Crime, Drama",7.9,30543.0,1967.0,7.887000933544005
+tt0065531,Le cercle rouge,movie,"Crime, Drama, Thriller",7.9,30068.0,1970.0,7.88679733422437
+tt0051378,Elevator to the Gallows,movie,"Crime, Drama, Thriller",7.9,30043.0,1958.0,7.886786441654758
+tt0037913,Mildred Pierce,movie,"Crime, Drama, Film-Noir",7.9,29885.0,1945.0,7.886717182690502
+tt4276618,C.B. Strike,tvSeries,"Crime, Drama, Mystery",7.9,29358.0,2017.0,7.886480830435982
+tt4258440,River,tvMiniSeries,"Crime, Drama, Mystery",7.9,28516.0,2015.0,7.886085239097218
+tt11042448,Wild Bees,tvSeries,"Crime, Drama, Romance",8.2,1260.0,2019.0,7.885255269929191
+tt0096257,The Thin Blue Line,movie,"Crime, Documentary",7.9,26876.0,1988.0,7.885244251152476
+tt2882328,Ugly,movie,"Crime, Drama, Mystery",7.9,24256.0,2013.0,7.883667254946867
+tt0029870,Angels with Dirty Faces,movie,"Crime, Drama, Film-Noir",7.9,23952.0,1938.0,7.883462176490952
+tt1379690,Lights Out,tvSeries,"Crime, Drama, Sport",8.0,3387.0,2011.0,7.88307810066441
+tt14170016,One Ordinary Day,tvSeries,"Crime, Mystery",8.0,3374.0,2021.0,7.882659717870201
+tt17043914,Shaaticup,tvSeries,"Crime, Thriller",8.3,948.0,2022.0,7.88243807375513
+tt0085077,Reilly: Ace of Spies,tvMiniSeries,"Crime, Drama, History",8.1,1805.0,1983.0,7.880912187510872
+tt10399902,Boy Swallows Universe,tvMiniSeries,"Crime, Drama, Mystery",7.9,20379.0,2024.0,7.880599028734492
+tt3747572,Grantchester,tvSeries,"Crime, Drama, Mystery",7.9,18634.0,2014.0,7.878807111365186
+tt0052522,The Untouchables,tvSeries,"Action, Crime, Drama",8.0,3235.0,1959.0,7.877991629943458
+tt1851730,The Joker Blogs,tvSeries,"Action, Crime, Thriller",8.6,546.0,2008.0,7.877394726735951
+tt2179133,Loot,movie,"Crime, Drama, Thriller",8.1,1771.0,2012.0,7.877242736464256
+tt7197684,Suburra: Blood on Rome,tvSeries,"Action, Crime, Drama",7.9,17248.0,2017.0,7.877129305707571
+tt0023622,Trouble in Paradise,movie,"Comedy, Crime, Romance",7.9,16780.0,1932.0,7.876501130055898
+tt0200654,On Board,movie,"Crime, Drama",7.9,16739.0,1998.0,7.876444449642454
+tt27757690,Zebra,movie,"Action, Crime, Thriller",8.0,3186.0,2024.0,7.876256242386775
+tt0031867,The Roaring Twenties,movie,"Crime, Drama, Thriller",7.9,16512.0,1939.0,7.876125618926865
+tt5641508,Meso,tvSeries,"Crime, Drama, Thriller",8.2,1205.0,2017.0,7.873430843594564
+tt2275990,The Bletchley Circle,tvSeries,"Crime, Drama, History",7.9,14700.0,2012.0,7.873233689084995
+tt12768990,The Gone Game,tvSeries,"Crime, Thriller",7.9,14460.0,2020.0,7.87279725219257
+tt6225166,Live PD,tvSeries,"Crime, Reality-TV",8.1,1728.0,2016.0,7.872422121299668
+tt0023563,The Testament of Dr. Mabuse,movie,"Crime, Mystery, Thriller",7.9,14010.0,1933.0,7.871939361904999
+tt1943898,Adaalat,tvSeries,"Comedy, Crime, Drama",8.1,1718.0,2010.0,7.871270993941548
+tt5221894,The Other Me,movie,"Crime, Drama, Mystery",7.9,13382.0,2016.0,7.870647515213139
+tt8108200,Sonchiriya,movie,"Action, Crime, Drama",7.9,13291.0,2019.0,7.870450387824534
+tt0061238,Callan,tvSeries,"Crime, Drama, Mystery",8.3,914.0,1967.0,7.870334829516148
+tt28629230,Operation Raavan,movie,Crime,8.2,1189.0,2024.0,7.869822344628758
+tt0060009,Mission: Impossible,tvSeries,"Action, Adventure, Crime",7.9,12215.0,1966.0,7.867901455429089
+tt0052216,Big Deal on Madonna Street,movie,"Comedy, Crime",7.9,12121.0,1958.0,7.867657734654479
+tt0307847,Brotherhood,tvSeries,"Crime, Drama",8.1,1679.0,2002.0,7.866668088246874
+tt14457130,Anonymous,tvMiniSeries,"Crime, Drama, Mystery",8.5,618.0,2021.0,7.866251716103125
+tt1734537,Marple,tvSeries,"Crime, Drama, Mystery",7.9,11526.0,2004.0,7.866024841325621
+tt1389371,Rubicon,tvSeries,"Crime, Drama, Mystery",7.9,11305.0,2010.0,7.865375540904743
+tt12477942,The Bad Kids,tvSeries,"Crime, Drama, Thriller",8.1,1668.0,2020.0,7.86533614687205
+tt2130321,West of Memphis,movie,"Crime, Documentary",7.9,11257.0,2012.0,7.865231222214523
+tt12392496,Undekhi,tvSeries,Crime,7.9,11241.0,2020.0,7.865182848262822
+tt2711738,The Tunnel,tvSeries,"Crime, Drama, Mystery",7.9,11191.0,2013.0,7.865030808298903
+tt27411674,Shekhar Home,tvMiniSeries,"Crime, Drama",7.9,11089.0,2024.0,7.864716492335429
+tt0814075,Deliver Us from Evil,movie,"Crime, Documentary",7.9,11070.0,2006.0,7.864657317947079
+tt28804856,Scam 2003 - The Telgi Story,tvSeries,"Biography, Crime, Drama",7.9,10743.0,2023.0,7.863606867389787
+tt0478813,The Trap,movie,"Crime, Drama, Thriller",7.9,10599.0,2007.0,7.863124217629623
+tt0096028,Salaam Bombay!,movie,"Crime, Drama",7.9,10479.0,1988.0,7.862712120974338
+tt10717738,Anjaam Pathiraa,movie,"Crime, Mystery, Thriller",7.9,9951.0,2020.0,7.860783815379279
+tt0082912,Pixote,movie,"Crime, Drama",7.9,9879.0,1980.0,7.86050530233009
+tt0112538,Blue Murder,tvMiniSeries,"Crime, Drama",8.2,1147.0,1995.0,7.859959285222219
+tt8243374,Investigation Partners,tvSeries,"Crime, Drama, Mystery",8.1,1612.0,2018.0,7.858312536088959
+tt0108967,A Touch of Frost,tvSeries,"Crime, Drama, Mystery",7.9,9296.0,1992.0,7.858095526428304
+tt0087756,Miss Marple: A Murder Is Announced,tvMiniSeries,"Crime, Drama, Mystery",8.0,2699.0,1985.0,7.855883284321312
+tt0455829,Vettaiyaadu Vilaiyaadu,movie,"Action, Crime, Drama",7.9,8549.0,2006.0,7.854541638853593
+tt3640276,The Brokenwood Mysteries,tvSeries,"Crime, Drama, Mystery",7.9,8475.0,2014.0,7.85415648672114
+tt5116410,Tower,movie,"Animation, Crime, Documentary",7.9,8417.0,2016.0,7.853850017867963
+tt2924472,Mumbai Police,movie,"Crime, Mystery, Thriller",7.9,8209.0,2013.0,7.852716433044691
+tt8740614,The Residence,tvMiniSeries,"Comedy, Crime, Drama",7.9,7591.0,2025.0,7.848993981531521
+tt2280066,Sr. Ávila,tvSeries,"Action, Crime, Drama",8.2,1102.0,2013.0,7.848716205012815
+tt3034728,Left Right Left,movie,"Crime, Drama",8.0,2530.0,2013.0,7.847150503772836
+tt0060305,Le deuxième souffle,movie,"Crime, Drama",7.9,7108.0,1966.0,7.845649892089377
+tt5511512,Trial & Error,tvSeries,"Comedy, Crime, Mystery",7.9,6815.0,2017.0,7.843398749649765
+tt0259733,Waking the Dead,tvSeries,"Crime, Drama, Mystery",7.9,6719.0,2000.0,7.842620056609693
+tt15546822,Mukundan Unni Associates,movie,"Comedy, Crime, Drama",7.9,6640.0,2022.0,7.841963002612326
+tt0106087,North of 60,tvSeries,"Crime, Drama, Mystery",8.4,689.0,1992.0,7.8410366614160765
+tt15007172,Those Who Read the Hearts of Evil,tvSeries,"Crime, Drama, Mystery",8.0,2402.0,2022.0,7.839798104104638
+tt1417299,Unnaipol Oruvan,movie,"Action, Crime, Drama",7.9,6328.0,2009.0,7.83921402080195
+tt2076566,Mysteries at the Museum,tvSeries,"Adventure, Biography, Crime",8.1,1474.0,2010.0,7.839066794588828
+tt15553922,Juvenile Justice,tvSeries,"Crime, Drama",7.9,6242.0,2022.0,7.838409899249722
+tt1579592,Kick,movie,"Action, Comedy, Crime",7.9,6237.0,2009.0,7.838362493076115
+tt4003070,Diamond Dust,movie,"Crime, Drama, Mystery",7.9,6164.0,2018.0,7.837661957811372
+tt32729607,Pill,tvSeries,Crime,7.9,5817.0,2024.0,7.834101835915478
+tt0102701,Prahaar: The Final Attack,movie,"Action, Crime, Drama",8.0,2301.0,1991.0,7.833477638680641
+tt1240976,The Unusuals,tvSeries,"Comedy, Crime, Drama",7.9,5599.0,2009.0,7.831649497272523
+tt0435961,Gungrave,tvSeries,"Action, Animation, Crime",7.9,5511.0,2003.0,7.830607063262121
+tt7953814,The Foundation of Criminal Excellence,movie,"Action, Comedy, Crime",8.1,1416.0,2018.0,7.830031495535786
+tt5489746,Evil Lives Here,tvSeries,"Biography, Crime, Documentary",8.0,2247.0,2016.0,7.829889367526912
+tt2125653,The House I Live In,movie,"Crime, Documentary",7.9,5429.0,2012.0,7.829606672823917
+tt0083271,Vabank,movie,"Comedy, Crime",7.9,5254.0,1981.0,7.827372166700969
+tt23723678,Sattam En Kaiyil,movie,"Crime, Horror, Thriller",8.0,2208.0,2024.0,7.827200143908569
+tt1748888,Case Histories,tvSeries,"Crime, Drama, Mystery",7.9,5195.0,2011.0,7.826586497070488
+tt1701920,The Shadow Line,tvMiniSeries,"Crime, Drama, Mystery",7.9,5172.0,2011.0,7.826275594738067
+tt0156442,Da Vinci's Inquest,tvSeries,"Crime, Drama, Mystery",8.1,1383.0,1998.0,7.824605819136687
+tt13067118,The Penthouse: War in Life,tvSeries,"Crime, Drama, Mystery",7.9,5051.0,2020.0,7.824595622414773
+tt28495145,I Know Your Soul,tvSeries,"Crime, Drama",8.1,1368.0,2023.0,7.822066843898243
+tt1163573,Mord mit Aussicht,tvSeries,"Comedy, Crime, Drama",8.0,2122.0,2008.0,7.820958737934666
+tt6970710,Cocaine Coast,tvMiniSeries,"Crime, Drama, Thriller",7.9,4757.0,2018.0,7.820175987843389
+tt2402569,Cold Justice,tvSeries,"Crime, Documentary, Reality-TV",8.0,2099.0,2013.0,7.81921236430129
+tt0307197,Murder on a Sunday Morning,movie,"Crime, Documentary",7.9,4619.0,2001.0,7.81791774395704
+tt1190931,American Greed,tvSeries,"Crime, Documentary",8.3,786.0,2007.0,7.817705985667409
+tt0165564,Brimstone,tvSeries,"Crime, Drama, Fantasy",8.0,2050.0,1998.0,7.815375814215002
+tt15840674,Madhurapudi Gramam Ane Nenu,movie,Crime,8.0,1997.0,2023.0,7.8110384552404435
+tt1429534,Braquo,tvSeries,"Crime, Thriller",7.9,4228.0,2009.0,7.810765044578212
+tt0426666,Cold Case Files,tvSeries,"Crime, Documentary",8.0,1993.0,1999.0,7.810702821946021
+tt28682964,MIGNON,tvMiniSeries,"Animation, Crime, Drama",8.1,1300.0,2023.0,7.809944037859167
+tt8236544,Life on Mars,tvSeries,"Crime, Drama, Mystery",8.1,1289.0,2018.0,7.807882916681162
+tt9278408,The Steppe,tvSeries,"Crime, Drama",7.9,3984.0,2018.0,7.805633456286222
+tt5271442,Maalik,movie,"Action, Crime, Drama",7.9,3891.0,2016.0,7.803518736149986
+tt0084548,Interrogation,movie,"Crime, Drama, Thriller",7.9,3883.0,1989.0,7.803332388947957
+tt1066032,Most Evil,tvSeries,"Crime, Documentary",8.2,945.0,2006.0,7.802909264968804
+tt11900404,Caught in the Net,movie,"Crime, Documentary",8.0,1903.0,2020.0,7.802822735903073
+tt10618950,Bolice,tvSeries,"Action, Comedy, Crime",8.4,626.0,2015.0,7.801246050872815
+tt1877830,The Batman,movie,"Action, Crime, Drama",7.8,863657.0,2022.0,7.79956651196994
+tt3460252,The Hateful Eight,movie,"Crime, Drama, Mystery",7.8,687709.0,2015.0,7.799455647290313
+tt2872718,Nightcrawler,movie,"Crime, Drama, Thriller",7.8,633302.0,2014.0,7.799408901045081
+tt1568346,The Girl with the Dragon Tattoo,movie,"Crime, Drama, Mystery",7.8,511386.0,2011.0,7.799268052565788
+tt1535109,Captain Phillips,movie,"Action, Biography, Crime",7.8,506195.0,2013.0,7.799260550326431
+tt0139654,Training Day,movie,"Crime, Drama, Thriller",7.8,493306.0,2001.0,7.79924124027235
+tt0765429,American Gangster,movie,"Biography, Crime, Drama",7.8,469846.0,2007.0,7.799203375320455
+tt1302006,The Irishman,movie,"Biography, Crime, Drama",7.8,450583.0,2019.0,7.799169338160648
+tt8367814,The Gentlemen,movie,"Action, Crime",7.8,430283.0,2019.0,7.799130172561614
+tt0094226,The Untouchables,movie,"Crime, Drama, Thriller",7.8,341667.0,1987.0,7.798904741830169
+tt0106977,The Fugitive,movie,"Action, Crime, Drama",7.8,331504.0,1993.0,7.798871190443245
+tt30022239,The Fall of Minneapolis,movie,"Crime, Documentary",8.1,1241.0,2023.0,7.79853517001496
+tt3749900,Gotham,tvSeries,"Action, Crime, Drama",7.8,246404.0,2014.0,7.798481745357116
+tt2357547,Jessica Jones,tvSeries,"Action, Crime, Drama",7.8,232578.0,2015.0,7.798391590490439
+tt1132620,The Girl with the Dragon Tattoo,movie,"Crime, Drama, Mystery",7.8,226436.0,2009.0,7.798348012770561
+tt13207736,Monsters,tvSeries,"Biography, Crime, Drama",7.8,190713.0,2022.0,7.798038993962583
+tt0460627,Bones,tvSeries,"Crime, Drama, Mystery",7.8,182895.0,2005.0,7.7979552876542275
+tt0106489,A Bronx Tale,movie,"Crime, Drama",7.8,170955.0,1993.0,7.797812694960823
+tt0364845,NCIS,tvSeries,"Action, Crime, Drama",7.8,169898.0,2003.0,7.79779910761839
+tt0101507,Boyz n the Hood,movie,"Crime, Drama",7.8,161369.0,1991.0,7.797682968019293
+tt6048596,The Sinner,tvSeries,"Crime, Drama, Mystery",7.8,145555.0,2017.0,7.79743167840552
+tt1924396,The Best Offer,movie,"Crime, Drama, Mystery",7.8,132664.0,2013.0,7.797182600114521
+tt0085794,The King of Comedy,movie,"Comedy, Crime, Drama",7.8,125419.0,1982.0,7.79702018455913
+tt0095647,Mississippi Burning,movie,"Crime, Drama, Mystery",7.8,119692.0,1988.0,7.796877914773719
+tt1235166,A Prophet,movie,"Crime, Drama",7.8,104723.0,2009.0,7.796432748042736
+tt3475734,Agent Carter,tvSeries,"Action, Adventure, Crime",7.8,91476.0,2015.0,7.795917618739003
+tt13833978,The Lincoln Lawyer,tvSeries,"Crime, Drama, Mystery",7.8,80751.0,2022.0,7.795377147944976
+tt3501584,iZombie,tvSeries,"Comedy, Crime, Drama",7.8,76826.0,2015.0,7.795141762405429
+tt1190539,The Chaser,movie,"Action, Crime, Drama",7.8,76124.0,2008.0,7.795097112643159
+tt2304589,Defending Jacob,tvMiniSeries,"Crime, Drama, Mystery",7.8,74176.0,2020.0,7.794968801706488
+tt10083340,Gangubai Kathiawadi,movie,"Biography, Crime, Drama",7.8,63937.0,2022.0,7.794166346112257
+tt12923630,Bad Boy Billionaires: India,tvSeries,"Biography, Crime, Documentary",7.9,3506.0,2020.0,7.793652790178603
+tt0275277,Cowboy Bebop: The Movie,movie,"Action, Animation, Crime",7.8,55252.0,2001.0,7.793253639008888
+tt14269590,Poker Face,tvSeries,"Comedy, Crime, Drama",7.8,53556.0,2023.0,7.793041024900537
+tt0300140,Lilya 4-Ever,movie,"Crime, Drama",7.8,52144.0,2002.0,7.792853515161775
+tt1827487,Once Upon a Time in Anatolia,movie,"Crime, Drama, Thriller",7.8,51983.0,2011.0,7.79283149104212
+tt0069947,The Day of the Jackal,movie,"Crime, Drama, Thriller",7.8,49917.0,1973.0,7.7925363272286035
+tt0098844,Law & Order,tvSeries,"Crime, Drama, Mystery",7.8,47609.0,1990.0,7.792176459326114
+tt9055008,Evil,tvSeries,"Crime, Drama, Horror",7.8,47526.0,2019.0,7.792162870252641
+tt3581932,And Then There Were None,tvMiniSeries,"Crime, Drama, Mystery",7.8,46219.0,2015.0,7.79194248364866
+tt13885336,Law School,tvSeries,"Crime, Drama, Mystery",7.9,3432.0,2021.0,7.791520659718895
+tt9184994,How to Sell Drugs Online (Fast),tvSeries,"Comedy, Crime, Drama",7.8,42131.0,2019.0,7.791165434183119
+tt0051301,Peter Gunn,tvSeries,"Action, Crime, Drama",8.0,1782.0,1958.0,7.791133147977678
+tt8682948,The Act,tvMiniSeries,"Biography, Crime, Drama",7.8,40630.0,2019.0,7.790841124875209
+tt10147644,The Innocent,tvMiniSeries,"Crime, Drama, Mystery",7.8,40508.0,2021.0,7.790813715873682
+tt7109900,Kavaludaari,movie,"Crime, Drama, Mystery",7.9,3404.0,2019.0,7.7906914428125695
+tt12940504,My Name,tvSeries,"Action, Crime, Drama",7.8,37596.0,2021.0,7.790107059966251
+tt0036855,Gaslight,movie,"Crime, Drama, Mystery",7.8,35716.0,1944.0,7.789590069632312
+tt0119472,Knockin' on Heaven's Door,movie,"Action, Comedy, Crime",7.8,35217.0,1997.0,7.789443645141009
+tt3429354,The Lost Honour of Christopher Jefferies,tvMiniSeries,"Crime, Drama",7.9,3360.0,2014.0,7.789362463393878
+tt0042208,The Asphalt Jungle,movie,"Crime, Drama, Film-Noir",7.8,31376.0,1950.0,7.788161933144379
+tt11382384,The Dissident,movie,"Crime, Documentary, Thriller",7.8,30805.0,2020.0,7.787944332829721
+tt5028002,StartUp,tvSeries,"Crime, Thriller",7.8,30798.0,2016.0,7.78794161557853
+tt27874141,Kodi gaha yata,tvSeries,Crime,9.1,283.0,2023.0,7.787827961296017
+tt1888075,Death in Paradise,tvSeries,"Comedy, Crime, Drama",7.8,30411.0,2011.0,7.787789460548498
+tt0458253,The Closer,tvSeries,"Crime, Drama, Mystery",7.8,30304.0,2005.0,7.787746711874568
+tt4354880,Mr. Mercedes,tvSeries,"Crime, Drama, Mystery",7.8,28418.0,2017.0,7.786940849985091
+tt11958922,The Innocence Files,tvMiniSeries,"Crime, Documentary",7.9,3281.0,2020.0,7.786893433622159
+tt0388644,The Staircase,tvSeries,"Crime, Documentary, Drama",7.8,28225.0,2004.0,7.78685236466165
+tt6040674,Waco,tvMiniSeries,"Crime, Drama, History",7.8,27014.0,2018.0,7.786268571665106
+tt0118767,Brother,movie,"Crime, Drama, Thriller",7.8,26402.0,1997.0,7.785953368404127
+tt1051907,For Love and Honor,movie,"Crime, Drama",7.8,24880.0,2007.0,7.785102937866361
+tt26443361,The Scorpio Season,tvSeries,"Crime, Drama, Thriller",8.5,518.0,2023.0,7.784688230402112
+tt35465105,Kobali,tvSeries,"Action, Crime, Drama",7.9,3166.0,2025.0,7.783095694897063
+tt1223917,In the Face of Crime,tvSeries,"Crime, Drama, Thriller",8.0,1705.0,2010.0,7.782944376284338
+tt7263154,Undercover,tvSeries,"Crime, Drama, Thriller",7.8,21641.0,2019.0,7.782899669179107
+tt0108876,New York Undercover,tvSeries,"Crime, Drama, Music",7.9,3158.0,1994.0,7.7828219944461345
+tt0048613,Shree 420,movie,"Comedy, Crime, Drama",7.9,3156.0,1955.0,7.78275336896704
+tt6692188,El Chapo,tvSeries,"Biography, Crime, Drama",7.8,21390.0,2017.0,7.782701406763474
+tt7077616,Un gallo para Esculapio,tvMiniSeries,"Crime, Drama, Mystery",8.2,886.0,2017.0,7.782447820980297
+tt1769411,Accused,tvSeries,"Crime, Drama, Mystery",7.9,3141.0,2010.0,7.782236104418365
+tt0055798,Birdman of Alcatraz,movie,"Biography, Crime, Drama",7.8,20314.0,1962.0,7.781796663346252
+tt9817070,Law of Tehran,movie,"Action, Crime, Drama",7.8,19801.0,2019.0,7.781331144318167
+tt0039631,Monsieur Verdoux,movie,"Comedy, Crime, Drama",7.8,19789.0,1947.0,7.781319969823545
+tt0041699,Stray Dog,movie,"Crime, Drama, Mystery",7.8,19757.0,1949.0,7.781290105666588
+tt1059475,Flashpoint,tvSeries,"Action, Crime, Drama",7.8,19014.0,2008.0,7.780568814145304
+tt8425532,Pennyworth,tvSeries,"Action, Crime, Drama",7.8,18963.0,2019.0,7.780517259131331
+tt0373856,Gangaajal,movie,"Action, Crime, Drama",7.8,18565.0,2003.0,7.780105331227286
+tt8001106,Giri/Haji,tvMiniSeries,"Crime, Drama, Mystery",7.8,17844.0,2019.0,7.779312973265339
+tt0091942,Adventures of Sherlock Holmes and Dr. Watson: The Twentieth Century Approaches,tvMiniSeries,"Adventure, Crime, Mystery",7.9,3057.0,1987.0,7.779252941804113
+tt0106079,NYPD Blue,tvSeries,"Crime, Drama, Mystery",7.8,17239.0,1993.0,7.778597711454021
+tt1178618,Wallander,tvSeries,"Crime, Drama, Mystery",7.8,16972.0,2008.0,7.778266075969034
+tt1936532,Major Crimes,tvSeries,"Action, Crime, Drama",7.8,16738.0,2012.0,7.7779668620946305
+tt28306965,The Hunt for Veerappan,tvSeries,"Biography, Crime, Documentary",7.9,3008.0,2023.0,7.7774419207292445
+tt2215842,Father Brown,tvSeries,"Crime, Drama, Mystery",7.8,16270.0,2013.0,7.777343018635274
+tt0042788,Night and the City,movie,"Crime, Film-Noir, Sport",7.8,15904.0,1950.0,7.776829966901097
+tt5212822,Imposters,tvSeries,"Comedy, Crime, Drama",7.8,15777.0,2017.0,7.77664646763672
+tt31711525,Shivam Bhaje,movie,"Crime, Drama",7.9,2981.0,2024.0,7.776420603401989
+tt1260502,Ghost in the Shell 2.0,movie,"Action, Animation, Crime",7.8,15591.0,2008.0,7.776372413566085
+tt9359338,Bhaukaal,tvMiniSeries,"Action, Crime",7.8,15510.0,2020.0,7.776251046675277
+tt1186356,Whitechapel,tvSeries,"Crime, Mystery, Thriller",7.8,15508.0,2009.0,7.776248034186747
+tt3613454,Terror in Resonance,tvMiniSeries,"Animation, Crime, Drama",7.8,15221.0,2014.0,7.775807671513078
+tt0027652,Fury,movie,"Crime, Drama, Film-Noir",7.8,14166.0,1936.0,7.774038319238991
+tt1077248,Johnny Gaddaar,movie,"Crime, Drama, Thriller",7.8,13623.0,2007.0,7.773022817679185
+tt3694654,To Catch a Predator,tvSeries,"Comedy, Crime, Drama",8.1,1120.0,2004.0,7.772083216114895
+tt5207158,South Wind,movie,"Crime, Drama, Thriller",7.8,12876.0,2018.0,7.771488599544913
+tt5599272,Shadow of Truth,tvMiniSeries,"Crime, Documentary",8.0,1599.0,2016.0,7.770561224446954
+tt4741412,Uriyadi,movie,"Action, Crime, Drama",7.9,2834.0,2016.0,7.770547285813916
+tt5583512,Cardinal,tvSeries,"Crime, Drama, Mystery",7.8,12273.0,2017.0,7.770116721594513
+tt26659737,Cheddy Gang Tamasha,movie,"Action, Comedy, Crime",7.9,2818.0,2023.0,7.76987414852858
+tt13276672,Crims,tvSeries,"Crime, Documentary",8.5,502.0,2020.0,7.769648823945389
+tt3439314,Surviving Edged Weapons,movie,"Action, Crime, Documentary",8.4,580.0,1988.0,7.768418063197189
+tt13206926,Joji,movie,"Crime, Drama",7.8,11595.0,2021.0,7.76840752109182
+tt0035753,Le Corbeau,movie,"Crime, Drama, Horror",7.8,11427.0,1943.0,7.7679533420351214
+tt7341934,Day and Night,tvSeries,"Crime, Drama, Mystery",8.1,1102.0,2017.0,7.767746329920971
+tt1813757,Who Killed Captain Alex?,movie,"Action, Comedy, Crime",7.8,11347.0,2010.0,7.767732444858042
+tt0156130,Thazhvaram,movie,"Crime, Drama, Musical",8.2,844.0,1990.0,7.766548281978641
+tt11298328,The Long Night,tvSeries,"Crime, Drama, Mystery",8.1,1095.0,2020.0,7.766028622616279
+tt0038824,Panique,movie,"Crime, Drama",7.9,2726.0,1946.0,7.765863569521756
+tt0041859,The Set-Up,movie,"Action, Crime, Film-Noir",7.8,10474.0,1949.0,7.765107868724722
+tt0203248,Bad Girls,tvSeries,"Crime, Drama",7.9,2681.0,1999.0,7.763810460891987
+tt9070896,Impuros,tvSeries,"Action, Crime, Drama",8.1,1085.0,2018.0,7.763543716534554
+tt0423651,Fingersmith,tvMiniSeries,"Crime, Drama, Romance",7.8,9995.0,2005.0,7.763477935929631
+tt6231158,Rocco Schiavone: Ice Cold Murders,tvSeries,"Crime, Thriller",7.9,2671.0,2016.0,7.763345650178308
+tt0402014,Ab Tak Chhappan,movie,"Crime, Drama",7.8,9871.0,2004.0,7.763030874138444
+tt0408375,Blackpool,tvMiniSeries,"Comedy, Crime, Drama",7.9,2652.0,2004.0,7.762453711790602
+tt0013086,"Dr. Mabuse, the Gambler",movie,"Crime, Mystery, Thriller",7.8,9526.0,1922.0,7.761727414923091
+tt6233618,Unsolved: The Murders of Tupac and the Notorious B.I.G.,tvMiniSeries,"Biography, Crime, Drama",7.8,9451.0,2018.0,7.761431797633619
+tt1039960,Estomago: A Gastronomic Story,movie,"Comedy, Crime, Drama",7.8,9201.0,2007.0,7.760412553385036
+tt11232670,Alef,tvSeries,"Action, Crime, Drama",7.8,9002.0,2020.0,7.759561899905242
+tt0496343,The Riches,tvSeries,"Comedy, Crime, Drama",7.8,8850.0,2007.0,7.7588871176882686
+tt0340468,Bus 174,movie,"Crime, Documentary",7.8,8806.0,2002.0,7.758687562605894
+tt5459168,Pustina,tvMiniSeries,"Crime, Drama, Mystery",7.9,2565.0,2016.0,7.758216273024944
+tt28106779,Kaalkoot,tvSeries,"Crime, Drama",7.8,8696.0,2023.0,7.758180095479893
+tt10613844,Hell Is Other People,tvSeries,"Crime, Horror, Mystery",7.8,8662.0,2019.0,7.758020710124699
+tt8020896,An Elephant Sitting Still,movie,"Crime, Drama",7.8,8560.0,2018.0,7.757535180295094
+tt30599948,Koza,tvSeries,"Crime, Drama, Thriller",8.3,669.0,2024.0,7.756899520498321
+tt1584000,Durarara!!,tvSeries,"Animation, Comedy, Crime",7.8,8282.0,2010.0,7.756152997895145
+tt5868220,Novine,tvSeries,"Crime, Drama",8.0,1485.0,2016.0,7.755563506320207
+tt5121000,Aligarh,movie,"Biography, Crime, Drama",7.8,8047.0,2015.0,7.7549124434171
+tt0083438,Kottan ermittelt,tvSeries,"Comedy, Crime",8.5,486.0,1976.0,7.753963429560324
+tt21195490,Big Mouth,tvSeries,"Action, Crime, Drama",7.8,7557.0,2022.0,7.752085818196321
+tt0077775,Joi Baba Felunath: The Elephant God,movie,"Adventure, Crime, Family",7.9,2444.0,1979.0,7.751869313733794
+tt4189570,See No Evil,tvSeries,"Crime, Documentary",8.0,1457.0,2014.0,7.75157503206436
+tt0221344,Herod's Law,movie,"Comedy, Crime, Drama",7.8,7439.0,1999.0,7.751351358147888
+tt1563280,Disappeared,tvSeries,"Crime, Documentary, Mystery",8.0,1450.0,2009.0,7.750557492698912
+tt7161312,Informer,tvSeries,"Crime, Drama, Thriller",7.8,6807.0,2018.0,7.747000106852878
+tt32339528,S.I.T,movie,Crime,7.9,2341.0,2024.0,7.746001059624016
+tt1843335,Yutham Sei,movie,"Action, Crime, Drama",7.9,2337.0,2011.0,7.745763773121125
+tt1771072,Common Law,tvSeries,"Comedy, Crime",7.8,6478.0,2012.0,7.744411868045486
+tt6258718,Bad Banks,tvSeries,"Crime, Drama, Thriller",7.8,6423.0,2018.0,7.743954318321228
+tt0124437,The Ogre of Athens,movie,"Crime, Drama",7.9,2295.0,1956.0,7.743227390376836
+tt0088513,The Equalizer,tvSeries,"Action, Crime, Drama",7.8,6205.0,1985.0,7.742064163833916
+tt6816780,Little Boy Blue,tvMiniSeries,"Crime, Drama, History",7.8,6106.0,2017.0,7.741163040851914
+tt7710170,(D)evil's Throat: Djavolskoto Garlo,tvSeries,"Crime, Drama",8.0,1387.0,2019.0,7.741010179235991
+tt1278060,The Garden of Sinners: Paradox Spiral,movie,"Action, Animation, Crime",7.9,2258.0,2008.0,7.740922826786826
+tt0214340,Cuna de lobos,tvSeries,"Crime, Drama, Thriller",8.7,374.0,1986.0,7.740130734632608
+tt0051588,It Happened in Broad Daylight,movie,"Crime, Drama, Thriller",7.8,5833.0,1958.0,7.7385263878894355
+tt0791615,The Real Hustle,tvSeries,"Crime, Documentary",8.0,1367.0,2006.0,7.737824572584527
+tt19879660,Dharmaveer,movie,"Biography, Crime, Drama",7.9,2199.0,2022.0,7.737104456884639
+tt9420618,Rangbaaz,tvSeries,"Action, Biography, Crime",7.8,5683.0,2018.0,7.736974546452783
+tt0061842,Jewel Thief,movie,"Crime, Drama, Mystery",7.9,2161.0,1967.0,7.73454659298448
+tt0058842,Public Eye,tvSeries,"Crime, Drama",8.5,466.0,1965.0,7.733383110375781
+tt14909772,1985,tvSeries,"Crime, Drama",7.9,2142.0,2023.0,7.733237299051413
+tt0103512,Picket Fences,tvSeries,"Crime, Drama, Family",7.8,5344.0,1992.0,7.73316129841557
+tt0249301,Messiah,tvMiniSeries,"Crime, Drama, Mystery",7.9,2110.0,2001.0,7.7309847003049565
+tt5600714,Laal Rang,movie,"Comedy, Crime, Drama",7.8,5097.0,2016.0,7.730078931109492
+tt1319260,Deadly Women,tvSeries,"Crime, Documentary",7.9,2062.0,2008.0,7.727489338656804
+tt0092401,Mathnet,tvSeries,"Comedy, Crime, Family",8.5,460.0,1987.0,7.726985751074327
+tt0079322,I... For Icarus,movie,"Crime, Drama, Mystery",7.8,4843.0,1979.0,7.726597952768021
+tt11773456,Naandhi,movie,"Crime, Drama, Thriller",7.8,4823.0,2021.0,7.726309082058725
+tt12819234,Manayek,tvSeries,"Crime, Drama, Thriller",8.0,1297.0,2020.0,7.726030048214937
+tt7298976,Black,tvSeries,"Crime, Drama, Fantasy",7.8,4774.0,2017.0,7.725591646139964
+tt1433816,Metastases,movie,"Crime, Drama, Sport",7.8,4738.0,2009.0,7.725055584355101
+tt4553524,Laut Aao Trisha,tvSeries,Crime,8.0,1285.0,2014.0,7.723900748071529
+tt7938336,Tagaru,movie,"Action, Crime",7.9,2009.0,2018.0,7.723458004859983
+tt6805436,Navagraha,movie,"Action, Crime, Thriller",8.3,615.0,2008.0,7.723344113297989
+tt3168804,Inside the American Mob,tvSeries,"Biography, Crime, Documentary",8.1,941.0,2013.0,7.7231689625187006
+tt6520930,Blinded by the Lights,tvSeries,"Crime, Drama",7.8,4352.0,2018.0,7.718781772939155
+tt2240991,A Touch of Cloth,tvSeries,"Action, Comedy, Crime",7.8,4311.0,2012.0,7.718053119260928
+tt0367442,Zaboravljeni,tvSeries,"Crime, Drama, Romance",8.5,451.0,1992.0,7.717186978904847
+tt0106655,Damini,movie,"Crime, Drama",7.8,4180.0,1993.0,7.715634772476332
+tt0090477,Lovejoy,tvSeries,"Comedy, Crime, Drama",7.8,4155.0,1986.0,7.715156944952977
+tt8004578,Flint Town,tvSeries,"Crime, Documentary",7.8,4149.0,2018.0,7.715041459850825
+tt22248254,One Dollar Lawyer,tvSeries,"Comedy, Crime, Drama",7.9,1890.0,2022.0,7.713682063761024
+tt0225535,The Debt,movie,"Crime, Drama, Thriller",7.8,4031.0,1999.0,7.712704604900336
+tt0102636,Parinda,movie,"Action, Crime, Drama",7.8,3937.0,1989.0,7.710748988327559
+tt10133300,Rakshasudu,movie,"Action, Crime, Thriller",7.9,1827.0,2019.0,7.708055011995418
+tt6459472,Cold Case Files,tvSeries,"Crime, Documentary",7.9,1827.0,2021.0,7.708055011995418
+tt2543258,Subat,tvSeries,"Crime, Drama, Fantasy",7.9,1799.0,2012.0,7.705443515559981
+tt1704637,La Reina del Sur,tvSeries,"Action, Crime, Drama",7.8,3669.0,2011.0,7.704659560850927
+tt4905554,Jack Irish,tvSeries,"Crime, Drama",7.8,3634.0,2016.0,7.703802403036846
+tt11595618,American Detective with Lt. Joe Kenda,tvSeries,"Crime, Documentary",8.2,702.0,2021.0,7.702500265371946
+tt26900526,Emesis Blue,movie,"Animation, Crime, Horror",7.9,1749.0,2023.0,7.700598981584881
+tt0103349,American Justice,tvSeries,"Crime, Documentary, History",8.1,871.0,1992.0,7.699825446922514
+tt0936501,Taken,movie,"Action, Crime, Thriller",7.7,652718.0,2008.0,7.69946614161758
+tt0240772,Ocean's Eleven,movie,"Crime, Thriller",7.7,642393.0,2001.0,7.699457564521736
+tt0443706,Zodiac,movie,"Crime, Drama, Mystery",7.7,631380.0,2007.0,7.69944810683796
+tt3397884,Sicario,movie,"Action, Crime, Drama",7.7,504918.0,2015.0,7.699309950284796
+tt0375679,Crash,movie,"Crime, Drama, Thriller",7.7,454775.0,2004.0,7.699233909455168
+tt0328107,Man on Fire,movie,"Action, Crime, Drama",7.7,401582.0,2004.0,7.699132499558339
+tt0119008,Donnie Brasco,movie,"Biography, Crime, Drama",7.7,342955.0,1997.0,7.698984315194084
+tt0190590,"O Brother, Where Art Thou?",movie,"Adventure, Comedy, Crime",7.7,340149.0,2000.0,7.698975942853935
+tt0425210,Lucky Number Slevin,movie,"Crime, Drama, Thriller",7.7,331653.0,2006.0,7.698949729913418
+tt7335184,You,tvSeries,"Crime, Drama, Romance",7.7,323161.0,2018.0,7.698922153098209
+tt5362988,Wind River,movie,"Crime, Drama, Mystery",7.7,294552.0,2017.0,7.698817556858538
+tt0257044,Road to Perdition,movie,"Crime, Drama, Thriller",7.7,292227.0,2002.0,7.698808157501633
+tt0824747,Changeling,movie,"Biography, Crime, Drama",7.7,270096.0,2008.0,7.698710594422231
+tt0117381,Primal Fear,movie,"Crime, Drama, Mystery",7.7,257899.0,1996.0,7.698649674831005
+tt33255143,The Judge from Hell,tvSeries,"Crime, Drama, Fantasy",7.8,3435.0,2024.0,7.698620128592973
+tt0090756,Blue Velvet,movie,"Crime, Drama, Mystery",7.7,230311.0,1986.0,7.698488106670523
+tt0066999,Dirty Harry,movie,"Action, Crime, Thriller",7.7,174270.0,1971.0,7.6980026399911905
+tt24655230,College Road,movie,Crime,8.3,578.0,2022.0,7.697852753909728
+tt8614536,Farmlands,movie,"Crime, Documentary",8.0,1151.0,2018.0,7.69766152838471
+tt0100150,Miller's Crossing,movie,"Crime, Drama, Thriller",7.7,145486.0,1990.0,7.69760817012606
+tt0067116,The French Connection,movie,"Action, Crime, Drama",7.7,143585.0,1971.0,7.6975765604058735
+tt0070666,Serpico,movie,"Biography, Crime, Drama",7.7,140256.0,1973.0,7.697519145678557
+tt2256612,Crimi Clowns,tvSeries,"Comedy, Crime, Thriller",8.0,1150.0,2012.0,7.697446951754749
+tt0480025,This Is England,movie,"Crime, Drama",7.7,131560.0,2006.0,7.6973554855902595
+tt0061418,Bonnie and Clyde,movie,"Action, Biography, Crime",7.7,124255.0,1967.0,7.697200336950242
+tt0104348,Glengarry Glen Ross,movie,"Crime, Drama, Mystery",7.7,121337.0,1992.0,7.697133152036436
+tt11141900,Ted Bundy: Falling for a Killer,tvMiniSeries,"Biography, Crime, Documentary",7.8,3356.0,2020.0,7.696404634860979
+tt0247082,CSI: Crime Scene Investigation,tvSeries,"Crime, Drama, Mystery",7.7,91677.0,2000.0,7.6962082617801775
+tt0053472,Breathless,movie,"Crime, Drama",7.7,90774.0,1960.0,7.696170649709693
+tt0489974,Carnival Row,tvSeries,"Crime, Drama, Fantasy",7.7,85466.0,2019.0,7.6959335404493725
+tt0069762,Badlands,movie,"Action, Crime, Drama",7.7,80952.0,1973.0,7.695707511975256
+tt17677860,Presumed Innocent,tvSeries,"Crime, Drama, Mystery",7.7,77791.0,2024.0,7.6955336675851695
+tt1216496,Mother,movie,"Crime, Drama, Mystery",7.7,75881.0,2009.0,7.695421627988211
+tt6474378,Good Girls,tvSeries,"Comedy, Crime, Drama",7.7,64585.0,2018.0,7.694624063213596
+tt4604612,The Alienist,tvSeries,"Crime, Drama, Mystery",7.7,62708.0,2018.0,7.69446381048839
+tt1155592,Man on Wire,movie,"Biography, Crime, Documentary",7.7,59646.0,2008.0,7.694180832234745
+tt0030341,The Lady Vanishes,movie,"Crime, Drama, Mystery",7.7,59118.0,1938.0,7.694129086262735
+tt8014232,Jonestown: Terror in the Jungle,tvMiniSeries,"Biography, Crime, Documentary",7.9,1684.0,2018.0,7.693928335060444
+tt0418455,Adam's Apples,movie,"Comedy, Crime, Drama",7.7,56554.0,2005.0,7.6938641288969505
+tt0104684,Hard Boiled,movie,"Action, Crime, Thriller",7.7,55846.0,1992.0,7.693786699135949
+tt1592154,Nikita,tvSeries,"Action, Crime, Drama",7.7,54989.0,2010.0,7.693690319197482
+tt0097202,The Killer,movie,"Action, Crime, Drama",7.7,52833.0,1989.0,7.693434090918075
+tt1595859,Blue Bloods,tvSeries,"Crime, Drama, Mystery",7.7,51358.0,2010.0,7.693246464440445
+tt0129794,An Average Little Man,movie,"Comedy, Crime, Drama",7.8,3246.0,1977.0,7.693153425113392
+tt0040506,Key Largo,movie,"Action, Crime, Drama",7.7,45307.0,1948.0,7.6923496193438625
+tt14417718,The Crowded Room,tvMiniSeries,"Biography, Crime, Drama",7.7,38574.0,2023.0,7.691023169856114
+tt0115321,Prime Suspect 5: Errors of Judgement,tvMiniSeries,"Crime, Mystery, Romance",7.8,3158.0,1996.0,7.690401742763371
+tt10375094,Pada,movie,"Crime, Drama, Thriller",7.8,3156.0,2022.0,7.690337556375532
+tt30576854,Blood and Black,movie,"Crime, Drama, Horror",8.0,1117.0,2024.0,7.690190955684914
+tt0119250,Fireworks,movie,"Crime, Drama, Romance",7.7,34274.0,1997.0,7.689905387745705
+tt9425132,Conversations with a Killer: The Ted Bundy Tapes,tvMiniSeries,"Biography, Crime, Documentary",7.7,33907.0,2019.0,7.689796954721725
+tt4434004,Udta Punjab,movie,"Crime, Drama",7.7,33093.0,2016.0,7.689547935806622
+tt8130968,Badla,movie,"Crime, Drama, Mystery",7.7,32185.0,2019.0,7.689255417181064
+tt0023427,Scarface,movie,"Action, Crime, Drama",7.7,31758.0,1932.0,7.689112120280552
+tt26670955,A Man on the Inside,tvSeries,"Comedy, Crime",7.7,30776.0,2024.0,7.688767609312791
+tt0092484,Wiseguy,tvSeries,"Crime, Drama, Mystery",7.8,3102.0,1987.0,7.68857564862316
+tt7216636,Hazbin Hotel,tvSeries,"Animation, Comedy, Crime",7.7,29506.0,2019.0,7.688288350580294
+tt4900716,Kapoor & Sons,movie,"Comedy, Crime, Drama",7.7,29286.0,2016.0,7.688201142495259
+tt0047849,Bad Day at Black Rock,movie,"Crime, Drama, Mystery",7.7,25167.0,1955.0,7.686289733148055
+tt10327354,Prodigal Son,tvSeries,"Crime, Drama, Mystery",7.7,24810.0,2019.0,7.686094489410125
+tt0038669,The Killers,movie,"Crime, Drama, Film-Noir",7.7,24686.0,1946.0,7.686025366006111
+tt17543592,Will Trent,tvSeries,"Crime, Drama",7.7,23165.0,2023.0,7.685117945484223
+tt15017118,Dark Winds,tvSeries,"Crime, Drama, Mystery",7.7,22616.0,2022.0,7.684760776175845
+tt0078657,Minder,tvSeries,"Comedy, Crime, Drama",7.8,2985.0,1979.0,7.684556952842922
+tt9348692,Criminal: UK,tvSeries,"Crime, Drama, Mystery",7.7,22219.0,2019.0,7.684491625368023
+tt0054189,Purple Noon,movie,"Crime, Drama, Thriller",7.7,22068.0,1960.0,7.684386740494578
+tt6297682,Seven Seconds,tvMiniSeries,"Crime, Drama",7.7,21565.0,2018.0,7.684026885768991
+tt29941770,Sambre,tvMiniSeries,"Crime, Drama, Thriller",8.0,1086.0,2023.0,7.683050375481368
+tt0038057,Scarlet Street,movie,"Crime, Drama, Film-Noir",7.7,20212.0,1945.0,7.682971166773603
+tt0101134,Liquid Television,tvSeries,"Animation, Comedy, Crime",8.0,1085.0,1991.0,7.682814549867888
+tt24018168,The Others,tvSeries,"Crime, Drama, Thriller",8.0,1082.0,2023.0,7.682104962731127
+tt1442065,Rookie Blue,tvSeries,"Action, Crime, Drama",7.7,19145.0,2010.0,7.682034774016824
+tt1439741,Human Target,tvSeries,"Action, Adventure, Crime",7.7,19032.0,2010.0,7.681929539942069
+tt11646832,The Outlaws,tvSeries,"Comedy, Crime, Drama",7.7,18721.0,2021.0,7.681633443362616
+tt17524566,Guns & Gulaabs,tvSeries,"Comedy, Crime, Romance",7.7,18673.0,2023.0,7.681586876981958
+tt1292703,Oye Lucky! Lucky Oye!,movie,"Comedy, Crime, Drama",7.7,18506.0,2008.0,7.681423008527708
+tt1943524,The Finder,tvSeries,"Comedy, Crime, Drama",7.7,18007.0,2012.0,7.6809155127024225
+tt6938856,A Very English Scandal,tvMiniSeries,"Biography, Comedy, Crime",7.7,17422.0,2018.0,7.680284076410975
+tt27327718,The Jengaburu Curse,tvSeries,"Crime, Mystery, Thriller",7.7,17367.0,2023.0,7.6802225550336125
+tt1705772,Mankatha,movie,"Action, Crime, Thriller",7.7,17010.0,2011.0,7.6798136982467105
+tt13847564,Inspector Avinash,tvSeries,"Action, Crime, Thriller",7.7,16751.0,2023.0,7.679506334804376
+tt12448030,Aarya,tvSeries,"Action, Crime, Drama",7.7,16505.0,2020.0,7.6792056045706545
+tt13829184,Manner of Death,tvSeries,"Crime, Drama, Mystery",7.9,1549.0,2020.0,7.678541346804447
+tt0394150,Bandit Petersburg. Film 2. The Lawyer,tvMiniSeries,"Crime, Drama, Romance",8.0,1062.0,2000.0,7.677292017428041
+tt16378210,We Need to Talk About Cosby,tvMiniSeries,"Biography, Crime, Documentary",7.8,2785.0,2022.0,7.676971995736675
+tt0380268,Cocaine Cowboys,movie,"Crime, Documentary, History",7.7,14351.0,2006.0,7.676139818961153
+tt3646462,Let's Sin,movie,"Action, Crime, Drama",7.7,14083.0,2014.0,7.675693958654473
+tt23752726,A Király,tvMiniSeries,"Biography, Crime, Drama",7.9,1526.0,2022.0,7.675687817939743
+tt0288439,Bang Bang You're Dead,movie,"Crime, Drama, Thriller",7.7,13289.0,2002.0,7.674269468188844
+tt0077451,Don,movie,"Action, Crime, Thriller",7.7,13087.0,1978.0,7.673880020607106
+tt0995941,Darker Than Black,tvSeries,"Action, Animation, Crime",7.7,12916.0,2007.0,7.673541006073809
+tt0091618,Miss Marple: Nemesis,tvMiniSeries,"Crime, Drama, Mystery",7.8,2701.0,1987.0,7.673480660480554
+tt1927327,El puntero,tvMiniSeries,"Action, Crime, Drama",8.2,649.0,2011.0,7.673461183945418
+tt0095441,The Cold Summer of 1953,movie,"Action, Crime, Drama",7.8,2698.0,1988.0,7.673352301326494
+tt4484722,The Making of the Mob,tvSeries,"Crime, Documentary, History",7.8,2698.0,2015.0,7.673352301326494
+tt8332130,Beforeigners,tvSeries,"Crime, Drama, Sci-Fi",7.7,12702.0,2019.0,7.673104139728605
+tt0054821,Le Doulos,movie,"Crime, Thriller",7.7,12625.0,1962.0,7.672943399179017
+tt8270592,Miss Scarlet,tvSeries,"Crime, Drama, Thriller",7.7,12468.0,2020.0,7.672609629529539
+tt29354056,Don't Love,movie,"Crime, Thriller",7.9,1501.0,2024.0,7.6725015653536595
+tt0018737,Pandora's Box,movie,"Crime, Drama, Romance",7.7,12392.0,1929.0,7.672445083789616
+tt20866202,Cyber Vaar,tvSeries,"Crime, Mystery, Thriller",7.7,12212.0,2022.0,7.672047370300894
+tt2259665,The Young Montalbano,tvSeries,"Crime, Mystery",7.9,1497.0,2012.0,7.671983345684762
+tt0338490,3 Deewarein,movie,"Crime, Drama",7.8,2662.0,2003.0,7.67179142588923
+tt0119448,Character,movie,"Crime, Drama, Mystery",7.7,11614.0,1997.0,7.670639497601486
+tt14167344,Aranyak,tvSeries,"Crime, Drama, Mystery",7.7,11414.0,2021.0,7.67013644778741
+tt8453458,Uspjeh,tvSeries,"Crime, Drama, Mystery",7.8,2622.0,2019.0,7.670011369323999
+tt2707150,Hollands hoop,tvSeries,Crime,7.9,1479.0,2014.0,7.669621838332821
+tt12677870,Law & Order: Organized Crime,tvSeries,"Action, Crime, Drama",7.7,11175.0,2021.0,7.669512222758653
+tt15074312,Maigret,tvSeries,"Crime, Drama, Mystery",7.8,2607.0,2016.0,7.669331038039931
+tt9907044,Miss Marple,tvSeries,"Crime, Mystery",8.6,366.0,1984.0,7.669284408035906
+tt9675716,Nerkonda Paarvai,movie,"Action, Crime, Drama",7.7,11035.0,2019.0,7.669134297416543
+tt0118437,The Practice,tvSeries,"Crime, Drama, Mystery",7.7,10861.0,1997.0,7.668651326890507
+tt0111993,Hamish Macbeth,tvSeries,"Comedy, Crime, Drama",7.8,2588.0,1995.0,7.668458993685437
+tt0053496,Danger Man,tvSeries,"Action, Adventure, Crime",7.9,1470.0,1960.0,7.668422646051152
+tt27442834,"Saas, Bahu Aur Flamingo",tvSeries,"Action, Crime, Drama",7.7,10503.0,2023.0,7.667608507249809
+tt0030643,Port of Shadows,movie,"Crime, Drama, Romance",7.7,10344.0,1938.0,7.6671227723307025
+tt3488298,American Crime,tvSeries,"Crime, Drama",7.7,10259.0,2015.0,7.666857078819399
+tt33301469,Mr. McMahon,tvSeries,"Biography, Crime, Documentary",7.7,9999.0,2024.0,7.666017035974112
+tt13323596,The Long Shadow,tvMiniSeries,"Biography, Crime, Drama",7.7,9815.0,2023.0,7.665396342567246
+tt5714216,Black Butler: Book of Murder,movie,"Adventure, Animation, Crime",7.9,1444.0,2014.0,7.664887113929796
+tt1652216,DCI Banks,tvSeries,"Crime, Drama, Mystery",7.7,9663.0,2010.0,7.664866232112724
+tt15352048,Reloaded 2,movie,"Action, Crime, Romance",8.0,1011.0,2024.0,7.664332877970427
+tt1366321,The Take,tvMiniSeries,"Crime, Drama, Thriller",7.7,9508.0,2009.0,7.664308667453921
+tt0151479,Next Stop Paradise,movie,"Crime, Drama, Romance",7.8,2490.0,1998.0,7.663769645333736
+tt11600174,The Pharmacist,tvMiniSeries,"Crime, Documentary",7.7,9000.0,2020.0,7.662350443354837
+tt0046451,Don't Touch the Loot,movie,"Crime, Drama",7.7,8936.0,1954.0,7.662088390975796
+tt0279901,A Fugitive from the Past,movie,"Crime, Drama, Mystery",7.9,1417.0,1965.0,7.661099495836779
+tt1620950,The Chicago Code,tvSeries,"Action, Crime, Drama",7.7,8590.0,2011.0,7.660606029497395
+tt0031514,Daybreak,movie,"Crime, Drama, Romance",7.7,8548.0,1939.0,7.660418162259845
+tt6720154,Suspicious Partner,tvSeries,"Comedy, Crime, Drama",7.7,8439.0,2017.0,7.659922137850361
+tt6027478,Dhruva,movie,"Action, Crime, Drama",7.7,8370.0,2016.0,7.659601663578913
+tt0029453,Pépé le Moko,movie,"Crime, Drama, Romance",7.7,8342.0,1937.0,7.659470149403841
+tt0457229,Brotherhood,tvSeries,"Crime, Drama",7.7,8322.0,2006.0,7.659375685237436
+tt2603596,The Wrong Mans,tvSeries,"Comedy, Crime, Thriller",7.7,8127.0,2013.0,7.658431046389512
+tt2380247,The Central Park Five,movie,"Crime, Documentary, History",7.7,8114.0,2012.0,7.658366506033971
+tt0309152,The F.B.I. Files,tvSeries,"Biography, Crime, Documentary",7.9,1398.0,1998.0,7.658360141836114
+tt3404140,The Attorney,movie,"Crime, Drama, History",7.7,8089.0,2013.0,7.658241824990709
+tt19818310,The King of Pigs,tvMiniSeries,"Crime, Drama, Mystery",7.9,1395.0,2022.0,7.657921859142951
+tt1664065,Asfur,tvSeries,"Comedy, Crime, Drama",8.0,986.0,2010.0,7.657592574315213
+tt3056884,B.D. în alerta - Profesorul de mimica,movie,"Action, Comedy, Crime",8.6,358.0,1970.0,7.657216782856469
+tt20916306,The Sixth Commandment,tvMiniSeries,"Crime, Drama, History",7.7,7786.0,2023.0,7.656669080798315
+tt0118497,Touching Evil,tvSeries,"Crime, Drama, Mystery",7.8,2336.0,1997.0,7.655685069372809
+tt0079182,Vengeance Is Mine,movie,"Crime, Drama",7.7,7605.0,1979.0,7.655671764372131
+tt0055724,The Expedition,movie,"Crime, Family, Romance",7.9,1377.0,1962.0,7.655258407715428
+tt11761176,Power Book III: Raising Kanan,tvSeries,"Crime, Drama",7.7,7350.0,2021.0,7.654186194640879
+tt7983794,Operation Odessa,movie,"Crime, Documentary",7.7,7072.0,2018.0,7.65244888214738
+tt0070904,World on a Wire,tvMiniSeries,"Crime, Mystery, Sci-Fi",7.7,7033.0,1973.0,7.652194563223044
+tt21818260,Criminal Justice: Adhura Sach,tvSeries,"Crime, Drama, Mystery",7.7,6864.0,2022.0,7.651060333430077
+tt0057591,Crooks in Clover,movie,"Action, Comedy, Crime",7.7,6832.0,1963.0,7.65083948033034
+tt0039739,Jenny Lamour,movie,"Crime, Drama",7.7,6638.0,1947.0,7.649456684793742
+tt0057765,The Man from U.N.C.L.E.,tvSeries,"Action, Adventure, Crime",7.7,6625.0,1964.0,7.649361236929466
+tt0312895,The Last Detective,tvSeries,"Comedy, Crime, Drama",7.8,2220.0,2003.0,7.648932131917079
+tt25406500,Iratta,movie,"Crime, Drama, Thriller",7.7,6554.0,2023.0,7.6488335175432915
+tt6538034,Save Me,tvSeries,"Crime, Drama, Mystery",7.7,6446.0,2018.0,7.648009359436605
+tt0070959,State of Siege,movie,"Crime, Drama, Mystery",7.7,6374.0,1972.0,7.647445010556678
+tt0229890,Chespirito,tvSeries,"Comedy, Crime, Family",8.1,739.0,1980.0,7.646896548118677
+tt2339608,Karadayi,tvSeries,"Action, Crime, Drama",7.7,6275.0,2012.0,7.646648722837839
+tt5012644,Sweet/Vicious,tvSeries,"Action, Comedy, Crime",7.8,2160.0,2016.0,7.645185099223829
+tt1941928,Fugitives,tvSeries,"Action, Crime, Drama",7.9,1311.0,2011.0,7.6449699076576065
+tt9165302,Revelation,tvMiniSeries,"Crime, Documentary",7.8,2150.0,2020.0,7.644542447082791
+tt0097843,Homework,movie,"Crime, Documentary, Drama",7.8,2144.0,1989.0,7.644154288398852
+tt0091355,The Terrorizers,movie,"Crime, Drama",7.7,5842.0,1986.0,7.642862277499171
+tt1783844,Clan,tvSeries,"Comedy, Crime, Drama",7.9,1285.0,2012.0,7.640675359470492
+tt22036944,Act Like You're Asleep,tvSeries,"Crime, Drama, Mystery",8.1,721.0,2022.0,7.6385742398188174
+tt15169774,Doctor Bakshi,movie,"Crime, Mystery, Thriller",7.9,1271.0,2023.0,7.638302454263035
+tt15840260,Bhagat Singh Nagar,movie,"Action, Crime, Drama",8.2,592.0,2021.0,7.638193601671492
+tt0099652,Ghayal,movie,"Action, Crime, Drama",7.7,5253.0,1990.0,7.636756668182591
+tt0062539,Adam-12,tvSeries,"Crime, Drama",7.7,5247.0,1968.0,7.636687750639746
+tt0412148,The Inside,tvSeries,"Crime, Drama, Mystery",7.9,1261.0,2005.0,7.636580759883185
+tt28466970,Ferry: The Series,tvSeries,"Crime, Drama, Thriller",7.7,5208.0,2023.0,7.636236099327318
+tt0383153,Touching Evil,tvSeries,"Crime, Drama, Thriller",7.9,1259.0,2004.0,7.636233698960765
+tt0059973,Captain Scarlet and the Mysterons,tvSeries,"Action, Crime, Drama",7.8,2023.0,1967.0,7.635890777836302
+tt0131335,Canoa: A Shameful Memory,movie,"Adventure, Crime, Drama",7.8,2012.0,1976.0,7.635095885082536
+tt1166893,Law & Order: UK,tvSeries,"Action, Crime, Drama",7.7,5038.0,2009.0,7.63418968378751
+tt0080322,Aakrosh,movie,"Crime, Drama, Music",7.9,1245.0,1980.0,7.633778427541517
+tt0805667,Smith,tvSeries,"Crime, Drama, Thriller",7.8,1989.0,2006.0,7.633408698853399
+tt0044231,Adventures of Superman,tvSeries,"Action, Adventure, Crime",7.7,4689.0,1952.0,7.629547848630243
+tt0056327,Pale Flower,movie,"Crime, Drama, Romance",7.7,4664.0,1964.0,7.6291900782089055
+tt0048394,Death of a Cyclist,movie,"Crime, Drama",7.7,4650.0,1955.0,7.628988135062628
+tt11611698,Trial by Fire,tvMiniSeries,"Crime, Drama, History",7.7,4499.0,2023.0,7.626734500845406
+tt0167644,Maigret,tvSeries,"Crime, Drama, Mystery",8.0,883.0,1991.0,7.626709943101963
+tt0465689,The Laser Man,tvMiniSeries,"Biography, Crime, Drama",7.9,1205.0,2005.0,7.626504614086368
+tt3056888,B.D. în alerta - Vaduve cu termen redus,movie,"Action, Comedy, Crime",8.6,338.0,1971.0,7.625632755481475
+tt0156213,Kamen Rider Black,tvSeries,"Action, Adventure, Crime",8.1,693.0,1987.0,7.625002893931135
+tt20854884,Dangerous Curve,tvMiniSeries,"Crime, Drama, Mystery",8.0,877.0,2022.0,7.624738340688768
+tt0246809,New Delhi,movie,"Action, Crime, Drama",7.8,1875.0,1987.0,7.624509257273871
+tt16420408,Graveyard,tvSeries,"Crime, Drama, Mystery",7.7,4342.0,2022.0,7.6242344609916195
+tt0973783,Big B,movie,"Action, Crime, Thriller",7.7,4326.0,2007.0,7.62397006652616
+tt4531728,Dickensian,tvSeries,"Adventure, Crime, Drama",7.7,4321.0,2015.0,7.62388706441538
+tt0833444,Dombivli Fast,movie,"Crime, Drama, Thriller",7.9,1187.0,2005.0,7.623100107207774
+tt3834000,Spotless,tvSeries,"Crime, Drama",7.7,4122.0,2015.0,7.620429754627356
+tt0904106,The Arbitrator,tvSeries,"Comedy, Crime, Drama",8.1,683.0,2007.0,7.619960461807262
+tt0220757,Shool,movie,"Action, Crime, Drama",7.7,4083.0,1999.0,7.619715051824607
+tt9094442,City of Dreams,tvSeries,"Crime, Mystery, Thriller",7.7,3979.0,2019.0,7.617744869047296
+tt0067698,Sacco & Vanzetti,movie,"Biography, Crime, Drama",7.7,3944.0,1971.0,7.61705989888709
+tt1618371,Zen,tvMiniSeries,"Crime, Drama, Mystery",7.7,3873.0,2011.0,7.615634742260998
+tt0240276,Where the Wild Boars Go,tvSeries,"Crime, Drama, War",8.3,473.0,1971.0,7.611479173527925
+tt0103362,Between the Lines,tvSeries,"Crime, Drama",8.1,666.0,1992.0,7.611138113537774
+tt0061248,Dragnet 1967,tvSeries,"Crime, Drama, Mystery",7.7,3621.0,1967.0,7.610155349232588
+tt0107227,The Terrorism and the Kebab,movie,"Action, Comedy, Crime",7.7,3583.0,1992.0,7.609266724368152
+tt0320421,Sathyaa,movie,"Action, Crime, Drama",7.9,1118.0,1988.0,7.609224949181149
+tt0456800,Suraag: The Clue,tvSeries,Crime,8.8,273.0,1999.0,7.609215704929403
+tt1921518,Crime Patrol,tvSeries,"Crime, Drama, Mystery",7.8,1698.0,2003.0,7.608637074615453
+tt0759482,Justice,tvSeries,"Crime, Drama, Thriller",7.8,1687.0,2006.0,7.607555372570627
+tt0876246,Ohtlik lend,tvSeries,Crime,8.6,327.0,2006.0,7.607342585362527
+tt7564016,Chase in the dark,movie,"Crime, Mystery, Thriller",7.8,1683.0,2022.0,7.607158988168095
+tt27458539,Vigilante,tvSeries,"Action, Crime, Thriller",7.7,3484.0,2023.0,7.606866886193545
+tt0088476,Alfred Hitchcock Presents,tvSeries,"Crime, Drama, Mystery",7.7,3409.0,1985.0,7.6049625831576995
+tt0092879,Ten Little Indians,movie,"Crime, Drama, Mystery",7.7,3301.0,1987.0,7.602079425568102
+tt4113078,Westside,tvSeries,"Comedy, Crime, Drama",8.0,811.0,2015.0,7.601591359834057
+tt0144084,American Psycho,movie,"Crime, Drama, Horror",7.6,772302.0,2000.0,7.599582301921819
+tt1250777,Kick-Ass,movie,"Action, Comedy, Crime",7.6,607567.0,2010.0,7.599469096016001
+tt0181689,Minority Report,movie,"Action, Crime, Mystery",7.6,600217.0,2002.0,7.59946259759761
+tt0099674,The Godfather Part III,movie,"Crime, Drama",7.6,437607.0,1990.0,7.599263022831237
+tt0454848,Inside Man,movie,"Crime, Drama, Mystery",7.6,410844.0,2006.0,7.599215045268514
+tt10366206,John Wick: Chapter 4,movie,"Action, Crime, Thriller",7.6,372162.0,2023.0,7.599133514906576
+tt0399295,Lord of War,movie,"Crime, Drama",7.6,347494.0,2005.0,7.599072050435287
+tt0381849,3:10 to Yuma,movie,"Action, Crime, Drama",7.6,341811.0,2007.0,7.599056633890789
+tt0452623,Gone Baby Gone,movie,"Crime, Drama, Mystery",7.6,301146.0,2007.0,7.598929356696214
+tt0093870,RoboCop,movie,"Action, Crime, Sci-Fi",7.6,294718.0,1987.0,7.598906025741066
+tt0093409,Lethal Weapon,movie,"Action, Crime, Thriller",7.6,285484.0,1987.0,7.598870673139928
+tt1855199,End of Watch,movie,"Action, Crime, Drama",7.6,279612.0,2012.0,7.598846978625947
+tt5537002,Killers of the Flower Moon,movie,"Crime, Drama, History",7.6,278526.0,2023.0,7.598842487060001
+tt0765443,Eastern Promises,movie,"Crime, Drama, Thriller",7.6,269758.0,2007.0,7.598804900265621
+tt2582782,Hell or High Water,movie,"Crime, Drama, Thriller",7.6,263636.0,2016.0,7.598777175600228
+tt0144117,The Boondock Saints,movie,"Action, Crime, Thriller",7.6,256403.0,1999.0,7.598742715146855
+tt0315733,21 Grams,movie,"Crime, Drama, Thriller",7.6,249528.0,2003.0,7.598708110330091
+tt0181865,Traffic,movie,"Crime, Drama, Thriller",7.6,224410.0,2000.0,7.598563677031644
+tt1899353,The Raid: Redemption,movie,"Action, Crime, Thriller",7.6,222975.0,2011.0,7.598554444014004
+tt0106856,Falling Down,movie,"Crime, Drama, Thriller",7.6,215344.0,1993.0,7.598503280357983
+tt0130827,Run Lola Run,movie,"Action, Crime, Thriller",7.6,212805.0,1998.0,7.598485444537896
+tt0095705,The Naked Gun: From the Files of Police Squad!,movie,"Comedy, Crime",7.6,193225.0,1988.0,7.598332176071522
+tt27671215,English Manju,movie,"Crime, Drama, Romance",7.9,1068.0,2023.0,7.598268843272375
+tt0103074,Thelma & Louise,movie,"Adventure, Crime, Drama",7.6,182306.0,1991.0,7.598232425465025
+tt17009710,Anatomy of a Fall,movie,"Crime, Drama, Thriller",7.6,172149.0,2023.0,7.598128293089777
+tt0079116,Escape from Alcatraz,movie,"Biography, Crime, Drama",7.6,154513.0,1979.0,7.597915015345297
+tt0104952,My Cousin Vinny,movie,"Comedy, Crime",7.6,148676.0,1992.0,7.597833301473948
+tt7599146,Sound of Freedom,movie,"Biography, Crime, Drama",7.6,129490.0,2023.0,7.597512911506235
+tt0055614,West Side Story,movie,"Crime, Drama, Musical",7.6,124321.0,1961.0,7.597409718694995
+tt0070034,Enter the Dragon,movie,"Action, Crime, Thriller",7.6,116252.0,1973.0,7.597230328080802
+tt8550800,The Outsider,tvSeries,"Crime, Drama, Horror",7.6,106565.0,2020.0,7.59697916905398
+tt9389998,Pushpa: The Rise - Part 1,movie,"Action, Crime, Drama",7.6,96163.0,2021.0,7.5966532819794494
+tt0463998,Freedom Writers,movie,"Biography, Crime, Drama",7.6,88516.0,2007.0,7.59636499864852
+tt0088680,After Hours,movie,"Comedy, Crime, Drama",7.6,87686.0,1985.0,7.5963306925353615
+tt1103968,The Beast,tvSeries,"Action, Crime, Drama",7.7,3102.0,2009.0,7.596281688492247
+tt4916630,Just Mercy,movie,"Biography, Crime, Drama",7.6,79726.0,2019.0,7.5959655279742755
+tt7440726,Your Honor,tvSeries,"Crime, Drama, Thriller",7.6,76157.0,2020.0,7.595777098448263
+tt1937149,The Body,movie,"Crime, Drama, Mystery",7.6,75641.0,2012.0,7.595748389394235
+tt4422836,Limitless,tvSeries,"Comedy, Crime, Drama",7.6,73513.0,2015.0,7.595625748997214
+tt1242422,Cell 211,movie,"Action, Adventure, Crime",7.6,72319.0,2009.0,7.595553787029437
+tt4226388,Victoria,movie,"Crime, Drama, Romance",7.6,65083.0,2015.0,7.5950614115732975
+tt27665353,Weekend Party,movie,"Crime, Romance, Thriller",7.9,1054.0,2023.0,7.5950516032158735
+tt0026029,The 39 Steps,movie,"Crime, Mystery, Thriller",7.6,63676.0,1935.0,7.594952729413035
+tt10834220,The Chestnut Man,tvSeries,"Crime, Drama, Mystery",7.6,58730.0,2021.0,7.594529535252716
+tt2802154,Leviathan,movie,"Crime, Drama",7.6,58317.0,2014.0,7.594490964815325
+tt0090967,Down by Law,movie,"Comedy, Crime, Drama",7.6,56940.0,1986.0,7.59435834114272
+tt27726727,Harom Hara,movie,"Action, Crime, Drama",7.7,3033.0,2024.0,7.594107762765018
+tt7985576,The Serpent,tvMiniSeries,"Crime, Drama, Thriller",7.6,52347.0,2021.0,7.593865771110186
+tt7479902,Gultoo,movie,"Crime, Drama",7.8,1556.0,2018.0,7.59366542976443
+tt0458270,It Takes a Thief,tvSeries,"Crime, Reality-TV",8.2,529.0,2005.0,7.593277607896499
+tt0088559,MacGyver,tvSeries,"Action, Adventure, Crime",7.6,43509.0,1985.0,7.592627096395139
+tt4176650,Ten Little Roosters,tvMiniSeries,"Comedy, Crime, Mystery",8.0,787.0,2014.0,7.592450052602716
+tt1034007,Alias Grace,tvMiniSeries,"Biography, Crime, Drama",7.6,39780.0,2017.0,7.591940426959275
+tt0097553,I Know My First Name Is Steven,tvMiniSeries,"Crime, Drama",7.7,2966.0,1989.0,7.591907831014711
+tt1551632,Rizzoli & Isles,tvSeries,"Crime, Drama, Mystery",7.6,39571.0,2010.0,7.591898135953362
+tt0072251,The Taking of Pelham One Two Three,movie,"Action, Crime, Thriller",7.6,38123.0,1974.0,7.591592484889334
+tt15301048,"Argentina, 1985",movie,"Biography, Crime, Drama",7.6,33712.0,2022.0,7.590500802302624
+tt1934231,Delhi Belly,movie,"Action, Comedy, Crime",7.6,33336.0,2011.0,7.590394485936074
+tt0368479,Cold Case,tvSeries,"Crime, Drama, Mystery",7.6,33162.0,2003.0,7.590344476677012
+tt7748244,Mortal World,movie,"Action, Comedy, Crime",7.6,33160.0,2018.0,7.590343898830678
+tt0048281,The Ladykillers,movie,"Comedy, Crime",7.6,32777.0,1955.0,7.590231951659476
+tt0086759,Miami Vice,tvSeries,"Action, Crime, Drama",7.6,31802.0,1984.0,7.589934897695719
+tt2980794,Highway,movie,"Crime, Drama, Romance",7.6,31609.0,2014.0,7.589873941101494
+tt0106333,Baazigar,movie,"Crime, Drama, Musical",7.6,30915.0,1993.0,7.589648513345173
+tt2077823,Perry Mason,tvSeries,"Crime, Drama, History",7.6,29822.0,2020.0,7.589272389715184
+tt14192504,We Own This City,tvMiniSeries,"Biography, Crime, Drama",7.6,29787.0,2022.0,7.589259893330974
+tt0048893,Playhouse 90,tvSeries,"Comedy, Crime, Drama",8.3,450.0,1956.0,7.589143519072556
+tt10199590,Les Misérables,movie,"Crime, Drama, Thriller",7.6,29408.0,2019.0,7.589122686993037
+tt0426578,Sophie Scholl: The Final Days,movie,"Biography, Crime, Drama",7.6,29230.0,2005.0,7.589057029910218
+tt0061029,Happy End,movie,"Comedy, Crime",7.8,1516.0,1967.0,7.589015636632361
+tt0275140,Law & Order: Criminal Intent,tvSeries,"Crime, Drama, Mystery",7.6,28731.0,2001.0,7.588868670404361
+tt0057869,Band of Outsiders,movie,"Comedy, Crime, Drama",7.6,27912.0,1964.0,7.588545055376892
+tt0342172,Capturing the Friedmans,movie,"Biography, Crime, Documentary",7.6,27854.0,2003.0,7.58852142265224
+tt0383694,Vera Drake,movie,"Crime, Drama",7.6,27778.0,2004.0,7.588490307630004
+tt0373981,Control,movie,"Comedy, Crime, Drama",7.6,27643.0,2003.0,7.588434619562125
+tt0053168,Pickpocket,movie,"Crime, Drama",7.6,26395.0,1959.0,7.587893102537047
+tt10577736,Tehran,tvSeries,"Action, Crime, Drama",7.6,26043.0,2020.0,7.587731075774558
+tt0955346,Moonlight,tvSeries,"Crime, Drama, Fantasy",7.6,25490.0,2007.0,7.587467581460345
+tt1492030,Mildred Pierce,tvMiniSeries,"Crime, Drama, Mystery",7.6,24985.0,2011.0,7.587216873515388
+tt3447364,Detective Byomkesh Bakshy!,movie,"Action, Crime, Drama",7.6,24856.0,2015.0,7.587151214613674
+tt6788942,Bad Genius,movie,"Comedy, Crime, Drama",7.6,24425.0,2017.0,7.586926865784412
+tt0022286,The Public Enemy,movie,"Crime, Drama",7.6,23811.0,1931.0,7.586593384089009
+tt26748649,High Potential,tvSeries,"Crime, Drama, Mystery",7.6,23735.0,2024.0,7.586550919189066
+tt0293007,Carandiru,movie,"Crime, Drama",7.6,23325.0,2003.0,7.586317111390028
+tt2355791,Polladhavan,movie,"Action, Crime, Drama",7.7,2807.0,2007.0,7.586302268435238
+tt17074480,Karna,movie,Crime,7.8,1491.0,2023.0,7.586001574298538
+tt0479751,Sivaji,movie,"Action, Crime, Drama",7.6,22686.0,2007.0,7.58593605382534
+tt11656892,Des,tvMiniSeries,"Biography, Crime, Drama",7.6,22354.0,2020.0,7.585729569496415
+tt7431994,The Pit,tvSeries,"Action, Crime, Drama",7.6,21509.0,2016.0,7.585175613516283
+tt0453190,Raam,movie,"Action, Crime, Drama",7.8,1482.0,2005.0,7.584895321667111
+tt2406376,The Bridge,tvSeries,"Crime, Drama, Mystery",7.6,20839.0,2013.0,7.584704841929208
+tt2645122,Janet King,tvSeries,"Crime, Drama, Mystery",7.7,2731.0,2014.0,7.583412292649647
+tt0083865,Dögkeselyü,movie,"Action, Crime, Drama",7.8,1469.0,1982.0,7.583277057304653
+tt0051525,The Defiant Ones,movie,"Crime, Drama",7.6,18941.0,1958.0,7.583192851824083
+tt0096018,Running on Empty,movie,"Crime, Drama, Music",7.6,18704.0,1988.0,7.582982795708613
+tt0238883,Brat 2,movie,"Action, Crime, Drama",7.6,18676.0,2000.0,7.582957631635724
+tt0037469,The Woman in the Window,movie,"Crime, Drama, Film-Noir",7.6,18604.0,1944.0,7.582892580979824
+tt7048622,The Insult,movie,"Crime, Drama, Thriller",7.6,18535.0,2017.0,7.582829773067065
+tt9179552,Dr. Death,tvSeries,"Crime, Drama, Thriller",7.6,18208.0,2021.0,7.5825257353670015
+tt2393813,Graceland,tvSeries,"Action, Crime, Drama",7.6,17972.0,2013.0,7.582299531294083
+tt0432047,Sarkar,movie,"Crime, Drama",7.6,17824.0,2005.0,7.582154662114828
+tt6271042,McMafia,tvSeries,"Crime, Drama, Thriller",7.6,17535.0,2018.0,7.581864828314176
+tt0158714,Lady Snowblood,movie,"Action, Crime, Drama",7.6,17308.0,1973.0,7.581630486424684
+tt0046187,Pickup on South Street,movie,"Crime, Drama, Film-Noir",7.6,16844.0,1953.0,7.581132126236476
+tt7187044,City on a Hill,tvSeries,"Crime, Drama, Thriller",7.6,16136.0,2019.0,7.580317337909268
+tt0042530,Gun Crazy,movie,"Crime, Drama, Film-Noir",7.6,15735.0,1950.0,7.579823856134953
+tt2575968,Hinterland,tvSeries,"Crime, Drama, Mystery",7.6,15550.0,2013.0,7.579587750966059
+tt11123072,Iru Dhuruvam,tvSeries,"Crime, Thriller",7.8,1438.0,2019.0,7.5793180642442195
+tt15576504,The Night Manager,tvSeries,"Action, Crime, Mystery",7.6,15342.0,2023.0,7.579315605090856
+tt0138256,The Next Victim,tvSeries,"Crime, Drama, Mystery",8.2,511.0,1995.0,7.579094487042131
+tt9586294,Better Days,movie,"Crime, Drama, Romance",7.6,15112.0,2019.0,7.579006099474493
+tt10584608,Teenage Bounty Hunters,tvSeries,"Comedy, Crime, Drama",7.6,15089.0,2020.0,7.578974638716604
+tt19868314,Dahaad,tvSeries,"Crime, Drama, Mystery",7.6,14744.0,2023.0,7.578491152104408
+tt1321865,Carlos,tvMiniSeries,"Biography, Crime, Drama",7.6,14681.0,2010.0,7.578400452143404
+tt1600199,Franklin & Bash,tvSeries,"Comedy, Crime, Drama",7.6,14650.0,2011.0,7.578355540614558
+tt1451409,Pokkiri,movie,"Action, Crime, Thriller",7.6,14369.0,2007.0,7.577939756290842
+tt5460226,Search Party,tvSeries,"Comedy, Crime, Drama",7.6,14359.0,2016.0,7.577924665140404
+tt11043632,Beastars,tvSeries,"Animation, Crime, Drama",7.6,14049.0,2019.0,7.577446376504224
+tt0040979,Drunken Angel,movie,"Crime, Drama, Romance",7.6,13966.0,1948.0,7.577314780669415
+tt0047892,Bob le Flambeur,movie,"Crime, Drama, Thriller",7.6,13816.0,1956.0,7.577073019895022
+tt14002046,Bheeshma Parvam,movie,"Action, Crime, Drama",7.6,13765.0,2022.0,7.576989643113408
+tt1437367,Thanks Maa,movie,"Crime, Drama",8.0,748.0,2009.0,7.576666092375811
+tt1832045,Magic City,tvSeries,"Crime, Drama",7.6,13554.0,2012.0,7.576638149208893
+tt0112182,Strange Luck,tvSeries,"Crime, Drama, Fantasy",8.1,605.0,1995.0,7.576623559053751
+tt10540276,Snabba Cash,tvSeries,"Action, Crime, Drama",7.6,13298.0,2021.0,7.576197001919484
+tt0271678,No: 20 Madras Mail,movie,"Comedy, Crime, Drama",7.8,1412.0,1990.0,7.57588435369386
+tt11905462,Athlete A,movie,"Crime, Documentary, Sport",7.6,13041.0,2020.0,7.575737049249808
+tt1692190,Hell,movie,"Comedy, Crime, Drama",7.6,12885.0,2010.0,7.575449083614002
+tt4937942,Bordertown,tvSeries,"Crime, Drama, Mystery",7.6,12784.0,2016.0,7.57525897071398
+tt26591110,Elsbeth,tvSeries,"Comedy, Crime, Drama",7.6,12768.0,2024.0,7.575228583328658
+tt0105947,Bakersfield P.D.,tvSeries,"Comedy, Crime",8.5,342.0,1993.0,7.575212570752814
+tt0027260,After the Thin Man,movie,"Comedy, Crime, Mystery",7.6,12558.0,1936.0,7.57482271631602
+tt32178949,The Seed of the Sacred Fig,movie,"Crime, Drama, Thriller",7.6,12528.0,2024.0,7.574763647065178
+tt0149601,Cholera Street,movie,"Crime, Drama, Romance",7.6,12318.0,1997.0,7.574342272006237
+tt0116950,Maachis,movie,"Action, Crime, Drama",7.7,2508.0,1996.0,7.574016174565393
+tt0039677,Odd Man Out,movie,"Crime, Drama, Film-Noir",7.6,12105.0,1947.0,7.573900255178133
+tt1355546,Ayan,movie,"Action, Crime, Drama",7.6,12007.0,2009.0,7.573691729579523
+tt0770652,The State Within,tvMiniSeries,"Crime, Drama, Thriller",7.7,2498.0,2006.0,7.573559214734292
+tt0486657,The Dresden Files,tvSeries,"Crime, Drama, Fantasy",7.6,11927.0,2007.0,7.573519018137406
+tt0367859,The Man Who Copied,movie,"Comedy, Crime, Drama",7.6,11889.0,2003.0,7.573436183324205
+tt9131050,A Confession,tvMiniSeries,"Biography, Crime, Drama",7.6,11775.0,2019.0,7.573184540055047
+tt1241195,Aamir,movie,"Action, Crime, Drama",7.6,11770.0,2008.0,7.573173393883319
+tt7801964,Manhunt,tvSeries,"Biography, Crime, Drama",7.6,11600.0,2019.0,7.572788831690904
+tt14311930,Exposed: The Ghost Train Fire,tvMiniSeries,"Crime, Documentary, History",7.9,963.0,2021.0,7.572342680051097
+tt7242816,Harrow,tvSeries,"Crime, Drama, Mystery",7.6,10973.0,2018.0,7.571269832177924
+tt1260520,El Cartel de los Sapos,tvSeries,"Action, Crime, Drama",7.9,958.0,2008.0,7.570996511932984
+tt10883506,A Sun,movie,"Crime, Drama",7.6,10857.0,2019.0,7.570970021142717
+tt21339764,Entre Lobos,tvMiniSeries,"Crime, Documentary",8.2,501.0,2022.0,7.570924677661106
+tt24364990,Poacher,tvSeries,"Crime, Drama",7.7,2438.0,2023.0,7.570746294038725
+tt0477857,Sehar,movie,"Action, Crime, Drama",7.7,2430.0,2005.0,7.570361753448286
+tt0052784,Skeleton of Mrs. Morales,movie,"Comedy, Crime, Horror",7.7,2428.0,1960.0,7.570265260521936
+tt10262630,Extracurricular,tvSeries,"Crime, Drama",7.6,10566.0,2020.0,7.570189630948954
+tt11725900,Karen Pirie,tvSeries,"Crime, Drama, Mystery",7.6,10564.0,2022.0,7.570184122241748
+tt0043132,Where the Sidewalk Ends,movie,"Crime, Drama, Film-Noir",7.6,10545.0,1950.0,7.570131687802891
+tt0339252,Khadgam,movie,"Action, Crime, Drama",7.8,1369.0,2002.0,7.5699648372373725
+tt21916016,Tanaav,tvSeries,"Action, Crime, Drama",7.6,10326.0,2022.0,7.569513722722951
+tt0040160,The Big Clock,movie,"Crime, Drama, Film-Noir",7.6,10189.0,1948.0,7.569113969661412
+tt0423646,Epitafios,tvMiniSeries,"Crime, Drama, Horror",7.8,1363.0,2004.0,7.569113905685845
+tt25274786,Kannur Squad,movie,"Action, Crime, Drama",7.6,10047.0,2023.0,7.568688410151605
+tt9179616,Vienna Blood,tvSeries,"Crime, Drama, History",7.6,9798.0,2019.0,7.567913170430788
+tt0098999,Agneepath,movie,"Action, Crime, Drama",7.6,9696.0,1990.0,7.567584405326212
+tt10327830,For Life,tvSeries,"Biography, Crime, Drama",7.6,9673.0,2020.0,7.567509339007495
+tt13231270,Nirbandham,movie,"Crime, Thriller",8.2,496.0,2020.0,7.566758615923762
+tt26591147,Matlock,tvSeries,"Crime, Drama",7.6,9412.0,2024.0,7.566632484233526
+tt1845838,Metro Manila,movie,"Crime, Drama",7.6,9377.0,2013.0,7.566511286324454
+tt11789868,The Teacher,tvSeries,"Crime, Drama, Thriller",7.7,2345.0,2020.0,7.566130090254394
+tt6106704,Damnation,tvSeries,"Crime, Drama, Western",7.6,9195.0,2017.0,7.565866591392262
+tt0044954,The Narrow Margin,movie,"Crime, Drama, Film-Noir",7.6,9135.0,1952.0,7.56564857941478
+tt10720914,McDonald & Dodds,tvSeries,"Comedy, Crime, Mystery",7.6,9111.0,2020.0,7.565560592851914
+tt27862531,Ajmer 92,movie,"Crime, Drama, History",7.8,1334.0,2023.0,7.564910706228776
+tt0134257,Operation Good Guys,tvSeries,"Comedy, Crime",8.1,586.0,1997.0,7.564855331387504
+tt18573724,So Help Me Todd,tvSeries,"Comedy, Crime, Drama",7.6,8815.0,2022.0,7.564437156162931
+tt0035160,Obsession,movie,"Crime, Drama, Romance",7.6,8673.0,1943.0,7.563871781798302
+tt13186264,Magpie Murders,tvSeries,"Crime, Drama, Mystery",7.6,8667.0,2022.0,7.563847496641546
+tt6109562,Wellington Paranormal,tvSeries,"Comedy, Crime, Fantasy",7.6,8561.0,2018.0,7.56341301077352
+tt3729898,Hap and Leonard,tvSeries,"Crime, Drama, Mystery",7.6,8513.0,2016.0,7.563212808370091
+tt30485422,Chief Detective 1958,tvSeries,"Crime, Drama, Mystery",7.9,928.0,2024.0,7.562681343742579
+tt8118950,The Hunter,tvSeries,"Action, Crime, Drama",7.8,1318.0,2018.0,7.56252552633002
+tt0329890,La mujer de Judas,tvSeries,"Crime, Drama, Horror",8.4,373.0,2002.0,7.561554992124116
+tt11490170,HIT,movie,"Crime, Drama, Mystery",7.6,8101.0,2020.0,7.561399851079239
+tt9112152,The Investigation,tvMiniSeries,"Crime, Drama, Mystery",7.6,8074.0,2020.0,7.561274781593957
+tt0106102,Pie in the Sky,tvSeries,"Comedy, Crime, Drama",7.7,2252.0,1994.0,7.561171945449002
+tt7901798,Sheeple,movie,"Crime, Drama, Thriller",7.6,7868.0,2018.0,7.560293189986765
+tt0088511,Duarte & C.a,tvSeries,"Action, Comedy, Crime",8.4,372.0,1985.0,7.5602262361686865
+tt4755410,Durarara!!x2,tvSeries,"Animation, Comedy, Crime",7.7,2229.0,2015.0,7.559888567131207
+tt0058557,Seance on a Wet Afternoon,movie,"Crime, Drama",7.6,7763.0,1964.0,7.559773467342612
+tt8824648,Girl From Nowhere,tvSeries,"Crime, Drama, Fantasy",7.6,7712.0,2018.0,7.559516090204797
+tt5083702,The Fear of 13,movie,"Biography, Crime, Documentary",7.6,7700.0,2015.0,7.559455051516829
+tt0238119,Boys Don't Cry,movie,"Comedy, Crime",7.6,7661.0,2000.0,7.559255398361419
+tt33163756,Into the Fire: The Lost Daughter,tvMiniSeries,"Crime, Documentary",7.6,7575.0,2024.0,7.558808112716676
+tt1188927,Criminal Justice,tvSeries,"Crime, Drama, Mystery",7.7,2201.0,2008.0,7.558293802854651
+tt2120152,The Invisible War,movie,"Crime, Documentary",7.6,7383.0,2012.0,7.5577731948472175
+tt8178650,The Victim,tvMiniSeries,"Crime, Drama, Mystery",7.6,7371.0,2019.0,7.557706783095995
+tt0054001,Inspector Palmu's Error,movie,"Comedy, Crime, Mystery",7.7,2188.0,1960.0,7.557540970585387
+tt19719976,Joyland,movie,"Comedy, Crime, Drama",7.6,7272.0,2022.0,7.557150810652295
+tt2964526,2 Weeks,tvMiniSeries,"Crime, Drama",7.9,908.0,2013.0,7.556900389907833
+tt12299774,November Story,tvSeries,"Crime, Mystery, Thriller",7.6,7145.0,2021.0,7.556415823206705
+tt0072976,Fox and His Friends,movie,"Crime, Drama, Romance",7.6,7140.0,1975.0,7.556386370458499
+tt0095475,Damnation,movie,"Crime, Drama, Romance",7.6,7100.0,1988.0,7.556149307653546
+tt5193358,Wanted,tvSeries,"Action, Crime, Drama",7.6,6960.0,2016.0,7.555298899435162
+tt4792480,The Break,tvSeries,"Crime, Drama, Thriller",7.6,6865.0,2016.0,7.55470280109804
+tt1276962,How to Make Money Selling Drugs,movie,"Crime, Documentary",7.6,6863.0,2012.0,7.554690080738899
+tt33338105,Queen of Fucking Everything,tvSeries,"Comedy, Crime, Drama",7.8,1261.0,2025.0,7.553620233567395
+tt0094484,In the Heat of the Night,tvSeries,"Crime, Drama, Mystery",7.6,6673.0,1988.0,7.553448175854362
+tt11823102,Cry Wolf,tvSeries,"Crime, Drama, Mystery",7.7,2118.0,2020.0,7.553345710989668
+tt0070439,Unbelievable Adventures of Italians in Russia,movie,"Adventure, Comedy, Crime",7.6,6627.0,1974.0,7.553137199393325
+tt13430420,Dalgliesh,tvSeries,"Crime, Drama, Mystery",7.6,6612.0,2021.0,7.553034893759634
+tt7526498,Shakespeare & Hathaway: Private Investigators,tvSeries,"Comedy, Crime, Drama",7.6,6588.0,2018.0,7.552870272385342
+tt4136056,The Seven Five,movie,"Biography, Crime, Documentary",7.6,6445.0,2014.0,7.551864969424588
+tt0043386,Casque d'Or,movie,"Crime, Drama, Romance",7.6,6424.0,1952.0,7.551713714652467
+tt0907702,Wallander,tvSeries,"Crime, Drama, Mystery",7.6,6383.0,2005.0,7.551415651162668
+tt0331389,Ikebukuro West Gate Park,tvSeries,"Action, Comedy, Crime",7.8,1246.0,2000.0,7.551164621277369
+tt0053534,Route 66,tvSeries,"Adventure, Crime, Drama",7.7,2078.0,1960.0,7.550835581952263
+tt5839706,91 Days,tvMiniSeries,"Animation, Crime, Drama",7.6,6232.0,2016.0,7.550285434451153
+tt22297178,Scoop,tvSeries,"Biography, Crime, Drama",7.6,6149.0,2023.0,7.549641503592765
+tt0048037,The Criminal Life of Archibaldo de la Cruz,movie,"Comedy, Crime, Drama",7.6,6141.0,1955.0,7.549578555472255
+tt0090455,If Tomorrow Comes,tvMiniSeries,"Crime, Drama, Mystery",7.7,2057.0,1986.0,7.549483054845614
+tt10986056,Criminal: Germany,tvMiniSeries,"Crime, Drama, Mystery",7.6,6119.0,2019.0,7.5494046339012915
+tt19712072,Chengiz,movie,"Action, Crime, Thriller",7.6,6072.0,2023.0,7.5490290246442
+tt0830900,Saving Grace,tvSeries,"Crime, Drama, Fantasy",7.6,5903.0,2007.0,7.547631086501531
+tt28429213,The Boy's Word: Blood on the Asphalt,tvSeries,"Crime, Drama",7.6,5835.0,2023.0,7.547046727112313
+tt7179784,Irumbu Thirai,movie,"Action, Crime, Thriller",7.6,5824.0,2018.0,7.546950970741812
+tt0105185,Psy,movie,"Action, Crime, Drama",7.6,5767.0,1992.0,7.546449179393037
+tt0039668,Nosotros los pobres,movie,"Comedy, Crime, Drama",7.8,1218.0,1948.0,7.54644736291296
+tt0082436,The Grilling,movie,"Crime, Drama, Mystery",7.6,5766.0,1981.0,7.546440291290031
+tt0124207,The Thief,movie,"Crime, Drama",7.6,5766.0,1997.0,7.546440291290031
+tt1809362,The Confession,tvMiniSeries,"Action, Crime, Drama",7.6,5700.0,2011.0,7.54584708088982
+tt0044314,5 Fingers,movie,"Crime, Drama, Mystery",7.6,5682.0,1952.0,7.545683008756512
+tt2362459,Private Number,tvSeries,"Crime, Drama, Mystery",8.0,679.0,2012.0,7.545525325183839
+tt13638516,Narco Wars,tvSeries,"Crime, Documentary, History",8.4,361.0,2020.0,7.545327024229744
+tt12015466,365: Repeat the Year,tvSeries,"Crime, Drama, Fantasy",7.8,1211.0,2020.0,7.5452399694030206
+tt0377253,Rosemary & Thyme,tvSeries,"Crime, Drama, Mystery",7.6,5624.0,2003.0,7.545147502128579
+tt4803738,Hello Monster,tvSeries,"Action, Crime, Mystery",7.7,1985.0,2015.0,7.544653634145472
+tt3914520,Bad Guys,tvSeries,"Action, Crime, Thriller",7.7,1984.0,2014.0,7.544584375845939
+tt14040390,Doutor Castor,tvMiniSeries,"Crime, Documentary",8.3,406.0,2021.0,7.542109406048784
+tt0040737,Bitter Rice,movie,"Crime, Drama",7.6,5189.0,1949.0,7.540767759732459
+tt5134362,Anondo Osru,movie,"Crime, Drama",8.2,466.0,1997.0,7.540555524168884
+tt9116152,Blood Pact,tvSeries,"Crime, Drama, Mystery",8.7,265.0,2018.0,7.54046327294359
+tt7010412,The Great Buddha+,movie,"Comedy, Crime, Drama",7.6,5161.0,2017.0,7.54046176291927
+tt0042296,Caged,movie,"Crime, Drama, Film-Noir",7.6,5152.0,1950.0,7.540362734249204
+tt0050064,Suspicion,tvSeries,"Crime, Drama, Mystery",8.1,549.0,1957.0,7.540349944334704
+tt0061814,The Incident,movie,"Crime, Drama, Thriller",7.6,5108.0,1967.0,7.539873813121378
+tt5908376,Afrah AlQoba,tvSeries,"Crime, Drama, Music",8.2,465.0,2016.0,7.539644689257514
+tt12822708,"Exterior, Night",tvSeries,"Crime, Drama, History",7.7,1914.0,2022.0,7.539577890024133
+tt3638488,Bedrag,tvSeries,"Crime, Drama, Thriller",7.6,5053.0,2016.0,7.539251271653321
+tt0107221,Maigret,tvSeries,"Crime, Drama, Mystery",7.8,1177.0,1992.0,7.539208046673009
+tt0064861,This Man Must Die,movie,"Crime, Drama, Thriller",7.6,5047.0,1969.0,7.539182577275243
+tt0770521,Drive,tvSeries,"Action, Adventure, Crime",7.6,5037.0,2007.0,7.539067740751972
+tt1315063,Unforgiven,tvMiniSeries,"Crime, Drama, Thriller",7.7,1902.0,2009.0,7.538687068497196
+tt1664809,Rakta Charitra,movie,"Action, Biography, Crime",7.6,4932.0,2010.0,7.537835244658533
+tt1297754,Republic of Doyle,tvSeries,"Comedy, Crime, Drama",7.6,4887.0,2010.0,7.537291635255041
+tt0054452,The Truth,movie,"Crime, Drama, Romance",7.6,4843.0,1960.0,7.5367508339910705
+tt0843270,Crazy Stone,movie,"Comedy, Crime, Drama",7.6,4663.0,2006.0,7.534437780378391
+tt3543082,Hotel Beau Séjour,tvSeries,"Crime, Drama, Mystery",7.6,4582.0,2016.0,7.533340788064954
+tt15516200,Gora,tvSeries,"Comedy, Crime, Mystery",7.7,1831.0,2022.0,7.533207059819349
