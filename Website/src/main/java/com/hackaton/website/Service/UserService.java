@@ -92,7 +92,6 @@ public class UserService {
         for (File file : Objects.requireNonNull(folder.listFiles())) {
             if (file.isFile() && file.getName().endsWith(".csv")) {
                 String genre = file.getName().replace(".csv", "");
-                genre = genre.replace("-", " "); // Adjust for genres like "Talk-Show"
                 try (CSVParser parser = CSVParser.parse(file, java.nio.charset.StandardCharsets.UTF_8, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
                     List<Map<String, String>> movies = new ArrayList<>();
                     for (CSVRecord record : parser) {
