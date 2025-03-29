@@ -49,6 +49,25 @@ body {
   color: #e50914;
 }
 
+.nav-right {
+  margin-left: auto;
+  margin-right: 70px; /* Reduced margin to move it further left */
+  display: flex;
+  gap: 20px; /* Increased gap to add more spacing between "Coins" and "Logout" */
+}
+
+.nav-right a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+  color: #e50914;
+}
+
 .movie-container {
   margin-top: 80px;
   padding: 20px;

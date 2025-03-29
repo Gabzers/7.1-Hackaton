@@ -87,7 +87,7 @@ body {
   right: 30px; /* Align to the right */
   display: flex;
   align-items: center; /* Align items vertically */
-  gap: 5px; /* Reduce gap between icon and text */
+  gap: 20px; /* Increased gap for more spacing */
 }
 
 .nav-icon {
@@ -304,13 +304,12 @@ body {
 
 .movie-card .rank-number {
   position: absolute;
-  top: 50%;
-  left: -40px;
-  transform: translateY(-50%);
-  font-size: 100px;
+  top: -20px; /* Move above the image */
+  left: 10px; /* Align to the left */
+  font-size: 50px; /* Adjusted font size */
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-  z-index: 1; /* Ensure it appears behind the image */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Add shadow for better visibility */
+  z-index: 2; /* Ensure it appears above other elements */
   pointer-events: none; /* Prevent interaction */
 }
 

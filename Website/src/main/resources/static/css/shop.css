@@ -92,7 +92,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center; /* Align items vertically */
     gap: 20px; /* Match gap with nav-menu */
-    margin-right: 50px; /* Align with padding of .top-nav */
+    margin-right: 60px; /* Reduced from 50px to move logout button left */
     position: relative; /* Remove fixed positioning for alignment */
     top: 0; /* Ensure alignment with nav-left */
 }
