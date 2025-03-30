@@ -401,6 +401,45 @@ def show_statistics_summary():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while generating the statistics summary: {e}")
 
+def perform_pearson_test():
+    if not {'cost', 'noRatings', 'categoryRank'}.issubset(data.columns):
+        messagebox.showerror("Error", "The required columns ('cost', 'noRatings', 'categoryRank') do not exist in the dataset.")
+        return
+    try:
+        # Convert columns to numeric, ignoring errors
+        data['cost'] = pd.to_numeric(data['cost'], errors='coerce')
+        data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
+        data['categoryRank'] = pd.to_numeric(data['categoryRank'], errors='coerce')
+        data.dropna(subset=['cost', 'noRatings', 'categoryRank'], inplace=True)  # Remove invalid rows
+
+        # Calculate Pearson correlation coefficients
+        pearson_results = data[['cost', 'noRatings', 'categoryRank']].corr(method='pearson')
+
+        # Display results in a new window
+        result_window = tk.Toplevel(root)
+        result_window.title("Pearson Correlation Test Results")
+
+        # Create a table using Treeview
+        tree = ttk.Treeview(result_window, columns=('Variable 1', 'Variable 2', 'Correlation Coefficient'), show='headings')
+        tree.heading('Variable 1', text='Variable 1')
+        tree.heading('Variable 2', text='Variable 2')
+        tree.heading('Correlation Coefficient', text='Correlation Coefficient')
+
+        # Center values in columns
+        tree.column('Variable 1', anchor='center')
+        tree.column('Variable 2', anchor='center')
+        tree.column('Correlation Coefficient', anchor='center')
+
+        # Insert data into the table
+        for i, col1 in enumerate(pearson_results.columns):
+            for j, col2 in enumerate(pearson_results.columns):
+                if i < j:  # Avoid duplicate pairs
+                    tree.insert('', tk.END, values=(col1, col2, round(pearson_results.loc[col1, col2], 2)))
+
+        tree.pack(fill=tk.BOTH, expand=True)
+    except Exception as e:
+        messagebox.showerror("Error", f"An error occurred while performing the Pearson test: {e}")
+
 # Graphical interface
 root = tk.Tk()
 root.title("Amazon Sales Analysis")
@@ -447,6 +486,9 @@ btn_products_by_ratings.pack(pady=10)
 
 btn_statistics_summary = ttk.Button(root, text="Statistics Summary", command=show_statistics_summary)
 btn_statistics_summary.pack(pady=10)
+
+btn_pearson_test = ttk.Button(root, text="Pearson Correlation Test", command=perform_pearson_test)
+btn_pearson_test.pack(pady=10)
 
 # Start the graphical interface
 root.mainloop()
