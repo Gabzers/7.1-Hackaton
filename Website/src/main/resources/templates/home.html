@@ -153,13 +153,13 @@
 
   <!-- Section: Top 10 Movies for Top Genres -->
   <section class="movies-section" th:if="${topGenresMovies != null}" th:each="entry : ${topGenresMovies}">
-    <h2 th:text="'Top 10 ' + ${entry.key}">Top 10 Genre</h2>
+    <h2 th:text="'Top 15 ' + ${entry.key}">Top 10 Genre</h2>
     <div class="movie-grid">
       <div class="movie-card" th:each="movie, iterStat : ${entry.value}">
         <div class="rank-number" th:text="${iterStat.index + 1}"></div>
         <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" />
         <p class="movie-title" th:text="${movie['title']}">Movie Title</p>
-        <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['year'] != null ? movie['year'] : 'Unknown'})">
+        <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
           Rating: X.X | Year: YYYY
         </p>
       </div>

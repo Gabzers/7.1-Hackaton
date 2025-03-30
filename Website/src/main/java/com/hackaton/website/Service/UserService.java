@@ -111,7 +111,7 @@ public class UserService {
             Set<String> recommendedMovies = new HashSet<>();
 
             for (Map<String, String> movie : movies) {
-                if (recommendations.size() >= 11) break;
+                if (recommendations.size() >= 15) break; // alterar numero de filmes escolhidos
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                 }
@@ -177,8 +177,10 @@ public class UserService {
                         String releaseYear = record.isMapped("releaseYear") ? record.get("releaseYear") : "Unknown";
                         if (!releaseYear.equals("Unknown")) {
                             try {
-                                releaseYear = String.valueOf((int) Double.parseDouble(releaseYear));
-                            } catch (NumberFormatException e) {
+                                releaseYear = releaseYear.contains(".") 
+                                    ? releaseYear.split("\\.")[0] // Remove decimal part
+                                    : releaseYear;
+                            } catch (Exception e) {
                                 releaseYear = "Unknown";
                             }
                         }
