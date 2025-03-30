@@ -10,7 +10,7 @@ public class Main {
         // Identifies the user's central preference to filter movies according to their taste.
         System.out.println("## What is your favorite movie genre? (e.g., action, fantasy, adventure, comedy, drama, science fiction, horror, thriller, romance, animation, documentary, crime, musical, biographical, historical, western)");
         System.out.println("Choose up to 3 options:");
-        System.out.println("1. Actionn");
+        System.out.println("1. Action");
         System.out.println("2. Fantasy");
         System.out.println("3. Adventure");
         System.out.println("4. Comedy");
