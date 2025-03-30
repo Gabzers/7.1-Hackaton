@@ -324,11 +324,12 @@ body {
   object-fit: cover; /* Maintain aspect ratio and crop excess */
   display: block;
   border-radius: 5px; /* Rounded corners for a cleaner look */
-  transition: transform 0.3s ease; /* Smooth scaling effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling effect */
 }
 
 .movie-card:hover img {
   transform: scale(1.05); /* Slightly increase the size on hover */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5); /* Shining effect */
 }
 
 .movie-card p {
