@@ -116,4 +116,6 @@ public class UserService {
                                ", Rating: " + movie.get("averageRating"));
         }
     }
+
+    
 }
