@@ -11,8 +11,13 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 # Load dataset
 def load_data(filepath):
     if not os.path.exists(filepath):
-        raise FileNotFoundError(f"The file '{filepath}' does not exist. Please provide a valid path.")
-    data = pd.read_csv(filepath)
+        raise FileNotFoundError(f"O ficheiro '{filepath}' não existe. Por favor, forneça um caminho válido.")
+    try:
+        data = pd.read_csv(filepath)
+        print(f"Ficheiro '{filepath}' carregado com sucesso.")
+        return data
+    except Exception as e:
+        raise Exception(f"Erro ao carregar o ficheiro '{filepath}': {e}")
 
 # Load dataset
 filepath = 'DataAnalysis/AmazonSales.csv'
