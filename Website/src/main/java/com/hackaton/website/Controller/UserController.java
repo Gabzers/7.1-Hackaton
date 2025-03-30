@@ -59,7 +59,9 @@ public String registerUser(@RequestParam("name") String name,
 
 @PostMapping("/save-genres")
 public String saveGenres(@RequestParam("userId") Long userId,
-                         @RequestParam(value = "genres", required = false) List<String> selectedGenres) {
+                         @RequestParam(value = "genres", required = false) List<String> selectedGenres,
+                         Model model,
+                         HttpSession session) {
     logger.info("Saving genres for user with ID: {}", userId);
 
     // Buscar o usuário pelo ID
@@ -89,12 +91,21 @@ public String saveGenres(@RequestParam("userId") Long userId,
     // Atualizar os gêneros do usuário
     user.setMovieGenres(updatedGenres);
 
+    // Adicionar 50 pontos ao usuário
+    int currentPoints = user.getPoints() != null ? user.getPoints() : 0;
+    user.setPoints(currentPoints + 50);
+    logger.info("Added 50 points to user. New total: {}", user.getPoints());
+
     // Salvar as alterações no banco de dados
     userRepository.save(user);
     logger.info("Updated user saved to database: {}", user);
 
+    // Adicionar o usuário ao modelo e à sessão
+    session.setAttribute("loggedUser", user);
+    model.addAttribute("loggedUser", user);
+
     // Redirecionar para a página inicial
-    return "redirect:/home";
+    return "home";
 }
 
     @PostMapping("/login")
@@ -111,6 +122,9 @@ public String saveGenres(@RequestParam("userId") Long userId,
 
             // Adicionar o usuário à sessão
             session.setAttribute("loggedUser", user);
+
+            // Adicionar o usuário ao modelo para exibição no template
+            model.addAttribute("loggedUser", user);
 
             // Redirecionar para a página inicial
             return "home"; // Certifique-se de que a página home.html existe
