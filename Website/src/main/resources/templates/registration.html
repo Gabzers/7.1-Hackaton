@@ -10,7 +10,12 @@
     <div class="register-container">
         <h2>Create Your Account</h2>
         <p>Sign up to start streaming</p>
-    
+        
+        <!-- Display error message if present -->
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+
         <form action="/register" method="POST">
             <div class="input-group">
                 <label for="name">Nome de Utilizador</label>
