@@ -46,9 +46,9 @@ class UserServiceTest {
     private User createUser(String name, String[][] genres) {
         User user = new User();
         user.setName(name);
-        List<String[]> movieGenres = new ArrayList<>();
+        List<User.MovieGenre> movieGenres = new ArrayList<>();
         for (String[] genre : genres) {
-            movieGenres.add(genre);
+            movieGenres.add(new User.MovieGenre(genre[0], genre[1]));
         }
         user.setMovieGenres(movieGenres);
         return user;
@@ -65,7 +65,7 @@ class UserServiceTest {
         // Assert that the recommendations contain movies from the user's preferred genres
         boolean containsPreferredGenres = recommendations.stream()
                 .anyMatch(movie -> user.getMovieGenres().stream()
-                        .anyMatch(genre -> movie.get("genres").contains(genre[0])));
+                        .anyMatch(genre -> movie.get("genres").contains(genre.getGenre())));
         assertTrue(containsPreferredGenres, "Recommendations should include movies from preferred genres for " + user.getName());
 
         // Print the recommended movies

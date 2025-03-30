@@ -19,14 +19,14 @@ public class UserService {
     private static final String GENRE_CSV_FOLDER = "src/main/resources/csv/MovieGenresCSV";
 
     public List<Map<String, String>> recommendMovies(User user) {
-        List<String[]> movieGenres = user.getMovieGenres();
+        List<User.MovieGenre> movieGenres = user.getMovieGenres();
         if (movieGenres == null || movieGenres.isEmpty()) {
             throw new IllegalArgumentException("User has no movie genres defined.");
         }
 
         // Sort genres by user preference (descending order of scores)
-        List<String[]> sortedGenres = movieGenres.stream()
-                .sorted((a, b) -> Integer.compare(Integer.parseInt(b[1]), Integer.parseInt(a[1])))
+        List<User.MovieGenre> sortedGenres = movieGenres.stream()
+                .sorted((a, b) -> Integer.compare(Integer.parseInt(b.getScore()), Integer.parseInt(a.getScore())))
                 .collect(Collectors.toList());
 
         List<Map<String, String>> recommendations = new ArrayList<>();
@@ -37,21 +37,21 @@ public class UserService {
 
         // Prioritize recommendations from preferred genres
         int totalScore = sortedGenres.stream()
-                .mapToInt(genre -> Integer.parseInt(genre[1]))
+                .mapToInt(genre -> Integer.parseInt(genre.getScore()))
                 .sum();
 
-        for (String[] genrePreference : sortedGenres) {
-            String genre = genrePreference[0];
-            int score = Integer.parseInt(genrePreference[1]);
+        for (User.MovieGenre genrePreference : sortedGenres) {
+            String genre = genrePreference.getGenre();
+            int score = Integer.parseInt(genrePreference.getScore());
             if (!genreMovies.containsKey(genre)) continue;
 
             List<Map<String, String>> movies = genreMovies.get(genre);
             Collections.shuffle(movies);
 
             // Calculate the number of movies to recommend for this genre
-            int genreQuota = Math.max(1, (score * 16) / totalScore); // Focus more on preferred genres
+            int genreQuota = Math.max(1, (score * 18) / totalScore); // Adjusted to allocate up to 18 slots
             for (Map<String, String> movie : movies) {
-                if (recommendedMovies.size() >= 18) break; // Reserve 2 slots for non-preferred genres
+                if (recommendedMovies.size() >= 20) break; // Limit total recommendations to 20
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                     if (--genreQuota == 0) break;
@@ -59,14 +59,16 @@ public class UserService {
             }
         }
 
-        // Add 1 or 2 movies from non-preferred genres
-        List<String> nonPreferredGenres = genreMovies.keySet().stream()
-                .filter(genre -> sortedGenres.stream().noneMatch(g -> g[0].equals(genre)))
-                .collect(Collectors.toList());
-        Collections.shuffle(nonPreferredGenres);
+        // Add movies from non-preferred genres if slots are still available
+        if (recommendedMovies.size() < 20) {
+            List<String> nonPreferredGenres = genreMovies.keySet().stream()
+                    .filter(genre -> sortedGenres.stream().noneMatch(g -> g.getGenre().equals(genre)))
+                    .collect(Collectors.toList());
+            Collections.shuffle(nonPreferredGenres);
 
-        for (String genre : nonPreferredGenres) {
-            if (genreMovies.containsKey(genre)) {
+            for (String genre : nonPreferredGenres) {
+                if (!genreMovies.containsKey(genre)) continue;
+
                 List<Map<String, String>> movies = genreMovies.get(genre);
                 Collections.shuffle(movies);
                 for (Map<String, String> movie : movies) {
@@ -75,8 +77,8 @@ public class UserService {
                         recommendations.add(movie);
                     }
                 }
+                if (recommendedMovies.size() >= 20) break;
             }
-            if (recommendedMovies.size() >= 20) break;
         }
 
         return recommendations;
