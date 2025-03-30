@@ -35,4 +35,9 @@ public class WebsiteController {
     public String serveMoviePage() {
         return "movie"; // Serve movie.html
     }
+
+    @GetMapping("/battlepass")
+    public String serveBattlePassPage() {
+        return "battlepass"; // Serve battlepass.html
+    }
 }

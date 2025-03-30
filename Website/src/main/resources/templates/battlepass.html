@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Pass</title>
+    <link rel="stylesheet" href="/css/battlepass.css">
+    <script>
+        function collectReward(tier) {
+            const progressBarFill = document.querySelector('.progress-bar-fill');
+            const progressValue = document.querySelector('.progress-value');
+            const tierNumber = document.querySelector('.tier-number');
+
+            // Simulate XP gain and tier progression
+            let currentXP = parseInt(progressValue.textContent.split(' / ')[0]);
+            let maxXP = parseInt(progressValue.textContent.split(' / ')[1]);
+            currentXP += 100; // Example XP gain per reward
+
+            if (currentXP >= maxXP) {
+                currentXP = 0;
+                const newTier = parseInt(tierNumber.textContent.split(' ')[1]) + 1;
+                tierNumber.textContent = `Tier ${newTier}`;
+            }
+
+            progressBarFill.style.width = `${(currentXP / maxXP) * 100}%`;
+            progressValue.textContent = `${currentXP} / ${maxXP}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Battle Pass - Season 8</h1>
+        
+    </div>
+    <div class="battle-pass-container">
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <span class="progress-text">XP</span>
+                <div class="progress-bar-fill" style="width: 35%;"></div>
+                <span class="progress-value">350 / 950</span>
+            </div>
+            <div class="tier-number">Tier 2</div>
+        </div>
+        <div class="tier-progress-horizontal">
+            <!-- Free rewards only -->
+            <div class="tier" onclick="collectReward(1)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+            <div class="tier" onclick="collectReward(2)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+            <div class="tier" onclick="collectReward(3)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+            <div class="tier" onclick="collectReward(4)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+            <div class="tier" onclick="collectReward(5)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+            <div class="tier" onclick="collectReward(6)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+            <div class="tier" onclick="collectReward(7)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+            <div class="tier" onclick="collectReward(8)">
+                <div class="reward"><img src="/images/FaíscMcQueen.jpg" alt="Reward"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e2a3a;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #2b3c4d;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.battle-pass-container {
+    padding: 20px;
+}
+
+.tier-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tier-progress span {
+    font-size: 18px;
+}
+
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px auto;
+    width: 90%;
+    position: relative;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #3c4f63;
+    border-radius: 10px;
+    height: 30px;
+    flex-grow: 1;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, #f1c40f, #e67e22);
+    width: 0; /* Dynamically set this value */
+    transition: width 0.3s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.progress-text {
+    position: absolute;
+    left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
+.progress-value {
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
+.tier-number {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.progress-level {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b3c4d;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.progress-bar-container p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.tier-indicator {
+    display: none; /* Remove the tier indicator ball */
+}
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.reward {
+    background-color: #2b3c4d;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.reward img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.purchase-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.purchase-button {
+    background-color: #f1c40f;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.purchase-button:hover {
+    background-color: #d4ac0d;
+}
+
+.tier-progress-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    padding: 20px 0;
+    gap: 5px; /* Reduced gap between tiers */
+}
+
+.tier {
+    text-align: center;
+    background-color: #2b3c4d;
+    padding: 0; /* Remove padding to allow the image to fill the space */
+    border-radius: 10px;
+    flex: 0 0 100px; /* Reduced width for each tier */
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    overflow: hidden; /* Ensure the image doesn't overflow the tier box */
+}
+
+.tier:hover {
+    transform: scale(1.1);
+}
+
+.tier .reward img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire space */
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
