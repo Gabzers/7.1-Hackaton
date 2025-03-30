@@ -70,7 +70,9 @@ public class User {
     public Integer getPoints() { return points; }
     public void setPoints(Integer points) { this.points = points; }
 
-    public List<MovieGenre> getMovieGenres() { return movieGenres; }
+    public List<MovieGenre> getMovieGenres() {
+        return movieGenres != null ? movieGenres : List.of();
+    }
     public void setMovieGenres(List<MovieGenre> movieGenres) {
         System.out.println("Setting movie genres...");
         movieGenres.forEach(g -> System.out.println("Genre: " + g.getGenre() + ", Score: " + g.getScore()));

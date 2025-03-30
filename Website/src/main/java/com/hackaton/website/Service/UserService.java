@@ -16,7 +16,7 @@ import org.apache.commons.csv.CSVRecord;
 @Service
 public class UserService {
 
-    private static final String GENRE_CSV_FOLDER = "src/main/resources/csv/MovieGenresCSV";
+    private static final String GENRE_CSV_FOLDER = "website/src/main/resources/csv/MovieGenresCSV";
 
     public List<Map<String, String>> recommendMovies(User user) {
         List<User.MovieGenre> movieGenres = user.getMovieGenres();
@@ -111,7 +111,7 @@ public class UserService {
             Set<String> recommendedMovies = new HashSet<>();
 
             for (Map<String, String> movie : movies) {
-                if (recommendations.size() >= 20) break; // Limit to 20 movies per genre
+                if (recommendations.size() >= 11) break;
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                 }
@@ -168,7 +168,23 @@ public class UserService {
                 try (CSVParser parser = CSVParser.parse(file, java.nio.charset.StandardCharsets.UTF_8, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
                     List<Map<String, String>> movies = new ArrayList<>();
                     for (CSVRecord record : parser) {
-                        movies.add(record.toMap());
+                        Map<String, String> movie = new HashMap<>();
+                        movie.put("title", record.get("title"));
+                        movie.put("genres", record.get("genres"));
+                        movie.put("averageRating", record.get("averageRating"));
+
+                        // Parse releaseYear as an integer and format it correctly
+                        String releaseYear = record.isMapped("releaseYear") ? record.get("releaseYear") : "Unknown";
+                        if (!releaseYear.equals("Unknown")) {
+                            try {
+                                releaseYear = String.valueOf((int) Double.parseDouble(releaseYear));
+                            } catch (NumberFormatException e) {
+                                releaseYear = "Unknown";
+                            }
+                        }
+                        movie.put("releaseYear", releaseYear);
+
+                        movies.add(movie);
                     }
                     genreMovies.put(genre, movies);
                 } catch (IOException e) {

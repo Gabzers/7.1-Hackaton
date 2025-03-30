@@ -2,17 +2,21 @@ package com.hackaton.website.Controller;
 
 import com.hackaton.website.Entity.User;
 import com.hackaton.website.Repository.UserRepository;
+import com.hackaton.website.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import com.hackaton.website.Entity.User.MovieGenre;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.hibernate.Hibernate;
 
 @Controller
 public class UserController {
@@ -21,6 +25,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/register")
     public String registerUser(@RequestParam("name") String name,
@@ -142,5 +149,31 @@ public class UserController {
             // Redirecionar para a página de login
             return "login"; // Certifique-se de que a página login.html existe
         }
+    }
+
+    @GetMapping("/home")
+    public String serveHomePage(HttpSession session, Model model) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+
+        // Fetch the user with movieGenres eagerly loaded
+        User userWithGenres = userRepository.findWithMovieGenresById(loggedUser.getId());
+        if (userWithGenres == null) {
+            return "redirect:/login";
+        }
+
+        // Check if the user has movie genres defined
+        if (userWithGenres.getMovieGenres() == null || userWithGenres.getMovieGenres().isEmpty()) {
+            model.addAttribute("error", "You have not defined your favorite movie genres. Please update your preferences.");
+            return "home"; // Render the home page with an error message
+        }
+
+        // Fetch top 3 genres and their top 10 movies
+        Map<String, List<Map<String, String>>> topGenresMovies = userService.recommendTop3GenresMovies(userWithGenres);
+        model.addAttribute("topGenresMovies", topGenresMovies);
+
+        return "home";
     }
 }

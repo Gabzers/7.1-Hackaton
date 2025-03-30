@@ -146,75 +146,23 @@
     </div>
   </section>
 
-  <!-- Section: Top 10 Action -->
-  <section class="movies-section">
-    <h2>Top 10 Action</h2>
-    <div class="movie-grid">
-      <div class="movie-card">
-        <div class="rank-number">1</div>
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
-        <p>Movie Title 1</p>
-        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
-      </div>
-      <div class="movie-card">
-        <div class="rank-number">2</div>
-        <img src="/images/3q01acg0mwm0dekhvkpfcxypzsu.avif" alt="Movie 2" />
-        <p>Movie Title 2</p>
-        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
-      </div>
-      <div class="movie-card">
-        <div class="rank-number">3</div>
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 3" />
-        <p>Movie Title 3</p>
-        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
-      </div>
-      <!-- Repeat up to 10 items -->
-    </div>
-  </section>
+  <!-- Display error message if present -->
+  <div th:if="${error}" class="error-message">
+    <p th:text="${error}"></p>
+  </div>
 
-  <!-- Section: Top 10 Worldwide -->
-  <section class="movies-section">
-    <h2>Top 10 Comedy</h2>
+  <!-- Section: Top 10 Movies for Top Genres -->
+  <section class="movies-section" th:if="${topGenresMovies != null}" th:each="entry : ${topGenresMovies}">
+    <h2 th:text="'Top 10 ' + ${entry.key}">Top 10 Genre</h2>
     <div class="movie-grid">
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 3"  />
-        <p>Movie Title 1</p>
-        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
+      <div class="movie-card" th:each="movie, iterStat : ${entry.value}">
+        <div class="rank-number" th:text="${iterStat.index + 1}"></div>
+        <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" />
+        <p class="movie-title" th:text="${movie['title']}">Movie Title</p>
+        <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['year'] != null ? movie['year'] : 'Unknown'})">
+          Rating: X.X | Year: YYYY
+        </p>
       </div>
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 4"/>
-        <p>Movie Title 2</p>
-        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
-      </div>
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
-        <p>Movie Title 3</p>
-        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
-      </div>
-      <!-- Repeat up to 10 items -->
-    </div>
-  </section>
-
-  <!-- Section: Series & Movies -->
-  <section class="movies-section">
-    <h2>Top 10 adventure</h2>
-    <div class="movie-grid">
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Series 1" />
-        <p>Series Title 1</p>
-        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
-      </div>
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Series 2"  />
-        <p>Series Title 2</p>
-        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
-      </div>
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Series 2"  />
-        <p>Series Title 3</p>
-        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
-      </div>
-      <!-- Add more items -->
     </div>
   </section>
 
