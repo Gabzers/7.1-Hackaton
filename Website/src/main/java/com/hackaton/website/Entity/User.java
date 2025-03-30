@@ -7,6 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.Embeddable;
 
 import java.util.List;
 
@@ -26,23 +31,27 @@ public class User {
     @Column(nullable = true) // Permitir que a senha seja opcional
     private String password;
 
-    @ElementCollection
-    @Column(name = "movie_genre", nullable = true) // Permitir que os gêneros sejam opcionais
-    private List<String[]> movieGenres;
+    @Column(nullable = true) // Permitir que os pontos sejam opcionais
+    private Integer points; // Alterado para Integer para suportar valores nulos
 
-    @Column(nullable = false)
-    private int points = 0; // Inicializa os pontos com 0
+    @ElementCollection
+    @CollectionTable(name = "user_movie_genres", joinColumns = @JoinColumn(name = "user_id"))
+    @AttributeOverrides({
+        @AttributeOverride(name = "genre", column = @Column(name = "genre", nullable = false)),
+        @AttributeOverride(name = "score", column = @Column(name = "score", nullable = false))
+    })
+    private List<MovieGenre> movieGenres;
 
     // Default constructor
     public User() {}
 
     // Constructor for initialization
-    public User(String name, String email, String password, List<String[]> movieGenres) {
+    public User(String name, String email, String password, List<MovieGenre> movieGenres, Integer points) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.movieGenres = movieGenres;
-        this.points = 0; // Inicializa os pontos com 0
+        this.points = points;
     }
 
     // Getters and setters
@@ -58,9 +67,32 @@ public class User {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public List<String[]> getMovieGenres() { return movieGenres; }
-    public void setMovieGenres(List<String[]> movieGenres) { this.movieGenres = movieGenres; }
+    public Integer getPoints() { return points; }
+    public void setPoints(Integer points) { this.points = points; }
 
-    public int getPoints() { return points; }
-    public void setPoints(int points) { this.points = points; }
+    public List<MovieGenre> getMovieGenres() { return movieGenres; }
+    public void setMovieGenres(List<MovieGenre> movieGenres) {
+        System.out.println("Setting movie genres...");
+        movieGenres.forEach(g -> System.out.println("Genre: " + g.getGenre() + ", Score: " + g.getScore()));
+        this.movieGenres = movieGenres;
+    }
+
+    @Embeddable
+    public static class MovieGenre {
+        private String genre;
+        private String score;
+
+        public MovieGenre() {}
+
+        public MovieGenre(String genre, String score) {
+            this.genre = genre;
+            this.score = score;
+        }
+
+        public String getGenre() { return genre; }
+        public void setGenre(String genre) { this.genre = genre; }
+
+        public String getScore() { return score; }
+        public void setScore(String score) { this.score = score; }
+    }
 }

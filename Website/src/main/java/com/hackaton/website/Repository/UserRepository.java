@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmailAndPassword(String email, String password); // Método para buscar usuário por email e senha
+    User findByEmail(String email); // Método para buscar usuário apenas pelo email
+    User findByEmailAndPassword(String email, String password); // Add this method
+
 }
