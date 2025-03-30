@@ -15,11 +15,12 @@
   <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body>
-  <!-- Popup Modal -->
+ <!-- Popup Modal -->
 <div id="questionnaire-modal" class="modal">
   <div class="modal-content">
     <h2>Quick Questionnaire</h2>
     <form id="questionnaire-form" method="post" action="/save-genres">
+      <input type="hidden" name="userId" id="userId" />
       <label for="favorite-genres" class="form-label">Select your favorite genres:</label>
       <div id="genre-checkboxes" class="genre-grid">
         <div class="genre-column">
@@ -250,12 +251,13 @@
       });
     });
 
-    // Mostrar o modal automaticamente ao carregar a página, se o questionário não foi preenchido
+// Mostrar o modal automaticamente se o parâmetro "showQuestionnaire" estiver na URL
 window.onload = function () {
-  const modal = document.getElementById('questionnaire-modal');
-  const questionnaireCompleted = sessionStorage.getItem('questionnaireCompleted');
-
-  if (!questionnaireCompleted) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('userId');
+  if (userId) {
+    document.getElementById('userId').value = userId;
+    const modal = document.getElementById('questionnaire-modal');
     modal.style.display = 'block';
   }
 };
@@ -276,10 +278,6 @@ document.getElementById('questionnaire-form').onsubmit = (e) => {
     alert('Please select at least 3 genres.');
     return;
   }
-
-  // Marcar o questionário como preenchido no sessionStorage
-  sessionStorage.setItem('questionnaireCompleted', true);
-
   // Submeter o formulário
   e.target.submit();
 };

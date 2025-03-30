@@ -23,56 +23,48 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping("/register")
-    public String registerUser(@RequestParam("name") String name,
-                               @RequestParam("email") String email,
-                               @RequestParam("password") String password,
-                               Model model,
-                               HttpSession session) {
-        logger.info("Registering user with name: {}, email: {}", name, email);
+public String registerUser(@RequestParam("name") String name,
+                           @RequestParam("email") String email,
+                           @RequestParam("password") String password,
+                           Model model) {
+    logger.info("Registering user with name: {}, email: {}", name, email);
 
-        // Criar um novo objeto User com os dados recebidos
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setPassword(password);
-        logger.debug("User object created: {}", user);
+    // Criar um novo objeto User com os dados recebidos
+    User user = new User();
+    user.setName(name);
+    user.setEmail(email);
+    user.setPassword(password);
+    logger.debug("User object created: {}", user);
 
-        // Inicializar os gêneros com score 0
-        List<MovieGenre> movieGenres = new ArrayList<>();
-        List<String> allGenres = List.of("Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", 
-                                         "Documentary", "Drama", "Family", "Fantasy", "Film-Noir", "Game-Show", 
-                                         "History", "Horror", "Music", "Musical", "Mystery", "News", "Reality-TV", 
-                                         "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western");
+    // Inicializar os gêneros com score 0
+    List<MovieGenre> movieGenres = new ArrayList<>();
+    List<String> allGenres = List.of("Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", 
+                                     "Documentary", "Drama", "Family", "Fantasy", "Film-Noir", "Game-Show", 
+                                     "History", "Horror", "Music", "Musical", "Mystery", "News", "Reality-TV", 
+                                     "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western");
 
-        for (String genre : allGenres) {
-            movieGenres.add(new MovieGenre(genre, "0")); // Inicializar todos os gêneros com score 0
-        }
-        user.setMovieGenres(movieGenres);
-        logger.debug("Initialized movie genres for user: {}", movieGenres);
-
-        // Salvar o usuário no banco de dados
-        userRepository.save(user);
-        logger.info("User saved to database: {}", user);
-
-        // Adicionar o usuário recém-registrado à sessão
-        session.setAttribute("loggedUser", user);
-        logger.info("User added to session: {}", user);
-
-        // Redirecionar para a página inicial
-        return "home"; // Certifique-se de que a página home.html existe
+    for (String genre : allGenres) {
+        movieGenres.add(new MovieGenre(genre, "0")); // Inicializar todos os gêneros com score 0
     }
+    user.setMovieGenres(movieGenres);
+    logger.debug("Initialized movie genres for user: {}", movieGenres);
 
-    @PostMapping("/save-genres")
-public String saveGenres(@RequestParam(value = "genres", required = false) List<String> selectedGenres,
-                         HttpSession session) {
-    logger.info("Saving genres for logged user.");
+    // Salvar o usuário no banco de dados
+    userRepository.save(user);
+    logger.info("User saved to database: {}", user);
 
-    // Obter o usuário logado da sessão
-    User loggedUser = (User) session.getAttribute("loggedUser");
-    if (loggedUser == null) {
-        logger.error("No user is logged in.");
-        throw new IllegalStateException("Nenhum usuário está logado.");
-    }
+    // Redirecionar para a página inicial com o ID do usuário
+    return "redirect:/home?userId=" + user.getId();
+}
+
+@PostMapping("/save-genres")
+public String saveGenres(@RequestParam("userId") Long userId,
+                         @RequestParam(value = "genres", required = false) List<String> selectedGenres) {
+    logger.info("Saving genres for user with ID: {}", userId);
+
+    // Buscar o usuário pelo ID
+    User user = userRepository.findById(userId)
+            .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o ID: " + userId));
 
     // Garantir que a lista de gêneros selecionados não seja nula
     if (selectedGenres == null) {
@@ -94,15 +86,12 @@ public String saveGenres(@RequestParam(value = "genres", required = false) List<
         }
     }
 
-    // Atualizar os gêneros do usuário logado
-    loggedUser.setMovieGenres(updatedGenres);
+    // Atualizar os gêneros do usuário
+    user.setMovieGenres(updatedGenres);
 
     // Salvar as alterações no banco de dados
-    userRepository.save(loggedUser);
-    logger.info("Updated user saved to database: {}", loggedUser);
-
-    // Marcar o questionário como preenchido na sessão
-    session.setAttribute("questionnaireCompleted", true);
+    userRepository.save(user);
+    logger.info("Updated user saved to database: {}", user);
 
     // Redirecionar para a página inicial
     return "redirect:/home";
