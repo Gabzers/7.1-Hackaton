@@ -34,6 +34,7 @@ public String registerUser(@RequestParam("name") String name,
     user.setName(name);
     user.setEmail(email);
     user.setPassword(password);
+    user.setPoints(0); // Inicializar pontos como 0
     logger.debug("User object created: {}", user);
 
     // Inicializar os gêneros com score 0

@@ -79,10 +79,9 @@
     </div>
     <div class="nav-right">
       <span class="nav-icon" id="points">
-        <i class="fa-solid fa-star"></i> 
         Points: <span th:text="${loggedUser != null ? loggedUser.points : 0}"></span>
       </span>
-      <a href="/coins" class="nav-icon" id="coins"><i class="fa-solid fa-coins"></i> Coins</a>
+      <!-- Removed the Coins link -->
       <a href="/login" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </header>
