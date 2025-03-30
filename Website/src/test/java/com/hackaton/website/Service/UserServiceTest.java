@@ -64,6 +64,29 @@ class UserServiceTest {
         testTop3GenresRecommendationsForUser(user3);
     }
 
+    @Test
+    void testRecommendTop10MoviesForUser() {
+        // Create a mock user with genre preferences
+        User user = createUser("User1", new String[][]{
+            {"Action", "10"}, {"Comedy", "8"}, {"Drama", "6"}, {"Thriller", "4"}
+        });
+
+        // Call the recommendTop10Movies method
+        List<Map<String, String>> top10Movies = userService.recommendTop10Movies(user);
+
+        // Assert that the recommendations are not null and contain up to 10 movies
+        assertNotNull(top10Movies, "Top 10 movies should not be null for " + user.getName());
+        assertTrue(top10Movies.size() <= 10, "Top 10 movies should contain up to 10 movies for " + user.getName());
+
+        // Print the top 10 recommended movies
+        System.out.println("Top 10 Movies for " + user.getName() + ":");
+        top10Movies.forEach(movie -> {
+            System.out.println("  Title: " + movie.get("title") + 
+                               ", Genres: " + movie.get("genres") + 
+                               ", Rating: " + movie.get("averageRating"));
+        });
+    }
+
     private User createUser(String name, String[][] genres) {
         User user = new User();
         user.setName(name);

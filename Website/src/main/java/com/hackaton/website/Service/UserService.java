@@ -123,6 +123,38 @@ public class UserService {
         return genreRecommendations;
     }
 
+    public List<Map<String, String>> recommendTop10Movies(User user) {
+        // Simulate a database or external API call to fetch all movies
+        List<Map<String, String>> allMovies = fetchAllMovies();
+
+        // Filter movies by user's preferred genres
+        List<Map<String, String>> filteredMovies = allMovies.stream()
+            .filter(movie -> user.getMovieGenres().stream()
+                .anyMatch(genre -> movie.get("genres").contains(genre.getGenre())))
+            .collect(Collectors.toList());
+
+        // Sort movies by average rating (descending order)
+        filteredMovies.sort((movie1, movie2) -> 
+            Double.compare(
+                Double.parseDouble(movie2.get("averageRating")), 
+                Double.parseDouble(movie1.get("averageRating"))
+            )
+        );
+
+        // Return the top 10 movies
+        return filteredMovies.stream().limit(10).collect(Collectors.toList());
+    }
+
+    // Simulated method to fetch all movies (replace with actual implementation)
+    private List<Map<String, String>> fetchAllMovies() {
+        // Example movie data
+        List<Map<String, String>> movies = new ArrayList<>();
+        movies.add(Map.of("title", "Movie1", "genres", "Action,Comedy", "averageRating", "8.5"));
+        movies.add(Map.of("title", "Movie2", "genres", "Drama,Thriller", "averageRating", "7.8"));
+        // ...add more movies...
+        return movies;
+    }
+
     private Map<String, List<Map<String, String>>> loadMoviesByGenre() {
         Map<String, List<Map<String, String>>> genreMovies = new HashMap<>();
         File folder = Paths.get(GENRE_CSV_FOLDER).toFile();
