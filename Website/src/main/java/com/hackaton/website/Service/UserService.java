@@ -84,6 +84,45 @@ public class UserService {
         return recommendations;
     }
 
+    public Map<String, List<Map<String, String>>> recommendTop3GenresMovies(User user) {
+        List<User.MovieGenre> movieGenres = user.getMovieGenres();
+        if (movieGenres == null || movieGenres.isEmpty()) {
+            throw new IllegalArgumentException("User has no movie genres defined.");
+        }
+
+        // Sort genres by user preference (descending order of scores)
+        List<User.MovieGenre> sortedGenres = movieGenres.stream()
+                .sorted((a, b) -> Integer.compare(Integer.parseInt(b.getScore()), Integer.parseInt(a.getScore())))
+                .limit(3) // Limit to top 3 genres
+                .collect(Collectors.toList());
+
+        Map<String, List<Map<String, String>>> genreRecommendations = new HashMap<>();
+        Map<String, List<Map<String, String>>> genreMovies = loadMoviesByGenre();
+
+        // Recommend movies for each of the top 3 genres
+        for (User.MovieGenre genrePreference : sortedGenres) {
+            String genre = genrePreference.getGenre();
+            if (!genreMovies.containsKey(genre)) continue;
+
+            List<Map<String, String>> movies = genreMovies.get(genre);
+            Collections.shuffle(movies);
+
+            List<Map<String, String>> recommendations = new ArrayList<>();
+            Set<String> recommendedMovies = new HashSet<>();
+
+            for (Map<String, String> movie : movies) {
+                if (recommendations.size() >= 20) break; // Limit to 20 movies per genre
+                if (recommendedMovies.add(movie.get("title"))) {
+                    recommendations.add(movie);
+                }
+            }
+
+            genreRecommendations.put(genre, recommendations);
+        }
+
+        return genreRecommendations;
+    }
+
     private Map<String, List<Map<String, String>>> loadMoviesByGenre() {
         Map<String, List<Map<String, String>>> genreMovies = new HashMap<>();
         File folder = Paths.get(GENRE_CSV_FOLDER).toFile();
