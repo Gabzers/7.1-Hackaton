@@ -164,16 +164,16 @@ def show_genre_statistics():
 
     genre_stats = analyze_genre_statistics(data)
 
-    # Remover a coluna "Median"
+    # Remove the "Median" column
     genre_stats = genre_stats.drop(columns=['median'])
 
-    # Remover linhas com valores NaN
+    # Remove rows with NaN values
     genre_stats = genre_stats.dropna()
 
-    # Arredondar os valores para no máximo uma casa decimal
+    # Round values to at most one decimal place
     genre_stats.iloc[:, 1:] = genre_stats.iloc[:, 1:].round(1)
 
-    # Ordenar os gêneros pela média (mean) em ordem decrescente
+    # Sort genres by mean in descending order
     genre_stats = genre_stats.sort_values(by='mean', ascending=False)
 
     stats_window = tk.Toplevel(root)
@@ -218,29 +218,29 @@ def show_popularity_by_genre():
     )
     show_explanation("Popularity by Genre", explanation)
 
-    # Filtrar apenas gêneros independentes (sem combinações)
+    # Filter only independent genres (no combinations)
     independent_genres = data['genres'].str.split(',').explode().str.strip().value_counts().reset_index()
     independent_genres.columns = ['Genre', 'Count']
 
-    # Corrigir duplicatas de gêneros (ex.: "Drama" e "drama")
+    # Fix duplicates in genres (e.g., "Drama" and "drama")
     independent_genres['Genre'] = independent_genres['Genre'].str.capitalize()
     independent_genres = independent_genres.groupby('Genre', as_index=False).sum()
 
-    # Calcular a popularidade por gênero independente
+    # Calculate popularity by independent genre
     genre_popularity = (
         data.assign(genres=data['genres'].str.split(','))
         .explode('genres')
-        .assign(genres=lambda df: df['genres'].str.strip().str.capitalize())  # Corrigir duplicatas
+        .assign(genres=lambda df: df['genres'].str.strip().str.capitalize())  # Fix duplicates
         .groupby('genres')['numVotes']
         .sum()
         .reset_index()
         .sort_values(by='numVotes', ascending=False)
     )
 
-    # Filtrar os 10 gêneros mais populares
+    # Filter the top 10 most popular genres
     top_genres = genre_popularity[genre_popularity['genres'].isin(independent_genres['Genre'])].head(10)
 
-    # Criar o gráfico
+    # Create the chart
     fig, ax = plt.subplots(figsize=(12, 8))
     sns.barplot(x='numVotes', y='genres', data=top_genres, palette='viridis', ax=ax)
     ax.set_title('Popularity by Genre (Top 10 Independent Genres)')
@@ -268,9 +268,9 @@ def show_ratings_trend():
     ax.set_xlabel('Release Year')
     ax.set_ylabel('Average Ratings')
 
-    # Ajustar os intervalos dos eixos
-    ax.set_xticks(range(int(ratings_trend['releaseYear'].min()), int(ratings_trend['releaseYear'].max()) + 1, 5))  # De 5 em 5 anos
-    ax.set_yticks(range(1, 11))  # De 1 em 1 para os ratings
+    # Adjust axis intervals
+    ax.set_xticks(range(int(ratings_trend['releaseYear'].min()), int(ratings_trend['releaseYear'].max()) + 1, 5))  # Every 5 years
+    ax.set_yticks(range(1, 11))  # From 1 to 10 for ratings
 
     plot_window = tk.Toplevel(root)
     plot_window.title("Ratings Trend Over Time")
@@ -293,7 +293,7 @@ def show_popularity_trend():
     ax.set_xlabel('Release Year')
     ax.set_ylabel('Total Number of Votes')
 
-    # Ajustar os intervalos dos anos no eixo X para 10 em 10
+    # Adjust year intervals on the X-axis to every 10 years
     ax.set_xticks(range(int(popularity_trend['releaseYear'].min()), int(popularity_trend['releaseYear'].max()) + 1, 10))
 
     plot_window = tk.Toplevel(root)
@@ -311,29 +311,29 @@ def show_top_genres_by_ratings():
     )
     show_explanation("Top Genres by Ratings", explanation)
 
-    # Filtrar apenas gêneros individuais (sem combinações)
+    # Filter only individual genres (no combinations)
     individual_genres = data['genres'].str.split(',').explode().str.strip().value_counts().reset_index()
     individual_genres.columns = ['Genre', 'Count']
 
-    # Corrigir duplicatas de gêneros (ex.: "Drama" e "drama")
+    # Fix duplicates in genres (e.g., "Drama" and "drama")
     individual_genres['Genre'] = individual_genres['Genre'].str.capitalize()
     individual_genres = individual_genres.groupby('Genre', as_index=False).sum()
 
-    # Calcular a média de ratings por gênero individual
+    # Calculate average ratings by individual genre
     genre_ratings = (
         data.assign(genres=data['genres'].str.split(','))
         .explode('genres')
-        .assign(genres=lambda df: df['genres'].str.strip().str.capitalize())  # Corrigir duplicatas
+        .assign(genres=lambda df: df['genres'].str.strip().str.capitalize())  # Fix duplicates
         .groupby('genres')['averageRating']
         .mean()
         .reset_index()
         .sort_values(by='averageRating', ascending=False)
     )
 
-    # Filtrar apenas gêneros individuais
+    # Filter only individual genres
     genre_ratings = genre_ratings[genre_ratings['genres'].isin(individual_genres['Genre'])].head(10)
 
-    # Criar o gráfico
+    # Create the chart
     fig, ax = plt.subplots(figsize=(12, 8))
     sns.barplot(x='averageRating', y='genres', data=genre_ratings, palette='coolwarm', ax=ax)
     ax.set_title('Top Genres by Ratings (Individual Genres)')
@@ -355,12 +355,12 @@ def show_rating_votes_relationship():
     )
     show_explanation("Relationship Between Ratings and Votes", explanation)
 
-    # Agrupar os dados por faixas de votos e calcular a média de ratings
+    # Group data by vote ranges and calculate the average ratings
     data['vote_bins'] = pd.cut(data['numVotes'], bins=[0, 100, 1000, 10000, 100000, 1000000], 
                                labels=['0-100', '101-1k', '1k-10k', '10k-100k', '100k+'])
     grouped_data = data.groupby('vote_bins')['averageRating'].mean().reset_index()
 
-    # Criar o gráfico de barras
+    # Create the bar chart
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.barplot(x='vote_bins', y='averageRating', data=grouped_data, palette='coolwarm', ax=ax)
     ax.set_title('Relationship Between Ratings and Votes')
@@ -381,18 +381,18 @@ def show_top_genres_by_movie_count():
     )
     show_explanation("Top Genres by Movie Count", explanation)
 
-    # Filtrar apenas gêneros isolados (sem combinações)
+    # Filter only isolated genres (no combinations)
     isolated_genres = data['genres'].str.split(',').explode().str.strip().value_counts().reset_index()
     isolated_genres.columns = ['Genre', 'Movie Count']
 
-    # Corrigir duplicatas de gêneros (ex.: "Drama" e "drama")
+    # Fix duplicates in genres (e.g., "Drama" and "drama")
     isolated_genres['Genre'] = isolated_genres['Genre'].str.capitalize()
     isolated_genres = isolated_genres.groupby('Genre', as_index=False).sum()
 
-    # Selecionar os 10 gêneros com mais filmes
+    # Select the top 10 genres with the most movies
     top_genres = isolated_genres.sort_values(by='Movie Count', ascending=False).head(10)
 
-    # Criar o gráfico de barras
+    # Create the bar chart
     fig, ax = plt.subplots(figsize=(12, 8))
     sns.barplot(x='Movie Count', y='Genre', data=top_genres, palette='viridis', ax=ax)
     ax.set_title('Top 10 Genres by Movie Count')
@@ -405,7 +405,7 @@ def show_top_genres_by_movie_count():
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
-    # Fechar o gráfico do Matplotlib para evitar conflitos
+    # Close the Matplotlib chart to avoid conflicts
     plt.close(fig)
 
 # Function to display the 30 highest-rated and 30 lowest-rated movies
@@ -416,19 +416,19 @@ def show_extreme_ratings():
     )
     show_explanation("Extreme Ratings", explanation)
 
-    # Selecionar os 30 filmes com as notas mais altas
+    # Select the 30 movies with the highest ratings
     highest_rated = data.nlargest(30, 'averageRating')[['title', 'averageRating']]
     highest_rated['Category'] = 'Highest Rated'
 
-    # Selecionar os 30 filmes com as notas mais baixas
+    # Select the 30 movies with the lowest ratings
     lowest_rated = data.nsmallest(30, 'averageRating')[['title', 'averageRating']]
     lowest_rated['Category'] = 'Lowest Rated'
 
-    # Combinar os dois conjuntos de dados
+    # Combine the two datasets
     extreme_ratings = pd.concat([highest_rated, lowest_rated])
 
-    # Criar o gráfico de barras
-    fig, ax = plt.subplots(figsize=(12, 16))  # Aumentar a altura para acomodar mais filmes
+    # Create the bar chart
+    fig, ax = plt.subplots(figsize=(12, 16))  # Increase height to accommodate more movies
     sns.barplot(
         x='averageRating', 
         y='title', 
@@ -443,7 +443,7 @@ def show_extreme_ratings():
     ax.set_ylabel('Movie Title')
     ax.legend(title='Category')
 
-    # Ajustar a escala do eixo X para 1 em 1
+    # Adjust the X-axis scale to 1 by 1
     ax.set_xticks(range(1, 11))
 
     plot_window = tk.Toplevel(root)
@@ -452,7 +452,7 @@ def show_extreme_ratings():
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
-    # Fechar o gráfico do Matplotlib para evitar conflitos
+    # Close the Matplotlib chart to avoid conflicts
     plt.close(fig)
 
 # Function to display 100 movies with many votes but relatively low ratings in a table
@@ -463,26 +463,26 @@ def show_high_votes_low_ratings():
     )
     show_explanation("High Votes, Low Ratings", explanation)
 
-    # Filtrar filmes com muitos votos e ratings baixos
+    # Filter movies with many votes and low ratings
     high_votes_low_ratings = data[(data['numVotes'] > data['numVotes'].quantile(0.9)) & 
                                   (data['averageRating'] < data['averageRating'].median())]
     top_100 = high_votes_low_ratings.nsmallest(100, 'averageRating')[['title', 'numVotes', 'averageRating']]
 
-    # Criar uma nova janela para exibir a tabela
+    # Create a new window to display the table
     table_window = tk.Toplevel(root)
     table_window.title("High Votes, Low Ratings")
     table_window.geometry("800x600")
 
-    # Criar a tabela interativa
+    # Create the interactive table
     tree = ttk.Treeview(table_window, columns=list(top_100.columns), show='headings')
     tree.pack(fill=tk.BOTH, expand=True)
 
-    # Configurar os cabeçalhos das colunas
+    # Configure the column headers
     for col in top_100.columns:
         tree.heading(col, text=col, anchor="center")
         tree.column(col, anchor="center", width=200)
 
-    # Inserir os dados na tabela
+    # Insert the data into the table
     for _, row in top_100.iterrows():
         tree.insert("", tk.END, values=list(row))
 

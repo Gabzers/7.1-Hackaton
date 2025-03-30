@@ -7,23 +7,24 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from scipy.stats import f_oneway
 
 # Load dataset
 def load_data(filepath):
     if not os.path.exists(filepath):
-        raise FileNotFoundError(f"O ficheiro '{filepath}' não existe. Por favor, forneça um caminho válido.")
+        raise FileNotFoundError(f"The file '{filepath}' does not exist. Please provide a valid path.")
     try:
         data = pd.read_csv(filepath)
-        print(f"Ficheiro '{filepath}' carregado com sucesso.")
+        print(f"File '{filepath}' loaded successfully.")
         return data
     except Exception as e:
-        raise Exception(f"Erro ao carregar o ficheiro '{filepath}': {e}")
+        raise Exception(f"Error loading the file '{filepath}': {e}")
 
 # Load dataset
 filepath = 'DataAnalysis/AmazonSales_Final.csv'
 data = load_data(filepath)
 
-# Funções de análise
+# Analysis functions
 def show_total_products():
     total_products = len(data)
     messagebox.showinfo("Total Products", f"Total number of products: {total_products}")
@@ -35,8 +36,8 @@ def show_price_statistics():
     try:
         min_cost = data['cost'].min()
         max_cost = data['cost'].max()
-        mean_cost = round(data['cost'].mean(), 2)  # Formatado para duas casas decimais
-        median_cost = round(data['cost'].median(), 2)  # Formatado para duas casas decimais
+        mean_cost = round(data['cost'].mean(), 2)  # Rounded to two decimal places
+        median_cost = round(data['cost'].median(), 2)  # Rounded to two decimal places
         messagebox.showinfo(
             "Price Statistics",
             f"Minimum Cost: {min_cost}\nMaximum Cost: {max_cost}\nMean Cost: {mean_cost}\nMedian Cost: {median_cost}"
@@ -63,22 +64,22 @@ def show_ratings_chart():
         messagebox.showerror("Error", "The required columns ('noRatings' or 'product_name') do not exist in the dataset.")
         return
     try:
-        # Converter a coluna 'noRatings' para numérico, ignorando erros
+        # Convert the 'noRatings' column to numeric, ignoring errors
         data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
-        data.dropna(subset=['noRatings'], inplace=True)  # Remover linhas com valores inválidos em 'noRatings'
+        data.dropna(subset=['noRatings'], inplace=True)  # Remove rows with invalid values in 'noRatings'
 
-        # Selecionar os 15 produtos com mais avaliações
+        # Select the top 15 products with the most reviews
         top15 = data.nlargest(15, 'noRatings')[['product_name', 'noRatings']]
 
-        # Criar o gráfico
-        plt.figure(figsize=(12, 8))  # Aumentar o tamanho do gráfico
+        # Create the chart
+        plt.figure(figsize=(12, 8))  # Increase chart size
         sns.barplot(x='noRatings', y='product_name', data=top15, palette='viridis')
         plt.xlabel('Number of Ratings', fontsize=12)
         plt.ylabel('Product Name', fontsize=8)
         plt.title('Top 15 Products by Number of Ratings', fontsize=14)
         plt.xticks(fontsize=10)
-        plt.yticks(fontsize=5)  # Diminuir o tamanho da fonte dos nomes dos produtos
-        plt.tight_layout()  # Ajustar automaticamente para evitar cortes
+        plt.yticks(fontsize=5)  # Reduce font size for product names
+        plt.tight_layout()  # Automatically adjust to avoid cuts
         plt.show()
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while generating the chart: {e}")
@@ -88,18 +89,18 @@ def show_category_rank_distribution():
         messagebox.showerror("Error", "The required columns ('categoryRank' or 'category') do not exist in the dataset.")
         return
     try:
-        # Converter a coluna 'categoryRank' para numérico, ignorando erros
+        # Convert the 'categoryRank' column to numeric, ignoring errors
         data['categoryRank'] = pd.to_numeric(data['categoryRank'], errors='coerce')
-        data.dropna(subset=['categoryRank'], inplace=True)  # Remover linhas com valores inválidos em 'categoryRank'
+        data.dropna(subset=['categoryRank'], inplace=True)  # Remove rows with invalid values in 'categoryRank'
 
-        # Criar o gráfico
+        # Create the chart
         plt.figure(figsize=(12, 8))
         sns.boxplot(x='category', y='categoryRank', data=data, palette='Set3')
         plt.xlabel('Category', fontsize=12)
         plt.ylabel('Category Rank', fontsize=12)
         plt.title('Distribution of Category Rank by Category', fontsize=14)
-        plt.xticks(rotation=45, fontsize=10)  # Rotacionar os rótulos das categorias para melhor visualização
-        plt.tight_layout()  # Ajustar automaticamente para evitar cortes
+        plt.xticks(rotation=45, fontsize=10)  # Rotate category labels for better visualization
+        plt.tight_layout()  # Automatically adjust to avoid cuts
         plt.show()
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while generating the chart: {e}")
@@ -109,15 +110,15 @@ def show_correlation():
         messagebox.showerror("Error", "The required columns ('categoryRank' or 'noRatings') do not exist in the dataset.")
         return
     try:
-        # Converter as colunas para numérico, ignorando erros
+        # Convert columns to numeric, ignoring errors
         data['categoryRank'] = pd.to_numeric(data['categoryRank'], errors='coerce')
         data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
-        data.dropna(subset=['categoryRank', 'noRatings'], inplace=True)  # Remover linhas inválidas
+        data.dropna(subset=['categoryRank', 'noRatings'], inplace=True)  # Remove invalid rows
 
-        # Calcular a correlação
+        # Calculate the correlation
         correlation = data['categoryRank'].corr(data['noRatings'])
 
-        # Criar o gráfico de dispersão
+        # Create the scatter plot
         plt.figure(figsize=(10, 6))
         sns.scatterplot(x='categoryRank', y='noRatings', data=data, alpha=0.6, color='blue')
         plt.xlabel('Category Rank', fontsize=12)
@@ -128,41 +129,89 @@ def show_correlation():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while generating the chart: {e}")
 
+def show_correlation_matrix():
+    if not {'categoryRank', 'noRatings'}.issubset(data.columns):
+        messagebox.showerror("Error", "The required columns ('categoryRank', 'noRatings') do not exist in the dataset.")
+        return
+    try:
+        # Convert columns to numeric, ignoring errors
+        data['categoryRank'] = pd.to_numeric(data['categoryRank'], errors='coerce')
+        data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
+        data.dropna(subset=['categoryRank', 'noRatings'], inplace=True)  # Remove invalid rows
+
+        # Create the correlation matrix
+        correlation_matrix = data[['categoryRank', 'noRatings']].corr()
+
+        # Create the heatmap
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", cbar=True)
+        plt.title('Correlation Matrix: Category Rank vs Number of Ratings', fontsize=14)
+        plt.xticks(fontsize=10)
+        plt.yticks(fontsize=10)
+        plt.tight_layout()
+        plt.show()
+    except Exception as e:
+        messagebox.showerror("Error", f"An error occurred while generating the correlation matrix: {e}")
+
+def show_cost_ratings_correlation_matrix():
+    if not {'cost', 'noRatings'}.issubset(data.columns):
+        messagebox.showerror("Error", "The required columns ('cost', 'noRatings') do not exist in the dataset.")
+        return
+    try:
+        # Convert columns to numeric, ignoring errors
+        data['cost'] = pd.to_numeric(data['cost'], errors='coerce')
+        data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
+        data.dropna(subset=['cost', 'noRatings'], inplace=True)  # Remove invalid rows
+
+        # Create the correlation matrix
+        correlation_matrix = data[['cost', 'noRatings']].corr()
+
+        # Create the heatmap
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", cbar=True)
+        plt.title('Correlation Matrix: Cost vs Number of Ratings', fontsize=14)
+        plt.xticks(fontsize=10)
+        plt.yticks(fontsize=10)
+        plt.tight_layout()
+        plt.show()
+    except Exception as e:
+        messagebox.showerror("Error", f"An error occurred while generating the correlation matrix: {e}")
+
 def show_category_summary():
     if 'category' not in data.columns or 'cost' not in data.columns or 'noRatings' not in data.columns:
         messagebox.showerror("Error", "The required columns ('category', 'cost', 'noRatings') do not exist in the dataset.")
         return
     try:
-        # Converter as colunas para numérico, ignorando erros
+        # Convert columns to numeric, ignoring errors
         data['cost'] = pd.to_numeric(data['cost'], errors='coerce')
         data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
 
-        # Agrupar por categoria e calcular as médias
+        # Group by category and calculate averages
         summary = data.groupby('category').agg(
             avg_cost=('cost', 'mean'),
             avg_noRatings=('noRatings', 'mean')
         ).reset_index()
 
-        # Arredondar os valores para duas casas decimais
+        # Round values to two decimal places
         summary['avg_cost'] = summary['avg_cost'].round(2)
         summary['avg_noRatings'] = summary['avg_noRatings'].round(2)
 
-        # Criar uma nova janela para exibir a tabela
+        # Create a new window to display the table
         summary_window = tk.Toplevel(root)
         summary_window.title("Category Summary")
 
-        # Criar uma tabela usando Treeview
+        # Create a table using Treeview
         tree = ttk.Treeview(summary_window, columns=('Category', 'Average Cost', 'Average NoRatings'), show='headings')
         tree.heading('Category', text='Category')
         tree.heading('Average Cost', text='Average Cost')
         tree.heading('Average NoRatings', text='Average NoRatings')
 
-        # Centralizar os valores nas colunas
+        # Center values in columns
         tree.column('Category', anchor='center')
         tree.column('Average Cost', anchor='center')
         tree.column('Average NoRatings', anchor='center')
 
-        # Inserir os dados na tabela
+        # Insert data into the table
         for _, row in summary.iterrows():
             tree.insert('', tk.END, values=(row['category'], row['avg_cost'], row['avg_noRatings']))
 
@@ -175,31 +224,31 @@ def show_low_cost_high_ratings():
         messagebox.showerror("Error", "The required columns ('cost', 'noRatings', 'product_name') do not exist in the dataset.")
         return
     try:
-        # Converter as colunas para numérico, ignorando erros
+        # Convert columns to numeric, ignoring errors
         data['cost'] = pd.to_numeric(data['cost'], errors='coerce')
         data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
 
-        # Filtrar os produtos com baixo custo, alto número de avaliações (mínimo 10,000) e limitar a 100 produtos
+        # Filter products with low cost, high number of reviews (minimum 10,000), and limit to 100 products
         filtered_data = data[(data['noRatings'] >= 10000)].nsmallest(100, 'cost')[['product_name', 'cost', 'noRatings', 'category']]
 
-        # Criar uma nova janela para exibir a tabela
+        # Create a new window to display the table
         table_window = tk.Toplevel(root)
         table_window.title("Low Cost, High Ratings")
 
-        # Criar uma tabela usando Treeview
+        # Create a table using Treeview
         tree = ttk.Treeview(table_window, columns=('Product Name', 'Cost', 'NoRatings', 'Category'), show='headings')
         tree.heading('Product Name', text='Product Name')
         tree.heading('Cost', text='Cost')
         tree.heading('NoRatings', text='NoRatings')
         tree.heading('Category', text='Category')
 
-        # Centralizar os valores nas colunas
+        # Center values in columns
         tree.column('Product Name', anchor='center')
         tree.column('Cost', anchor='center')
         tree.column('NoRatings', anchor='center')
         tree.column('Category', anchor='center')
 
-        # Inserir os dados na tabela
+        # Insert data into the table
         for _, row in filtered_data.iterrows():
             tree.insert('', tk.END, values=(row['product_name'], row['cost'], row['noRatings'], row['category']))
 
@@ -212,20 +261,20 @@ def show_average_price_per_category():
         messagebox.showerror("Error", "The required columns ('category' or 'cost') do not exist in the dataset.")
         return
     try:
-        # Converter a coluna 'cost' para numérico, ignorando erros
+        # Convert the 'cost' column to numeric, ignoring errors
         data['cost'] = pd.to_numeric(data['cost'], errors='coerce')
-        data.dropna(subset=['cost'], inplace=True)  # Remover linhas com valores inválidos em 'cost'
+        data.dropna(subset=['cost'], inplace=True)  # Remove rows with invalid values in 'cost'
 
-        # Calcular a média de preços por categoria
+        # Calculate average prices per category
         avg_price_per_category = data.groupby('category')['cost'].mean().sort_values(ascending=False)
 
-        # Criar o gráfico
+        # Create the chart
         plt.figure(figsize=(12, 8))
         sns.barplot(x=avg_price_per_category.values, y=avg_price_per_category.index, palette='coolwarm')
         plt.xlabel('Average Price', fontsize=12)
         plt.ylabel('Category', fontsize=12)
         plt.title('Average Price per Category', fontsize=14)
-        plt.tight_layout()  # Ajustar automaticamente para evitar cortes
+        plt.tight_layout()  # Automatically adjust to avoid cuts
         plt.show()
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while generating the chart: {e}")
@@ -235,25 +284,25 @@ def show_price_range_distribution():
         messagebox.showerror("Error", "The column 'cost' does not exist in the dataset.")
         return
     try:
-        # Converter a coluna 'cost' para numérico, ignorando erros
+        # Convert the 'cost' column to numeric, ignoring errors
         data['cost'] = pd.to_numeric(data['cost'], errors='coerce')
-        data.dropna(subset=['cost'], inplace=True)  # Remover linhas com valores inválidos em 'cost'
+        data.dropna(subset=['cost'], inplace=True)  # Remove rows with invalid values in 'cost'
 
-        # Definir faixas de preços
+        # Define price ranges
         bins = [0, 50, 100, 200, 500, 1000, 5000, 10000, np.inf]
         labels = ['0-50', '51-100', '101-200', '201-500', '501-1000', '1001-5000', '5001-10000', '10000+']
         data['price_range'] = pd.cut(data['cost'], bins=bins, labels=labels, right=False)
 
-        # Contar o número de produtos em cada faixa de preço
+        # Count the number of products in each price range
         price_range_counts = data['price_range'].value_counts().sort_index()
 
-        # Criar o gráfico
+        # Create the chart
         plt.figure(figsize=(12, 8))
         sns.barplot(x=price_range_counts.index, y=price_range_counts.values, palette='Blues_d')
         plt.xlabel('Price Range', fontsize=12)
         plt.ylabel('Number of Products', fontsize=12)
         plt.title('Number of Products per Price Range', fontsize=14)
-        plt.tight_layout()  # Ajustar automaticamente para evitar cortes
+        plt.tight_layout()  # Automatically adjust to avoid cuts
         plt.show()
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while generating the chart: {e}")
@@ -263,27 +312,27 @@ def show_products_by_ratings():
         messagebox.showerror("Error", "The required columns ('noRatings' or 'product_name') do not exist in the dataset.")
         return
     try:
-        # Ordenar os produtos pelo número de avaliações em ordem decrescente
+        # Sort products by number of reviews in descending order
         sorted_data = data.sort_values(by='noRatings', ascending=False)[['product_name', 'noRatings', 'cost', 'category']]
 
-        # Criar uma nova janela para exibir a tabela
+        # Create a new window to display the table
         table_window = tk.Toplevel(root)
         table_window.title("Products by Number of Ratings")
 
-        # Criar uma tabela usando Treeview
+        # Create a table using Treeview
         tree = ttk.Treeview(table_window, columns=('Product Name', 'NoRatings', 'Cost', 'Category'), show='headings')
         tree.heading('Product Name', text='Product Name')
         tree.heading('NoRatings', text='Number of Ratings')
         tree.heading('Cost', text='Cost')
         tree.heading('Category', text='Category')
 
-        # Centralizar os valores nas colunas
+        # Center values in columns
         tree.column('Product Name', anchor='center')
         tree.column('NoRatings', anchor='center')
         tree.column('Cost', anchor='center')
         tree.column('Category', anchor='center')
 
-        # Inserir os dados na tabela
+        # Insert data into the table
         for _, row in sorted_data.iterrows():
             tree.insert('', tk.END, values=(row['product_name'], row['noRatings'], row['cost'], row['category']))
 
@@ -291,11 +340,72 @@ def show_products_by_ratings():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while generating the table: {e}")
 
-# Interface gráfica
+def show_statistics_summary():
+    if not {'cost', 'noRatings', 'categoryRank'}.issubset(data.columns):
+        messagebox.showerror("Error", "The required columns ('cost', 'noRatings', 'categoryRank') do not exist in the dataset.")
+        return
+    try:
+        # Convert columns to numeric, ignoring errors
+        data['cost'] = pd.to_numeric(data['cost'], errors='coerce')
+        data['noRatings'] = pd.to_numeric(data['noRatings'], errors='coerce')
+        data['categoryRank'] = pd.to_numeric(data['categoryRank'], errors='coerce')
+
+        # Calculate statistics
+        stats = {
+            'Metric': ['Cost', 'NoRatings', 'CategoryRank'],
+            'Mean': [
+                round(data['cost'].mean(), 2), round(data['noRatings'].mean(), 2), round(data['categoryRank'].mean(), 2)
+            ],
+            'Median': [
+                round(data['cost'].median(), 2), round(data['noRatings'].median(), 2), round(data['categoryRank'].median(), 2)
+            ],
+            'Std Dev': [
+                round(data['cost'].std(), 2), round(data['noRatings'].std(), 2), round(data['categoryRank'].std(), 2)
+            ],
+            'Min': [
+                round(data['cost'].min(), 2), round(data['noRatings'].min(), 2), round(data['categoryRank'].min(), 2)
+            ],
+            'Max': [
+                round(data['cost'].max(), 2), round(data['noRatings'].max(), 2), round(data['categoryRank'].max(), 2)
+            ]
+        }
+
+        stats_df = pd.DataFrame(stats)
+
+        # Create a new window to display the table
+        stats_window = tk.Toplevel(root)
+        stats_window.title("Statistics Summary")
+
+        # Create a table using Treeview
+        tree = ttk.Treeview(stats_window, columns=('Metric', 'Mean', 'Median', 'Std Dev', 'Min', 'Max'), show='headings')
+        tree.heading('Metric', text='Metric')
+        tree.heading('Mean', text='Mean')
+        tree.heading('Median', text='Median')
+        tree.heading('Std Dev', text='Std Dev')
+        tree.heading('Min', text='Min')
+        tree.heading('Max', text='Max')
+
+        # Center values in columns
+        tree.column('Metric', anchor='center')
+        tree.column('Mean', anchor='center')
+        tree.column('Median', anchor='center')
+        tree.column('Std Dev', anchor='center')
+        tree.column('Min', anchor='center')
+        tree.column('Max', anchor='center')
+
+        # Insert data into the table
+        for _, row in stats_df.iterrows():
+            tree.insert('', tk.END, values=(row['Metric'], row['Mean'], row['Median'], row['Std Dev'], row['Min'], row['Max']))
+
+        tree.pack(fill=tk.BOTH, expand=True)
+    except Exception as e:
+        messagebox.showerror("Error", f"An error occurred while generating the statistics summary: {e}")
+
+# Graphical interface
 root = tk.Tk()
 root.title("Amazon Sales Analysis")
 
-# Botões
+# Buttons
 btn_total_products = ttk.Button(root, text="Total Products", command=show_total_products)
 btn_total_products.pack(pady=10)
 
@@ -314,6 +424,12 @@ btn_category_rank_distribution.pack(pady=10)
 btn_correlation = ttk.Button(root, text="Correlation - categoryRank & noRatings", command=show_correlation)
 btn_correlation.pack(pady=10)
 
+btn_correlation_matrix = ttk.Button(root, text="Correlation Matrix: CategoryRank & NoRatings", command=show_correlation_matrix)
+btn_correlation_matrix.pack(pady=10)
+
+btn_cost_ratings_correlation_matrix = ttk.Button(root, text="Correlation Matrix: Cost & NoRatings", command=show_cost_ratings_correlation_matrix)
+btn_cost_ratings_correlation_matrix.pack(pady=10)
+
 btn_category_summary = ttk.Button(root, text="Category Summary", command=show_category_summary)
 btn_category_summary.pack(pady=10)
 
@@ -329,5 +445,8 @@ btn_price_range_distribution.pack(pady=10)
 btn_products_by_ratings = ttk.Button(root, text="Products by Number of Ratings", command=show_products_by_ratings)
 btn_products_by_ratings.pack(pady=10)
 
-# Iniciar a interface gráfica
+btn_statistics_summary = ttk.Button(root, text="Statistics Summary", command=show_statistics_summary)
+btn_statistics_summary.pack(pady=10)
+
+# Start the graphical interface
 root.mainloop()
