@@ -198,17 +198,22 @@ public class Main {
 
     private static boolean filterByTime(String[] movie, int timeChoice) {
         // Implement logic to filter by preferred time
-        return true; // Replace with actual logic
+        String preferredTime = timeChoice == 1 ? "Morning" : timeChoice == 2 ? "Afternoon" : "Evening";
+        return movie[2].equalsIgnoreCase(preferredTime);
     }
 
     private static boolean filterByDevice(String[] movie, int deviceChoice) {
         // Implement logic to filter by device
-        return true; // Replace with actual logic
+        String preferredDevice = deviceChoice == 1 ? "TV" : deviceChoice == 2 ? "Smartphone" : "PC";
+        return movie[3].equalsIgnoreCase(preferredDevice);
     }
 
     private static boolean filterByAvoid(String[] movie, String avoid) {
         // Implement logic to avoid specific genres or movies
-        return !movie[1].equalsIgnoreCase(avoid); // Basic example
+        if (avoid.equalsIgnoreCase("None")) {
+            return true;
+        }
+        return !movie[1].equalsIgnoreCase(avoid);
     }
 
     private static void saveRecommendations(List<String[]> movies, String filePath) {
