@@ -79,9 +79,8 @@
     </div>
     <div class="nav-right">
       <span class="nav-icon" id="points">
-        Points: <span th:text="${loggedUser != null ? loggedUser.points : 0}"></span>
+        Points: <span th:text="${session.loggedUser != null ? session.loggedUser.points : 0}"></span>
       </span>
-      <!-- Removed the Coins link -->
       <a href="/login" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </header>
@@ -198,7 +197,7 @@
 
   <!-- Section: Series & Movies -->
   <section class="movies-section">
-    <h2>Top 10p </h2>
+    <h2>Top 10 adventure</h2>
     <div class="movie-grid">
       <div class="movie-card">
         <img src="/images/FaíscMcQueen.jpg" alt="Series 1" />
@@ -216,26 +215,6 @@
         <p class="movie-info">Rating: 9.0 | Year: 2021</p>
       </div>
       <!-- Add more items -->
-    </div>
-  </section>
-
-  
-  <!-- Section: Top 10 in Your Country -->
-  <section class="movies-section">
-    <h2>Top 10 romance</h2>
-    <div class="movie-grid">
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
-        <p>Movie Title 1</p>
-        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
-      </div>
-      <div class="movie-card">
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 2" />
-        <p>Movie Title 2</p>
-        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
-      </div>
-      <div class="movie-card">
-      </div>
     </div>
   </section>
 

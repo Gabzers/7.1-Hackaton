@@ -112,8 +112,8 @@ public class UserController {
         session.setAttribute("loggedUser", user);
         model.addAttribute("loggedUser", user);
 
-        // Redirecionar para a página inicial
-        return "home";
+        // Redirecionar para /home
+        return "redirect:/home";
     }
 
     @PostMapping("/login")
@@ -131,11 +131,8 @@ public class UserController {
             // Adicionar o usuário à sessão
             session.setAttribute("loggedUser", user);
 
-            // Adicionar o usuário ao modelo para exibição no template
-            model.addAttribute("loggedUser", user);
-
-            // Redirecionar para a página inicial
-            return "home"; // Certifique-se de que a página home.html existe
+            // Redirecionar para /home
+            return "redirect:/home";
         } else {
             logger.error("Login failed for email: {}", email);
 
