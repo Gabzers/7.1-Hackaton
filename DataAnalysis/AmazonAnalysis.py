@@ -20,5 +20,5 @@ def load_data(filepath):
         raise Exception(f"Erro ao carregar o ficheiro '{filepath}': {e}")
 
 # Load dataset
-filepath = 'DataAnalysis/AmazonSales.csv'
+filepath = 'DataAnalysis/AmazonSales_Corrected.csv'
 data = load_data(filepath)
