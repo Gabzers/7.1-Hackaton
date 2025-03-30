@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e2a3a;
-    color: white;
     margin: 0;
     padding: 0;
+    background-color: #121212;
+    color: #fff;
 }
 
 .header {
@@ -16,7 +16,85 @@ body {
     margin: 0;
 }
 
+.banner {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, #222, #121212);
+}
+
+.banner-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #e50914; /* Netflix red */
+}
+
+.banner h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.banner-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+}
+
+.nav-menu li a.active {
+    color: red;
+}
+
+.nav-menu li a:hover {
+    color: #e50914;
+}
+
+.logo-text {
+    color: red;
+    background-color: black;
+    padding: 5px;
+    font-size: 1.5em;
+}
+
 .battle-pass-container {
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
 }
 
@@ -32,34 +110,24 @@ body {
 }
 
 .progress-bar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px auto;
-    width: 90%;
-    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .progress-bar {
-    display: flex;
-    align-items: center;
     position: relative;
-    background-color: #3c4f63;
+    height: 20px;
+    background-color: #333;
     border-radius: 10px;
-    height: 30px;
-    flex-grow: 1;
     overflow: hidden;
-    margin-right: 10px;
+    margin: 10px auto;
+    width: 80%;
 }
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(to right, #f1c40f, #e67e22);
-    width: 0; /* Dynamically set this value */
+    background-color: red;
     transition: width 0.3s ease;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
 .progress-text {
@@ -73,20 +141,17 @@ body {
 
 .progress-value {
     position: absolute;
-    right: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    z-index: 1;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9em;
+    color: #fff;
 }
 
 .tier-number {
-    margin-left: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    display: inline-block;
-    vertical-align: middle;
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: red;
 }
 
 .progress-level {
@@ -109,7 +174,22 @@ body {
 }
 
 .tier-indicator {
-    display: none; /* Remove the tier indicator ball */
+    position: absolute;
+    top: -15px; /* Adjusted to match the provided image */
+    left: 35%; /* Adjust dynamically based on the current tier */
+    transform: translateX(-50%);
+    background-color: #f1c40f;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 2px solid #1e2a3a; /* Matches the background for a clean look */
 }
 
 .rewards-grid {
@@ -126,8 +206,11 @@ body {
 }
 
 .reward img {
-    max-width: 100%;
-    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .purchase-section {
@@ -150,34 +233,67 @@ body {
 }
 
 .tier-progress-horizontal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow-x: auto;
-    padding: 20px 0;
-    gap: 5px; /* Reduced gap between tiers */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
 }
 
 .tier {
-    text-align: center;
-    background-color: #2b3c4d;
-    padding: 0; /* Remove padding to allow the image to fill the space */
+    border: 1px solid #333;
     border-radius: 10px;
-    flex: 0 0 100px; /* Reduced width for each tier */
-    position: relative;
+    overflow: hidden;
+    background-color: #222;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    transition: transform 0.2s ease;
-    overflow: hidden; /* Ensure the image doesn't overflow the tier box */
 }
 
 .tier:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
 }
 
-.tier .reward img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the entire space */
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .nav-menu li {
+        margin: 5px;
+    }
+    .banner h1 {
+        font-size: 2em;
+    }
+    .banner p {
+        font-size: 1em;
+    }
+    .progress-bar {
+        width: 90%;
+    }
+    .tier-progress-horizontal {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.2em;
+    }
+    .banner h1 {
+        font-size: 1.8em;
+    }
+    .banner p {
+        font-size: 0.9em;
+    }
+    .tier-progress-horizontal {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 8px;
+    }
 }
