@@ -28,10 +28,10 @@ public class ProductController {
     String directoryPath2 = "Website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv";
     String directoryPath3 = "Website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv";
 
-    // Obter produtos de cada categoria
-    List<Product> products1 = productService.getProductsFromCSV(directoryPath1);
-    List<Product> products2 = productService.getProductsFromCSV(directoryPath2);
-    List<Product> products3 = productService.getProductsFromCSV(directoryPath3);
+    // Obter produtos de cada categoria (limitar a 10 produtos)
+    List<Product> products1 = productService.getProductsFromCSV(directoryPath1).stream().limit(10).toList();
+    List<Product> products2 = productService.getProductsFromCSV(directoryPath2).stream().limit(10).toList();
+    List<Product> products3 = productService.getProductsFromCSV(directoryPath3).stream().limit(10).toList();
 
     // Adicionar ao modelo para serem usados no Thymeleaf
     model.addAttribute("products1", products1);
