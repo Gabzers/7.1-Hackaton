@@ -71,6 +71,9 @@ def show_ratings_chart():
         # Select the top 15 products with the most reviews
         top15 = data.nlargest(15, 'noRatings')[['product_name', 'noRatings']]
 
+        # Limit product names to the first three words
+        top15['product_name'] = top15['product_name'].apply(lambda x: ' '.join(x.split()[:3]))
+
         # Create the chart
         plt.figure(figsize=(12, 8))  # Increase chart size
         sns.barplot(x='noRatings', y='product_name', data=top15, palette='viridis')
@@ -78,7 +81,7 @@ def show_ratings_chart():
         plt.ylabel('Product Name', fontsize=8)
         plt.title('Top 15 Products by Number of Ratings', fontsize=14)
         plt.xticks(fontsize=10)
-        plt.yticks(fontsize=5)  # Reduce font size for product names
+        plt.yticks(fontsize=10)  # Reduce font size for product names
         plt.tight_layout()  # Automatically adjust to avoid cuts
         plt.show()
     except Exception as e:
