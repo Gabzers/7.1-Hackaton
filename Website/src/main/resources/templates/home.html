@@ -254,7 +254,7 @@ document.getElementById('questionnaire-form').onsubmit = (e) => {
     const wrapper = button.parentElement.querySelector('.movie-list');
     wrapper.scrollBy({ left: wrapper.offsetWidth, behavior: 'smooth' }); // Scroll right by the width of the container
   }
-
+/*
   // Array of random image URLs
   const randomImages = [
     '/imagesMovies/8.0_84654.jpg',
@@ -385,6 +385,53 @@ document.getElementById('questionnaire-form').onsubmit = (e) => {
     const randomIndex = Math.floor(Math.random() * randomImages.length);
     const imgElement = movieItem.querySelector(`#least-preferred-image-${index}`);
     imgElement.src = randomImages[randomIndex];
+  });
+*/
+
+
+  // Film images using API of TMDB 
+
+  const apiKey = '8a005d935acdd9a393df2d9bc8e10e79';
+  const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
+  const fallbackImage = '/images/default-movie-poster.jpg'; // Caminho para uma imagem padrão
+
+  function fetchMovieImage(movieTitle, movieElement) {
+    if (!movieTitle || !movieElement) return;
+
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(movieTitle)}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.results && data.results.length > 0) {
+          const movie = data.results[0];
+          const imageUrl = movie.poster_path ? baseImageUrl + movie.poster_path : fallbackImage;
+          movieElement.src = imageUrl;
+        } else {
+          console.error('Imagem não encontrada para o filme:', movieTitle);
+          movieElement.src = fallbackImage; // Define a imagem padrão
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao buscar imagem:', error);
+        movieElement.src = fallbackImage; // Define a imagem padrão em caso de erro
+      });
+  }
+
+  // Atribuir imagens às seções
+  document.querySelectorAll('.movies-section .movie-item').forEach(movieItem => {
+    const movieTitle = movieItem.querySelector('.movie-title')?.innerText;
+    const imgElement = movieItem.querySelector('img');
+    fetchMovieImage(movieTitle, imgElement);
+  });
+
+  document.querySelectorAll('.movies-by-genre .movie-item').forEach(movieItem => {
+    const movieTitle = movieItem.querySelector('.movie-title')?.innerText;
+    const imgElement = movieItem.querySelector('img');
+    fetchMovieImage(movieTitle, imgElement);
+  });
+  document.querySelectorAll('.movies-section .movie-item').forEach(movieItem => {
+    const movieTitle = movieItem.querySelector('.movie-title')?.innerText;
+    const imgElement = movieItem.querySelector('img');
+    fetchMovieImage(movieTitle, imgElement);
   });
 
   // Back to Top Button Functionality
