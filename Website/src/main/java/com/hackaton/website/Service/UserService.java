@@ -169,7 +169,8 @@ public class UserService {
         for (File file : Objects.requireNonNull(folder.listFiles())) {
             if (file.isFile() && file.getName().endsWith(".csv")) {
                 String genre = file.getName().replace(".csv", "");
-                try (CSVParser parser = CSVParser.parse(file, java.nio.charset.StandardCharsets.UTF_8, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
+                try (CSVParser parser = CSVParser.parse(file, java.nio.charset.StandardCharsets.UTF_8, 
+                        CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).build())) {
                     List<Map<String, String>> movies = new ArrayList<>();
                     for (CSVRecord record : parser) {
                         Map<String, String> movie = new HashMap<>();
@@ -210,7 +211,27 @@ public class UserService {
         }
     }
 
-    
+    public int completeMission(User user, String missionName) {
+        Map<String, Integer> missionPoints = Map.of(
+            "loginDaily", 10,
+            "watch3Movies", 20,
+            "rate5Movies", 15,
+            "shareMovie", 10,
+            "inviteFriend", 25,
+            "completeGenreQuiz", 30,
+            "redeemReward", 20,
+            "reachTier5", 50,
+            "spend100Points", 15,
+            "unlockAllTiers", 100
+        );
 
-    
+        if (!missionPoints.containsKey(missionName)) {
+            throw new IllegalArgumentException("Invalid mission name: " + missionName);
+        }
+
+        int pointsEarned = missionPoints.get(missionName);
+        user.setPoints(user.getPoints() + pointsEarned);
+        // Save user to database (if applicable)
+        return pointsEarned;
+    }
 }

@@ -15,7 +15,7 @@
         </div>
         <div class="nav-right">
             <ul class="nav-menu">
-                <li><a href="/home"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="/Home"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
                 <li><a href="/login"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             </ul>
@@ -92,6 +92,51 @@
             </div>
         </div>
     </div>
+    <div class="missions-container">
+        <h2>Daily Missions</h2>
+        <ul>
+            <li>
+                <span>Login Daily</span>
+                <button onclick="completeMission('loginDaily')">Complete</button>
+            </li>
+            <li>
+                <span>Watch 3 Movies</span>
+                <button onclick="completeMission('watch3Movies')">Complete</button>
+            </li>
+            <li>
+                <span>Rate 5 Movies</span>
+                <button onclick="completeMission('rate5Movies')">Complete</button>
+            </li>
+            <li>
+                <span>Share a Movie</span>
+                <button onclick="completeMission('shareMovie')">Complete</button>
+            </li>
+            <li>
+                <span>Invite a Friend</span>
+                <button onclick="completeMission('inviteFriend')">Complete</button>
+            </li>
+            <li>
+                <span>Complete a Genre Quiz</span>
+                <button onclick="completeMission('completeGenreQuiz')">Complete</button>
+            </li>
+            <li>
+                <span>Redeem a Reward</span>
+                <button onclick="completeMission('redeemReward')">Complete</button>
+            </li>
+            <li>
+                <span>Reach Tier 5</span>
+                <button onclick="completeMission('reachTier5')">Complete</button>
+            </li>
+            <li>
+                <span>Spend 100 Points</span>
+                <button onclick="completeMission('spend100Points')">Complete</button>
+            </li>
+            <li>
+                <span>Unlock All Tiers</span>
+                <button onclick="completeMission('unlockAllTiers')">Complete</button>
+            </li>
+        </ul>
+    </div>
     <script>
         let currentTier = 1; // Start at Tier 1
         let currentPoints = 0; // Start with 0 points
@@ -138,6 +183,32 @@
                 particleCount: 100,
                 spread: 70,
                 origin: { y: 0.6 }
+            });
+        }
+
+        function completeMission(missionName) {
+            fetch('/completeMission', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `missionName=${missionName}`
+            }).then(response => {
+                if (response.ok) {
+                    alert('Mission completed!');
+                    currentPoints += pointsPerTier; // Increment points for completing a mission
+                    if (currentPoints >= maxPoints) {
+                        currentPoints = maxPoints;
+                        currentTier = 11; // Set to 11 to indicate all tiers are unlocked
+                        alert("Congratulations! You've reached the maximum tier!");
+                        launchConfetti(); // Trigger confetti effect
+                    } else {
+                        while (currentPoints >= currentTier * pointsPerTier && currentTier <= 10) {
+                            currentTier++; // Increment tier if points threshold is reached
+                        }
+                    }
+                    updateProgress(); // Update progress bar and unlocked tiers
+                } else {
+                    alert('Failed to complete mission.');
+                }
             });
         }
 

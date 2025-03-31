@@ -14,6 +14,7 @@ import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Embeddable;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -41,6 +42,9 @@ public class User {
         @AttributeOverride(name = "score", column = @Column(name = "score", nullable = false))
     })
     private List<MovieGenre> movieGenres;
+
+    @ElementCollection
+    private Set<String> completedMissions;
 
     // Default constructor
     public User() {}
@@ -77,6 +81,14 @@ public class User {
         System.out.println("Setting movie genres...");
         movieGenres.forEach(g -> System.out.println("Genre: " + g.getGenre() + ", Score: " + g.getScore()));
         this.movieGenres = movieGenres;
+    }
+
+    public Set<String> getCompletedMissions() {
+        return completedMissions != null ? completedMissions : Set.of();
+    }
+
+    public void setCompletedMissions(Set<String> completedMissions) {
+        this.completedMissions = completedMissions;
     }
 
     @Embeddable

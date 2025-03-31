@@ -1,6 +1,7 @@
 package com.hackaton.website.Service;
 
 import com.hackaton.website.Entity.Product;
+import com.hackaton.website.Entity.User;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -43,16 +44,23 @@ public class ProductService {
         return products;
     }
 
+    public int completeMission(User user, String missionName) {
+        // Example logic for completing a mission and awarding points
+        int pointsEarned = 100; // Example points
+        user.setPoints(user.getPoints() + pointsEarned); // Assuming User has a setPoints method
+        logger.info("Mission '{}' completed by user '{}'. Points earned: {}", missionName, user.getName(), pointsEarned);
+        return pointsEarned;
+    }
+
     private List<String> extractProductNamesFromCSV() {
         List<String> productNames = new ArrayList<>();
 
         try {
-            // Tenta carregar o arquivo dentro de resources
             ClassPathResource resource = new ClassPathResource(COST_BENEFIT_CSV_FILE);
             InputStream inputStream = resource.getInputStream();
 
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                 CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
+                 CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).build())) {
 
                 if (!parser.getHeaderMap().containsKey("productName")) {
                     logger.warn("CSV file does not contain 'productName' header. Skipping.");

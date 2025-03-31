@@ -1,12 +1,15 @@
 package com.hackaton.website.Controller;
 
 import com.hackaton.website.Entity.Product;
+import com.hackaton.website.Entity.User; // Added import for User
 import com.hackaton.website.Service.ProductService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -39,6 +42,18 @@ public class ProductController {
     model.addAttribute("products3", products3);
 
     return "shop";
+}
+
+@PostMapping("/completeMission")
+public String completeMission(HttpSession session, @RequestParam String missionName) {
+    User loggedUser = (User) session.getAttribute("loggedUser");
+    if (loggedUser == null) {
+        return "redirect:/login";
+    }
+
+    int pointsEarned = productService.completeMission(loggedUser, missionName); // Ensure this method exists in ProductService
+    session.setAttribute("loggedUser", loggedUser); // Update session with new points
+    return "redirect:/battlepass?pointsEarned=" + pointsEarned;
 }
 
 }
