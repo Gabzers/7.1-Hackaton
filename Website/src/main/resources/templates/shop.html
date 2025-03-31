@@ -11,13 +11,10 @@
     <header class="top-nav">
         <div class="nav-left">
             <span class="logo-text">StreamFlix</span>
-
-@@ -24,49 +16,54 @@
-            </ul>
+            <a href="/home" class="button">Home</a>
         </div>
         <div class="nav-right">
-
-            <a href="/coins" class="nav-icon"><i class="fa-solid fa-coins"></i> Coins</a>
+            <span class="nav-icon">Points: <span th:text="${session.loggedUser != null ? session.loggedUser.points : 0}"></span></span>
             <a href="/battlepass" class="nav-icon"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a>
             <a href="/login" class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </div>
@@ -26,7 +23,6 @@
     <div class="banner">
         <h1>Win Exclusive Rewards!</h1>
         <p>Trade your points for rewards.</p>
-        <a href="#rewards" class="button">Search Rewards</a>
     </div>
     <div class="container" id="rewards">
         <h2>Available Rewards</h2>
@@ -56,3 +52,5 @@
             </div>
         </div>
     </div>
+</body>
+</html>
