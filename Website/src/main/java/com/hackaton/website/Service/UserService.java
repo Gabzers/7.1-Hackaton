@@ -149,6 +149,46 @@ public class UserService {
         return filteredMovies.stream().limit(10).collect(Collectors.toList());
     }
 
+    public List<Map<String, String>> recommendLeastPreferredMovies(User user) {
+        List<User.MovieGenre> movieGenres = user.getMovieGenres();
+        if (movieGenres == null || movieGenres.isEmpty()) {
+            throw new IllegalArgumentException("User has no movie genres defined.");
+        }
+
+        // Identify genres the user has not rated or rated with the lowest scores
+        Set<String> preferredGenres = movieGenres.stream()
+                .filter(genre -> Integer.parseInt(genre.getScore()) > 0)
+                .map(User.MovieGenre::getGenre)
+                .collect(Collectors.toSet());
+
+        Map<String, List<Map<String, String>>> genreMovies = loadMoviesByGenre();
+        List<String> nonPreferredGenres = genreMovies.keySet().stream()
+                .filter(genre -> !preferredGenres.contains(genre))
+                .collect(Collectors.toList());
+
+        List<Map<String, String>> recommendations = new ArrayList<>();
+        Set<String> recommendedMovies = new HashSet<>();
+
+        // Shuffle non-preferred genres and recommend movies
+        Collections.shuffle(nonPreferredGenres);
+        for (String genre : nonPreferredGenres) {
+            if (!genreMovies.containsKey(genre)) continue;
+
+            List<Map<String, String>> movies = genreMovies.get(genre);
+            Collections.shuffle(movies);
+
+            for (Map<String, String> movie : movies) {
+                if (recommendedMovies.size() >= 20) break; // Limit to 20 movies
+                if (recommendedMovies.add(movie.get("title"))) {
+                    recommendations.add(movie);
+                }
+            }
+            if (recommendedMovies.size() >= 20) break;
+        }
+
+        return recommendations;
+    }
+
     // Simulated method to fetch all movies (replace with actual implementation)
     private List<Map<String, String>> fetchAllMovies() {
         // Example movie data

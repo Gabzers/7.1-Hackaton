@@ -179,6 +179,10 @@ public class UserController {
             // Fetch recommendations for "Trending Now"
             List<Map<String, String>> recommendations = userService.recommendMovies(userWithGenres);
             model.addAttribute("recommendations", recommendations);
+
+            // Fetch least preferred movie recommendations
+            List<Map<String, String>> leastPreferredRecommendations = userService.recommendLeastPreferredMovies(userWithGenres);
+            model.addAttribute("leastPreferredRecommendations", leastPreferredRecommendations);
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
             model.addAttribute("recommendations", Collections.emptyList());
