@@ -16,10 +16,6 @@ public class WebsiteController {
         return "login"; // Return the view name without the "templates/" prefix
     }
 
-    @GetMapping("/shop")
-    public String serveShopPage() {
-        return "shop"; // Serve shop.html
-    }
 
     @GetMapping("/register")
     public String serveRegistrationPage() {
