@@ -197,12 +197,13 @@ iframe {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 8px solid rgba(255, 255, 255, 0.3);
-  border-top: 8px solid white;
-  border-radius: 50%;
   width: 50px;
   height: 50px;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top: 6px solid #e50914;
+  border-radius: 50%;
   animation: spin 1s linear infinite;
+  display: none; /* Hidden by default */
   z-index: 1000;
 }
 
@@ -281,6 +282,78 @@ footer {
   display: none; /* Hide the section if it still exists */
 }
 
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.rating-label {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 5px;
+}
+
+.star-rating input {
+  display: none; /* Hide radio buttons */
+}
+
+.star-rating label {
+  font-size: 30px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+  color: #e50914; /* Netflix red for selected stars */
+}
+
+.video-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.video-controls button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px; /* Rounded buttons */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-controls button:hover {
+  background-color: #444;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for better interactivity */
+}
+
+#volume-slider {
+  width: 150px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .movie-player-wrapper {
     padding: 0 10px; /* Add padding for smaller screens */
@@ -290,5 +363,14 @@ footer {
   .dislike-button {
     font-size: 14px; /* Adjust button size for smaller screens */
     padding: 8px 16px;
+  }
+
+  .video-controls button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  #volume-slider {
+    width: 120px;
   }
 }

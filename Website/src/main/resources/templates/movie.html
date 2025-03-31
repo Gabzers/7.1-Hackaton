@@ -14,36 +14,95 @@
   </header>
   <main class="movie-container" role="main">
     <div class="movie-player-wrapper">
-      <div class="movie-player">
+      <div class="movie-player" id="movie-player-container">
+        <div id="loading-spinner" class="loading-spinner" aria-hidden="true"></div>
         <iframe
           id="movie-frame"
-          src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&controls=1&modestbranding=1&showinfo=0&rel=0"
+          src="https://www.youtube.com/embed/6ZfuNTqbHE8?enablejsapi=1&modestbranding=1&rel=0&controls=0&showinfo=0"
           allow="autoplay; fullscreen"
           allowfullscreen
           aria-label="Movie player"
         ></iframe>
       </div>
-      <div class="like-dislike-container" aria-label="Like and Dislike Buttons">
-        <button class="like-button" aria-label="Like this video">
-           Like
-        </button>
-        <button class="dislike-button" aria-label="Dislike this video">
-           Dislike
-        </button>
+      <div class="video-controls">
+        <button id="backward-button" aria-label="Rewind 10 seconds">⏪ Rewind 10s</button>
+        <button id="forward-button" aria-label="Forward 10 seconds">Forward 10s ⏩</button>
+        <input id="volume-slider" type="range" min="0" max="100" value="50" aria-label="Volume control" />
+      </div>
+      <div class="rating-container" aria-label="Rate this video">
+        <span class="rating-label">Rate this movie:</span>
+        <div class="star-rating">
+          <input type="radio" id="star5" name="rating" value="5" />
+          <label for="star5" title="5 stars">★</label>
+          <input type="radio" id="star4" name="rating" value="4" />
+          <label for="star4" title="4 stars">★</label>
+          <input type="radio" id="star3" name="rating" value="3" />
+          <label for="star3" title="3 stars">★</label>
+          <input type="radio" id="star2" name="rating" value="2" />
+          <label for="star2" title="2 stars">★</label>
+          <input type="radio" id="star1" name="rating" value="1" />
+          <label for="star1" title="1 star">★</label>
+        </div>
       </div>
     </div>
   </main>
   
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const iframe = document.getElementById('movie-frame');
+    let player;
 
-      // Set video volume to a lower level (10%)
-      iframe.contentWindow.postMessage(
-        JSON.stringify({ event: 'command', func: 'setVolume', args: [10] }), // Set volume to 10%
-        '*'
-      );
-    });
+    // Load the YouTube IFrame API
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('movie-frame', {
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
+        },
+      });
+    }
+
+    // Show loading spinner until the video is ready
+    function onPlayerStateChange(event) {
+      const spinner = document.getElementById('loading-spinner');
+      if (event.data === YT.PlayerState.BUFFERING) {
+        spinner.style.display = 'block';
+      } else {
+        spinner.style.display = 'none';
+      }
+    }
+
+    // Initialize controls when the player is ready
+    function onPlayerReady(event) {
+      const volumeSlider = document.getElementById('volume-slider');
+      const backwardButton = document.getElementById('backward-button');
+      const forwardButton = document.getElementById('forward-button');
+      const moviePlayerContainer = document.getElementById('movie-player-container');
+
+      volumeSlider.addEventListener('input', (e) => player.setVolume(e.target.value));
+      backwardButton.addEventListener('click', () => {
+        const currentTime = player.getCurrentTime();
+        player.seekTo(Math.max(0, currentTime - 10), true); // Skip backward 10 seconds
+      });
+      forwardButton.addEventListener('click', () => {
+        const currentTime = player.getCurrentTime();
+        player.seekTo(currentTime + 10, true); // Skip forward 10 seconds
+      });
+
+      // Toggle play/pause when the iframe container is clicked
+      moviePlayerContainer.addEventListener('click', () => {
+        const isPlaying = player.getPlayerState() === YT.PlayerState.PLAYING;
+        if (isPlaying) {
+          player.pauseVideo();
+        } else {
+          player.playVideo();
+        }
+      });
+    }
+
+    // Load the YouTube IFrame API script
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   </script>
 </body>
 </html>
