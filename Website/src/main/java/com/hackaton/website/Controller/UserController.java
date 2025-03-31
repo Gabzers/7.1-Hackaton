@@ -85,7 +85,7 @@ public class UserController {
 
         // Buscar o usuário pelo ID
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o ID: " + userId));
+                .orElseThrow(() -> new IllegalArgumentException("User not found: " + userId));
 
         // Garantir que a lista de gêneros selecionados não seja nula
         if (selectedGenres == null) {
@@ -148,7 +148,7 @@ public class UserController {
             logger.error("Login failed for email: {}", email);
 
             // Adicionar mensagem de erro ao modelo
-            model.addAttribute("error", "Email ou senha incorretos. Tente novamente.");
+            model.addAttribute("error", "Email or password wrong. Try again.");
 
             // Redirecionar para a página de login
             return "login"; // Certifique-se de que a página login.html existe
