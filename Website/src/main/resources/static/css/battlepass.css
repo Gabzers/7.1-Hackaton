@@ -104,11 +104,12 @@ body {
 .battle-pass-container {
     max-width: 1200px;
     margin: 20px auto;
-    background-color: transparent; /* Removed container background */
-    border-radius: 0; /* Removed rounded edges */
-    padding: 20px; /* Reverted padding */
-    box-shadow: none; /* Removed shadow */
-    width: 90%; /* Adjust width for smaller screens */
+    background: linear-gradient(135deg, #1e1e1e, #2b3c4d);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .tier-progress {
@@ -130,18 +131,18 @@ body {
 .progress-bar {
     position: relative;
     height: 30px;
-    background-color: #333;
-    border-radius: 10px;
+    background: linear-gradient(90deg, #333, #444);
+    border-radius: 15px;
     overflow: hidden;
-    margin: 10px auto;
+    margin: 20px auto;
     width: 100%; /* Full width for better scaling */
-    border: none; /* Removed border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .progress-bar-fill {
     height: 100%;
-    background-color: red; /* Reverted to solid red */
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, #e50914, #b20710);
+    transition: width 0.5s ease;
 }
 
 .progress-text {
@@ -158,15 +159,19 @@ body {
     top: 50%; /* Center vertically */
     left: 50%;
     transform: translate(-50%, -50%); /* Adjust for perfect centering */
-    font-size: 0.9em;
+    font-size: 1em;
     color: #fff;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .tier-number {
-    font-size: 1.5em; /* Reverted font size */
-    font-weight: normal; /* Removed bold styling */
-    margin-top: 10px;
-    color: red; /* Reverted to red */
+    font-size: 1.8em; /* Reverted font size */
+    font-weight: bold; /* Removed bold styling */
+    margin-top: 15px;
+    color: #e50914; /* Reverted to red */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 .progress-level {
@@ -258,27 +263,129 @@ body {
 }
 
 .tier-progress-horizontal {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Dynamic grid for all screen sizes */
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
 }
 
 .tier {
-    border: 1px solid #333; /* Reverted border */
-    border-radius: 10px;
+    border: 2px solid #444; /* Reverted border */
+    border-radius: 15px;
     overflow: hidden;
-    background-color: #222; /* Reverted background color */
+    background: linear-gradient(145deg, #222, #333); /* Reverted background color */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Simplified transition */
     cursor: pointer;
+    position: relative;
+    width: 120px;
+    height: 150px;
 }
 
 .tier:hover {
     background-color: #222; /* Removed hover background */
-    transform: scale(1.05); /* Kept hover effect */
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Kept hover shadow */
+    transform: scale(1.1); /* Kept hover effect */
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.7); /* Kept hover shadow */
+}
+
+.tier .reward {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    background: linear-gradient(135deg, #444, #555);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.tier .reward img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    animation: popIn 0.5s ease-in-out;
+}
+
+.missions-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.missions-container h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #e50914; /* Netflix red */
+}
+
+.missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.mission-card {
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+}
+
+.mission-card span {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.mission-card button {
+    background-color: #e50914; /* Netflix red */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mission-card button:hover {
+    background-color: #b20710; /* Darker red */
 }
 
 /* Responsive adjustments */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .top-nav {
         flex-direction: column;
@@ -315,6 +422,16 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Smaller grid items */
         gap: 8px;
     }
+    .battle-pass-tiers {
+        gap: 5px;
+    }
+    .battle-pass-tier {
+        width: 100px;
+        height: 130px;
+    }
+    .battle-pass-header h1 {
+        font-size: 2em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -349,4 +466,124 @@ body {
     .tier-number {
         font-size: 1.2em; /* Adjusted tier number size */
     }
+    .battle-pass-tier {
+        width: 80px;
+        height: 110px;
+    }
+    .battle-pass-header h1 {
+        font-size: 1.8em;
+    }
+    .battle-pass-header p {
+        font-size: 1em;
+    }
+}
+
+.battle-pass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+}
+
+.battle-pass-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.battle-pass-header h1 {
+    font-size: 2.5em;
+    color: #e50914; /* Netflix red */
+    margin: 0;
+}
+
+.battle-pass-header p {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.battle-pass-tiers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.battle-pass-tier {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 150px;
+    background-color: #222;
+    border: 2px solid #333;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.battle-pass-tier:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+}
+
+.battle-pass-tier .tier-number {
+    font-size: 1.5em;
+    color: #e50914;
+    margin-bottom: 10px;
+}
+
+.battle-pass-tier .reward {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: #333;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.battle-pass-tier .reward img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.battle-pass-progress {
+    width: 100%;
+    margin: 20px 0;
+    position: relative;
+}
+
+.battle-pass-progress .progress-bar {
+    height: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.battle-pass-progress .progress-bar-fill {
+    height: 100%;
+    width: 50%; /* Example progress */
+    background-color: #e50914;
+    transition: width 0.3s ease;
+}
+
+.battle-pass-progress .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1em;
+    color: #fff;
+    font-weight: bold;
 }

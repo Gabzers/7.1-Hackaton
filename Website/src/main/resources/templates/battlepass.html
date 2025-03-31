@@ -40,102 +40,33 @@
             <p id="progress-summary">Unlocked Tiers: 0 / 10</p>
         </div>
         <div class="tier-progress-horizontal">
+            <!-- Dynamic Tier Rendering -->
             <div class="tier" onclick="collectReward(1)">
                 <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
+                    <img src="/images/reward1.png" alt="Reward 1">
                 </div>
             </div>
             <div class="tier" onclick="collectReward(2)">
                 <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
+                    <img src="/images/reward2.png" alt="Reward 2">
                 </div>
             </div>
-            <div class="tier" onclick="collectReward(3)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(4)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(5)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(6)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(7)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(8)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(9)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(10)">
-                <div class="reward">
-                    <img src="/images/FaíscMcQueen.jpg" alt="Reward">
-                </div>
-            </div>
+            <!-- Add more tiers dynamically -->
         </div>
     </div>
     <div class="missions-container">
         <h2>Daily Missions</h2>
-        <ul>
-            <li>
+        <div class="missions-grid">
+            <div class="mission-card">
                 <span>Login Daily</span>
                 <button onclick="completeMission('loginDaily')">Complete</button>
-            </li>
-            <li>
+            </div>
+            <div class="mission-card">
                 <span>Watch 3 Movies</span>
                 <button onclick="completeMission('watch3Movies')">Complete</button>
-            </li>
-            <li>
-                <span>Rate 5 Movies</span>
-                <button onclick="completeMission('rate5Movies')">Complete</button>
-            </li>
-            <li>
-                <span>Share a Movie</span>
-                <button onclick="completeMission('shareMovie')">Complete</button>
-            </li>
-            <li>
-                <span>Invite a Friend</span>
-                <button onclick="completeMission('inviteFriend')">Complete</button>
-            </li>
-            <li>
-                <span>Complete a Genre Quiz</span>
-                <button onclick="completeMission('completeGenreQuiz')">Complete</button>
-            </li>
-            <li>
-                <span>Redeem a Reward</span>
-                <button onclick="completeMission('redeemReward')">Complete</button>
-            </li>
-            <li>
-                <span>Reach Tier 5</span>
-                <button onclick="completeMission('reachTier5')">Complete</button>
-            </li>
-            <li>
-                <span>Spend 100 Points</span>
-                <button onclick="completeMission('spend100Points')">Complete</button>
-            </li>
-            <li>
-                <span>Unlock All Tiers</span>
-                <button onclick="completeMission('unlockAllTiers')">Complete</button>
-            </li>
-        </ul>
+            </div>
+            <!-- Add more missions dynamically -->
+        </div>
     </div>
     <script>
         let currentTier = 1; // Start at Tier 1
@@ -151,7 +82,6 @@
                     if (currentPoints >= maxPoints) {
                         currentPoints = maxPoints;
                         currentTier = 11; // Set to 11 to indicate all tiers are unlocked
-                        alert("Congratulations! You've reached the maximum tier!");
                         launchConfetti(); // Trigger confetti effect
                     } else {
                         currentTier++;
@@ -193,12 +123,10 @@
                 body: `missionName=${missionName}`
             }).then(response => {
                 if (response.ok) {
-                    alert('Mission completed!');
                     currentPoints += pointsPerTier; // Increment points for completing a mission
                     if (currentPoints >= maxPoints) {
                         currentPoints = maxPoints;
                         currentTier = 11; // Set to 11 to indicate all tiers are unlocked
-                        alert("Congratulations! You've reached the maximum tier!");
                         launchConfetti(); // Trigger confetti effect
                     } else {
                         while (currentPoints >= currentTier * pointsPerTier && currentTier <= 10) {
