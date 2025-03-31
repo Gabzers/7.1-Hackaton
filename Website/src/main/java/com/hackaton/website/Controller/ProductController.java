@@ -3,6 +3,7 @@ package com.hackaton.website.Controller;
 import com.hackaton.website.Entity.Product;
 import com.hackaton.website.Entity.User; // Added import for User
 import com.hackaton.website.Service.ProductService;
+import com.hackaton.website.Service.UserService; // Import UserService
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private UserService userService; // Add UserService as a dependency
 
  
 @GetMapping("/shop")
@@ -69,6 +73,23 @@ public Map<String, Integer> completeMission(HttpSession session, @RequestParam S
     }
 
     return Map.of("pointsEarned", pointsEarned);
+}
+
+@PostMapping("/claimReward")
+@ResponseBody
+public String claimReward(HttpSession session, @RequestParam int tier) {
+    User loggedUser = (User) session.getAttribute("loggedUser");
+    if (loggedUser == null) {
+        return "not_logged_in"; // Return a clean identifier for not logged in
+    }
+
+    try {
+        String result = userService.claimReward(loggedUser, tier);
+        session.setAttribute("loggedUser", loggedUser); // Update session with claimed reward
+        return result.isEmpty() ? "success" : "already_claimed"; // Return clean identifiers
+    } catch (Exception e) {
+        return "error"; // Return a clean identifier for errors
+    }
 }
 
 }

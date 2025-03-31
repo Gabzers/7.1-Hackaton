@@ -42,34 +42,34 @@
         <div class="tier-progress-horizontal">
             <!-- Dynamic Tier Rendering -->
             <div class="tier">
-                <button class="reward">
+                <button class="reward" onclick="claimReward(1)">
                     <img src="/images/reward1.png" alt="Reward 1">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(2)">
                     <img src="/images/reward2.png" alt="Reward 2">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(3)">
                     <img src="/images/reward3.png" alt="Reward 3">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(4)">
                     <img src="/images/reward4.png" alt="Reward 4">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(5)">
                     <img src="/images/reward5.png" alt="Reward 5">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(6)">
                     <img src="/images/reward6.png" alt="Reward 6">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(7)">
                     <img src="/images/reward7.png" alt="Reward 7">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(8)">
                     <img src="/images/reward8.png" alt="Reward 8">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(9)">
                     <img src="/images/reward9.png" alt="Reward 9">
                 </button>
-                <button class="reward">
+                <button class="reward" onclick="claimReward(10)">
                     <img src="/images/reward10.png" alt="Reward 10">
                 </button>
             </div>
@@ -166,6 +166,25 @@
                 }
             }
             updateProgress(); // Update progress bar and unlocked tiers
+        }
+
+        function claimReward(tier) {
+            fetch(`/claimReward?tier=${tier}`, { method: 'POST' })
+                .then(response => response.text())
+                .then(message => {
+                    if (message === "success") {
+                        // Atualize a interface para mostrar que a recompensa foi redimida
+                        console.log(`Reward for Tier ${tier} claimed successfully!`);
+                        document.querySelector(`.reward[onclick="claimReward(${tier})"]`).classList.add("claimed");
+                    } else if (message === "already_claimed") {
+                        console.log(`Reward for Tier ${tier} has already been claimed.`);
+                    } else if (message === "not_logged_in") {
+                        console.log("User not logged in.");
+                    } else if (message === "error") {
+                        console.error("An error occurred while claiming the reward.");
+                    }
+                })
+                .catch(error => console.error('Error claiming reward:', error));
         }
 
         // Initialize progress bar and tier display on page load

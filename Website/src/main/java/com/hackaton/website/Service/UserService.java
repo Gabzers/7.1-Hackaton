@@ -284,4 +284,31 @@ public class UserService {
 
         return Map.of("pointsEarned", pointsEarned);
     }
+
+    public String claimReward(User user, int tier) {
+        int requiredProgress = tier * 50; // Progress required for the given tier
+
+        // Ensure progressBar is initialized
+        if (user.getProgressBar() == null) {
+            user.setProgressBar(0);
+        }
+
+        Set<String> completedMissions = user.getCompletedMissions();
+        if (completedMissions.contains("Reward" + tier)) {
+            return "Reward for Tier " + tier + " has already been claimed.";
+        }
+
+        // Check if the user has enough progress to claim the reward
+        if (user.getProgressBar() >= requiredProgress) {
+            // Deduct only the progress required for this tier and mark reward as claimed
+            user.setProgressBar(user.getProgressBar() - 50); // Deduct 50 points for the current reward
+            completedMissions.add("Reward" + tier);
+            user.setCompletedMissions(completedMissions);
+
+            return "Reward for Tier " + tier + " claimed successfully!";
+        }
+
+        // If not enough progress, return an empty string (no message)
+        return "";
+    }
 }
