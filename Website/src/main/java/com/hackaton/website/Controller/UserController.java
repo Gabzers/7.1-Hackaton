@@ -33,7 +33,8 @@ public class UserController {
     public String registerUser(@RequestParam("name") String name,
                                @RequestParam("email") String email,
                                @RequestParam("password") String password,
-                               Model model) {
+                               Model model,
+                               HttpSession session) { // Add HttpSession to the method parameters
         logger.info("Registering user with name: {}, email: {}", name, email);
 
         // Check if email already exists
@@ -67,6 +68,9 @@ public class UserController {
         // Salvar o usuário no banco de dados
         userRepository.save(user);
         logger.info("User saved to database: {}", user);
+
+        // Add the user to the session
+        session.setAttribute("loggedUser", user);
 
         // Redirecionar para a página inicial com o ID do usuário
         return "redirect:/home?userId=" + user.getId();
