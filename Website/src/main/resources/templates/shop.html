@@ -40,6 +40,18 @@
             </div>
         </div>
 
+        <!-- Lista de Produtos do 2º CSV -->
+        <h3>Category 2</h3>
+        <div class="grid">
+            <div class="card" th:each="product : ${products2}">
+                <img src="https://via.placeholder.com/300" alt="Product Image">
+                <h3 th:text="${product.name}">Product Name</h3>
+                <p>Available now!</p>
+                <span class="points">1000 points</span>
+                <a href="#" class="button">Redeem</a>
+            </div>
+        </div>
+
         <!-- Lista de Produtos do 3º CSV -->
         <h3>Category 3</h3>
         <div class="grid">
