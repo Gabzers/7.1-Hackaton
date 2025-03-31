@@ -26,7 +26,11 @@ public class ProductService {
 
     public List<Product> getProductsFromCSV() {
         List<String> productNames = extractProductNamesFromCSV();
-        return productNames.stream().map(Product::new).collect(Collectors.toList());
+        Collections.shuffle(productNames); // Shuffle the list to randomize the order
+        return productNames.stream()
+                .limit(4) // Limit to 4 random products
+                .map(Product::new)
+                .collect(Collectors.toList());
     }
 
     public List<Product> getProductsFromCSV(String filePath) {
@@ -41,7 +45,10 @@ public class ProductService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return products;
+        Collections.shuffle(products); // Shuffle the list to randomize the order
+        return products.stream()
+                .limit(4) // Limit to 4 random products
+                .collect(Collectors.toList());
     }
 
     public int completeMission(User user, String missionName) {
