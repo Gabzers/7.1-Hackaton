@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,100 +5,54 @@
     <title>Shop</title>
     <link rel="stylesheet" type="text/css" href="/css/shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer" />
-    <script>
-        function atualizarPontos() {
-            let pontos = 1200; // Simulação de pontos do usuário
-            document.getElementById("user-points").innerText = pontos + " points";
-        }
-        window.onload = atualizarPontos;
-    </script>
+
 </head>
 <body>
-    <!-- Netflix-style Top Nav -->
     <header class="top-nav">
         <div class="nav-left">
             <span class="logo-text">StreamFlix</span>
-            <ul class="nav-menu">
-                <li><a href="\home"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
+
+@@ -24,49 +16,54 @@
             </ul>
         </div>
         <div class="nav-right">
-            <span class="nav-icon" id="user-points">Points: 0</span>
-            <a href="/battlepass" class="nav-icon" id="battlepass"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a>
-            <a href="/login" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+
+            <a href="/coins" class="nav-icon"><i class="fa-solid fa-coins"></i> Coins</a>
+            <a href="/battlepass" class="nav-icon"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a>
+            <a href="/login" class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </div>
     </header>
 
-    <!-- Main Banner -->
     <div class="banner">
         <h1>Win Exclusive Rewards!</h1>
         <p>Trade your points for rewards.</p>
-        <a href="#recompensas" class="button">Search Rewards</a>
+        <a href="#rewards" class="button">Search Rewards</a>
     </div>
-
-    <!-- Rewards Section -->
-    <div class="container" id="recompensas">
+    <div class="container" id="rewards">
         <h2>Available Rewards</h2>
+
+        <!-- Lista de Produtos do 1º CSV -->
+        <h3>Category 1</h3>
         <div class="grid">
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>More info soon.</p>
+
+            <div class="card" th:each="product : ${products1}">
+                <img src="https://via.placeholder.com/300" alt="Product Image">
+                <h3 th:text="${product.name}">Product Name</h3>
+                <p>Available now!</p>
                 <span class="points">500 points</span>
-                <a href="#" class="button">Withdraw</a>
+                <a href="#" class="button">Redeem</a>
             </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>More info soon.</p>
-                <span class="points">1000 points</span>
-                <a href="#" class="button">Withdraw</a>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>More info soon.</p>
+        </div>
+
+        <!-- Lista de Produtos do 3º CSV -->
+        <h3>Category 3</h3>
+        <div class="grid">
+            <div class="card" th:each="product : ${products3}">
+                <img src="https://via.placeholder.com/300" alt="Product Image">
+                <h3 th:text="${product.name}">Product Name</h3>
+                <p>Available now!</p>
                 <span class="points">1500 points</span>
-                <a href="#" class="button">Withdraw</a>
+                <a href="#" class="button">Redeem</a>
             </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 4">
-                <h3>Product 4</h3>
-                <p>More info soon.</p>
-                <span class="points">2000 points</span>
-                <a href="#" class="button">Withdraw</a>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 5">
-                <h3>Product 5</h3>
-                <p>More info soon.</p>
-                <span class="points">2500 points</span>
-                <a href="#" class="button">Withdraw</a>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 6">
-                <h3>Product 6</h3>
-                <p>More info soon.</p>
-                <span class="points">3000 points</span>
-                <a href="#" class="button">Withdraw</a>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 7">
-                <h3>Product 7</h3>
-                <p>More info soon.</p>
-                <span class="points">3500 points</span>
-                <a href="#" class="button">Withdraw</a>
-            </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300" alt="Product 8">
-                <h3>Product 8</h3>
-                <p>More info soon.</p>
-                <span class="points">4000 points</span>
-                <a href="#" class="button">Withdraw</a>
-            </div>
-            
         </div>
     </div>
-</body>
-</html>
