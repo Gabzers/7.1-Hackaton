@@ -7,28 +7,40 @@
   <link rel="stylesheet" href="/css/movie.css" />
 </head>
 <body>
-  <header class="top-nav">
-    <a href="/home" class="home-button" aria-label="Go back to home">Home</a>
+  <header class="top-nav" role="banner">
+    <a href="/home" class="home-button" aria-label="Go back to home">
+      &#8592; Home
+    </a>
   </header>
-  <div class="movie-container">
-    <div class="movie-player">
-      <iframe
-        id="movie-frame"
-        src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&controls=1&modestbranding=1&showinfo=0&rel=0"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-        aria-label="Movie player"
-      ></iframe>
+  <main class="movie-container" role="main">
+    <div class="movie-player-wrapper">
+      <div class="movie-player">
+        <iframe
+          id="movie-frame"
+          src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&controls=1&modestbranding=1&showinfo=0&rel=0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          aria-label="Movie player"
+        ></iframe>
+      </div>
+      <div class="like-dislike-container" aria-label="Like and Dislike Buttons">
+        <button class="like-button" aria-label="Like this video">
+           Like
+        </button>
+        <button class="dislike-button" aria-label="Dislike this video">
+           Dislike
+        </button>
+      </div>
     </div>
-  </div>
-
+  </main>
+  
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const iframe = document.getElementById('movie-frame');
 
-      // Set video volume to a lower level
+      // Set video volume to a lower level (10%)
       iframe.contentWindow.postMessage(
-        JSON.stringify({ event: 'command', func: 'setVolume', args: [50] }), // Set volume to 50%
+        JSON.stringify({ event: 'command', func: 'setVolume', args: [10] }), // Set volume to 10%
         '*'
       );
     });

@@ -4,7 +4,7 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .top-nav {
@@ -84,6 +84,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.movie-player-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the content */
+}
+
+.movie-player {
+  flex: 1;
+  width: 100%;
+  position: relative;
 }
 
 .movie-player iframe {
@@ -153,6 +170,9 @@ iframe {
 }
 
 .home-button {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Add spacing between the arrow and text */
   background-color: #e50914;
   color: #fff;
   border: none;
@@ -196,12 +216,79 @@ iframe {
 }
 
 footer {
-  position: fixed;
+  position: relative; /* Ensure footer doesn't overlap content */
   bottom: 0;
   width: 100%;
   text-align: center;
   background: rgba(0, 0, 0, 0.9);
-  padding: 10px 0;
+  padding: 15px 0; /* Increase padding for better spacing */
   color: #fff;
   font-size: 14px;
+  border-top: 1px solid #444; /* Add a subtle border for separation */
+}
+
+.like-dislike-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  padding: 10px 0;
+  flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+}
+
+.like-button,
+.dislike-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px; /* Rounded buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.like-button::before,
+.dislike-button::before {
+  font-size: 24px; /* Adjust icon size */
+}
+
+.like-button::before {
+  content: '👍'; /* Thumbs-up icon */
+}
+
+.dislike-button::before {
+  content: '👎'; /* Thumbs-down icon */
+}
+
+.like-button:hover,
+.dislike-button:hover {
+  background-color: #444;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for better interactivity */
+}
+
+.like-button:active,
+.dislike-button:active {
+  transform: scale(1);
+}
+
+.movies-section {
+  display: none; /* Hide the section if it still exists */
+}
+
+@media (max-width: 768px) {
+  .movie-player-wrapper {
+    padding: 0 10px; /* Add padding for smaller screens */
+  }
+
+  .like-button,
+  .dislike-button {
+    font-size: 14px; /* Adjust button size for smaller screens */
+    padding: 8px 16px;
+  }
 }
