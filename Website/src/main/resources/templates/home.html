@@ -125,7 +125,9 @@
       <ul class="movie-list">
         <li class="movie-item" th:each="movie, iterStat : ${recommendations}" data-random-image>
           <div class="movie-thumbnail">
-            <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" id="trending-image-${iterStat.index}" />
+            <a href="/movie">
+              <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" id="trending-image-${iterStat.index}" />
+            </a>
           </div>
           <div class="movie-details">
             <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
@@ -157,7 +159,9 @@
       <ul class="movie-list">
         <li class="movie-item" th:each="movie, movieStat : ${entry.value}" data-random-image>
           <div class="movie-thumbnail">
-            <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" id="genre-image-${iterStat.index}-${movieStat.index}" />
+            <a href="/movie">
+              <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" id="genre-image-${iterStat.index}-${movieStat.index}" />
+            </a>
           </div>
           <div class="movie-details">
             <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>

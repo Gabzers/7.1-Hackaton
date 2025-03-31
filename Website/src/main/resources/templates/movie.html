@@ -4,59 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StreamFlix - Watch Movie</title>
-  <!-- Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    referrerpolicy="no-referrer"
-  />
-  <!-- CSS File -->
   <link rel="stylesheet" href="/css/movie.css" />
 </head>
 <body>
   <header class="top-nav">
-    <div class="nav-left">
-      <span class="logo-text">StreamFlix</span>
-      <ul class="nav-menu">
-        <li><a href="/home"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <a href="/coins"><i class="fa-solid fa-coins"></i> Coins</a>
-      <a href="/login" class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-    </div>
+    <a href="/home" class="home-button" aria-label="Go back to home">Home</a>
   </header>
-
-  <main class="movie-container">
+  <div class="movie-container">
     <div class="movie-player">
       <iframe
         id="movie-frame"
-        src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&mute=0"
-        frameborder="0"
+        src="https://www.youtube.com/embed/6ZfuNTqbHE8?autoplay=1&controls=1&modestbranding=1&showinfo=0&rel=0"
         allow="autoplay; fullscreen"
         allowfullscreen
+        aria-label="Movie player"
       ></iframe>
     </div>
-    <div class="movie-details">
-      <h1>Avengers: Infinity War</h1>
-      <p>The Avengers must stop Thanos, an intergalactic warlord, from acquiring all six Infinity Stones.</p>
-      <p><strong>Rating:</strong> 8.5</p>
-      <p><strong>Year:</strong> 2018</p>
-    </div>
-  </main>
+  </div>
 
   <script>
-    window.onload = () => {
+    document.addEventListener('DOMContentLoaded', () => {
       const iframe = document.getElementById('movie-frame');
-      const requestFullscreen = iframe.requestFullscreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullscreen || iframe.msRequestFullscreen;
 
-      if (requestFullscreen) {
-        iframe.onload = () => {
-          requestFullscreen.call(iframe);
-        };
-      }
-    };
+      // Set video volume to a lower level
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: 'setVolume', args: [50] }), // Set volume to 50%
+        '*'
+      );
+    });
   </script>
 </body>
 </html>
