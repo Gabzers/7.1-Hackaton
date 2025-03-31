@@ -167,17 +167,23 @@ public class UserController {
 
         // Check if the user has movie genres defined
         if (userWithGenres.getMovieGenres() == null || userWithGenres.getMovieGenres().isEmpty()) {
-            model.addAttribute("recommendations", Collections.emptyList()); // Pass empty list for error message
+            model.addAttribute("error", "You have not defined your favorite movie genres. Please update your preferences.");
+            model.addAttribute("recommendations", Collections.emptyList());
             return "home";
         }
 
-        // Fetch top 3 genres and their top 10 movies
-        Map<String, List<Map<String, String>>> topGenresMovies = userService.recommendTop3GenresMovies(userWithGenres);
-        model.addAttribute("topGenresMovies", topGenresMovies);
+        try {
+            // Fetch top 3 genres and their top 10 movies
+            Map<String, List<Map<String, String>>> topGenresMovies = userService.recommendTop3GenresMovies(userWithGenres);
+            model.addAttribute("topGenresMovies", topGenresMovies);
 
-        // Fetch recommendations for "Trending Now"
-        List<Map<String, String>> recommendations = userService.recommendMovies(userWithGenres);
-        model.addAttribute("recommendations", recommendations);
+            // Fetch recommendations for "Trending Now"
+            List<Map<String, String>> recommendations = userService.recommendMovies(userWithGenres);
+            model.addAttribute("recommendations", recommendations);
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            model.addAttribute("recommendations", Collections.emptyList());
+        }
 
         return "home";
     }

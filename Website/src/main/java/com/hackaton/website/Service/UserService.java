@@ -35,11 +35,15 @@ public class UserService {
         // Load movies from CSVs
         Map<String, List<Map<String, String>>> genreMovies = loadMoviesByGenre();
 
-        // Prioritize recommendations from preferred genres
+        // Calculate total score and handle case where all scores are zero
         int totalScore = sortedGenres.stream()
                 .mapToInt(genre -> Integer.parseInt(genre.getScore()))
                 .sum();
+        if (totalScore == 0) {
+            throw new IllegalArgumentException("User has no valid preferences (all scores are zero).");
+        }
 
+        // Prioritize recommendations from preferred genres
         for (User.MovieGenre genrePreference : sortedGenres) {
             String genre = genrePreference.getGenre();
             int score = Integer.parseInt(genrePreference.getScore());
