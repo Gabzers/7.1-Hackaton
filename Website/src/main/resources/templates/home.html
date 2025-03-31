@@ -122,36 +122,20 @@
   </section>
 
   <!-- Section: Trending Now -->
-  <section class="movies-section">
+  <section class="movies-section" th:if="${recommendations != null and !recommendations.isEmpty()}">
     <h2>Trending Now</h2>
     <div class="movie-list-wrapper">
       <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
       <ul class="movie-list">
-        <li class="movie-item" data-random-image>
+        <li class="movie-item" th:each="movie, iterStat : ${recommendations}" data-random-image>
           <div class="movie-thumbnail">
-            <img src="" alt="Movie 1" />
+            <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" id="trending-image-${iterStat.index}" />
           </div>
           <div class="movie-details">
-            <h3 class="movie-title">Movie Title 1</h3>
-            <p class="movie-info">Rating: 8.5 | Year: 2023</p>
-          </div>
-        </li>
-        <li class="movie-item" data-random-image>
-          <div class="movie-thumbnail">
-            <img src="" alt="Movie 2" />
-          </div>
-          <div class="movie-details">
-            <h3 class="movie-title">Movie Title 2</h3>
-            <p class="movie-info">Rating: 7.8 | Year: 2022</p>
-          </div>
-        </li>
-        <li class="movie-item" data-random-image>
-          <div class="movie-thumbnail">
-            <img src="" alt="Movie 3" />
-          </div>
-          <div class="movie-details">
-            <h3 class="movie-title">Movie Title 3</h3>
-            <p class="movie-info">Rating: 9.0 | Year: 2021</p>
+            <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
+            <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
+              Rating: X.X | Year: YYYY
+            </p>
           </div>
         </li>
       </ul>
@@ -159,20 +143,25 @@
     </div>
   </section>
 
+  <!-- Error message if no preferences -->
+  <div th:if="${recommendations == null or recommendations.isEmpty()}" class="error-message">
+    <p>You have not defined your favorite movie genres. Please update your preferences to see recommendations.</p>
+  </div>
+
   <!-- Display error message if present -->
   <div th:if="${error}" class="error-message">
     <p th:text="${error}"></p>
   </div>
 
   <!-- Section: Top Movies by Genre -->
-  <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry : ${topGenresMovies}">
+  <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry, iterStat : ${topGenresMovies}">
     <h2 th:text="'Top Movies in ' + ${entry.key}">Top Movies in Genre</h2>
     <div class="movie-list-wrapper">
       <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
       <ul class="movie-list">
-        <li class="movie-item" th:each="movie : ${entry.value}">
+        <li class="movie-item" th:each="movie, movieStat : ${entry.value}" data-random-image>
           <div class="movie-thumbnail">
-            <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" />
+            <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" id="genre-image-${iterStat.index}-${movieStat.index}" />
           </div>
           <div class="movie-details">
             <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
@@ -353,8 +342,15 @@ document.getElementById('questionnaire-form').onsubmit = (e) => {
     imgElement.src = randomImages[randomIndex];
   });
 
-  // Assign random images to all movie items in "Top Movies by Genre"
-  document.querySelectorAll('.movies-by-genre .movie-item').forEach((movieItem) => {
+  // Assign random images to "Trending Now" section
+  document.querySelectorAll('.movies-section .movie-item').forEach((movieItem, index) => {
+    const randomIndex = Math.floor(Math.random() * randomImages.length);
+    const imgElement = movieItem.querySelector(`#trending-image-${index}`);
+    imgElement.src = randomImages[randomIndex];
+  });
+
+  // Assign random images to "Top Movies by Genre" section
+  document.querySelectorAll('.movies-by-genre .movie-item').forEach((movieItem, index) => {
     const randomIndex = Math.floor(Math.random() * randomImages.length);
     const imgElement = movieItem.querySelector('img');
     imgElement.src = randomImages[randomIndex];
