@@ -6,9 +6,27 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif; /* Replace with the desired font */
   background-color: #141414; /* Netflix-style dark background */
   color: #fff;
+  letter-spacing: 0.5px; /* Add letter spacing for all text */
+}
+
+h1, h2, h3, p, span, a, button {
+  letter-spacing: 0.5px; /* Ensure consistent letter spacing across all elements */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add subtle text shadow for better readability */
+}
+
+button, a {
+  text-transform: uppercase; /* Make buttons and links uppercase for a modern look */
+}
+
+h1, h2 {
+  font-weight: bold; /* Ensure headings are bold */
+}
+
+p, span {
+  font-weight: 300; /* Use lighter font weight for paragraphs and spans */
 }
 
 /* ---------- NAV SUPERIOR ---------- */
@@ -291,8 +309,8 @@ body {
   position: relative; /* Enable positioning for child elements */
   background: #222;
   border-radius: 5px;
-  width: 150px; /* Fixed width */
-  height: 225px; /* Fixed height */
+  width: 182px; /* Atualizado para 182px */
+  height: 268px; /* Atualizado para 268px */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0; /* Prevent shrinking in horizontal scroll */
@@ -319,17 +337,13 @@ body {
 }
 
 .movie-card img {
-  width: 150px; /* Fixed width for consistent size */
-  height: 225px; /* Fixed height for consistent size */
-  object-fit: cover; /* Maintain aspect ratio and crop excess */
+  width: 100%; /* Ajusta a largura para preencher o quadrado */
+  height: 100%; /* Ajusta a altura para preencher o quadrado */
+  object-fit: cover; /* Garante que o poster cubra todo o espaço */
+  aspect-ratio: 1 / 1.47; /* Mantém a proporção de 1:1.47 (altura maior que largura) */
   display: block;
-  border-radius: 5px; /* Rounded corners for a cleaner look */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling effect */
-}
-
-.movie-card:hover img {
-  transform: scale(1.05); /* Slightly increase the size on hover */
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5); /* Shining effect */
+  border-radius: 5px; /* Mantém os cantos arredondados */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito suave */
 }
 
 .movie-card p {
@@ -356,6 +370,137 @@ body {
   color: #ccc;
   margin: 0;
   text-align: center;
+}
+
+/* ---------- MOVIES BY GENRE ---------- */
+.movies-by-genre {
+  margin: 50px 50px;
+}
+
+.movies-by-genre h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.movie-list-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Disable vertical scrolling */
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.movie-list::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+.movie-item {
+  position: relative; /* Enable positioning for hover effect */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure content stays within the card */
+  aspect-ratio: 1 / 1.47; /* Define aspect ratio de 1:1.47 */
+  flex-shrink: 0; /* Prevent shrinking */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease;
+  z-index: 1; /* Default z-index */
+}
+
+.movie-item:hover {
+  transform: scale(1.2); /* Enlarge the movie card */
+  z-index: 10; /* Bring the card to the front */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); /* Add a shadow for emphasis */
+}
+
+.movie-thumbnail img {
+  width: 100%;
+  height: 250px; /* Adjusted height */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.movie-details {
+  position: absolute; /* Overlay the details */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  opacity: 1; /* Always visible */
+  transform: translateY(0); /* No sliding effect */
+}
+
+.movie-details .movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.movie-details .movie-info {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.movie-details {
+  text-align: center;
+}
+
+.movie-details .movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.movie-details .movie-info {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.scroll-button.left {
+  left: -20px;
+}
+
+.scroll-button.right {
+  right: -20px;
 }
 
 /* ---------- MODAL STYLES ---------- */

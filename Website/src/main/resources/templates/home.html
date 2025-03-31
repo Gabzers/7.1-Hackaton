@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>StreamFlix - Home</title>
@@ -120,29 +121,41 @@
     </div>
   </section>
 
-  <!-- Section: Top 10 in Your Country -->
+  <!-- Section: Trending Now -->
   <section class="movies-section">
     <h2>Trending Now</h2>
-    <div class="movie-grid">
-      <div class="movie-card">
-        <div class="rank-number" style="color: #6a0dad;">1</div> <!-- Adjusted placement -->
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 1" />
-        <p class="movie-title">Movie Title 1</p>
-        <p class="movie-info">Rating: 8.5 | Year: 2023</p>
-      </div>
-      <div class="movie-card">
-        <div class="rank-number" style="color: #e50914;">2</div> <!-- Adjusted placement -->
-        <img src="/images/3q01acg0mwm0dekhvkpfcxypzsu.avif" alt="Movie 2" />
-        <p class="movie-title">Movie Title 2</p>
-        <p class="movie-info">Rating: 7.8 | Year: 2022</p>
-      </div>
-      <div class="movie-card">
-        <div class="rank-number" style="color: #1e90ff;">3</div> <!-- Adjusted placement -->
-        <img src="/images/FaíscMcQueen.jpg" alt="Movie 3" />
-        <p class="movie-title">Movie Title 3</p>
-        <p class="movie-info">Rating: 9.0 | Year: 2021</p>
-      </div>
-      <!-- Add more movie cards with rank numbers -->
+    <div class="movie-list-wrapper">
+      <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
+      <ul class="movie-list">
+        <li class="movie-item" data-random-image>
+          <div class="movie-thumbnail">
+            <img src="" alt="Movie 1" />
+          </div>
+          <div class="movie-details">
+            <h3 class="movie-title">Movie Title 1</h3>
+            <p class="movie-info">Rating: 8.5 | Year: 2023</p>
+          </div>
+        </li>
+        <li class="movie-item" data-random-image>
+          <div class="movie-thumbnail">
+            <img src="" alt="Movie 2" />
+          </div>
+          <div class="movie-details">
+            <h3 class="movie-title">Movie Title 2</h3>
+            <p class="movie-info">Rating: 7.8 | Year: 2022</p>
+          </div>
+        </li>
+        <li class="movie-item" data-random-image>
+          <div class="movie-thumbnail">
+            <img src="" alt="Movie 3" />
+          </div>
+          <div class="movie-details">
+            <h3 class="movie-title">Movie Title 3</h3>
+            <p class="movie-info">Rating: 9.0 | Year: 2021</p>
+          </div>
+        </li>
+      </ul>
+      <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
     </div>
   </section>
 
@@ -151,18 +164,25 @@
     <p th:text="${error}"></p>
   </div>
 
-  <!-- Section: Top 10 Movies for Top Genres -->
-  <section class="movies-section" th:if="${topGenresMovies != null}" th:each="entry : ${topGenresMovies}">
-    <h2 th:text="'Top 15 ' + ${entry.key}">Top 10 Genre</h2>
-    <div class="movie-grid">
-      <div class="movie-card" th:each="movie, iterStat : ${entry.value}">
-        <div class="rank-number" th:text="${iterStat.index + 1}"></div>
-        <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" />
-        <p class="movie-title" th:text="${movie['title']}">Movie Title</p>
-        <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
-          Rating: X.X | Year: YYYY
-        </p>
-      </div>
+  <!-- Section: Top Movies by Genre -->
+  <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry : ${topGenresMovies}">
+    <h2 th:text="'Top Movies in ' + ${entry.key}">Top Movies in Genre</h2>
+    <div class="movie-list-wrapper">
+      <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
+      <ul class="movie-list">
+        <li class="movie-item" th:each="movie : ${entry.value}">
+          <div class="movie-thumbnail">
+            <img th:src="@{/images/FaíscMcQueen.jpg}" th:alt="${movie['title']}" />
+          </div>
+          <div class="movie-details">
+            <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
+            <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
+              Rating: X.X | Year: YYYY
+            </p>
+          </div>
+        </li>
+      </ul>
+      <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
     </div>
   </section>
 
@@ -211,7 +231,135 @@ document.getElementById('questionnaire-form').onsubmit = (e) => {
   // Submeter o formulário
   e.target.submit();
 };
-  </script>
+
+  function scrollLeft(button) {
+    const wrapper = button.parentElement.querySelector('.movie-list');
+    wrapper.scrollBy({ left: -wrapper.offsetWidth, behavior: 'smooth' }); // Scroll left by the width of the container
+  }
+
+  function scrollRight(button) {
+    const wrapper = button.parentElement.querySelector('.movie-list');
+    wrapper.scrollBy({ left: wrapper.offsetWidth, behavior: 'smooth' }); // Scroll right by the width of the container
+  }
+
+  // Array of random image URLs
+  const randomImages = [
+    '/imagesMovies/8.0_84654.jpg',
+    '/imagesMovies/8.0_84740.jpg',
+    '/imagesMovies/8.0_88247.jpg',
+    '/imagesMovies/8.0_88258.jpg',
+    '/imagesMovies/8.0_88846.jpg',
+    '/imagesMovies/8.0_91167.jpg',
+    '/imagesMovies/8.0_91480.jpg',
+    '/imagesMovies/8.0_95953.jpg',
+    '/imagesMovies/8.0_96028.jpg',
+    '/imagesMovies/8.0_97123.jpg',
+    '/imagesMovies/8.0_97165.jpg',
+    '/imagesMovies/8.0_99028.jpg',
+    '/imagesMovies/8.0_99348.jpg',
+    '/imagesMovies/8.1_100332.jpg',
+    '/imagesMovies/8.1_10323.jpg',
+    '/imagesMovies/8.1_106332.jpg',
+    '/imagesMovies/8.1_107290.jpg',
+    '/imagesMovies/8.1_107472.jpg',
+    '/imagesMovies/8.1_109424.jpg',
+    '/imagesMovies/8.1_110882.jpg',
+    '/imagesMovies/8.1_111495.jpg',
+    '/imagesMovies/8.1_112373.jpg',
+    '/imagesMovies/8.1_112471.jpg',
+    '/imagesMovies/8.1_113247.jpg',
+    '/imagesMovies/8.1_114787.jpg',
+    '/imagesMovies/8.1_116282.jpg',
+    '/imagesMovies/8.1_116506.jpg',
+    '/imagesMovies/8.1_117907.jpg',
+    '/imagesMovies/8.1_118694.jpg',
+    '/imagesMovies/8.1_118843.jpg',
+    '/imagesMovies/8.1_120382.jpg',
+    '/imagesMovies/8.1_120731.jpg',
+    '/imagesMovies/8.1_12364.jpg',
+    '/imagesMovies/8.1_145046.jpg',
+    '/imagesMovies/8.1_15064.jpg',
+    '/imagesMovies/8.1_154420.jpg',
+    '/imagesMovies/8.1_167404.jpg',
+    '/imagesMovies/8.1_16847.jpg',
+    '/imagesMovies/8.1_168515.jpg',
+    '/imagesMovies/8.1_198781.jpg',
+    '/imagesMovies/8.1_20629.jpg',
+    '/imagesMovies/8.1_221344.jpg',
+    '/imagesMovies/8.1_23042.jpg',
+    '/imagesMovies/8.1_24069.jpg',
+    '/imagesMovies/8.1_243664.jpg',
+    '/imagesMovies/8.1_244316.jpg',
+    '/imagesMovies/8.1_245712.jpg',
+    '/imagesMovies/8.1_25878.jpg',
+    '/imagesMovies/8.1_264464.jpg',
+    '/imagesMovies/8.1_266543.jpg',
+    '/imagesMovies/8.1_266697.jpg',
+    '/imagesMovies/8.1_27532.jpg',
+    '/imagesMovies/8.1_276919.jpg',
+    '/imagesMovies/8.1_28010.jpg',
+    '/imagesMovies/8.1_28950.jpg',
+    '/imagesMovies/8.1_307385.jpg',
+    '/imagesMovies/8.1_31885.jpg',
+    '/imagesMovies/8.1_32138.jpg',
+    '/imagesMovies/8.1_32551.jpg',
+    '/imagesMovies/8.1_33045.jpg',
+    '/imagesMovies/8.1_338564.jpg',
+    '/imagesMovies/8.1_34240.jpg',
+    '/imagesMovies/8.1_35140.jpg',
+    '/imagesMovies/8.1_36244.jpg',
+    '/imagesMovies/8.1_36868.jpg',
+    '/imagesMovies/8.1_37008.jpg',
+    '/imagesMovies/8.1_374546.jpg',
+    '/imagesMovies/8.1_37558.jpg',
+    '/imagesMovies/8.1_379557.jpg',
+    '/imagesMovies/8.1_38190.jpg',
+    '/imagesMovies/8.1_38733.jpg',
+    '/imagesMovies/8.1_38890.jpg',
+    '/imagesMovies/8.1_39689.jpg',
+    '/imagesMovies/8.1_41546.jpg',
+    '/imagesMovies/8.1_41719.jpg',
+    '/imagesMovies/8.1_44008.jpg',
+    '/imagesMovies/8.1_44837.jpg',
+    '/imagesMovies/8.1_46250.jpg',
+    '/imagesMovies/8.1_46911.jpg',
+    '/imagesMovies/8.1_47528.jpg',
+    '/imagesMovies/8.1_49012.jpg',
+    '/imagesMovies/8.1_51459.jpg',
+    '/imagesMovies/8.1_51808.jpg',
+    '/imagesMovies/8.1_52561.jpg',
+    '/imagesMovies/8.1_52600.jpg',
+    '/imagesMovies/8.1_52618.jpg',
+    '/imagesMovies/8.1_53198.jpg',
+    '/imagesMovies/8.1_53779.jpg',
+    '/imagesMovies/8.1_54460.jpg',
+    '/imagesMovies/8.1_55499.jpg',
+    '/imagesMovies/8.1_56217.jpg',
+    '/imagesMovies/8.1_56241.jpg',
+    '/imagesMovies/8.1_56663.jpg',
+    '/imagesMovies/8.1_56687.jpg',
+    '/imagesMovies/8.1_56801.jpg',
+    '/imagesMovies/8.1_57058.jpg',
+    '/imagesMovies/8.1_57091.jpg',
+    '/imagesMovies/8.1_57358.jpg',
+    '/imagesMovies/8.1_58946.jpg',
+    '/imagesMovies/8.1_59527.jpg'
+];
+
+  // Assign random images to all movie items
+  document.querySelectorAll('[data-random-image]').forEach((movieItem) => {
+    const randomIndex = Math.floor(Math.random() * randomImages.length);
+    const imgElement = movieItem.querySelector('img');
+    imgElement.src = randomImages[randomIndex];
+  });
+
+  // Assign random images to all movie items in "Top Movies by Genre"
+  document.querySelectorAll('.movies-by-genre .movie-item').forEach((movieItem) => {
+    const randomIndex = Math.floor(Math.random() * randomImages.length);
+    const imgElement = movieItem.querySelector('img');
+    imgElement.src = randomImages[randomIndex];
+  });
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
 </body>
 </html>
