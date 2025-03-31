@@ -24,9 +24,9 @@ public class ProductController {
     }
 
     // Diretórios dos três conjuntos de CSVs
-    String directoryPath1 = "Website\\src\\main\\resources\\csv\\CostBenefit_Results\\Products_Under_5_Euros.csv";
-    String directoryPath2 = "Website\\src\\main\\resources\\csv\\CostBenefit_Results\\Products_5_To_10_Euros.csv";
-    String directoryPath3 = "Website\\src\\main\\resources\\csv\\CostBenefit_Results\\Products_10_To_15_Euros.csv";
+    String directoryPath1 = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
+    String directoryPath2 = "Website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv";
+    String directoryPath3 = "Website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv";
 
     // Obter produtos de cada categoria
     List<Product> products1 = productService.getProductsFromCSV(directoryPath1);
@@ -39,7 +39,6 @@ public class ProductController {
     model.addAttribute("products3", products3);
 
     return "shop";
-    
 }
 
 }

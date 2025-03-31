@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class ProductService {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
-    private static final String COST_BENEFIT_CSV_FILE = "csv/CostBenefit/CostBenefit_Results/Products_Under_5_Euros.csv";
+    private static final String COST_BENEFIT_CSV_FILE = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
 
     public List<String> recommendProductNames() {
         return extractProductNamesFromCSV();
@@ -70,5 +70,4 @@ public class ProductService {
 
         return productNames;
     }
-    
 }
