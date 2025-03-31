@@ -219,16 +219,23 @@ body {
 }
 
 .reward {
-    background-color: #333;
-    padding: 15px; /* Increased padding */
-    text-align: center;
-    border-radius: 5px;
-    width: 100px; /* Increased width */
-    height: 100px; /* Increased height */
-    display: flex; /* Added flexbox */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    position: relative; /* Ensure proper positioning for child elements */
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #444, #555);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Add pointer cursor for buttons */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reward:hover {
+    transform: scale(1.1); /* Add hover effect */
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Add hover shadow */
 }
 
 .reward img {
@@ -264,22 +271,31 @@ body {
 
 .tier-progress-horizontal {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Center the rewards horizontally */
+    align-items: center; /* Center the rewards vertically */
     gap: 15px;
     overflow-x: auto;
     padding: 10px 0;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.tier-progress-horizontal::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
 }
 
 .tier {
-    border: 2px solid #444; /* Reverted border */
+    display: flex; /* Enable horizontal alignment */
+    justify-content: center; /* Center rewards inside the tier */
+    align-items: center; /* Center rewards vertically */
+    gap: 10px; /* Add spacing between rewards */
+    border: 2px solid #444;
     border-radius: 15px;
     overflow: hidden;
-    background: linear-gradient(145deg, #222, #333); /* Reverted background color */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Simplified transition */
+    background: linear-gradient(145deg, #222, #333);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     position: relative;
-    width: 120px;
+    width: auto; /* Adjust width to fit content */
     height: 150px;
 }
 

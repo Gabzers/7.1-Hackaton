@@ -251,27 +251,37 @@ public class UserService {
         }
     }
 
-    public int completeMission(User user, String missionName) {
+    public Map<String, Integer> completeMission(User user, String missionName) {
+        System.out.println("Completing mission: " + missionName);
+        System.out.println("User before update: Points = " + user.getPoints() + ", ProgressBar = " + user.getProgressBar());
+
         Map<String, Integer> missionPoints = Map.of(
-            "loginDaily", 10,
-            "watch3Movies", 20,
-            "rate5Movies", 15,
-            "shareMovie", 10,
-            "inviteFriend", 25,
-            "completeGenreQuiz", 30,
-            "redeemReward", 20,
-            "reachTier5", 50,
-            "spend100Points", 15,
-            "unlockAllTiers", 100
+            "DailyLogin", 20, 
+            "watch3Movies", 50,
+            "Buysomething", 75,
+            "Rateamovie", 20,
+            "Likeamovie", 20
         );
 
         if (!missionPoints.containsKey(missionName)) {
+            System.err.println("Invalid mission name: " + missionName);
             throw new IllegalArgumentException("Invalid mission name: " + missionName);
         }
 
         int pointsEarned = missionPoints.get(missionName);
-        user.setPoints(user.getPoints() + pointsEarned);
-        // Save user to database (if applicable)
-        return pointsEarned;
+        user.setPoints((user.getPoints() != null ? user.getPoints() : 0) + pointsEarned);
+
+        // Update progress bar
+        int currentProgress = user.getProgressBar() != null ? user.getProgressBar() : 0;
+        int updatedProgress = currentProgress + pointsEarned;
+        if (updatedProgress > 1000) {
+            updatedProgress = 1000; // Cap progress bar at 1000
+        }
+        user.setProgressBar(updatedProgress);
+
+        // Log para depuração
+        System.out.println("User after update: Points = " + user.getPoints() + ", ProgressBar = " + user.getProgressBar());
+
+        return Map.of("pointsEarned", pointsEarned);
     }
 }

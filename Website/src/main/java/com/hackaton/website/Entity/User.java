@@ -35,6 +35,9 @@ public class User {
     @Column(nullable = true) // Permitir que os pontos sejam opcionais
     private Integer points; // Alterado para Integer para suportar valores nulos
 
+    @Column(nullable = true) // Permitir que a barra de progresso seja opcional
+    private Integer progressBar;
+
     @ElementCollection
     @CollectionTable(name = "user_movie_genres", joinColumns = @JoinColumn(name = "user_id"))
     @AttributeOverrides({
@@ -73,6 +76,14 @@ public class User {
 
     public Integer getPoints() { return points; }
     public void setPoints(Integer points) { this.points = points; }
+
+    public Integer getProgressBar() {
+        return progressBar;
+    }
+
+    public void setProgressBar(Integer progressBar) {
+        this.progressBar = progressBar;
+    }
 
     public List<MovieGenre> getMovieGenres() {
         return movieGenres != null ? movieGenres : List.of();

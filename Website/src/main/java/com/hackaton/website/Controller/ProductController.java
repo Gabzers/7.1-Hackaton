@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ProductController {
@@ -45,15 +47,28 @@ public class ProductController {
 }
 
 @PostMapping("/completeMission")
-public String completeMission(HttpSession session, @RequestParam String missionName) {
+@ResponseBody
+public Map<String, Integer> completeMission(HttpSession session, @RequestParam String missionName) {
     User loggedUser = (User) session.getAttribute("loggedUser");
     if (loggedUser == null) {
-        return "redirect:/login";
+        System.out.println("User not logged in. Returning 0 points.");
+        return Map.of("pointsEarned", 0); // Retorna 0 pontos se o usuário não estiver logado
     }
 
-    int pointsEarned = productService.completeMission(loggedUser, missionName); // Ensure this method exists in ProductService
-    session.setAttribute("loggedUser", loggedUser); // Update session with new points
-    return "redirect:/battlepass?pointsEarned=" + pointsEarned;
+    System.out.println("Mission name received: " + missionName);
+    System.out.println("Logged user: " + loggedUser.getName());
+
+    int pointsEarned = 0;
+    try {
+        pointsEarned = productService.completeMission(loggedUser, missionName);
+        session.setAttribute("loggedUser", loggedUser); // Atualiza a sessão com os novos pontos
+        System.out.println("Points earned: " + pointsEarned);
+    } catch (Exception e) {
+        System.err.println("Error completing mission: " + e.getMessage());
+        e.printStackTrace();
+    }
+
+    return Map.of("pointsEarned", pointsEarned);
 }
 
 }

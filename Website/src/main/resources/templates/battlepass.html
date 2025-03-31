@@ -41,38 +41,75 @@
         </div>
         <div class="tier-progress-horizontal">
             <!-- Dynamic Tier Rendering -->
-            <div class="tier" onclick="collectReward(1)">
-                <div class="reward">
+            <div class="tier">
+                <button class="reward">
                     <img src="/images/reward1.png" alt="Reward 1">
-                </div>
-            </div>
-            <div class="tier" onclick="collectReward(2)">
-                <div class="reward">
+                </button>
+                <button class="reward">
                     <img src="/images/reward2.png" alt="Reward 2">
-                </div>
+                </button>
+                <button class="reward">
+                    <img src="/images/reward3.png" alt="Reward 3">
+                </button>
+                <button class="reward">
+                    <img src="/images/reward4.png" alt="Reward 4">
+                </button>
+                <button class="reward">
+                    <img src="/images/reward5.png" alt="Reward 5">
+                </button>
+                <button class="reward">
+                    <img src="/images/reward6.png" alt="Reward 6">
+                </button>
+                <button class="reward">
+                    <img src="/images/reward7.png" alt="Reward 7">
+                </button>
+                <button class="reward">
+                    <img src="/images/reward8.png" alt="Reward 8">
+                </button>
+                <button class="reward">
+                    <img src="/images/reward9.png" alt="Reward 9">
+                </button>
+                <button class="reward">
+                    <img src="/images/reward10.png" alt="Reward 10">
+                </button>
             </div>
-            <!-- Add more tiers dynamically -->
         </div>
     </div>
     <div class="missions-container">
         <h2>Daily Missions</h2>
         <div class="missions-grid">
             <div class="mission-card">
-                <span>Login Daily</span>
-                <button onclick="completeMission('loginDaily')">Complete</button>
+                <span>Daily Login</span>
+                <p>10 points</p>
+                <button onclick="completeMission('DailyLogin', 10)">Complete</button>
             </div>
             <div class="mission-card">
                 <span>Watch 3 Movies</span>
-                <button onclick="completeMission('watch3Movies')">Complete</button>
+                <p>50 points</p>
+                <button onclick="completeMission('Watch3Movies', 50)">Complete</button>
             </div>
-            <!-- Add more missions dynamically -->
+            <div class="mission-card">
+                <span>Buy something</span>
+                <p>75 points</p>
+                <button onclick="completeMission('BuySomething', 75)">Complete</button>
+            </div>
+            <div class="mission-card">
+                <span>Rate a movie</span>
+                <p>20 points</p>
+                <button onclick="completeMission('RateAMovie', 20)">Complete</button>
+            </div>
+            <div class="mission-card">
+                <span>Like a movie</span>
+                <p>20 points</p>
+                <button onclick="completeMission('LikeAMovie', 20)">Complete</button>
+            </div>
         </div>
     </div>
     <script>
         let currentTier = 1; // Start at Tier 1
         let currentPoints = 0; // Start with 0 points
-        const maxPoints = 1000; // 10 tiers * 100 points per tier
-        const pointsPerTier = 100; // Points required to complete each tier
+        const maxPoints = 500; // 10 tiers * 100 points per tier
+        const pointsPerTier = 50; // Points required to complete each tier
 
         function collectReward(tier) {
             const requiredPoints = (tier - 1) * pointsPerTier; // Calculate required points for the tier
@@ -116,28 +153,19 @@
             });
         }
 
-        function completeMission(missionName) {
-            fetch('/completeMission', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `missionName=${missionName}`
-            }).then(response => {
-                if (response.ok) {
-                    currentPoints += pointsPerTier; // Increment points for completing a mission
-                    if (currentPoints >= maxPoints) {
-                        currentPoints = maxPoints;
-                        currentTier = 11; // Set to 11 to indicate all tiers are unlocked
-                        launchConfetti(); // Trigger confetti effect
-                    } else {
-                        while (currentPoints >= currentTier * pointsPerTier && currentTier <= 10) {
-                            currentTier++; // Increment tier if points threshold is reached
-                        }
-                    }
-                    updateProgress(); // Update progress bar and unlocked tiers
-                } else {
-                    alert('Failed to complete mission.');
+        function completeMission(missionName, points) {
+            console.log("Completing mission:", missionName, "Points:", points); // Log for debugging
+            currentPoints += points; // Increment points directly
+            if (currentPoints >= maxPoints) {
+                currentPoints = maxPoints;
+                currentTier = 11; // Set to 11 to indicate all tiers are unlocked
+                launchConfetti();
+            } else {
+                while (currentPoints >= currentTier * pointsPerTier && currentTier <= 10) {
+                    currentTier++;
                 }
-            });
+            }
+            updateProgress(); // Update progress bar and unlocked tiers
         }
 
         // Initialize progress bar and tier display on page load
