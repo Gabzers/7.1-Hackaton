@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Collections;
 import com.hackaton.website.Entity.User.MovieGenre;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
@@ -166,13 +167,17 @@ public class UserController {
 
         // Check if the user has movie genres defined
         if (userWithGenres.getMovieGenres() == null || userWithGenres.getMovieGenres().isEmpty()) {
-            model.addAttribute("error", "You have not defined your favorite movie genres. Please update your preferences.");
-            return "home"; // Render the home page with an error message
+            model.addAttribute("recommendations", Collections.emptyList()); // Pass empty list for error message
+            return "home";
         }
 
         // Fetch top 3 genres and their top 10 movies
         Map<String, List<Map<String, String>>> topGenresMovies = userService.recommendTop3GenresMovies(userWithGenres);
         model.addAttribute("topGenresMovies", topGenresMovies);
+
+        // Fetch recommendations for "Trending Now"
+        List<Map<String, String>> recommendations = userService.recommendMovies(userWithGenres);
+        model.addAttribute("recommendations", recommendations);
 
         return "home";
     }
