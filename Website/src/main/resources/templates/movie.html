@@ -27,6 +27,7 @@
       <div class="video-controls">
         <button id="backward-button" aria-label="Rewind 10 seconds">⏪ Rewind 10s</button>
         <button id="forward-button" aria-label="Forward 10 seconds">Forward 10s ⏩</button>
+        <button id="fullscreen-button" aria-label="Toggle fullscreen">⛶ Fullscreen</button>
         <input id="volume-slider" type="range" min="0" max="100" value="50" aria-label="Volume control" />
       </div>
       <div class="rating-container" aria-label="Rate this video">
@@ -75,6 +76,7 @@
       const volumeSlider = document.getElementById('volume-slider');
       const backwardButton = document.getElementById('backward-button');
       const forwardButton = document.getElementById('forward-button');
+      const fullscreenButton = document.getElementById('fullscreen-button');
       const moviePlayerContainer = document.getElementById('movie-player-container');
 
       volumeSlider.addEventListener('input', (e) => player.setVolume(e.target.value));
@@ -85,6 +87,16 @@
       forwardButton.addEventListener('click', () => {
         const currentTime = player.getCurrentTime();
         player.seekTo(currentTime + 10, true); // Skip forward 10 seconds
+      });
+
+      fullscreenButton.addEventListener('click', () => {
+        if (moviePlayerContainer.requestFullscreen) {
+          moviePlayerContainer.requestFullscreen();
+        } else if (moviePlayerContainer.webkitRequestFullscreen) { // Safari
+          moviePlayerContainer.webkitRequestFullscreen();
+        } else if (moviePlayerContainer.msRequestFullscreen) { // IE/Edge
+          moviePlayerContainer.msRequestFullscreen();
+        }
       });
 
       // Toggle play/pause when the iframe container is clicked
