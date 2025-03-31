@@ -6,6 +6,7 @@
     <title>Battle Pass</title>
     <link rel="stylesheet" href="/css/battlepass.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <header class="top-nav">
@@ -16,7 +17,6 @@
             <ul class="nav-menu">
                 <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
-                <li><a href="/battlepass" class="active"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a></li>
                 <li><a href="/login"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             </ul>
             <span class="nav-icon" id="points">
@@ -33,10 +33,11 @@
     <div class="battle-pass-container">
         <div class="progress-bar-container">
             <div class="progress-bar">
-                <div class="progress-bar-fill" id="progress-bar-fill" style="width: 35%;"></div>
-                <span class="progress-value" id="progress-value">350 / 950</span>
+                <div class="progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+                <span class="progress-value" id="progress-value">0 / 1000</span>
             </div>
-            <div class="tier-number" id="tier-number">Tier 2</div>
+            <div class="tier-number" id="tier-number">Tier 1</div>
+            <p id="progress-summary">Unlocked Tiers: 0 / 10</p>
         </div>
         <div class="tier-progress-horizontal">
             <div class="tier" onclick="collectReward(1)">
@@ -92,22 +93,30 @@
         </div>
     </div>
     <script>
-        let currentTier = 2;
-        let currentPoints = 350;
-        const maxPoints = 950;
-        const pointsPerTier = 100;
+        let currentTier = 1; // Start at Tier 1
+        let currentPoints = 0; // Start with 0 points
+        const maxPoints = 1000; // 10 tiers * 100 points per tier
+        const pointsPerTier = 100; // Points required to complete each tier
 
         function collectReward(tier) {
-            if (tier === currentTier) {
-                currentPoints += pointsPerTier;
-                if (currentPoints >= maxPoints) {
-                    currentPoints = maxPoints;
+            const requiredPoints = (tier - 1) * pointsPerTier; // Calculate required points for the tier
+            if (currentPoints >= requiredPoints) {
+                if (tier === currentTier) {
+                    currentPoints += pointsPerTier;
+                    if (currentPoints >= maxPoints) {
+                        currentPoints = maxPoints;
+                        currentTier = 11; // Set to 11 to indicate all tiers are unlocked
+                        alert("Congratulations! You've reached the maximum tier!");
+                        launchConfetti(); // Trigger confetti effect
+                    } else {
+                        currentTier++;
+                    }
+                    updateProgress();
                 } else {
-                    currentTier++;
+                    alert("You need to unlock the current tier first!");
                 }
-                updateProgress();
             } else {
-                alert("You need to unlock the current tier first!");
+                alert(`You need ${requiredPoints} points to unlock Tier ${tier}!`);
             }
         }
 
@@ -115,12 +124,27 @@
             const progressBarFill = document.getElementById("progress-bar-fill");
             const progressValue = document.getElementById("progress-value");
             const tierNumber = document.getElementById("tier-number");
+            const progressSummary = document.getElementById("progress-summary");
 
             const progressPercentage = (currentPoints / maxPoints) * 100;
             progressBarFill.style.width = `${progressPercentage}%`;
             progressValue.textContent = `${currentPoints} / ${maxPoints}`;
-            tierNumber.textContent = `Tier ${currentTier}`;
+            tierNumber.textContent = `Tier ${Math.min(currentTier, 10)}`; // Display Tier 10 as the maximum
+            progressSummary.textContent = `Unlocked Tiers: ${Math.min(currentTier - 1, 10)} / 10`; // Update to 10/10 when Tier 10 is unlocked
         }
+
+        function launchConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Initialize progress bar and tier display on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateProgress();
+        });
     </script>
 </body>
 </html>

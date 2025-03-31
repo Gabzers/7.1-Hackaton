@@ -129,7 +129,7 @@ body {
 
 .progress-bar {
     position: relative;
-    height: 20px;
+    height: 30px;
     background-color: #333;
     border-radius: 10px;
     overflow: hidden;
@@ -155,9 +155,9 @@ body {
 
 .progress-value {
     position: absolute;
-    top: 0;
+    top: 50%; /* Center vertically */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
     font-size: 0.9em;
     color: #fff;
 }
@@ -214,24 +214,26 @@ body {
 }
 
 .reward {
-    background-color: #2b3c4d;
-    padding: 10px;
+    background-color: #333;
+    padding: 15px; /* Increased padding */
     text-align: center;
     border-radius: 5px;
+    width: 100px; /* Increased width */
+    height: 100px; /* Increased height */
+    display: flex; /* Added flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: relative; /* Ensure proper positioning for child elements */
 }
 
 .reward img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Changed to cover for better aspect ratio handling */
-    border-radius: 10px; /* Reverted border radius */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Reverted shadow */
-    transition: none; /* Removed hover effect */
-}
-
-.reward img:hover {
-    transform: none; /* Removed zoom effect */
-    box-shadow: none; /* Removed hover shadow */
+    max-width: 100%; /* Ensure the image scales to fit the container */
+    max-height: 100%; /* Prevent overflow */
+    object-fit: contain; /* Ensure the image is fully visible */
+    position: absolute; /* Position the image absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for absolute centering */
 }
 
 .purchase-section {
