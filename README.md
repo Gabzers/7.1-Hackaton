@@ -33,3 +33,5 @@ Follow the steps below to properly install and configure the application:
 
 ## 10. Access the Application
 - Open the site at **http://localhost:8080/**.
+
+## 11. Teste
