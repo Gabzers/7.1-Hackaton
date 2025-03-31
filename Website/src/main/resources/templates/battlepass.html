@@ -33,10 +33,10 @@
     <div class="battle-pass-container">
         <div class="progress-bar-container">
             <div class="progress-bar">
-                <div class="progress-bar-fill" style="width: 35%;"></div>
-                <span class="progress-value">350 / 950</span>
+                <div class="progress-bar-fill" id="progress-bar-fill" style="width: 35%;"></div>
+                <span class="progress-value" id="progress-value">350 / 950</span>
             </div>
-            <div class="tier-number">Tier 2</div>
+            <div class="tier-number" id="tier-number">Tier 2</div>
         </div>
         <div class="tier-progress-horizontal">
             <div class="tier" onclick="collectReward(1)">
@@ -91,5 +91,36 @@
             </div>
         </div>
     </div>
+    <script>
+        let currentTier = 2;
+        let currentPoints = 350;
+        const maxPoints = 950;
+        const pointsPerTier = 100;
+
+        function collectReward(tier) {
+            if (tier === currentTier) {
+                currentPoints += pointsPerTier;
+                if (currentPoints >= maxPoints) {
+                    currentPoints = maxPoints;
+                } else {
+                    currentTier++;
+                }
+                updateProgress();
+            } else {
+                alert("You need to unlock the current tier first!");
+            }
+        }
+
+        function updateProgress() {
+            const progressBarFill = document.getElementById("progress-bar-fill");
+            const progressValue = document.getElementById("progress-value");
+            const tierNumber = document.getElementById("tier-number");
+
+            const progressPercentage = (currentPoints / maxPoints) * 100;
+            progressBarFill.style.width = `${progressPercentage}%`;
+            progressValue.textContent = `${currentPoints} / ${maxPoints}`;
+            tierNumber.textContent = `Tier ${currentTier}`;
+        }
+    </script>
 </body>
 </html>

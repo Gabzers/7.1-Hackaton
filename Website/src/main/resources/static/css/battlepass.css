@@ -1,15 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Reverted to original font */
+    line-height: normal; /* Removed custom line-height */
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #fff;
+    background-color: #121212; /* Reverted to original background */
+    color: #fff; /* Reverted to original text color */
+    font-size: 16px; /* Base font size for scaling */
 }
 
 .header {
     text-align: center;
-    padding: 20px;
-    background-color: #2b3c4d;
+    padding: 20px; /* Reverted padding */
+    background-color: #2b3c4d; /* Reverted to original header background */
+    box-shadow: none; /* Removed shadow */
 }
 
 .header h1 {
@@ -23,7 +26,8 @@ body {
 }
 
 .banner-content h1 {
-    font-size: 36px;
+    font-size: 36px; /* Reverted font size */
+    font-weight: normal; /* Removed bold styling */
     margin-bottom: 10px;
     color: #e50914; /* Netflix red */
 }
@@ -34,8 +38,9 @@ body {
 }
 
 .banner-content p {
-    font-size: 18px;
+    font-size: 18px; /* Reverted font size */
     margin-bottom: 20px;
+    color: #fff; /* Reverted to white text */
 }
 
 .banner p {
@@ -74,7 +79,10 @@ body {
 .nav-menu li a {
     text-decoration: none;
     color: #fff;
-    font-size: 1em;
+    font-size: 1em; /* Reverted font size */
+    padding: 0; /* Removed padding */
+    border-radius: 0; /* Removed rounded edges */
+    transition: color 0.3s ease; /* Simplified transition */
 }
 
 .nav-menu li a.active {
@@ -82,7 +90,8 @@ body {
 }
 
 .nav-menu li a:hover {
-    color: #e50914;
+    background-color: transparent; /* Removed background on hover */
+    color: #e50914; /* Netflix red */
 }
 
 .logo-text {
@@ -95,7 +104,11 @@ body {
 .battle-pass-container {
     max-width: 1200px;
     margin: 20px auto;
-    padding: 20px;
+    background-color: transparent; /* Removed container background */
+    border-radius: 0; /* Removed rounded edges */
+    padding: 20px; /* Reverted padding */
+    box-shadow: none; /* Removed shadow */
+    width: 90%; /* Adjust width for smaller screens */
 }
 
 .tier-progress {
@@ -121,12 +134,13 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin: 10px auto;
-    width: 80%;
+    width: 100%; /* Full width for better scaling */
+    border: none; /* Removed border */
 }
 
 .progress-bar-fill {
     height: 100%;
-    background-color: red;
+    background-color: red; /* Reverted to solid red */
     transition: width 0.3s ease;
 }
 
@@ -149,9 +163,10 @@ body {
 }
 
 .tier-number {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Reverted font size */
+    font-weight: normal; /* Removed bold styling */
     margin-top: 10px;
-    color: red;
+    color: red; /* Reverted to red */
 }
 
 .progress-level {
@@ -208,9 +223,15 @@ body {
 .reward img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    object-fit: cover; /* Changed to cover for better aspect ratio handling */
+    border-radius: 10px; /* Reverted border radius */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Reverted shadow */
+    transition: none; /* Removed hover effect */
+}
+
+.reward img:hover {
+    transform: none; /* Removed zoom effect */
+    box-shadow: none; /* Removed hover shadow */
 }
 
 .purchase-section {
@@ -219,37 +240,40 @@ body {
 }
 
 .purchase-button {
-    background-color: #f1c40f;
+    background-color: #f1c40f; /* Reverted to original button color */
     color: black;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Reverted padding */
     border: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 18px; /* Reverted font size */
+    font-weight: normal; /* Removed bold styling */
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Simplified transition */
 }
 
 .purchase-button:hover {
-    background-color: #d4ac0d;
+    background-color: #d4ac0d; /* Reverted hover color */
 }
 
 .tier-progress-horizontal {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Dynamic grid for all screen sizes */
+    gap: 10px;
 }
 
 .tier {
-    border: 1px solid #333;
+    border: 1px solid #333; /* Reverted border */
     border-radius: 10px;
     overflow: hidden;
-    background-color: #222;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #222; /* Reverted background color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Simplified transition */
     cursor: pointer;
 }
 
 .tier:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+    background-color: #222; /* Removed hover background */
+    transform: scale(1.05); /* Kept hover effect */
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Kept hover shadow */
 }
 
 /* Responsive adjustments */
@@ -267,18 +291,27 @@ body {
     .nav-menu li {
         margin: 5px;
     }
+    .banner-content h1 {
+        font-size: 2em; /* Adjusted for medium screens */
+    }
+    .banner-content p {
+        font-size: 1em;
+    }
     .banner h1 {
         font-size: 2em;
     }
     .banner p {
         font-size: 1em;
     }
+    .battle-pass-container {
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
     .progress-bar {
         width: 90%;
     }
     .tier-progress-horizontal {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Smaller grid items */
+        gap: 8px;
     }
 }
 
@@ -286,14 +319,32 @@ body {
     .logo-text {
         font-size: 1.2em;
     }
+    .banner-content h1 {
+        font-size: 1.8em; /* Further adjustment for small screens */
+    }
+    .banner-content p {
+        font-size: 0.9em;
+    }
     .banner h1 {
         font-size: 1.8em;
     }
     .banner p {
         font-size: 0.9em;
     }
+    .nav-menu li a {
+        font-size: 0.9em; /* Smaller font for compact view */
+    }
     .tier-progress-horizontal {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Compact grid for very small screens */
+        gap: 6px;
+    }
+    .progress-bar {
+        height: 15px; /* Reduced height for smaller screens */
+    }
+    .progress-value {
+        font-size: 0.8em; /* Smaller text for progress value */
+    }
+    .tier-number {
+        font-size: 1.2em; /* Adjusted tier number size */
     }
 }
