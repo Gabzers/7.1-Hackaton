@@ -18,6 +18,7 @@ import jakarta.persistence.CascadeType;
 import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.ArrayList;
 import java.time.LocalDateTime;
 
 @Entity
@@ -128,12 +129,12 @@ public class User {
     }
 
     public List<MovieGenre> getMovieGenres() {
-        return movieGenres != null ? movieGenres : List.of();
+        return movieGenres != null ? new ArrayList<>(movieGenres) : new ArrayList<>();
     }
     public void setMovieGenres(List<MovieGenre> movieGenres) {
         System.out.println("Setting movie genres...");
         movieGenres.forEach(g -> System.out.println("Genre: " + g.getGenre() + ", Score: " + g.getScore()));
-        this.movieGenres = movieGenres;
+        this.movieGenres = new ArrayList<>(movieGenres); // Ensure it's a mutable list
     }
 
     public Set<String> getCompletedMissions() {

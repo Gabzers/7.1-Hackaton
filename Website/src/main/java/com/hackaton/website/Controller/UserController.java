@@ -542,4 +542,40 @@ public class UserController {
         model.addAttribute("loggedUser", loggedUser);
         return "points-info"; // Ensure the points-info.html template exists
     }
+
+    @PostMapping("/update-genre-scores")
+    @ResponseBody
+    public String updateGenreScores(@RequestBody Map<String, Object> requestBody, HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "User not logged in";
+        }
+
+        // Extract movie genres from the request body
+        List<String> movieGenres = (List<String>) requestBody.get("movieGenres");
+        if (movieGenres == null || movieGenres.isEmpty()) {
+            return "No genres provided";
+        }
+
+        // Fetch the user from the database
+        User userFromDb = userRepository.findById(loggedUser.getId())
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        // Update genre scores
+        List<User.MovieGenre> updatedGenres = userFromDb.getMovieGenres().stream()
+                .map(genre -> {
+                    if (movieGenres.contains(genre.getGenre())) {
+                        int updatedScore = Integer.parseInt(genre.getScore()) + 10;
+                        genre.setScore(String.valueOf(updatedScore));
+                    }
+                    return genre;
+                })
+                .toList();
+
+        userFromDb.setMovieGenres(updatedGenres); // Set the updated mutable list
+        userRepository.save(userFromDb);
+        session.setAttribute("loggedUser", userFromDb);
+
+        return "Genre scores updated successfully";
+    }
 }

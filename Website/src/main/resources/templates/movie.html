@@ -87,7 +87,22 @@
       }, 1000);
     }
 
-    function showAd(adIndex, onAdComplete) {
+    function updateGenreScores(genres) {
+      fetch('/update-genre-scores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ movieGenres: genres }), // Send genres as part of the request body
+      })
+      .then(response => response.text())
+      .then(message => {
+        console.log("Update genre scores response:", message);
+      })
+      .catch(error => console.error("Error updating genre scores:", error));
+    }
+
+    function showAd(adIndex, onAdComplete, movieGenres) {
       const adContainer = document.getElementById('ad-container');
       const adFrame = document.getElementById('ad-frame');
       const skipAdButton = document.getElementById('skip-ad-button');
@@ -128,6 +143,8 @@
 
         // Envia uma requisição ao servidor para adicionar pontos ao usuário
         addPoints(10);
+
+        updateGenreScores(movieGenres); // Update genre scores after skipping the ad
 
         onAdComplete(); // Retoma o vídeo principal
       };
@@ -194,7 +211,7 @@
           showAd(0, () => { // Sempre usa o primeiro anúncio (índice 0)
             currentAdIndex++;
             showNextAd();
-          });
+          }, ["Action", "Comedy"]); // Replace with actual genres of the clicked movie
         }
 
         showNextAd();
@@ -222,6 +239,10 @@
           }
         });
       });
+
+      // Example usage: Pass the genres of the clicked movie
+      const clickedMovieGenres = ["Action", "Comedy", "Drama"]; // Replace with actual genres of the clicked movie
+      updateGenreScores(clickedMovieGenres);
     }
 
     // Start gaining exp passively every 10 seconds
