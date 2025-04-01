@@ -95,6 +95,23 @@
     <script>
         const apiKey = '50ce0-20'; // Amazon Product Advertising API key
         const affiliateBaseUrl = 'https://webservices.amazon.com/paapi5/getitems';
+        const amazonRandomImages = [
+            '/imagesamazon/unnamed.jpg',
+            '/imagesAmazon/product2.jpg',
+            '/imagesAmazon/product3.jpg',
+            '/imagesAmazon/product4.jpg',
+            '/imagesAmazon/product5.jpg',
+            '/imagesAmazon/product6.jpg',
+            '/imagesAmazon/product7.jpg',
+            '/imagesAmazon/product8.jpg',
+            '/imagesAmazon/product9.jpg',
+            '/imagesAmazon/product10.jpg'
+        ];
+
+        function assignRandomAmazonImage(productElement) {
+            const randomIndex = Math.floor(Math.random() * amazonRandomImages.length);
+            productElement.src = amazonRandomImages[randomIndex];
+        }
 
         async function fetchAmazonRewardImage(productName, productElement) {
             if (!productName || !productElement) return;
@@ -114,6 +131,7 @@
 
                 if (!response.ok) {
                     console.error('Failed to fetch product image:', response.statusText);
+                    assignRandomAmazonImage(productElement); // Use random image as fallback
                     return;
                 }
 
@@ -124,13 +142,14 @@
                     if (imageUrl) {
                         productElement.src = imageUrl; // Set API image
                     } else {
-                        console.warn('No image found for product:', productName);
+                        assignRandomAmazonImage(productElement); // Use random image as fallback
                     }
                 } else {
-                    console.warn('No products found for query:', productName);
+                    assignRandomAmazonImage(productElement); // Use random image as fallback
                 }
             } catch (error) {
                 console.error('Error fetching Amazon reward image:', error);
+                assignRandomAmazonImage(productElement); // Use random image as fallback
             }
         }
 
