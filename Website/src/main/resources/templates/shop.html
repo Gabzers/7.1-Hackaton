@@ -35,6 +35,7 @@
     <div class="countdown">
         <p>Next shop refresh in: <span id="countdown"></span></p>
     </div>
+    <div id="message-container" style="text-align: center; margin: 20px; color: red;"></div>
     <div class="container" id="rewards">
         <h2>Available Amazon Products</h2>
         <div class="grid">
@@ -290,6 +291,15 @@
             pointsElement.textContent = newPoints;
         }
 
+        function displayMessage(message, isSuccess) {
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.style.color = isSuccess ? 'green' : 'red';
+            messageContainer.textContent = message;
+            setTimeout(() => {
+                messageContainer.textContent = '';
+            }, 5000); // Clear message after 5 seconds
+        }
+
         function redeemProduct(element) {
             const productId = element.getAttribute('data-product-id');
             fetch('/redeem-product', {
@@ -298,10 +308,12 @@
                 body: new URLSearchParams({ productId })
             }).then(response => response.json())
               .then(data => {
-                  alert(data.message);
                   if (data.success) {
                       updateUserPoints(data.newPoints); // Update points in the top nav
+                      displayMessage('Product redeemed successfully!', true);
                       location.reload();
+                  } else {
+                      displayMessage('Not enough points to redeem this product.', false);
                   }
               });
         }
@@ -314,10 +326,12 @@
                 body: new URLSearchParams({ movieId })
             }).then(response => response.json())
               .then(data => {
-                  alert(data.message);
                   if (data.success) {
                       updateUserPoints(data.newPoints); // Update points in the top nav
+                      displayMessage('Movie redeemed successfully!', true);
                       location.reload();
+                  } else {
+                      displayMessage('Not enough points to redeem this movie.', false);
                   }
               });
         }
