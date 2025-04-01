@@ -29,6 +29,7 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.hibernate.Hibernate;
 import java.time.Duration;
+import java.util.Set;
 
 @Controller
 public class UserController {
@@ -80,6 +81,9 @@ public class UserController {
         }
         user.setMovieGenres(movieGenres);
         logger.debug("Initialized movie genres for user: {}", movieGenres);
+
+        // Initialize missions as unavailable
+        user.setCompletedMissions(Set.of("RateAMovie", "Watch5Ads")); // Mark these missions as completed initially
 
         // Salvar o usuário no banco de dados
         userRepository.save(user);

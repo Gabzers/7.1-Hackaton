@@ -70,9 +70,9 @@ public class User {
     // Default constructor
     public User() {
         this.missions = List.of("rate a movie"); // Initialize with the "rate a movie" mission
-        this.completedMissions = new HashSet<>(); // Initialize completedMissions as an empty set
+        this.completedMissions = new HashSet<>(Set.of("RateAMovie", "Watch5Ads")); // Initialize as unavailable
     }
-
+    
     // Constructor for initialization
     public User(String name, String email, String password, List<MovieGenre> movieGenres, Integer points) {
         this.name = name;
