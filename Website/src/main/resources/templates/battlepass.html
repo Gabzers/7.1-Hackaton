@@ -20,7 +20,7 @@
                 <li><a href="/login"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             </ul>
             <span class="nav-icon" id="points">
-                Points: <span th:text="${loggedUser != null ? loggedUser.points : 0}"></span>
+                Points: <span th:text="${loggedUser != null ? loggedUser.points : 0}">0</span>
             </span>
         </div>
     </header>
@@ -33,8 +33,10 @@
     <div class="battle-pass-container">
         <div class="progress-bar-container">
             <div class="progress-bar">
-                <div class="progress-bar-fill" id="progress-bar-fill" th:style="'width: ' + (${loggedUser != null ? (loggedUser.exp / 1000) * 100 : 0}) + '%'"></div>
-                <span class="progress-value" id="progress-value" th:text="${loggedUser != null ? loggedUser.exp : 0} + ' / 1000'">0 / 1000</span>
+                <div class="progress-bar-fill" id="progress-bar-fill" 
+                     th:style="'width: ' + (${loggedUser != null and loggedUser.exp != null ? (loggedUser.exp / 1000) * 100 : 0}) + '%'"></div>
+                <span class="progress-value" id="progress-value" 
+                      th:text="${loggedUser != null and loggedUser.exp != null ? loggedUser.exp : 0} + ' / 1000'">0 / 1000</span>
             </div>
             <div class="tier-number" id="tier-number">Tier 1</div>
             <p id="progress-summary">Unlocked Tiers: 0 / 10</p>

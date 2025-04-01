@@ -251,8 +251,6 @@ public class UserController {
         if (loggedUser == null) {
             return "redirect:/login";
         }
-
-        logger.info("User EXP: {}", loggedUser.getExp()); // Log para verificar o valor de EXP
         model.addAttribute("loggedUser", loggedUser);
         return "battlepass";
     }

@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -25,36 +23,15 @@ public class ProductController {
     @Autowired
     private UserService userService; // Add UserService as a dependency
 
-    // @GetMapping("/shop")
-    // public String serveShopPage(HttpSession session, Model model) {
-    //     if (session.getAttribute("loggedUser") == null) {
-    //         return "redirect:/login";
-    //     }
-
-    //     // Diretórios dos três conjuntos de CSVs
-    //     String directoryPath1 = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
-    //     String directoryPath2 = "Website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv";
-    //     String directoryPath3 = "Website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv";
-
-    //     // Obter produtos de cada categoria
-    //     List<Product> products1 = productService.getProductsFromCSV(directoryPath1);
-    //     List<Product> products2 = productService.getProductsFromCSV(directoryPath2);
-    //     List<Product> products3 = productService.getProductsFromCSV(directoryPath3);
-
-    //     // Combinar todas as categorias em uma única lista
-    //     List<Product> allProducts = new ArrayList<>();
-    //     allProducts.addAll(products1);
-    //     allProducts.addAll(products2);
-    //     allProducts.addAll(products3);
-
-    //     // Ordenar por pontos em ordem decrescente
-    //     allProducts.sort((p1, p2) -> Integer.compare(p2.getPoints(), p1.getPoints()));
-
-    //     // Adicionar ao modelo para serem usados no Thymeleaf
-    //     model.addAttribute("allProducts", allProducts);
-
-    //     return "shop";
-    // }
+    @GetMapping("/product-battlepass")
+    public String serveBattlePassPage(HttpSession session, Model model) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login"; // Redireciona para login se o usuário não estiver logado
+        }
+        model.addAttribute("loggedUser", loggedUser); // Adiciona o usuário logado ao modelo
+        return "battlepass";
+    }
 
     @PostMapping("/completeMission")
     @ResponseBody
