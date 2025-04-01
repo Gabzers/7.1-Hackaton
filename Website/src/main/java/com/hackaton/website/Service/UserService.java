@@ -101,7 +101,14 @@ public class UserService {
 
         // Sort genres by user preference (descending order of scores)
         List<User.MovieGenre> sortedGenres = movieGenres.stream()
-                .sorted((a, b) -> Integer.compare(Integer.parseInt(b.getScore()), Integer.parseInt(a.getScore())))
+                .sorted((a, b) -> {
+                    int scoreComparison = Integer.compare(Integer.parseInt(b.getScore()), Integer.parseInt(a.getScore()));
+                    if (scoreComparison == 0) {
+                        // Randomize order if scores are equal
+                        return new Random().nextInt(2) * 2 - 1; // Randomly return -1 or 1
+                    }
+                    return scoreComparison;
+                })
                 .limit(3) // Limit to top 3 genres
                 .collect(Collectors.toList());
 
