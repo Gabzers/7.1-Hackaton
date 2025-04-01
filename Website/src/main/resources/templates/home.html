@@ -19,6 +19,15 @@
   <!-- Back to Top Button -->
   <button id="back-to-top" title="Back to Top" aria-label="Back to Top">&#8679;</button>
   
+  <!-- Introduction Modal -->
+  <div id="intro-modal" class="modal">
+    <div class="modal-content">
+      <h2>Welcome to StreamFlix!</h2>
+      <p>StreamFlix is your personalized movie streaming platform. To provide you with the best recommendations, we need to know your favorite genres. Please take a moment to complete the quick questionnaire.</p>
+      <button id="intro-continue-btn">Continue</button>
+    </div>
+  </div>
+
  <!-- Popup Modal -->
 <div id="questionnaire-modal" class="modal">
   <div class="modal-content">
@@ -218,10 +227,24 @@
 window.onload = function () {
   const urlParams = new URLSearchParams(window.location.search);
   const userId = urlParams.get('userId');
-  if (userId) {
+  const isFirstTime = urlParams.get('firstTime') === 'true'; // Check if it's the first time
+
+  if (isFirstTime) {
+    const introModal = document.getElementById('intro-modal');
+    introModal.style.display = 'block';
+
+    document.getElementById('intro-continue-btn').onclick = function () {
+      introModal.style.display = 'none';
+      if (userId) {
+        document.getElementById('userId').value = userId;
+        const questionnaireModal = document.getElementById('questionnaire-modal');
+        questionnaireModal.style.display = 'block';
+      }
+    };
+  } else if (userId) {
     document.getElementById('userId').value = userId;
-    const modal = document.getElementById('questionnaire-modal');
-    modal.style.display = 'block';
+    const questionnaireModal = document.getElementById('questionnaire-modal');
+    questionnaireModal.style.display = 'block';
   }
 };
 

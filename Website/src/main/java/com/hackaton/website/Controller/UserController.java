@@ -85,8 +85,8 @@ public class UserController {
         // Add the user to the session
         session.setAttribute("loggedUser", user);
 
-        // Redirecionar para a página inicial com o ID do usuário
-        return "redirect:/home?userId=" + user.getId();
+        // Redirect to the home page with the firstTime parameter
+        return "redirect:/home?userId=" + user.getId() + "&firstTime=true";
     }
 
     @PostMapping("/save-genres")
