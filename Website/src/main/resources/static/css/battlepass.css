@@ -3,15 +3,16 @@ body {
     line-height: normal; /* Removed custom line-height */
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Reverted to original background */
-    color: #fff; /* Reverted to original text color */
+    background: linear-gradient(180deg, #121212, #1e1e1e); /* Smooth gradient background */
+    color: #f5f5f5; /* Softer white for better readability */
     font-size: 16px; /* Base font size for scaling */
 }
 
 .header {
     text-align: center;
     padding: 20px; /* Reverted padding */
-    background-color: #2b3c4d; /* Reverted to original header background */
+    background: linear-gradient(90deg, #2b3c4d, #1e1e1e); /* Gradient header */
+    border-bottom: 2px solid #e50914; /* Add a red border for emphasis */
     box-shadow: none; /* Removed shadow */
 }
 
@@ -22,7 +23,8 @@ body {
 .banner {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to bottom, #222, #121212);
+    background: linear-gradient(to bottom, #1e1e1e, #121212); /* Enhanced gradient */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Add depth */
 }
 
 .banner-content h1 {
@@ -30,6 +32,7 @@ body {
     font-weight: normal; /* Removed bold styling */
     margin-bottom: 10px;
     color: #e50914; /* Netflix red */
+    text-shadow: 0 4px 10px rgba(229, 9, 20, 0.7); /* Glow effect */
 }
 
 .banner h1 {
@@ -41,6 +44,7 @@ body {
     font-size: 18px; /* Reverted font size */
     margin-bottom: 20px;
     color: #fff; /* Reverted to white text */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
 .banner p {
@@ -125,12 +129,13 @@ body {
 .battle-pass-container {
     max-width: 1200px;
     margin: 20px auto;
-    background: linear-gradient(135deg, #1e1e1e, #2b3c4d);
+    background: linear-gradient(135deg, #1e1e1e, #2b3c4d, #121212); /* Multi-tone gradient */
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
     width: 90%;
-    animation: fadeIn 1s ease-in-out;
+    border: 2px solid #e50914; /* Red border for emphasis */
+    animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in */
 }
 
 .tier-progress {
@@ -152,7 +157,7 @@ body {
 .progress-bar {
     position: relative;
     height: 30px;
-    background: linear-gradient(90deg, #333, #444);
+    background: linear-gradient(90deg, #333, #444, #555); /* Enhanced gradient */
     border-radius: 15px;
     overflow: hidden;
     margin: 20px auto;
@@ -162,8 +167,9 @@ body {
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #e50914, #b20710);
+    background: linear-gradient(90deg, #e50914, #ff6f61); /* Vibrant gradient */
     transition: width 0.5s ease;
+    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.7); /* Glow effect */
 }
 
 .progress-text {
@@ -191,7 +197,7 @@ body {
     font-weight: bold; /* Removed bold styling */
     margin-top: 15px;
     color: #e50914; /* Reverted to red */
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 4px 10px rgba(229, 9, 20, 0.7); /* Glow effect */
     text-align: center;
 }
 
@@ -242,21 +248,21 @@ body {
 .reward {
     flex: 1; /* Ensure buttons are evenly spaced */
     margin: 0; /* Remove individual margins */
-    background: linear-gradient(135deg, #444, #555);
+    background: linear-gradient(135deg, #444, #555, #666); /* Enhanced gradient */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: none; /* Remove default button border */
+    border: 2px solid #e50914; /* Red border for emphasis */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .reward:hover {
-    transform: scale(1.05); /* Slightly increase size on hover */
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+    transform: scale(1.1); /* Slightly larger hover effect */
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.7); /* Glow effect */
 }
 
 .reward img {
@@ -300,7 +306,7 @@ body {
 }
 
 .purchase-button {
-    background-color: #f1c40f; /* Reverted to original button color */
+    background: linear-gradient(90deg, #f1c40f, #d4ac0d); /* Vibrant gradient */
     color: black;
     padding: 10px 20px; /* Reverted padding */
     border: none;
@@ -309,17 +315,18 @@ body {
     font-weight: normal; /* Removed bold styling */
     cursor: pointer;
     transition: background-color 0.3s ease; /* Simplified transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add depth */
 }
 
 .purchase-button:hover {
-    background-color: #d4ac0d; /* Reverted hover color */
+    background: linear-gradient(90deg, #d4ac0d, #b7950b); /* Darker hover gradient */
 }
 
 .tier-progress-horizontal {
     display: flex;
     justify-content: center; /* Center the rewards horizontally */
     align-items: center; /* Center the rewards vertically */
-    gap: 15px;
+    gap: 20px; /* Increase spacing for better visual separation */
     overflow-x: auto;
     padding: 10px 0;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
@@ -334,10 +341,10 @@ body {
     justify-content: space-between; /* Space between buttons */
     align-items: center;
     gap: 5px; /* Reduce gap to visually group buttons */
-    border: 2px solid #444;
+    border: 2px solid #e50914; /* Red border for emphasis */
     border-radius: 15px;
     overflow: hidden;
-    background: linear-gradient(145deg, #222, #333);
+    background: linear-gradient(145deg, #222, #333, #444); /* Enhanced gradient */
     padding: 10px; /* Add padding to create a grouped effect */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -348,8 +355,8 @@ body {
 
 .tier:hover {
     background-color: #222; /* Removed hover background */
-    transform: scale(1.1); /* Kept hover effect */
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.7); /* Kept hover shadow */
+    transform: scale(1.15); /* Slightly larger hover effect */
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.7); /* Glow effect */
 }
 
 .tier .reward {
@@ -391,8 +398,8 @@ body {
 }
 
 .mission-card {
-    background-color: #222;
-    border: 1px solid #333;
+    background: linear-gradient(135deg, #222, #333, #444); /* Enhanced gradient */
+    border: 2px solid #e50914; /* Red border for emphasis */
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -400,8 +407,8 @@ body {
 }
 
 .mission-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+    transform: scale(1.1); /* Slightly larger hover effect */
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.7); /* Glow effect */
 }
 
 .mission-card span {
