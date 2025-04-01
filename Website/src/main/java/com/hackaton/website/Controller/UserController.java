@@ -233,4 +233,16 @@ public class UserController {
 
         return "Exp added successfully";
     }
+
+    @GetMapping("/battlepass")
+    public String serveBattlePassPage(HttpSession session, Model model) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+
+        logger.info("User EXP: {}", loggedUser.getExp()); // Log para verificar o valor de EXP
+        model.addAttribute("loggedUser", loggedUser);
+        return "battlepass";
+    }
 }
