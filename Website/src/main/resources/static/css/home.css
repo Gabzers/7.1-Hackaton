@@ -433,6 +433,7 @@ p, span {
   overflow-y: hidden; /* Disable vertical scrolling */
   scroll-behavior: smooth;
   scrollbar-width: none; /* Hide scrollbar for Firefox */
+  overflow: visible
 }
 
 .movie-list::-webkit-scrollbar {
@@ -453,12 +454,13 @@ p, span {
   flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease;
   z-index: 1;
+ 
 }
 
 .movie-item:hover {
   border-color: #e50914; /* Netflix red border on hover */
   transform: scale(1.2);
-  z-index: 10;
+  z-index: 999; /* Ensure it appears above everything, including the scrollbar */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
 }
 
@@ -504,7 +506,7 @@ p, span {
   height: 40px;
   font-size: 20px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1001;
   display: flex;
   align-items: center;
   justify-content: center;

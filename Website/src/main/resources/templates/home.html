@@ -142,23 +142,25 @@
   <section class="movies-section" th:if="${recommendations != null and !recommendations.isEmpty()}">
     <h2>Trending Now</h2>
     <div class="movie-list-wrapper">
-      <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
-      <ul class="movie-list">
-        <li class="movie-item" th:each="movie, iterStat : ${recommendations}" data-random-image>
-          <div class="movie-thumbnail">
-            <a href="/movie">
-              <img th:alt="${movie['title']}" id="trending-image-${iterStat.index}" />
-            </a>
-          </div>
-          <div class="movie-details">
-            <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
-            <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
-              Rating: X.X | Year: YYYY
-            </p>
-          </div>
-        </li>
-      </ul>
-      <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
+      <div class="scroll-container">
+        <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
+        <ul class="movie-list">
+          <li class="movie-item" th:each="movie, iterStat : ${recommendations}" data-random-image>
+            <div class="movie-thumbnail">
+              <a href="/movie">
+                <img th:alt="${movie['title']}" id="trending-image-${iterStat.index}" />
+              </a>
+            </div>
+            <div class="movie-details">
+              <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
+              <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
+                Rating: X.X | Year: YYYY
+              </p>
+            </div>
+          </li>
+        </ul>
+        <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
+      </div>
     </div>
   </section>
 
@@ -176,36 +178,13 @@
   <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry, iterStat : ${topGenresMovies}">
     <h2 th:text="'Top Movies in ' + ${entry.key}">Top Movies in Genre</h2>
     <div class="movie-list-wrapper">
-      <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
-      <ul class="movie-list">
-        <li class="movie-item" th:each="movie, movieStat : ${entry.value}" data-random-image>
-          <div class="movie-thumbnail">
-            <a href="/movie">
-              <img th:alt="${movie['title']}" id="genre-image-${iterStat.index}-${movieStat.index}" />
-            </a>
-          </div>
-          <div class="movie-details">
-            <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
-            <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
-              Rating: X.X | Year: YYYY
-            </p>
-          </div>
-        </li>
-      </ul>
-      <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
-    </div>
-  </section>
-
-    <!-- Section: Least Preferred Movies -->
-    <section class="movies-section" th:if="${leastPreferredRecommendations != null and !leastPreferredRecommendations.isEmpty()}">
-      <h2>Other Movies</h2>
-      <div class="movie-list-wrapper">
+      <div class="scroll-container">
         <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
         <ul class="movie-list">
-          <li class="movie-item" th:each="movie, iterStat : ${leastPreferredRecommendations}" data-random-image>
+          <li class="movie-item" th:each="movie, movieStat : ${entry.value}" data-random-image>
             <div class="movie-thumbnail">
               <a href="/movie">
-                <img th:alt="${movie['title']}" id="least-preferred-image-${iterStat.index}" />
+                <img th:alt="${movie['title']}" id="genre-image-${iterStat.index}-${movieStat.index}" />
               </a>
             </div>
             <div class="movie-details">
@@ -217,6 +196,33 @@
           </li>
         </ul>
         <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+    <!-- Section: Least Preferred Movies -->
+    <section class="movies-section" th:if="${leastPreferredRecommendations != null and !leastPreferredRecommendations.isEmpty()}">
+      <h2>Other Movies</h2>
+      <div class="movie-list-wrapper">
+        <div class="scroll-container">
+          <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
+          <ul class="movie-list">
+            <li class="movie-item" th:each="movie, iterStat : ${leastPreferredRecommendations}" data-random-image>
+              <div class="movie-thumbnail">
+                <a href="/movie">
+                  <img th:alt="${movie['title']}" id="least-preferred-image-${iterStat.index}" />
+                </a>
+              </div>
+              <div class="movie-details">
+                <h3 class="movie-title" th:text="${movie['title']}">Movie Title</h3>
+                <p class="movie-info" th:text="'Rating: ' + ${movie['averageRating']} + ' | Year: ' + (${movie['releaseYear'] != null ? movie['releaseYear'] : 'Unknown'})">
+                  Rating: X.X | Year: YYYY
+                </p>
+              </div>
+            </li>
+          </ul>
+          <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
+        </div>
       </div>
     </section>
 
