@@ -93,30 +93,11 @@
     </script>
 
     <script>
-        const apiKey = '50ce0-20'; // Amazon Product Advertising API key
-        const affiliateBaseUrl = 'https://webservices.amazon.com/paapi5/getitems';
-        const amazonRandomImages = [
-            //'imagesAmazon/81SA93lYhzL.jpg',
-            //'imagesAmazon/AmazonLogo.png',
-            'imagesAmazon/image.png',
-            //'imagesAmazon/71GwTnMQaBL.jpg',
-            //'imagesAmazon/81v+0x2g7FL.jpg',
-        
-            //'/imagesAmazon/product2.jpg',
-            //'/imagesAmazon/product3.jpg',
-            //'/imagesAmazon/product4.jpg',
-            //'/imagesAmazon/product5.jpg',
-            //'/imagesAmazon/product6.jpg',
-            //'/imagesAmazon/product7.jpg',
-            //'/imagesAmazon/product8.jpg',
-            //'/imagesAmazon/product9.jpg',
-            //'/imagesAmazon/product10.jpg'
-        ];
-        
-        function assignRandomAmazonImage(productElement) {
-            const randomIndex = Math.floor(Math.random() * amazonRandomImages.length);
-            productElement.src = amazonRandomImages[randomIndex];
-        }
+        const amazonLogoUrl = 'imagesAmazon/image.png'; // Path to the Amazon logo image
+
+        document.querySelectorAll('#rewards .card img').forEach(imgElement => {
+            imgElement.src = amazonLogoUrl; // Instantly set the Amazon logo as the image
+        });
         
         async function fetchAmazonRewardImage(productName, productElement) {
             if (!productName || !productElement) return;
@@ -167,17 +148,107 @@
         const tmdbApiKey = '8a005d935acdd9a393df2d9bc8e10e79'; // TMDB API key
         const tmdbBaseImageUrl = 'https://image.tmdb.org/t/p/w500';
         const randomImages = [
-            '/imagesMovies/8.0_84654.jpg',
-            '/imagesMovies/8.0_84740.jpg',
-            '/imagesMovies/8.0_88247.jpg',
-            '/imagesMovies/8.0_88258.jpg',
-            '/imagesMovies/8.0_88846.jpg',
-            '/imagesMovies/8.0_91167.jpg',
-            '/imagesMovies/8.0_91480.jpg',
-            '/imagesMovies/8.0_95953.jpg',
-            '/imagesMovies/8.0_96028.jpg',
-            '/imagesMovies/8.0_97123.jpg'
-        ];
+    '/imagesMovies/8.0_84654.jpg',
+    '/imagesMovies/8.0_84740.jpg',
+    '/imagesMovies/8.0_88247.jpg',
+    '/imagesMovies/8.0_88258.jpg',
+    '/imagesMovies/8.0_88846.jpg',
+    '/imagesMovies/8.0_91167.jpg',
+    '/imagesMovies/8.0_91480.jpg',
+    '/imagesMovies/8.0_95953.jpg',
+    '/imagesMovies/8.0_96028.jpg',
+    '/imagesMovies/8.0_97123.jpg',
+    '/imagesMovies/8.0_97165.jpg',
+    '/imagesMovies/8.0_99028.jpg',
+    '/imagesMovies/8.0_99348.jpg',
+    '/imagesMovies/8.1_100332.jpg',
+    '/imagesMovies/8.1_10323.jpg',
+    '/imagesMovies/8.1_106332.jpg',
+    '/imagesMovies/8.1_107290.jpg',
+    '/imagesMovies/8.1_107472.jpg',
+    '/imagesMovies/8.1_109424.jpg',
+    '/imagesMovies/8.1_110882.jpg',
+    '/imagesMovies/8.1_111495.jpg',
+    '/imagesMovies/8.1_112373.jpg',
+    '/imagesMovies/8.1_112471.jpg',
+    '/imagesMovies/8.1_113247.jpg',
+    '/imagesMovies/8.1_114787.jpg',
+    '/imagesMovies/8.1_116282.jpg',
+    '/imagesMovies/8.1_116506.jpg',
+    '/imagesMovies/8.1_117907.jpg',
+    '/imagesMovies/8.1_118694.jpg',
+    '/imagesMovies/8.1_118843.jpg',
+    '/imagesMovies/8.1_120382.jpg',
+    '/imagesMovies/8.1_120731.jpg',
+    '/imagesMovies/8.1_12364.jpg',
+    '/imagesMovies/8.1_145046.jpg',
+    '/imagesMovies/8.1_15064.jpg',
+    '/imagesMovies/8.1_154420.jpg',
+    '/imagesMovies/8.1_167404.jpg',
+    '/imagesMovies/8.1_16847.jpg',
+    '/imagesMovies/8.1_168515.jpg',
+    '/imagesMovies/8.1_198781.jpg',
+    '/imagesMovies/8.1_20629.jpg',
+    '/imagesMovies/8.1_221344.jpg',
+    '/imagesMovies/8.1_23042.jpg',
+    '/imagesMovies/8.1_24069.jpg',
+    '/imagesMovies/8.1_243664.jpg',
+    '/imagesMovies/8.1_244316.jpg',
+    '/imagesMovies/8.1_245712.jpg',
+    '/imagesMovies/8.1_25878.jpg',
+    '/imagesMovies/8.1_264464.jpg',
+    '/imagesMovies/8.1_266543.jpg',
+    '/imagesMovies/8.1_266697.jpg',
+    '/imagesMovies/8.1_27532.jpg',
+    '/imagesMovies/8.1_276919.jpg',
+    '/imagesMovies/8.1_28010.jpg',
+    '/imagesMovies/8.1_28950.jpg',
+    '/imagesMovies/8.1_307385.jpg',
+    '/imagesMovies/8.1_31885.jpg',
+    '/imagesMovies/8.1_32138.jpg',
+    '/imagesMovies/8.1_32551.jpg',
+    '/imagesMovies/8.1_33045.jpg',
+    '/imagesMovies/8.1_338564.jpg',
+    '/imagesMovies/8.1_34240.jpg',
+    '/imagesMovies/8.1_35140.jpg',
+    '/imagesMovies/8.1_36244.jpg',
+    '/imagesMovies/8.1_36868.jpg',
+    '/imagesMovies/8.1_37008.jpg',
+    '/imagesMovies/8.1_374546.jpg',
+    '/imagesMovies/8.1_37558.jpg',
+    '/imagesMovies/8.1_379557.jpg',
+    '/imagesMovies/8.1_38190.jpg',
+    '/imagesMovies/8.1_38733.jpg',
+    '/imagesMovies/8.1_38890.jpg',
+    '/imagesMovies/8.1_39689.jpg',
+    '/imagesMovies/8.1_41546.jpg',
+    '/imagesMovies/8.1_41719.jpg',
+    '/imagesMovies/8.1_44008.jpg',
+    '/imagesMovies/8.1_44837.jpg',
+    '/imagesMovies/8.1_46250.jpg',
+    '/imagesMovies/8.1_46911.jpg',
+    '/imagesMovies/8.1_47528.jpg',
+    '/imagesMovies/8.1_49012.jpg',
+    '/imagesMovies/8.1_51459.jpg',
+    '/imagesMovies/8.1_51808.jpg',
+    '/imagesMovies/8.1_52561.jpg',
+    '/imagesMovies/8.1_52600.jpg',
+    '/imagesMovies/8.1_52618.jpg',
+    '/imagesMovies/8.1_53198.jpg',
+    '/imagesMovies/8.1_53779.jpg',
+    '/imagesMovies/8.1_54460.jpg',
+    '/imagesMovies/8.1_55499.jpg',
+    '/imagesMovies/8.1_56217.jpg',
+    '/imagesMovies/8.1_56241.jpg',
+    '/imagesMovies/8.1_56663.jpg',
+    '/imagesMovies/8.1_56687.jpg',
+    '/imagesMovies/8.1_56801.jpg',
+    '/imagesMovies/8.1_57058.jpg',
+    '/imagesMovies/8.1_57091.jpg',
+    '/imagesMovies/8.1_57358.jpg',
+    '/imagesMovies/8.1_58946.jpg',
+    '/imagesMovies/8.1_59527.jpg'
+];
 
         function assignRandomImage(movieElement) {
             const randomIndex = Math.floor(Math.random() * randomImages.length);
