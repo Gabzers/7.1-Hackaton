@@ -127,7 +127,7 @@ public class UserService {
             Set<String> recommendedMovies = new HashSet<>();
 
             for (Map<String, String> movie : movies) {
-                if (recommendations.size() >= 15) break; // alterar numero de filmes escolhidos
+                if (recommendations.size() >= 10) break; // alterar numero de filmes escolhidos
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                 }
@@ -190,12 +190,12 @@ public class UserService {
             Collections.shuffle(movies);
 
             for (Map<String, String> movie : movies) {
-                if (recommendedMovies.size() >= 20) break; // Limit to 20 movies
+                if (recommendedMovies.size() >= 10) break; // Limit to 20 movies
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                 }
             }
-            if (recommendedMovies.size() >= 20) break;
+            if (recommendedMovies.size() >= 10) break;
         }
 
         return recommendations;
