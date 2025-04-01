@@ -23,6 +23,10 @@ public class Shop {
     @CollectionTable(name = "shop_movies", joinColumns = @JoinColumn(name = "shop_id"))
     private List<Movies> movies;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     public Shop() {
         this.creationDate = LocalDateTime.now();
     }
@@ -54,5 +58,13 @@ public class Shop {
 
     public void setMovies(List<Movies> movies) {
         this.movies = movies;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

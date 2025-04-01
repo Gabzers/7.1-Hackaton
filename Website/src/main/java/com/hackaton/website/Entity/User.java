@@ -12,6 +12,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 
 import java.util.List;
 import java.util.Set;
@@ -51,6 +53,9 @@ public class User {
 
     @ElementCollection
     private Set<String> completedMissions;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Shop> shops;
 
     // Default constructor
     public User() {}
@@ -111,6 +116,14 @@ public class User {
 
     public void setCompletedMissions(Set<String> completedMissions) {
         this.completedMissions = completedMissions;
+    }
+
+    public List<Shop> getShops() {
+        return shops;
+    }
+
+    public void setShops(List<Shop> shops) {
+        this.shops = shops;
     }
 
     @Embeddable

@@ -23,6 +23,9 @@
         <h1>Win Exclusive Rewards!</h1>
         <p>Trade your points for rewards.</p>
     </div>
+    <div class="countdown">
+        <p>Next shop refresh in: <span id="countdown"></span></p>
+    </div>
     <div class="container" id="rewards">
         <h2>Available Amazon Products</h2>
         <div class="grid">
@@ -50,5 +53,30 @@
             </div>
         </div>
     </div>
+
+    <script th:inline="javascript">
+        const countdownElement = document.getElementById('countdown');
+        const nextRefreshTime = new Date(/*[[${countdownDate}]]*/).getTime(); // Ensure countdownDate is passed as a valid ISO string
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = nextRefreshTime - now;
+
+            if (timeLeft <= 0) {
+                countdownElement.textContent = "Shop is refreshing...";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            countdownElement.textContent = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>

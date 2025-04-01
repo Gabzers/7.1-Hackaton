@@ -24,6 +24,7 @@ import com.hackaton.website.Entity.Shop;
 import com.hackaton.website.Entity.Product;
 import com.hackaton.website.Entity.Movies;
 import com.hackaton.website.Repository.ShopRepository;
+import java.time.LocalDateTime;
 
 @Controller
 public class UserController {
@@ -264,44 +265,52 @@ public class UserController {
             return "redirect:/login";
         }
 
-        // Fetch the user with movieGenres eagerly loaded
-        User userWithGenres = userRepository.findWithMovieGenresById(loggedUser.getId());
-        if (userWithGenres == null) {
-            return "redirect:/login";
+        // Fetch the user's shop
+        Shop userShop = shopRepository.findByUserId(loggedUser.getId());
+        LocalDateTime now = LocalDateTime.now();
+
+        if (userShop == null || userShop.getCreationDate().plusDays(7).isBefore(now)) {
+            // Create a new shop if none exists or 7 days have passed
+            List<Map<String, String>> randomProducts = userService.recommendRandomProducts();
+            List<Map<String, String>> recommendedMovies = userService.recommendMovies(loggedUser);
+
+            List<Product> products = randomProducts.stream().map(product -> {
+                String cost = product.get("cost").replace(".", "");
+                String productName = product.get("product_name");
+                String[] words = productName.split("\\s+");
+                if (productName.length() > 60) {
+                    productName = productName.substring(0, 60) + "...";
+                } else if (words.length > 8) {
+                    productName = String.join(" ", Arrays.copyOf(words, 8)) + "...";
+                }
+                return new Product(productName, product.get("category"), cost);
+            }).toList();
+
+            List<Movies> movies = recommendedMovies.stream().map(movie -> 
+                new Movies(
+                    movie.get("title"),
+                    movie.get("genres"),
+                    movie.get("averageRating"),
+                    movie.get("releaseYear")
+                )
+            ).toList();
+
+            userShop = new Shop(products);
+            userShop.setMovies(movies);
+            userShop.setUser(loggedUser); // Associate the shop with the user
+            shopRepository.save(userShop);
         }
 
-        List<Map<String, String>> randomProducts = userService.recommendRandomProducts();
-        List<Map<String, String>> recommendedMovies = userService.recommendMovies(userWithGenres);
+        // Calculate the countdown for the next shop refresh
+        LocalDateTime nextRefresh = userShop.getCreationDate().plusDays(7);
+        long days = java.time.Duration.between(now, nextRefresh).toDays();
+        long hours = java.time.Duration.between(now, nextRefresh).toHoursPart();
+        long minutes = java.time.Duration.between(now, nextRefresh).toMinutesPart();
 
-        // Format product data and convert to Product objects
-        List<Product> products = randomProducts.stream().map(product -> {
-            String cost = product.get("cost").replace(".", ""); // Format cost
-            String productName = product.get("product_name");
-            String[] words = productName.split("\\s+");
-            if (productName.length() > 60) {
-                productName = productName.substring(0, 60) + "...";
-            } else if (words.length > 8) {
-                productName = String.join(" ", Arrays.copyOf(words, 8)) + "...";
-            }
-            return new Product(productName, product.get("category"), cost);
-        }).toList();
+        model.addAttribute("shop", userShop);
+        model.addAttribute("countdown", String.format("%d days, %d hours, %d minutes", days, hours, minutes));
+        model.addAttribute("countdownDate", nextRefresh.toString()); // Ensure ISO 8601 format
 
-        // Format movie data and convert to Movies objects
-        List<Movies> movies = recommendedMovies.stream().map(movie -> 
-            new Movies(
-                movie.get("title"),
-                movie.get("genres"),
-                movie.get("averageRating"),
-                movie.get("releaseYear")
-            )
-        ).toList();
-
-        // Create and save the Shop entity
-        Shop shop = new Shop(products);
-        shop.setMovies(movies);
-        shopRepository.save(shop);
-
-        model.addAttribute("shop", shop);
         return "shop";
     }
 }
