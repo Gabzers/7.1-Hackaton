@@ -195,6 +195,7 @@
             const progressBarFill = document.getElementById("progress-bar-fill");
             const progressValue = document.getElementById("progress-value");
             const tierNumber = document.getElementById("tier-number");
+            const progressSummary = document.getElementById("progress-summary");
 
             // Obter o valor atual de exp
             const currentExp = parseInt(progressValue.textContent.split(" / ")[0]);
@@ -211,6 +212,9 @@
             progressBarFill.style.width = `${progressPercentage}%`;
             tierNumber.textContent = `Tier ${currentTier}`;
             progressValue.textContent = `${currentExp} / ${tierMaxExp}`;
+
+            // Atualizar o resumo de progresso (Unlocked Tiers)
+            progressSummary.textContent = `Unlocked Tiers: ${currentTier} / 10`;
 
             // Enable rewards based on the current tier
             enableRewards(currentTier);
@@ -316,15 +320,15 @@
             progressValue.textContent = `${newExp} / ${tierMaxExp}`;
         }
 
+        const claimedRewards = new Set(); // Track claimed rewards
+
         function claimReward(button, rewardTier) {
-            if (button.disabled) {
-                return;
-            }
-            if (button.classList.contains("claimed")) {
+            if (button.disabled || claimedRewards.has(rewardTier)) {
                 return;
             }
             button.classList.add("claimed");
             button.disabled = true;
+            claimedRewards.add(rewardTier); // Mark reward as claimed
 
             // Update the button to show "Redeemed"
             const img = button.querySelector("img");
@@ -333,6 +337,11 @@
             redeemedText.textContent = "Redeemed";
             redeemedText.classList.add("redeemed-text");
             button.appendChild(redeemedText);
+
+            // Add XP to progress bar based on reward tier
+            const xpText = button.querySelector(".xp-text").textContent;
+            const xpValue = parseInt(xpText.replace(" XP", ""));
+            addExpToProgress(xpValue);
         }
     </script>
     <style>
