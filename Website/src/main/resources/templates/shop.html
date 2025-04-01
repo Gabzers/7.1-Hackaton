@@ -293,6 +293,11 @@
 
         function displayMessage(message, isSuccess) {
             const messageContainer = document.getElementById('message-container');
+            if (!messageContainer) {
+                console.error('Message container not found in the DOM.');
+                return;
+            }
+            console.log('Displaying message:', message); // Debug log
             messageContainer.style.color = isSuccess ? 'green' : 'red';
             messageContainer.textContent = message;
             setTimeout(() => {
@@ -310,11 +315,14 @@
               .then(data => {
                   if (data.success) {
                       updateUserPoints(data.newPoints); // Update points in the top nav
-                      displayMessage('Product redeemed successfully!', true);
-                      location.reload();
+                      displayMessage(`You successfully redeemed the product using ${data.pointsUsed} points!`, true);
+                      element.textContent = 'Already redeemed'; // Update button text
+                      element.onclick = null; // Disable further clicks
                   } else {
                       displayMessage('Not enough points to redeem this product.', false);
                   }
+              }).catch(error => {
+                  console.error('Error during product redeem:', error);
               });
         }
 
@@ -328,11 +336,14 @@
               .then(data => {
                   if (data.success) {
                       updateUserPoints(data.newPoints); // Update points in the top nav
-                      displayMessage('Movie redeemed successfully!', true);
-                      location.reload();
+                      displayMessage(`You successfully redeemed the movie using ${data.pointsUsed} points!`, true);
+                      element.textContent = 'Already redeemed'; // Update button text
+                      element.onclick = null; // Disable further clicks
                   } else {
                       displayMessage('Not enough points to redeem this movie.', false);
                   }
+              }).catch(error => {
+                  console.error('Error during movie redeem:', error);
               });
         }
     </script>
