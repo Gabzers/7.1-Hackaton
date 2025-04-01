@@ -15,12 +15,12 @@ public class Shop {
     @Column(nullable = false)
     private LocalDateTime creationDate;
 
-    @ElementCollection
-    @CollectionTable(name = "shop_products", joinColumns = @JoinColumn(name = "shop_id"))
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "shop_id") // Foreign key in the products table
     private List<Product> products;
 
-    @ElementCollection
-    @CollectionTable(name = "shop_movies", joinColumns = @JoinColumn(name = "shop_id"))
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "shop_id") // Foreign key in the movies table
     private List<Movies> movies;
 
     @ManyToOne

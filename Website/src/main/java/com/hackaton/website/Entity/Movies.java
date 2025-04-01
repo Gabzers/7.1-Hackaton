@@ -1,9 +1,18 @@
 package com.hackaton.website.Entity;
 
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Embeddable
+@Entity
+@Table(name = "movies")
 public class Movies {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; // Unique identifier for the movie
 
     private String title;
     private String genres;
@@ -21,6 +30,10 @@ public class Movies {
         this.averageRating = averageRating;
         this.releaseYear = releaseYear;
         this.isRedeemed = false; // Ensure initialized to false
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -65,7 +78,7 @@ public class Movies {
 
     @Override
     public String toString() {
-        return String.format("Title: %s, Genres: %s, Rating: %s, Release Year: %s, Redeemed: %s",
-                title, genres, averageRating, releaseYear, isRedeemed != null ? isRedeemed : "null");
+        return String.format("Movie ID: %s, Title: %s, Genres: %s, Rating: %s, Release Year: %s, Redeemed: %s",
+                id, title, genres, averageRating, releaseYear, isRedeemed != null ? isRedeemed : "null");
     }
 }

@@ -314,33 +314,9 @@ public class UserController {
         return "shop";
     }
 
-    @PostMapping("/redeem-movie")
-    @ResponseBody
-    public String redeemMovie(@RequestParam("movieTitle") String movieTitle, HttpSession session) {
-        User loggedUser = (User) session.getAttribute("loggedUser");
-        if (loggedUser == null) {
-            return "User not logged in";
-        }
-
-        Shop userShop = shopRepository.findByUserId(loggedUser.getId());
-        if (userShop == null) {
-            return "Shop not found";
-        }
-
-        for (Movies movie : userShop.getMovies()) { // Ensure correct type is used
-            if (movie.getTitle().equals(movieTitle) && Boolean.FALSE.equals(movie.getIsRedeemed())) {
-                movie.setIsRedeemed(true);
-                shopRepository.save(userShop);
-                return "Movie redeemed successfully";
-            }
-        }
-
-        return "Movie already redeemed or not found";
-    }
-
     @PostMapping("/redeem-product")
     @ResponseBody
-    public String redeemProduct(@RequestParam("productName") String productName, HttpSession session) {
+    public String redeemProduct(@RequestParam("productId") Long productId, HttpSession session) {
         User loggedUser = (User) session.getAttribute("loggedUser");
         if (loggedUser == null) {
             return "User not logged in";
@@ -351,14 +327,46 @@ public class UserController {
             return "Shop not found";
         }
 
-        for (Product product : userShop.getProducts()) { // Ensure correct type is used
-            if (product.getProductName().equals(productName) && Boolean.FALSE.equals(product.getIsRedeemed())) {
+        for (Product product : userShop.getProducts()) {
+            if (product.getId().equals(productId)) { // Match by ID
+                if (Boolean.TRUE.equals(product.getIsRedeemed())) {
+                    return "Product already redeemed";
+                }
                 product.setIsRedeemed(true);
-                shopRepository.save(userShop);
+                shopRepository.save(userShop); // Save the updated shop
                 return "Product redeemed successfully";
             }
         }
 
-        return "Product already redeemed or not found";
+        logger.warn("Product not found: {}", productId); // Log the issue
+        return "Product not found";
+    }
+
+    @PostMapping("/redeem-movie")
+    @ResponseBody
+    public String redeemMovie(@RequestParam("movieId") Long movieId, HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "User not logged in";
+        }
+
+        Shop userShop = shopRepository.findByUserId(loggedUser.getId());
+        if (userShop == null) {
+            return "Shop not found";
+        }
+
+        for (Movies movie : userShop.getMovies()) {
+            if (movie.getId().equals(movieId)) { // Match by ID
+                if (Boolean.TRUE.equals(movie.getIsRedeemed())) {
+                    return "Movie already redeemed";
+                }
+                movie.setIsRedeemed(true);
+                shopRepository.save(userShop); // Save the updated shop
+                return "Movie redeemed successfully";
+            }
+        }
+
+        logger.warn("Movie not found: {}", movieId); // Log the issue
+        return "Movie not found";
     }
 }
