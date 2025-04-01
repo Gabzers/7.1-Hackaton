@@ -3,16 +3,16 @@ body {
     line-height: normal; /* Removed custom line-height */
     margin: 0;
     padding: 0;
-    background: linear-gradient(180deg, #121212, #1e1e1e); /* Match site theme */
-    color: #ffffff; /* Bright white for readability */
+    background: linear-gradient(180deg, #1a1a1a, #2a2a2a); /* Darker gradient */
+    color: #e0e0e0; /* Softer white for readability */
     font-size: 16px; /* Base font size for scaling */
 }
 
 .header {
     text-align: center;
     padding: 20px; /* Reverted padding */
-    background: linear-gradient(90deg, #2b3c4d, #1e1e1e); /* Match site theme */
-    border-bottom: 3px solid #e50914; /* Netflix red for accent */
+    background: linear-gradient(90deg, #1f2a35, #2a2a2a); /* Subtle gradient */
+    border-bottom: 3px solid #b20710; /* Softer red accent */
     box-shadow: none; /* Remove neon glow */
 }
 
@@ -23,8 +23,8 @@ body {
 .banner {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to bottom, #1e1e1e, #121212); /* Match site theme */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8); /* Add depth */
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a); /* Darker gradient */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Softer shadow */
 }
 
 .banner-content h1 {
@@ -156,18 +156,18 @@ body {
 .progress-bar {
     position: relative;
     height: 30px;
-    background: linear-gradient(90deg, #3a3f44, #4b5358); /* Metallic gradient */
+    background: linear-gradient(90deg, #2e343a, #3a3f44); /* Subtle metallic gradient */
     border-radius: 15px;
     overflow: hidden;
     margin: 20px auto;
     width: 100%; /* Full width for better scaling */
     box-shadow: none; /* Remove neon glow */
-    border: 2px solid #e50914; /* Red accent */
+    border: 2px solid #b20710; /* Softer red accent */
 }
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #e50914, #b20710); /* Red gradient */
+    background: linear-gradient(90deg, #b20710, #8a0a0a); /* Softer red gradient */
     transition: width 0.5s ease;
     box-shadow: none; /* Remove neon glow */
 }
@@ -248,21 +248,21 @@ body {
 .reward {
     flex: 1; /* Ensure buttons are evenly spaced */
     margin: 0; /* Remove individual margins */
-    background: linear-gradient(135deg, #2b3c4d, #1e1e1e); /* Match site theme */
+    background: linear-gradient(135deg, #2a2a2a, #1f1f1f); /* Darker theme */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 2px solid #e50914; /* Netflix red for accent */
+    border: 2px solid #b20710; /* Softer red accent */
     cursor: pointer;
     transition: transform 0.3s ease; /* Simplify transition */
     box-shadow: none; /* Remove glow */
 }
 
 .reward:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
+    transform: scale(1.05); /* Reduced zoom effect */
     box-shadow: none; /* Remove neon glow */
 }
 
@@ -299,6 +299,36 @@ body {
     font-size: 0.9em;
     color: #fff;
     text-align: center;
+}
+
+/* Add styles for claimed rewards */
+.reward.claimed {
+    background-color: #4caf50; /* Green background for claimed rewards */
+    color: white;
+    position: relative;
+}
+
+.reward.claimed img {
+    opacity: 0.5; /* Dim the image for claimed rewards */
+}
+
+.reward .redeemed-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Add styles for disabled rewards */
+.reward.disabled {
+    background-color: #ccc; /* Gray background for disabled rewards */
+    cursor: not-allowed;
 }
 
 .purchase-section {
@@ -400,8 +430,8 @@ body {
 }
 
 .mission-card {
-    background: linear-gradient(135deg, #1e1e1e, #2b3c4d); /* Match site theme */
-    border: 2px solid #e50914; /* Netflix red for accent */
+    background: linear-gradient(135deg, #2a2a2a, #1f1f1f); /* Darker theme */
+    border: 2px solid #b20710; /* Softer red accent */
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -410,7 +440,7 @@ body {
 }
 
 .mission-card:hover {
-    transform: scale(1.1); /* Slightly larger hover effect */
+    transform: scale(1.05); /* Reduced hover effect */
     box-shadow: none; /* Remove neon glow */
 }
 
@@ -466,6 +496,26 @@ body {
     }
 }
 
+@media (max-width: 1024px) {
+    .battle-pass-container {
+        padding: 15px;
+    }
+    .tier-progress-horizontal {
+        gap: 15px;
+    }
+    .reward {
+        width: 80px;
+        height: 80px;
+    }
+    .reward img {
+        max-width: 60%;
+        max-height: 60%;
+    }
+    .missions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .top-nav {
         flex-direction: column;
@@ -481,10 +531,10 @@ body {
         margin: 5px;
     }
     .banner-content h1 {
-        font-size: 2em; /* Adjusted for medium screens */
+        font-size: 1.8em;
     }
     .banner-content p {
-        font-size: 1em;
+        font-size: 0.9em;
     }
     .banner h1 {
         font-size: 2em;
@@ -493,13 +543,27 @@ body {
         font-size: 1em;
     }
     .battle-pass-container {
-        padding: 20px; /* Reduced padding for smaller screens */
+        padding: 20px;
     }
     .progress-bar {
         width: 90%;
+        height: 15px;
+    }
+    .progress-value {
+        font-size: 0.8em;
+    }
+    .tier-number {
+        font-size: 1.2em;
+    }
+    .reward {
+        width: 70px;
+        height: 70px;
+    }
+    .missions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
     .tier-progress-horizontal {
-        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Smaller grid items */
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
         gap: 8px;
     }
     .battle-pass-tiers {
@@ -519,10 +583,10 @@ body {
         font-size: 1.2em;
     }
     .banner-content h1 {
-        font-size: 1.8em; /* Further adjustment for small screens */
+        font-size: 1.5em;
     }
     .banner-content p {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
     .banner h1 {
         font-size: 1.8em;
@@ -531,20 +595,31 @@ body {
         font-size: 0.9em;
     }
     .nav-menu li a {
-        font-size: 0.9em; /* Smaller font for compact view */
+        font-size: 0.9em;
     }
     .tier-progress-horizontal {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Compact grid for very small screens */
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         gap: 6px;
     }
     .progress-bar {
-        height: 15px; /* Reduced height for smaller screens */
+        height: 15px;
     }
     .progress-value {
-        font-size: 0.8em; /* Smaller text for progress value */
+        font-size: 0.8em;
     }
     .tier-number {
-        font-size: 1.2em; /* Adjusted tier number size */
+        font-size: 1.2em;
+    }
+    .reward {
+        width: 60px;
+        height: 60px;
+    }
+    .reward img {
+        max-width: 50%;
+        max-height: 50%;
+    }
+    .missions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
     .battle-pass-tier {
         width: 80px;
@@ -577,7 +652,7 @@ body {
 
 .battle-pass-header h1 {
     font-size: 2.5em;
-    color: #e50914; /* Netflix red */
+    color: #e50914;
     margin: 0;
 }
 
@@ -653,7 +728,7 @@ body {
 
 .battle-pass-progress .progress-bar-fill {
     height: 100%;
-    width: 50%; /* Example progress */
+    width: 50%;
     background-color: #e50914;
     transition: width 0.3s ease;
 }
@@ -669,8 +744,8 @@ body {
 }
 
 .xp-text {
-    position: static; /* Remove absolute positioning */
-    margin-top: 5px; /* Add spacing between image and text */
+    position: static;
+    margin-top: 5px;
     font-size: 0.9em;
     color: #fff;
     text-align: center;
