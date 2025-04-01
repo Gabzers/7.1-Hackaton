@@ -228,6 +228,10 @@ public class UserController {
         int currentExp = loggedUser.getExp() != null ? loggedUser.getExp() : 0;
         loggedUser.setExp(currentExp + expToAdd);
 
+        // Atualizar o tier com base no exp
+        int newTier = (loggedUser.getExp() / 1000) + 1;
+        logger.info("User EXP updated: {}, New Tier: {}", loggedUser.getExp(), newTier);
+
         userRepository.save(loggedUser);
         session.setAttribute("loggedUser", loggedUser);
 

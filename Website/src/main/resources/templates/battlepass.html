@@ -106,12 +106,33 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const progressBarFill = document.getElementById("progress-bar-fill");
-            console.log("Progress bar width:", progressBarFill.style.width); // Log para depuração
+            updateProgress();
         });
 
+        function updateProgress() {
+            const progressBarFill = document.getElementById("progress-bar-fill");
+            const progressValue = document.getElementById("progress-value");
+            const tierNumber = document.getElementById("tier-number");
+
+            // Obter o valor atual de exp
+            const currentExp = parseInt(progressValue.textContent.split(" / ")[0]);
+
+            // Calcular o tier com base no exp
+            const currentTier = Math.floor(currentExp / 1000) + 1;
+
+            // Calcular o exp mínimo e máximo para o tier atual
+            const tierMinExp = (currentTier - 1) * 1000;
+            const tierMaxExp = currentTier * 1000;
+
+            // Atualizar a barra de progresso e o tier
+            const progressPercentage = ((currentExp - tierMinExp) / (tierMaxExp - tierMinExp)) * 100;
+            progressBarFill.style.width = `${progressPercentage}%`;
+            tierNumber.textContent = `Tier ${currentTier}`;
+            progressValue.textContent = `${currentExp} / ${tierMaxExp}`;
+        }
+
         function completeMission(missionName, points) {
-            console.log("Completing mission:", missionName, "Points:", points); // Log para depuração
+            console.log("Completing mission:", missionName, "Points:", points);
 
             // Enviar os pontos para o backend
             fetch('/add-exp', {
@@ -127,16 +148,14 @@
                     console.log("EXP successfully added for mission:", missionName);
 
                     // Atualizar a barra de progresso no frontend
-                    const progressBarFill = document.getElementById("progress-bar-fill");
                     const progressValue = document.getElementById("progress-value");
-
-                    // Atualizar o valor de exp no frontend
                     const currentExp = parseInt(progressValue.textContent.split(" / ")[0]) + points;
-                    const maxExp = 1000;
-                    const progressPercentage = (currentExp / maxExp) * 100;
 
-                    progressBarFill.style.width = `${progressPercentage}%`;
-                    progressValue.textContent = `${currentExp} / ${maxExp}`;
+                    // Atualizar o texto de exp
+                    progressValue.textContent = `${currentExp} / ${(Math.floor(currentExp / 1000) + 1) * 1000}`;
+
+                    // Atualizar o progresso e o tier
+                    updateProgress();
                 } else {
                     console.error("Failed to add EXP for mission:", missionName);
                 }
