@@ -58,6 +58,8 @@ public class User {
 
     @ElementCollection
     private Set<String> completedMissions;
+    @ElementCollection
+    private Set<String> redeemedOffers;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Shop> shops;
@@ -74,13 +76,15 @@ public class User {
     }
     
     // Constructor for initialization
-    public User(String name, String email, String password, List<MovieGenre> movieGenres, Integer points) {
+    public User(String name, String email, String password, List<MovieGenre> movieGenres, Integer points, String redeemedOffers) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.movieGenres = movieGenres;
         this.points = points;
         this.missions = List.of("rate a movie"); // Initialize with the "rate a movie" mission
+        this.redeemedOffers = Set.of(redeemedOffers);
+
     }
 
     // Getters and setters
@@ -154,6 +158,14 @@ public class User {
 
     public void setMissions(List<String> missions) {
         this.missions = missions;
+    }
+
+    public Set<String> getRedeemedOffers() {
+        return redeemedOffers != null ? redeemedOffers : Set.of();
+    }
+
+    public void setRedeemedOffers(Set<String> redeemedOffers) {
+        this.redeemedOffers = redeemedOffers;
     }
 
     @Embeddable
