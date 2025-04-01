@@ -3,18 +3,19 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #141414; /* Netflix-style dark background */
+    background-color: #141414;
     color: #fff;
     line-height: 1.6;
 }
 
-/* Top Navigation */
+/* ---------- NAV SUPERIOR ---------- */
 .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 50px;
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to right, #000 70%, #333);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     width: 100%;
@@ -24,40 +25,61 @@ body {
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .logo-text {
     font-size: 24px;
     font-weight: bold;
-    color: #e50914; /* Netflix red */
-    cursor: pointer;
+    color: #e50914;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li a:hover {
+    color: #e50914;
 }
 
 .nav-right {
     display: flex;
-    align-items: center;
     gap: 20px;
+    align-items: center;
 }
 
 .nav-icon {
+    font-size: 16px;
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .nav-icon:hover {
-    color: #e50914; /* Netflix red */
+    color: #e50914;
 }
 
-/* Points Info Container */
+/* Ícones Específicos */
+.nav-icon img {
+    margin-right: 5px;
+}
+
 .points-info-container {
     max-width: 800px;
-    margin: 100px auto 20px; /* Adjusted for fixed top-nav */
+    margin: 100px auto 20px;
     padding: 20px;
-    background: #1f1f1f; /* Netflix-style card background */
+    background: #1f1f1f;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -65,7 +87,7 @@ body {
 .points-info-container h1 {
     text-align: center;
     font-size: 36px;
-    color: #e50914; /* Netflix red */
+    color: #e50914;
     margin-bottom: 20px;
 }
 
@@ -87,6 +109,16 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .points-info-container {
         padding: 15px;
     }
