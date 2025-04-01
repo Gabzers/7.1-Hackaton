@@ -56,6 +56,26 @@ body {
     background-color: black;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjust spacing between logo and Home button */
+}
+
+.nav-icon {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Add spacing between icon and text */
+    transition: color 0.3s ease;
+}
+
+.nav-icon:hover {
+    color: #e50914; /* Netflix red on hover */
+}
+
 .nav-right {
     display: flex;
     justify-content: flex-end;
@@ -66,7 +86,8 @@ body {
 .nav-menu {
     list-style: none;
     display: flex;
-    gap: 20px;
+    align-items: center; /* Ensure vertical alignment */
+    gap: 20px; /* Maintain consistent spacing between buttons */
     margin: 0;
     padding: 0;
 }
