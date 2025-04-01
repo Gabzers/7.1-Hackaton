@@ -240,33 +240,58 @@ body {
 }
 
 .reward {
-    width: 100px;
-    height: 100px;
+    flex: 1; /* Ensure buttons are evenly spaced */
+    margin: 0; /* Remove individual margins */
     background: linear-gradient(135deg, #444, #555);
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    position: relative;
     border: none; /* Remove default button border */
-    cursor: pointer; /* Add pointer cursor for buttons */
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .reward:hover {
-    transform: scale(1.1); /* Add hover effect */
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Add hover shadow */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
 }
 
 .reward img {
-    max-width: 100%; /* Ensure the image scales to fit the container */
-    max-height: 100%; /* Prevent overflow */
-    object-fit: contain; /* Ensure the image is fully visible */
-    position: absolute; /* Position the image absolutely */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for absolute centering */
+    max-width: 70%; /* Adjust size for better alignment */
+    max-height: 70%;
+    object-fit: contain;
+    margin-bottom: 5px; /* Add spacing between image and text */
+}
+
+.reward p {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+}
+
+.reward + p {
+    margin-top: 15px; /* Increase spacing between the reward box and the text */
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+}
+
+.reward-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.reward-container p {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
 }
 
 .purchase-section {
@@ -305,19 +330,20 @@ body {
 }
 
 .tier {
-    display: flex; /* Enable horizontal alignment */
-    justify-content: center; /* Center rewards inside the tier */
-    align-items: center; /* Center rewards vertically */
-    gap: 10px; /* Add spacing between rewards */
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    align-items: center;
+    gap: 5px; /* Reduce gap to visually group buttons */
     border: 2px solid #444;
     border-radius: 15px;
     overflow: hidden;
     background: linear-gradient(145deg, #222, #333);
+    padding: 10px; /* Add padding to create a grouped effect */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     position: relative;
-    width: auto; /* Adjust width to fit content */
-    height: 150px;
+    width: auto;
+    height: auto; /* Adjust height to fit content */
 }
 
 .tier:hover {
@@ -630,4 +656,12 @@ body {
     font-size: 1em;
     color: #fff;
     font-weight: bold;
+}
+
+.xp-text {
+    position: static; /* Remove absolute positioning */
+    margin-top: 5px; /* Add spacing between image and text */
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
 }
