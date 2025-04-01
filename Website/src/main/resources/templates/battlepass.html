@@ -113,7 +113,32 @@
             updateProgress();
             checkMissionStatus();
             updateDailyLoginTimer();
+            loadClaimedRewards(); // Load claimed rewards on page load
         });
+
+        const claimedRewards = new Set(); // Track claimed rewards
+
+        function loadClaimedRewards() {
+            const savedRewards = JSON.parse(localStorage.getItem("claimedRewards")) || [];
+            savedRewards.forEach(rewardTier => {
+                claimedRewards.add(rewardTier);
+                const button = document.querySelector(`.reward[onclick="claimReward(this, ${rewardTier})"]`);
+                if (button) {
+                    button.classList.add("claimed");
+                    button.disabled = true;
+
+                    // Update the button to show "Redeemed"
+                    const redeemedText = document.createElement("span");
+                    redeemedText.textContent = "Redeemed";
+                    redeemedText.classList.add("redeemed-text");
+                    button.appendChild(redeemedText);
+                }
+            });
+        }
+
+        function saveClaimedRewards() {
+            localStorage.setItem("claimedRewards", JSON.stringify([...claimedRewards]));
+        }
 
         function checkMissionStatus() {
             console.log("Checking mission status...");
@@ -320,8 +345,6 @@
             progressValue.textContent = `${newExp} / ${tierMaxExp}`;
         }
 
-        const claimedRewards = new Set(); // Track claimed rewards
-
         function claimReward(button, rewardTier) {
             if (button.disabled || claimedRewards.has(rewardTier)) {
                 return;
@@ -329,6 +352,7 @@
             button.classList.add("claimed");
             button.disabled = true;
             claimedRewards.add(rewardTier); // Mark reward as claimed
+            saveClaimedRewards(); // Save claimed rewards to localStorage
 
             // Update the button to show "Redeemed"
             const redeemedText = document.createElement("span");
