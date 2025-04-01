@@ -11,36 +11,47 @@ body {
     line-height: 1.5;
 }
 
-/* Navigation Styles */
+/* Top Navigation */
 .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    background: #1f1f1f;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 10px 50px;
+    background: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 10;
+    width: 100%;
+    z-index: 999;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Adjusted gap for alignment */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 .logo-text {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    color: #e50914;
+    color: #e50914; /* Netflix red */
     cursor: pointer;
 }
+.logo-text:hover {
+    color: #b20710;
+}
 .nav-icon {
-    color: #ffffff;
-    font-size: 18px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
     text-decoration: none;
-    margin: 0 15px;
-    padding: 8px 16px;
+    padding: 5px 10px;
     border-radius: 5px;
-    background-color: #e50914;
-    font-weight: bold;
-    text-align: center;
-    display: inline-block;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .nav-icon i {
@@ -49,6 +60,14 @@ body {
 .nav-icon:hover {
     background-color: #b20710;
     transform: scale(1.05);
+}
+.nav-right .nav-icon {
+    background: none; /* Remove background for non-button items */
+    padding: 0;
+}
+.nav-right .nav-icon:hover {
+    background: none;
+    transform: none;
 }
 
 /* Content Styles */
