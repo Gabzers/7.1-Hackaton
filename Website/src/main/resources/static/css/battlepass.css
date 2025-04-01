@@ -379,6 +379,13 @@ body {
     background-color: #b20710; /* Darker red */
 }
 
+.mission-card button.disabled {
+    background-color: #555; /* Gray background for disabled state */
+    color: #aaa; /* Light gray text */
+    cursor: not-allowed; /* Change cursor to indicate non-clickable */
+    opacity: 0.6; /* Reduce opacity for visual effect */
+}
+
 /* Responsive adjustments */
 @keyframes fadeIn {
     from {

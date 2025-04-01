@@ -67,6 +67,7 @@
     let delayInterval;
     let ratingGiven = false; // Track if the user has already rated
     let expInterval;
+    let skippedAdsCount = 0; // Counter for skipped ads
 
     const ads = [
       { url: 'https://www.youtube.com/embed/rIUOFcHKvAU?autoplay=1&controls=0', duration: 6 },
@@ -76,11 +77,11 @@
     function waitForDelay(seconds, callback) {
       let remaining = seconds;
       delayInterval = setInterval(() => {
-        if (videoPlaying) {
+        if (videoPlaying) { // Certifique-se de que o vídeo está sendo reproduzido
           remaining--;
           if (remaining <= 0) {
             clearInterval(delayInterval);
-            callback();
+            callback(); // Executa o callback após o atraso
           }
         }
       }, 1000);
@@ -92,35 +93,43 @@
       const skipAdButton = document.getElementById('skip-ad-button');
       const adCountdown = document.getElementById('ad-countdown');
 
-      adContainer.style.display = 'block';
-      adFrame.src = ads[adIndex].url;
-      skipAdButton.style.display = 'none';
-      adCountdown.textContent = ads[adIndex].duration;
+      if (!ads[adIndex]) {
+        console.error(`Ad index ${adIndex} is invalid.`);
+        onAdComplete();
+        return;
+      }
+
+      adContainer.style.display = 'block'; // Exibe o container do anúncio
+      adFrame.src = ads[adIndex].url; // Define o URL do anúncio
+      skipAdButton.style.display = 'none'; // Oculta o botão de pular anúncio inicialmente
+      adCountdown.textContent = ads[adIndex].duration; // Define a duração do anúncio
 
       let countdown = ads[adIndex].duration;
       adCountdownInterval = setInterval(() => {
         countdown--;
-        adCountdown.textContent = countdown > 0 ? countdown : '0'; // Update countdown
+        adCountdown.textContent = countdown > 0 ? countdown : '0'; // Atualiza o contador
         if (countdown <= 0) {
           clearInterval(adCountdownInterval);
-          skipAdButton.style.display = 'block'; // Show skip button
+          skipAdButton.style.display = 'block'; // Exibe o botão de pular anúncio
         }
       }, 1000);
 
-      // Ensure the skip button is displayed after the countdown ends
-      setTimeout(() => {
-        skipAdButton.style.display = 'block';
-      }, ads[adIndex].duration * 1000);
-
       skipAdButton.onclick = () => {
         clearInterval(adCountdownInterval);
-        adContainer.style.display = 'none';
-        adFrame.src = '';
+        adContainer.style.display = 'none'; // Oculta o container do anúncio
+        adFrame.src = ''; // Limpa o URL do iframe
 
-        // Send a request to the server to add 10 points to the user
+        skippedAdsCount++; // Incrementa o contador de anúncios pulados
+        console.log(`Skipped ads count: ${skippedAdsCount}`);
+        if (skippedAdsCount === 5) {
+          markMissionAsAvailable("Watch5Ads"); // Marca a missão como disponível
+          skippedAdsCount = 0; // Reset the counter after marking the mission
+        }
+
+        // Envia uma requisição ao servidor para adicionar pontos ao usuário
         addPoints(10);
 
-        onAdComplete(); // Resume the main video
+        onAdComplete(); // Retoma o vídeo principal
       };
     }
 
@@ -155,11 +164,11 @@
 
     // Initialize controls when the player is ready
     function onPlayerReady(event) {
+      console.log("Player is ready.");
       const moviePlayerContainer = document.getElementById('movie-player-container');
       const ratingContainer = document.getElementById('rating-container');
       const starInputs = document.querySelectorAll('.star-rating input');
 
-      // Toggle play/pause when the iframe container is clicked
       moviePlayerContainer.addEventListener('click', () => {
         const isPlaying = player.getPlayerState() === YT.PlayerState.PLAYING;
         if (isPlaying) {
@@ -169,40 +178,48 @@
         }
       });
 
-      // Force the video to start playing immediately
       player.playVideo();
 
-      // Show the rating option after 30 seconds
-      waitForDelay(30, () => {
+      // Mostrar o mesmo anúncio 5 vezes antes de retomar o vídeo principal
+      function showAdsSequentially(totalAds, onComplete) {
+        let currentAdIndex = 0;
+
+        function showNextAd() {
+          if (currentAdIndex >= totalAds) {
+            onComplete();
+            return;
+          }
+          videoPlaying = false;
+          player.pauseVideo();
+          showAd(0, () => { // Sempre usa o primeiro anúncio (índice 0)
+            currentAdIndex++;
+            showNextAd();
+          });
+        }
+
+        showNextAd();
+      }
+
+      setTimeout(() => {
+        showAdsSequentially(5, () => {
+          videoPlaying = true;
+          player.playVideo();
+        });
+      }, 1000);
+
+      waitForDelay(1, () => {
         ratingContainer.style.display = 'block';
       });
 
-      // Handle rating submission
       starInputs.forEach((input) => {
         input.addEventListener('change', () => {
           if (!ratingGiven) {
-            ratingGiven = true; // Prevent multiple ratings
-            ratingContainer.style.display = 'none'; // Hide the rating container after rating
-            addPoints(5); // Add 5 points and show popup
+            console.log("Rating given:", input.value);
+            ratingGiven = true;
+            ratingContainer.style.display = 'none';
+            addPoints(5);
+            markMissionAsAvailable("RateAMovie");
           }
-        });
-      });
-
-      // Handle ads
-      waitForDelay(4, () => {
-        videoPlaying = false; // Ensure the video is paused for the ad
-        player.pauseVideo(); // Pause the video for the first ad
-        showAd(0, () => {
-          videoPlaying = true; // Resume video state
-          player.playVideo(); // Resume the video after the first ad
-          waitForDelay(24, () => {
-            videoPlaying = false; // Ensure the video is paused for the second ad
-            player.pauseVideo(); // Pause the video for the second ad
-            showAd(1, () => {
-              videoPlaying = true; // Resume video state
-              player.playVideo(); // Resume the video after the second ad
-            });
-          });
         });
       });
     }
@@ -267,6 +284,27 @@
           console.error('Failed to add points.');
         }
       });
+    }
+
+    function markMissionAsAvailable(missionName) {
+      console.log("Marking mission as available:", missionName);
+      fetch('/mark-mission-available', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ missionName }),
+      })
+      .then(response => response.text())
+      .then(message => {
+        console.log("Mark mission response:", message);
+        if (message === "Mission marked as available") {
+          console.log("Mission marked as available successfully:", missionName);
+        } else {
+          console.error("Failed to mark mission as available:", missionName);
+        }
+      })
+      .catch(error => console.error("Error marking mission as available:", error));
     }
 
     // Load the YouTube IFrame API script

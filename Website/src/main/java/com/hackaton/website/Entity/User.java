@@ -17,6 +17,8 @@ import jakarta.persistence.CascadeType;
 
 import java.util.List;
 import java.util.Set;
+import java.util.HashSet;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
@@ -43,6 +45,9 @@ public class User {
     @Column(nullable = true) // Permitir que o exp seja opcional
     private Integer exp; // Novo atributo para armazenar pontos de experiência
 
+    @Column(nullable = true)
+    private LocalDateTime lastDailyLogin; // Track the last daily login time
+
     @ElementCollection
     @CollectionTable(name = "user_movie_genres", joinColumns = @JoinColumn(name = "user_id"))
     @AttributeOverrides({
@@ -57,8 +62,16 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Shop> shops;
 
+    @ElementCollection
+    @CollectionTable(name = "user_missions", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "mission", nullable = false)
+    private List<String> missions; // New attribute for storing missions
+
     // Default constructor
-    public User() {}
+    public User() {
+        this.missions = List.of("rate a movie"); // Initialize with the "rate a movie" mission
+        this.completedMissions = new HashSet<>(); // Initialize completedMissions as an empty set
+    }
 
     // Constructor for initialization
     public User(String name, String email, String password, List<MovieGenre> movieGenres, Integer points) {
@@ -67,6 +80,7 @@ public class User {
         this.password = password;
         this.movieGenres = movieGenres;
         this.points = points;
+        this.missions = List.of("rate a movie"); // Initialize with the "rate a movie" mission
     }
 
     // Getters and setters
@@ -101,6 +115,14 @@ public class User {
         this.exp = exp;
     }
 
+    public LocalDateTime getLastDailyLogin() {
+        return lastDailyLogin;
+    }
+
+    public void setLastDailyLogin(LocalDateTime lastDailyLogin) {
+        this.lastDailyLogin = lastDailyLogin;
+    }
+
     public List<MovieGenre> getMovieGenres() {
         return movieGenres != null ? movieGenres : List.of();
     }
@@ -124,6 +146,14 @@ public class User {
 
     public void setShops(List<Shop> shops) {
         this.shops = shops;
+    }
+
+    public List<String> getMissions() {
+        return missions != null ? missions : List.of();
+    }
+
+    public void setMissions(List<String> missions) {
+        this.missions = missions;
     }
 
     @Embeddable

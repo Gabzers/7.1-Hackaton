@@ -81,36 +81,105 @@
         <h2>Daily Missions</h2>
         <div class="missions-grid">
             <div class="mission-card">
-                <span>Daily Login</span>
-                <p>10 xp</p>
-                <button onclick="completeMission('DailyLogin', 10)">Complete</button>
-            </div>
-            <div class="mission-card">
-                <span>Watch 3 Movies</span>
-                <p>50 xp</p>
-                <button onclick="completeMission('Watch3Movies', 50)">Complete</button>
-            </div>
-            <div class="mission-card">
-                <span>Buy something</span>
-                <p>75 xp</p>
-                <button onclick="completeMission('BuySomething', 75)">Complete</button>
-            </div>
-            <div class="mission-card">
                 <span>Rate a movie</span>
                 <p>20 xp</p>
-                <button onclick="completeMission('RateAMovie', 20)">Complete</button>
+                <button id="rate-movie-mission-button" class="disabled" onclick="completeMission('RateAMovie', 20)" disabled>Complete</button>
             </div>
             <div class="mission-card">
-                <span>Like a movie</span>
-                <p>20 xp</p>
-                <button onclick="completeMission('LikeAMovie', 20)">Complete</button>
+                <span>Daily Login</span>
+                <p>50 xp</p>
+                <button id="daily-login-mission-button" class="disabled" onclick="completeDailyLoginMission()" disabled>Complete</button>
+            </div>
+            <div class="mission-card">
+                <span>Watch 5 Ads</span>
+                <p>30 xp</p>
+                <button id="watch-ads-mission-button" class="disabled" onclick="completeMission('Watch5Ads', 30)" disabled>Complete</button>
             </div>
         </div>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            console.log("Battle Pass page loaded.");
             updateProgress();
+            checkMissionStatus();
+            updateDailyLoginTimer();
         });
+
+        function checkMissionStatus() {
+            console.log("Checking mission status...");
+            fetch('/check-mission-status', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Mission status response:", data);
+
+                // Rate a movie mission
+                const rateMovieButton = document.getElementById("rate-movie-mission-button");
+                if (data.rateMovieMissionAvailable) {
+                    rateMovieButton.disabled = false;
+                    rateMovieButton.classList.remove("disabled");
+                } else {
+                    rateMovieButton.disabled = true;
+                    rateMovieButton.classList.add("disabled");
+                }
+
+                // Watch 5 Ads mission
+                const watchAdsButton = document.getElementById("watch-ads-mission-button");
+                if (data.watchAdsMissionAvailable) {
+                    watchAdsButton.disabled = false;
+                    watchAdsButton.classList.remove("disabled");
+                } else {
+                    watchAdsButton.disabled = true;
+                    watchAdsButton.classList.add("disabled");
+                }
+            })
+            .catch(error => console.error("Error checking mission status:", error));
+        }
+
+        function updateDailyLoginTimer() {
+            fetch('/check-daily-login-status', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                const button = document.getElementById("daily-login-mission-button");
+
+                if (data.missionAvailable) {
+                    button.disabled = false;
+                    button.classList.remove("disabled");
+                    button.textContent = "Complete";
+                } else {
+                    button.disabled = true;
+                    button.classList.add("disabled");
+                    startCountdown(data.timeRemaining, button);
+                }
+            })
+            .catch(error => console.error("Error checking daily login status:", error));
+        }
+
+        function startCountdown(seconds, element) {
+            const interval = setInterval(() => {
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    element.textContent = "Complete";
+                    element.disabled = false;
+                    element.classList.remove("disabled");
+                    return;
+                }
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+                const secs = seconds % 60;
+                element.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                seconds--;
+            }, 1000);
+        }
 
         function updateProgress() {
             const progressBarFill = document.getElementById("progress-bar-fill");
@@ -135,35 +204,89 @@
         }
 
         function completeMission(missionName, points) {
-            console.log("Completing mission:", missionName, "Points:", points);
+            console.log("Attempting to complete mission:", missionName, "Points:", points);
 
-            // Enviar os pontos para o backend
-            fetch('/add-exp', {
+            fetch('/complete-mission', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ exp: points })
+                body: JSON.stringify({ missionName, points }),
             })
             .then(response => response.text())
             .then(message => {
-                if (message === "Exp added successfully") {
-                    console.log("EXP successfully added for mission:", missionName);
+                console.log("Complete mission response:", message);
+                if (message === "Mission completed successfully") {
+                    console.log("Mission completed successfully:", missionName);
 
-                    // Atualizar a barra de progresso no frontend
-                    const progressValue = document.getElementById("progress-value");
-                    const currentExp = parseInt(progressValue.textContent.split(" / ")[0]) + points;
+                    // Disable the button after completing the mission
+                    const missionButton = document.querySelector(`[onclick="completeMission('${missionName}', ${points})"]`);
+                    if (missionButton) {
+                        missionButton.disabled = true;
+                        missionButton.classList.add("disabled");
+                    }
 
-                    // Atualizar o texto de exp
-                    progressValue.textContent = `${currentExp} / ${(Math.floor(currentExp / 1000) + 1) * 1000}`;
-
-                    // Atualizar o progresso e o tier
-                    updateProgress();
+                    // Update progress bar dynamically
+                    addExpToProgress(points);
                 } else {
-                    console.error("Failed to add EXP for mission:", missionName);
+                    console.error("Failed to complete mission:", missionName);
                 }
             })
             .catch(error => console.error("Error completing mission:", error));
+        }
+
+        function completeDailyLoginMission() {
+            console.log("Attempting to complete daily login mission...");
+
+            fetch('/complete-daily-login-mission', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.text())
+            .then(message => {
+                console.log("Complete daily login mission response:", message);
+                if (message === "Mission completed successfully") {
+                    const button = document.getElementById("daily-login-mission-button");
+                    button.disabled = true;
+                    button.classList.add("disabled");
+
+                    // Update progress bar dynamically
+                    addExpToProgress(50); // Assuming 50 XP for daily login
+                } else {
+                    console.error("Failed to complete daily login mission.");
+                }
+            })
+            .catch(error => console.error("Error completing daily login mission:", error));
+        }
+
+        function addExpToProgress(expGained) {
+            const progressBarFill = document.getElementById("progress-bar-fill");
+            const progressValue = document.getElementById("progress-value");
+            const tierNumber = document.getElementById("tier-number");
+
+            // Get current exp and max exp from the progress bar
+            const [currentExp, maxExp] = progressValue.textContent.split(" / ").map(Number);
+
+            // Calculate new exp
+            let newExp = currentExp + expGained;
+            let currentTier = Math.floor(newExp / 1000) + 1;
+
+            // Update tier and progress if exp exceeds maxExp
+            while (newExp >= maxExp) {
+                newExp -= maxExp;
+                currentTier++;
+            }
+
+            const tierMinExp = (currentTier - 1) * 1000;
+            const tierMaxExp = currentTier * 1000;
+            const progressPercentage = ((newExp - tierMinExp) / (tierMaxExp - tierMinExp)) * 100;
+
+            // Update DOM elements
+            progressBarFill.style.width = `${progressPercentage}%`;
+            tierNumber.textContent = `Tier ${currentTier}`;
+            progressValue.textContent = `${newExp} / ${tierMaxExp}`;
         }
     </script>
 </body>

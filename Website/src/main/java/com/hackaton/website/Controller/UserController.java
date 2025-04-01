@@ -26,6 +26,9 @@ import com.hackaton.website.Entity.Movies;
 import com.hackaton.website.Repository.ShopRepository;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.hibernate.Hibernate;
+import java.time.Duration;
 
 @Controller
 public class UserController {
@@ -368,5 +371,155 @@ public class UserController {
 
         logger.warn("Movie not found: {}", movieId); // Log the issue
         return "Movie not found";
+    }
+
+    @GetMapping("/check-mission-status")
+    @ResponseBody
+    public Map<String, Boolean> checkMissionStatus(HttpSession session) {
+        logger.info("Checking mission status...");
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            logger.warn("No logged-in user found.");
+            return Map.of("rateMovieMissionAvailable", false, "watchAdsMissionAvailable", false);
+        }
+
+        // Fetch the user from the database with completedMissions eagerly loaded
+        User userFromDb = userRepository.findById(loggedUser.getId())
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        Hibernate.initialize(userFromDb.getCompletedMissions()); // Initialize the collection
+
+        boolean rateMovieMissionAvailable = userFromDb.getCompletedMissions() != null &&
+                                            !userFromDb.getCompletedMissions().contains("RateAMovie");
+
+        boolean watchAdsMissionAvailable = userFromDb.getCompletedMissions() != null &&
+                                           !userFromDb.getCompletedMissions().contains("Watch5Ads");
+
+        logger.info("Mission 'Rate a movie' available: {}", rateMovieMissionAvailable);
+        logger.info("Mission 'Watch 5 Ads' available: {}", watchAdsMissionAvailable);
+
+        return Map.of(
+            "rateMovieMissionAvailable", rateMovieMissionAvailable,
+            "watchAdsMissionAvailable", watchAdsMissionAvailable
+        );
+    }
+
+    @PostMapping("/mark-mission-available")
+    @ResponseBody
+    public String markMissionAsAvailable(@RequestBody Map<String, String> requestBody, HttpSession session) {
+        logger.info("Marking mission as available...");
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            logger.warn("No logged-in user found.");
+            return "User not logged in";
+        }
+
+        // Fetch the user from the database with completedMissions initialized
+        User userFromDb = userRepository.findById(loggedUser.getId())
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        Hibernate.initialize(userFromDb.getCompletedMissions()); // Initialize the collection
+
+        String missionName = requestBody.get("missionName");
+        logger.info("Mission name received: {}", missionName);
+        if (missionName != null) {
+            userFromDb.getCompletedMissions().remove(missionName); // Ensure it's available
+            userRepository.save(userFromDb);
+            session.setAttribute("loggedUser", userFromDb);
+            logger.info("Mission '{}' marked as available.", missionName);
+            return "Mission marked as available";
+        }
+
+        logger.error("Invalid mission name: {}", missionName);
+        return "Invalid mission name";
+    }
+
+    @PostMapping("/complete-mission")
+    @ResponseBody
+    public String completeMission(@RequestBody Map<String, Object> requestBody, HttpSession session) {
+        logger.info("Completing mission...");
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            logger.warn("No logged-in user found.");
+            return "User not logged in";
+        }
+
+        // Fetch the user from the database with completedMissions initialized
+        User userFromDb = userRepository.findById(loggedUser.getId())
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        Hibernate.initialize(userFromDb.getCompletedMissions()); // Initialize the collection
+
+        String missionName = (String) requestBody.get("missionName");
+        int points = (int) requestBody.get("points");
+        logger.info("Mission name: {}, Points: {}", missionName, points);
+
+        if (missionName != null && (missionName.equals("RateAMovie") || missionName.equals("Watch5Ads"))) {
+            // Log current exp before update
+            logger.info("Current EXP before update: {}", userFromDb.getExp());
+
+            // Mark mission as completed
+            userFromDb.getCompletedMissions().add(missionName);
+
+            // Update exp
+            int currentExp = userFromDb.getExp() != null ? userFromDb.getExp() : 0;
+            userFromDb.setExp(currentExp + points);
+
+            // Log updated exp
+            logger.info("Updated EXP after mission completion: {}", userFromDb.getExp());
+
+            // Save user
+            userRepository.save(userFromDb);
+            session.setAttribute("loggedUser", userFromDb);
+
+            logger.info("Mission '{}' completed successfully. Points added: {}", missionName, points);
+            return "Mission completed successfully";
+        }
+
+        logger.error("Invalid mission name: {}", missionName);
+        return "Invalid mission name";
+    }
+
+    @GetMapping("/check-daily-login-status")
+    @ResponseBody
+    public Map<String, Object> checkDailyLoginStatus(HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return Map.of("missionAvailable", false, "timeRemaining", 0);
+        }
+
+        LocalDateTime lastLogin = loggedUser.getLastDailyLogin();
+        LocalDateTime now = LocalDateTime.now();
+
+        if (lastLogin == null || Duration.between(lastLogin, now).toHours() >= 24) {
+            return Map.of("missionAvailable", true, "timeRemaining", 0);
+        }
+
+        long secondsRemaining = Duration.between(now, lastLogin.plusHours(24)).getSeconds();
+        return Map.of("missionAvailable", false, "timeRemaining", secondsRemaining);
+    }
+
+    @PostMapping("/complete-daily-login-mission")
+    @ResponseBody
+    public String completeDailyLoginMission(HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "User not logged in";
+        }
+
+        LocalDateTime lastLogin = loggedUser.getLastDailyLogin();
+        LocalDateTime now = LocalDateTime.now();
+
+        if (lastLogin != null && Duration.between(lastLogin, now).toHours() < 24) {
+            return "Mission not available yet";
+        }
+
+        loggedUser.setLastDailyLogin(now);
+        int currentExp = loggedUser.getExp() != null ? loggedUser.getExp() : 0;
+        loggedUser.setExp(currentExp + 50); // Add 50 XP for completing the mission
+        userRepository.save(loggedUser);
+        session.setAttribute("loggedUser", loggedUser);
+
+        return "Mission completed successfully";
     }
 }
