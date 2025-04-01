@@ -5,6 +5,14 @@
     <title>Shop</title>
     <link rel="stylesheet" type="text/css" href="/css/shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer" />
+    <style>
+        /* Ensure all images have the same size */
+        .grid .card img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
     <header class="top-nav">
@@ -31,7 +39,7 @@
         <h2>Available Amazon Products</h2>
         <div class="grid">
             <div class="card" th:each="product : ${shop.products}">
-                <img src="https://via.placeholder.com/300" alt="Product Image">
+                <img th:alt="${product.productName}" id="product-image-${product.id}" src="https://via.placeholder.com/300" />
                 <h3 th:text="${product.productName}">Product Name</h3>
                 <p th:text="${product.category}">Category</p>
                 <span class="points" th:text="'Cost: ' + ${product.cost} + ' points'">Cost and Points</span>
@@ -46,7 +54,7 @@
         <h2>Available Movies</h2>
         <div class="grid">
             <div class="card" th:each="movie : ${shop.movies}">
-                <img src="https://via.placeholder.com/300" alt="Movie Image">
+                <img th:alt="${movie.title}" id="movie-image-${movie.id}" src="https://via.placeholder.com/300" />
                 <h3 th:text="${movie.title}">Movie Title</h3>
                 <p th:text="${movie.genres}">Genres</p>
                 <span class="points" th:text="'Rating: ' + ${movie.averageRating}">Average Rating</span>
@@ -85,6 +93,103 @@
     </script>
 
     <script>
+        const apiKey = '50ce0-20'; // Amazon Product Advertising API key
+        const affiliateBaseUrl = 'https://webservices.amazon.com/paapi5/getitems';
+
+        async function fetchAmazonRewardImage(productName, productElement) {
+            if (!productName || !productElement) return;
+
+            try {
+                const response = await fetch(affiliateBaseUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey
+                    },
+                    body: JSON.stringify({
+                        Keywords: productName,
+                        Resources: ['Images.Primary.Medium']
+                    })
+                });
+
+                if (!response.ok) {
+                    console.error('Failed to fetch product image:', response.statusText);
+                    return;
+                }
+
+                const data = await response.json();
+                if (data.ItemsResult && data.ItemsResult.Items && data.ItemsResult.Items.length > 0) {
+                    const product = data.ItemsResult.Items[0];
+                    const imageUrl = product.Images?.Primary?.Medium?.URL;
+                    if (imageUrl) {
+                        productElement.src = imageUrl; // Set API image
+                    } else {
+                        console.warn('No image found for product:', productName);
+                    }
+                } else {
+                    console.warn('No products found for query:', productName);
+                }
+            } catch (error) {
+                console.error('Error fetching Amazon reward image:', error);
+            }
+        }
+
+        document.querySelectorAll('#rewards .card').forEach(card => {
+            const productName = card.querySelector('h3')?.innerText;
+            const imgElement = card.querySelector('img');
+            fetchAmazonRewardImage(productName, imgElement);
+        });
+
+        const tmdbApiKey = '8a005d935acdd9a393df2d9bc8e10e79'; // TMDB API key
+        const tmdbBaseImageUrl = 'https://image.tmdb.org/t/p/w500';
+        const randomImages = [
+            '/imagesMovies/8.0_84654.jpg',
+            '/imagesMovies/8.0_84740.jpg',
+            '/imagesMovies/8.0_88247.jpg',
+            '/imagesMovies/8.0_88258.jpg',
+            '/imagesMovies/8.0_88846.jpg',
+            '/imagesMovies/8.0_91167.jpg',
+            '/imagesMovies/8.0_91480.jpg',
+            '/imagesMovies/8.0_95953.jpg',
+            '/imagesMovies/8.0_96028.jpg',
+            '/imagesMovies/8.0_97123.jpg'
+        ];
+
+        function assignRandomImage(movieElement) {
+            const randomIndex = Math.floor(Math.random() * randomImages.length);
+            movieElement.src = randomImages[randomIndex];
+        }
+
+        function fetchMovieImage(movieTitle, movieElement) {
+            if (!movieTitle || !movieElement) return;
+
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=${tmdbApiKey}&query=${encodeURIComponent(movieTitle)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.results && data.results.length > 0) {
+                        const movie = data.results[0];
+                        const imageUrl = movie.poster_path ? tmdbBaseImageUrl + movie.poster_path : null;
+                        if (imageUrl) {
+                            movieElement.src = imageUrl; // Set API image
+                        } else {
+                            assignRandomImage(movieElement); // Use random image as fallback
+                        }
+                    } else {
+                        assignRandomImage(movieElement); // Use random image as fallback
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching movie image:', error);
+                    assignRandomImage(movieElement); // Use random image as fallback
+                });
+        }
+
+        document.querySelectorAll('#recommended-movies .card').forEach(card => {
+            const movieTitle = card.querySelector('h3')?.innerText;
+            const imgElement = card.querySelector('img');
+            fetchMovieImage(movieTitle, imgElement);
+        });
+
         function redeemProduct(element) {
             const productId = element.getAttribute('data-product-id');
             fetch('/redeem-product', {
