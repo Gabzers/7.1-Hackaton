@@ -23,7 +23,7 @@
         <div class="nav-right">
             <a href="/points-info" class="nav-icon"><i class="fa-solid fa-info-circle"></i> Points Info</a>
             <a href="/battlepass" class="nav-icon"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a>
-            <span class="nav-icon">Points: <span th:text="${session.loggedUser != null ? session.loggedUser.points : 0}"></span></span>
+            <span class="nav-icon">Points: <span id="user-points" th:text="${session.loggedUser != null ? session.loggedUser.points : 0}"></span></span>
             <a href="/login" class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </div>
     </header>
@@ -285,15 +285,25 @@
             fetchMovieImage(movieTitle, imgElement);
         });
 
+        function updateUserPoints(newPoints) {
+            const pointsElement = document.getElementById('user-points');
+            pointsElement.textContent = newPoints;
+        }
+
         function redeemProduct(element) {
             const productId = element.getAttribute('data-product-id');
             fetch('/redeem-product', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({ productId })
-            }).then(response => response.text())
-              .then(alert)
-              .then(() => location.reload());
+            }).then(response => response.json())
+              .then(data => {
+                  alert(data.message);
+                  if (data.success) {
+                      updateUserPoints(data.newPoints); // Update points in the top nav
+                      location.reload();
+                  }
+              });
         }
 
         function redeemMovie(element) {
@@ -302,9 +312,14 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({ movieId })
-            }).then(response => response.text())
-              .then(alert)
-              .then(() => location.reload());
+            }).then(response => response.json())
+              .then(data => {
+                  alert(data.message);
+                  if (data.success) {
+                      updateUserPoints(data.newPoints); // Update points in the top nav
+                      location.reload();
+                  }
+              });
         }
     </script>
 </body>

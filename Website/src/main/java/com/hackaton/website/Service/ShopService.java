@@ -6,9 +6,24 @@ import java.util.Set;
 import com.hackaton.website.Entity.User;
 
 public class ShopService {
+
+    /**
+     * Checks if the user has sufficient points to redeem a product or offer.
+     * 
+     * @param user The user attempting to redeem.
+     * @param cost The cost of the product or offer.
+     * @return true if the user has enough points, false otherwise.
+     */
+    public boolean hasSufficientPoints(User user, int cost) {
+        if (user.getPoints() == null || user.getPoints() < cost) {
+            return false;
+        }
+        return true;
+    }
+
     public String redeemShopOffer(User user, String offerName, int offerCost) {
         // Check if user has enough points
-        if (user.getPoints() == null || user.getPoints() < offerCost) {
+        if (!hasSufficientPoints(user, offerCost)) {
             return "Insufficient points to redeem this offer";
         }
     

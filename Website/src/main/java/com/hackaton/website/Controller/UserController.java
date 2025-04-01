@@ -323,58 +323,68 @@ public class UserController {
 
     @PostMapping("/redeem-product")
     @ResponseBody
-    public String redeemProduct(@RequestParam("productId") Long productId, HttpSession session) {
+    public Map<String, Object> redeemProduct(@RequestParam("productId") Long productId, HttpSession session) {
         User loggedUser = (User) session.getAttribute("loggedUser");
         if (loggedUser == null) {
-            return "User not logged in";
+            return Map.of("success", false, "message", "User not logged in");
         }
 
         Shop userShop = shopRepository.findByUserId(loggedUser.getId());
         if (userShop == null) {
-            return "Shop not found";
+            return Map.of("success", false, "message", "Shop not found");
         }
 
         for (Product product : userShop.getProducts()) {
-            if (product.getId().equals(productId)) { // Match by ID
+            if (product.getId().equals(productId)) {
                 if (Boolean.TRUE.equals(product.getIsRedeemed())) {
-                    return "Product already redeemed";
+                    return Map.of("success", false, "message", "Product already redeemed");
+                }
+                if (loggedUser.getPoints() < Integer.parseInt(product.getCost())) {
+                    return Map.of("success", false, "message", "Insufficient points");
                 }
                 product.setIsRedeemed(true);
-                shopRepository.save(userShop); // Save the updated shop
-                return "Product redeemed successfully";
+                loggedUser.setPoints(loggedUser.getPoints() - Integer.parseInt(product.getCost()));
+                shopRepository.save(userShop);
+                userRepository.save(loggedUser);
+                session.setAttribute("loggedUser", loggedUser);
+                return Map.of("success", true, "message", "Product redeemed successfully", "newPoints", loggedUser.getPoints());
             }
         }
 
-        logger.warn("Product not found: {}", productId); // Log the issue
-        return "Product not found";
+        return Map.of("success", false, "message", "Product not found");
     }
 
     @PostMapping("/redeem-movie")
     @ResponseBody
-    public String redeemMovie(@RequestParam("movieId") Long movieId, HttpSession session) {
+    public Map<String, Object> redeemMovie(@RequestParam("movieId") Long movieId, HttpSession session) {
         User loggedUser = (User) session.getAttribute("loggedUser");
         if (loggedUser == null) {
-            return "User not logged in";
+            return Map.of("success", false, "message", "User not logged in");
         }
 
         Shop userShop = shopRepository.findByUserId(loggedUser.getId());
         if (userShop == null) {
-            return "Shop not found";
+            return Map.of("success", false, "message", "Shop not found");
         }
 
         for (Movies movie : userShop.getMovies()) {
-            if (movie.getId().equals(movieId)) { // Match by ID
+            if (movie.getId().equals(movieId)) {
                 if (Boolean.TRUE.equals(movie.getIsRedeemed())) {
-                    return "Movie already redeemed";
+                    return Map.of("success", false, "message", "Movie already redeemed");
+                }
+                if (loggedUser.getPoints() < 999) { // Assuming movie cost is 999 points
+                    return Map.of("success", false, "message", "Insufficient points");
                 }
                 movie.setIsRedeemed(true);
-                shopRepository.save(userShop); // Save the updated shop
-                return "Movie redeemed successfully";
+                loggedUser.setPoints(loggedUser.getPoints() - 999);
+                shopRepository.save(userShop);
+                userRepository.save(loggedUser);
+                session.setAttribute("loggedUser", loggedUser);
+                return Map.of("success", true, "message", "Movie redeemed successfully", "newPoints", loggedUser.getPoints());
             }
         }
 
-        logger.warn("Movie not found: {}", movieId); // Log the issue
-        return "Movie not found";
+        return Map.of("success", false, "message", "Movie not found");
     }
 
     @GetMapping("/check-mission-status")
