@@ -532,4 +532,14 @@ public class UserController {
         session.invalidate(); // Invalidate the session
         return "redirect:/login"; // Redirect to the login page
     }
+
+    @GetMapping("/points-info")
+    public String servePointsInfoPage(HttpSession session, Model model) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login"; // Redirect to login if no user is logged in
+        }
+        model.addAttribute("loggedUser", loggedUser);
+        return "points-info"; // Ensure the points-info.html template exists
+    }
 }

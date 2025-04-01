@@ -108,12 +108,12 @@
       </ul>
     </div>
     <div class="nav-right">
+      <a href="/battlepass" class="nav-icon" id="battlepass"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a>
       <a href="/points-info" class="nav-icon"><i class="fa-solid fa-info-circle"></i> Points Info</a>
       <span class="nav-icon" id="points">
         Points: <span th:text="${session.loggedUser != null ? session.loggedUser.points : 0}"></span>
       </span>
       <a href="/logout" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-      <a href="/battlepass" class="nav-icon" id="battlepass"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a>
     </div>
   </header>
   

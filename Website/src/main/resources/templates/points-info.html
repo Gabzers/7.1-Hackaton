@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Points Information - StreamFlix</title>
     <link rel="stylesheet" href="/css/points-info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header class="top-nav">
         <div class="nav-left">
             <span class="logo-text">StreamFlix</span>
+            <!-- Updated Home button -->
             <a href="/home" class="nav-icon"><i class="fa-solid fa-house"></i> Home</a>
         </div>
         <div class="nav-right">
             <a href="/shop" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i> Shop</a>
-            <span class="nav-icon">Points: 95</span>
             <a href="/battlepass" class="nav-icon"><i class="fa-solid fa-gift"></i> Battle Pass Rewards</a>
-            <a href="/login" class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            <span class="nav-icon">Points: <span th:text="${loggedUser.points}"></span></span>
+            <a href="/logout" class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </div>
     </header>
     <main class="points-info-container">

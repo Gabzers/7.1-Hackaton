@@ -18,11 +18,11 @@
             <ul class="nav-menu">
                 <li><a href="/points-info"><i class="fa-solid fa-info-circle"></i> Points Info</a></li>
                 <li><a href="/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
+                <span class="nav-icon" id="points">
+                    Points: <span th:text="${loggedUser != null ? loggedUser.points : 0}">0</span>
+                </span>
                 <li><a href="/login"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
             </ul>
-            <span class="nav-icon" id="points">
-                Points: <span th:text="${loggedUser != null ? loggedUser.points : 0}">0</span>
-            </span>
         </div>
     </header>
     <section class="banner">

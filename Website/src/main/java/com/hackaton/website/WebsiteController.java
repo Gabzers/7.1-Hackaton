@@ -26,9 +26,5 @@ public class WebsiteController {
         return "movie"; // Serve movie.html
     }
 
-    @GetMapping("/points-info")
-    public String servePointsInfoPage() {
-        return "points-info"; // Serve points-info.html
-    }
 
 }

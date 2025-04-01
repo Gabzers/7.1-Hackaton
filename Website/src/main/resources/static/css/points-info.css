@@ -57,10 +57,6 @@ body {
 .nav-icon i {
     margin-right: 5px;
 }
-.nav-icon:hover {
-    background-color: #b20710;
-    transform: scale(1.05);
-}
 .nav-right .nav-icon {
     background: none; /* Remove background for non-button items */
     padding: 0;
@@ -68,6 +64,22 @@ body {
 .nav-right .nav-icon:hover {
     background: none;
     transform: none;
+}
+
+/* Specific styles for the Home button */
+.nav-icon.home-button {
+    background-color: #e50914; /* Netflix red */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-icon.home-button:hover {
+    background-color: #b20710; /* Darker red for hover */
+    transform: scale(1.05);
 }
 
 /* Content Styles */
