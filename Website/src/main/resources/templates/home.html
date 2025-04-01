@@ -176,7 +176,7 @@
 
   <!-- Section: Top Movies by Genre -->
   <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry, iterStat : ${topGenresMovies}">
-    <h2 th:text="'Top Movies in ' + ${entry.key}">Top Movies in Genre</h2>
+    <h2 th:text="'Top Titles in ' + ${entry.key}">Top Titles in Genre</h2>
     <div class="movie-list-wrapper">
       <div class="scroll-container">
         <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
