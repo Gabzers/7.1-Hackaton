@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.Arrays;
 
 @Controller
 public class UserController {
@@ -248,5 +249,38 @@ public class UserController {
         logger.info("User EXP: {}", loggedUser.getExp()); // Log para verificar o valor de EXP
         model.addAttribute("loggedUser", loggedUser);
         return "battlepass";
+    }
+
+    @GetMapping("/shop")
+    public String serveShopPage(HttpSession session, Model model) {
+        // Check if the user is logged in
+        if (session.getAttribute("loggedUser") == null) {
+            return "redirect:/login";
+        }
+
+        List<Map<String, String>> randomProducts = userService.recommendRandomProducts();
+
+        // Format product data
+        randomProducts.forEach(product -> {
+            // Format cost: remove decimal and multiply by 100
+            String cost = product.get("cost");
+            if (cost != null) {
+                product.put("cost", cost.replace(".", ""));
+            }
+
+            // Limit product_name to 60 characters or 8 words
+            String productName = product.get("product_name");
+            if (productName != null) {
+                String[] words = productName.split("\\s+");
+                if (productName.length() > 60) {
+                    product.put("product_name", productName.substring(0, 60) + "...");
+                } else if (words.length > 8) {
+                    product.put("product_name", String.join(" ", Arrays.copyOf(words, 8)) + "...");
+                }
+            }
+        });
+
+        model.addAttribute("randomProducts", randomProducts);
+        return "shop";
     }
 }

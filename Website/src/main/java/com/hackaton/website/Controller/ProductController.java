@@ -1,6 +1,5 @@
 package com.hackaton.website.Controller;
 
-import com.hackaton.website.Entity.Product;
 import com.hackaton.website.Entity.User; // Added import for User
 import com.hackaton.website.Service.ProductService;
 import com.hackaton.website.Service.UserService; // Import UserService
@@ -26,36 +25,36 @@ public class ProductController {
     @Autowired
     private UserService userService; // Add UserService as a dependency
 
-    @GetMapping("/shop")
-    public String serveShopPage(HttpSession session, Model model) {
-        if (session.getAttribute("loggedUser") == null) {
-            return "redirect:/login";
-        }
+    // @GetMapping("/shop")
+    // public String serveShopPage(HttpSession session, Model model) {
+    //     if (session.getAttribute("loggedUser") == null) {
+    //         return "redirect:/login";
+    //     }
 
-        // Diretórios dos três conjuntos de CSVs
-        String directoryPath1 = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
-        String directoryPath2 = "Website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv";
-        String directoryPath3 = "Website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv";
+    //     // Diretórios dos três conjuntos de CSVs
+    //     String directoryPath1 = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
+    //     String directoryPath2 = "Website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv";
+    //     String directoryPath3 = "Website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv";
 
-        // Obter produtos de cada categoria
-        List<Product> products1 = productService.getProductsFromCSV(directoryPath1);
-        List<Product> products2 = productService.getProductsFromCSV(directoryPath2);
-        List<Product> products3 = productService.getProductsFromCSV(directoryPath3);
+    //     // Obter produtos de cada categoria
+    //     List<Product> products1 = productService.getProductsFromCSV(directoryPath1);
+    //     List<Product> products2 = productService.getProductsFromCSV(directoryPath2);
+    //     List<Product> products3 = productService.getProductsFromCSV(directoryPath3);
 
-        // Combinar todas as categorias em uma única lista
-        List<Product> allProducts = new ArrayList<>();
-        allProducts.addAll(products1);
-        allProducts.addAll(products2);
-        allProducts.addAll(products3);
+    //     // Combinar todas as categorias em uma única lista
+    //     List<Product> allProducts = new ArrayList<>();
+    //     allProducts.addAll(products1);
+    //     allProducts.addAll(products2);
+    //     allProducts.addAll(products3);
 
-        // Ordenar por pontos em ordem decrescente
-        allProducts.sort((p1, p2) -> Integer.compare(p2.getPoints(), p1.getPoints()));
+    //     // Ordenar por pontos em ordem decrescente
+    //     allProducts.sort((p1, p2) -> Integer.compare(p2.getPoints(), p1.getPoints()));
 
-        // Adicionar ao modelo para serem usados no Thymeleaf
-        model.addAttribute("allProducts", allProducts);
+    //     // Adicionar ao modelo para serem usados no Thymeleaf
+    //     model.addAttribute("allProducts", allProducts);
 
-        return "shop";
-    }
+    //     return "shop";
+    // }
 
     @PostMapping("/completeMission")
     @ResponseBody

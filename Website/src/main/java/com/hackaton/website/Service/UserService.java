@@ -243,6 +243,42 @@ public class UserService {
         return genreMovies;
     }
 
+    public List<Map<String, String>> recommendRandomProducts() {
+        String[] csvPaths = {
+            "website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv",
+            "website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv",
+            "website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv"
+        };
+
+        List<Map<String, String>> selectedProducts = new ArrayList<>();
+
+        for (String csvPath : csvPaths) {
+            File csvFile = Paths.get(csvPath).toFile();
+            if (!csvFile.exists()) {
+                System.err.println("CSV file not found: " + csvPath);
+                continue;
+            }
+
+            try (CSVParser parser = CSVParser.parse(csvFile, java.nio.charset.StandardCharsets.UTF_8,
+                    CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).build())) {
+                List<Map<String, String>> products = new ArrayList<>();
+                for (CSVRecord record : parser) {
+                    Map<String, String> product = new HashMap<>();
+                    product.put("product_name", record.get("product_name"));
+                    product.put("category", record.get("category"));
+                    product.put("cost", record.get("cost"));
+                    products.add(product);
+                }
+                Collections.shuffle(products);
+                selectedProducts.addAll(products.stream().limit(4).toList());
+            } catch (IOException e) {
+                System.err.println("Error reading CSV file: " + csvPath);
+            }
+        }
+
+        return selectedProducts;
+    }
+
     public void printRecommendedMovies(List<Map<String, String>> recommendations) {
         System.out.println("Recommended Movies:");
         for (Map<String, String> movie : recommendations) {

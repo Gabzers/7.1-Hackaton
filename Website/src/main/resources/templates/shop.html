@@ -27,11 +27,11 @@
     <div class="container" id="rewards">
         <h2>Available Rewards</h2>
         <div class="grid">
-            <div class="card" th:each="product : ${allProducts}">
+            <div class="card" th:each="product : ${randomProducts}">
                 <img src="https://via.placeholder.com/300" alt="Product Image">
-                <h3 th:text="${product.name}">Product Name</h3>
-                <p>Amazon Product</p>
-                <span class="points" th:text="'Cost: ' + ${product.cost} + ' points'">Cost and Points</span>
+                <h3 th:text="${product['product_name']}">Product Name</h3>
+                <p th:text="${product['category']}">Category</p>
+                <span class="points" th:text="'Cost ' + ${product['cost']} + ' points'">Cost and Points</span>
                 <a href="#" class="button">Redeem</a>
             </div>
         </div>
