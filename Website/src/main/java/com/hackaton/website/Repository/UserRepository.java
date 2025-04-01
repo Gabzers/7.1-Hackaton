@@ -1,16 +1,18 @@
 package com.hackaton.website.Repository;
 
 import com.hackaton.website.Entity.User;
-import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmail(String email); // Método para buscar usuário apenas pelo email
 
-    User findByEmailAndPassword(String email, String password); // Add this method
+    @Query("SELECT u FROM User u LEFT JOIN FETCH u.movieGenres WHERE u.id = :id")
+    User findWithMovieGenresById(@Param("id") Long id);
 
-    @EntityGraph(attributePaths = "movieGenres") // Eagerly fetch movieGenres
-    User findWithMovieGenresById(Long id);
+    User findByEmail(String email);
+
+    User findByEmailAndPassword(String email, String password);
 }

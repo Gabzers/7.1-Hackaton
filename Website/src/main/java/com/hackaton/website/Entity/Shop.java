@@ -19,6 +19,10 @@ public class Shop {
     @CollectionTable(name = "shop_products", joinColumns = @JoinColumn(name = "shop_id"))
     private List<Product> products;
 
+    @ElementCollection
+    @CollectionTable(name = "shop_movies", joinColumns = @JoinColumn(name = "shop_id"))
+    private List<Movies> movies;
+
     public Shop() {
         this.creationDate = LocalDateTime.now();
     }
@@ -42,5 +46,13 @@ public class Shop {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public List<Movies> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movies> movies) {
+        this.movies = movies;
     }
 }

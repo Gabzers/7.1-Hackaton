@@ -24,13 +24,28 @@
         <p>Trade your points for rewards.</p>
     </div>
     <div class="container" id="rewards">
-        <h2>Available Rewards</h2>
+        <h2>Available Amazon Products</h2>
         <div class="grid">
             <div class="card" th:each="product : ${shop.products}">
                 <img src="https://via.placeholder.com/300" alt="Product Image">
                 <h3 th:text="${product.productName}">Product Name</h3>
                 <p th:text="${product.category}">Category</p>
                 <span class="points" th:text="'Cost ' + ${product.cost} + ' points'">Cost and Points</span>
+                <a href="#" class="button">Redeem</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="recommended-movies">
+        <h2>Available Movies</h2>
+        <div class="grid">
+            <div class="card" th:each="movie : ${shop.movies}">
+                <img src="https://via.placeholder.com/300" alt="Movie Image">
+                <h3 th:text="${movie.title}">Movie Title</h3>
+                <p th:text="${movie.genres}">Genres</p>
+                <span class="points" th:text="'Rating: ' + ${movie.averageRating}">Average Rating</span>
+                <p th:text="'Release Year: ' + ${movie.releaseYear}">Release Year</p>
+                <span class="points">Cost 999 points</span>
                 <a href="#" class="button">Redeem</a>
             </div>
         </div>

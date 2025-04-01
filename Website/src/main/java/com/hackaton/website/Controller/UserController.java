@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Arrays;
 import com.hackaton.website.Entity.Shop;
 import com.hackaton.website.Entity.Product;
+import com.hackaton.website.Entity.Movies;
 import com.hackaton.website.Repository.ShopRepository;
 
 @Controller
@@ -258,11 +259,19 @@ public class UserController {
     @GetMapping("/shop")
     public String serveShopPage(HttpSession session, Model model) {
         // Check if the user is logged in
-        if (session.getAttribute("loggedUser") == null) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "redirect:/login";
+        }
+
+        // Fetch the user with movieGenres eagerly loaded
+        User userWithGenres = userRepository.findWithMovieGenresById(loggedUser.getId());
+        if (userWithGenres == null) {
             return "redirect:/login";
         }
 
         List<Map<String, String>> randomProducts = userService.recommendRandomProducts();
+        List<Map<String, String>> recommendedMovies = userService.recommendMovies(userWithGenres);
 
         // Format product data and convert to Product objects
         List<Product> products = randomProducts.stream().map(product -> {
@@ -277,8 +286,19 @@ public class UserController {
             return new Product(productName, product.get("category"), cost);
         }).toList();
 
+        // Format movie data and convert to Movies objects
+        List<Movies> movies = recommendedMovies.stream().map(movie -> 
+            new Movies(
+                movie.get("title"),
+                movie.get("genres"),
+                movie.get("averageRating"),
+                movie.get("releaseYear")
+            )
+        ).toList();
+
         // Create and save the Shop entity
         Shop shop = new Shop(products);
+        shop.setMovies(movies);
         shopRepository.save(shop);
 
         model.addAttribute("shop", shop);

@@ -52,6 +52,11 @@ public class UserService {
             List<Map<String, String>> movies = genreMovies.get(genre);
             Collections.shuffle(movies);
 
+            // Ensure releaseYear is present
+            for (Map<String, String> movie : movies) {
+                movie.putIfAbsent("releaseYear", "Unknown");
+            }
+
             // Calculate the number of movies to recommend for this genre
             int genreQuota = Math.max(1, (score * 18) / totalScore); // Adjusted to allocate up to 18 slots
             for (Map<String, String> movie : movies) {
