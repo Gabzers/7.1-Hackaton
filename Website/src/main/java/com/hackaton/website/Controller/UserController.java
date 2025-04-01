@@ -17,6 +17,8 @@ import com.hackaton.website.Entity.User.MovieGenre;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class UserController {
@@ -50,6 +52,7 @@ public class UserController {
         user.setEmail(email);
         user.setPassword(password);
         user.setPoints(0); // Inicializar pontos como 0
+        user.setExp(0); // Inicializar exp como 0
         logger.debug("User object created: {}", user);
 
         // Inicializar os gêneros com score 0
@@ -193,5 +196,41 @@ public class UserController {
         }
 
         return "home";
+    }
+
+    @PostMapping("/add-points")
+    @ResponseBody
+    public String addPoints(@RequestBody Map<String, Integer> requestBody, HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "User not logged in";
+        }
+
+        int pointsToAdd = requestBody.getOrDefault("points", 0);
+        int currentPoints = loggedUser.getPoints() != null ? loggedUser.getPoints() : 0;
+        loggedUser.setPoints(currentPoints + pointsToAdd);
+
+        userRepository.save(loggedUser);
+        session.setAttribute("loggedUser", loggedUser);
+
+        return "Points added successfully";
+    }
+
+    @PostMapping("/add-exp")
+    @ResponseBody
+    public String addExp(@RequestBody Map<String, Integer> requestBody, HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "User not logged in";
+        }
+
+        int expToAdd = requestBody.getOrDefault("exp", 0);
+        int currentExp = loggedUser.getExp() != null ? loggedUser.getExp() : 0;
+        loggedUser.setExp(currentExp + expToAdd);
+
+        userRepository.save(loggedUser);
+        session.setAttribute("loggedUser", loggedUser);
+
+        return "Exp added successfully";
     }
 }

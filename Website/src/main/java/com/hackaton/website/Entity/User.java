@@ -38,6 +38,9 @@ public class User {
     @Column(nullable = true) // Permitir que a barra de progresso seja opcional
     private Integer progressBar;
 
+    @Column(nullable = true) // Permitir que o exp seja opcional
+    private Integer exp; // Novo atributo para armazenar pontos de experiência
+
     @ElementCollection
     @CollectionTable(name = "user_movie_genres", joinColumns = @JoinColumn(name = "user_id"))
     @AttributeOverrides({
@@ -83,6 +86,14 @@ public class User {
 
     public void setProgressBar(Integer progressBar) {
         this.progressBar = progressBar;
+    }
+
+    public Integer getExp() {
+        return exp;
+    }
+
+    public void setExp(Integer exp) {
+        this.exp = exp;
     }
 
     public List<MovieGenre> getMovieGenres() {

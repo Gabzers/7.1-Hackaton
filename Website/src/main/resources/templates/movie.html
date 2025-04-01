@@ -37,13 +37,7 @@
           aria-label="Movie player"
         ></iframe>
       </div>
-      <div class="video-controls">
-        <button id="backward-button" aria-label="Rewind 10 seconds">⏪ Rewind 10s</button>
-        <button id="forward-button" aria-label="Forward 10 seconds">Forward 10s ⏩</button>
-        <button id="fullscreen-button" aria-label="Toggle fullscreen">⛶ Fullscreen</button>
-        <input id="volume-slider" type="range" min="0" max="100" value="50" aria-label="Volume control" />
-      </div>
-      <div class="rating-container" aria-label="Rate this video">
+      <div class="rating-container" aria-label="Rate this video" style="display: none;" id="rating-container">
         <span class="rating-label">Rate this movie:</span>
         <div class="star-rating">
           <input type="radio" id="star5" name="rating" value="5" />
@@ -59,6 +53,10 @@
         </div>
       </div>
     </div>
+    <!-- Popup notification -->
+    <div id="points-popup" style="display: none; position: fixed; top: 10%; left: 50%; transform: translate(-50%, 0); background-color: rgba(0, 0, 0, 0.8); color: white; padding: 20px; border-radius: 10px; border: 2px solid white; z-index: 3000; text-align: center; font-size: 1.2em;">
+      Points added!
+    </div>
   </main>
   
   <script>
@@ -66,6 +64,8 @@
     let adCountdownInterval;
     let videoPlaying = false;
     let delayInterval;
+    let ratingGiven = false; // Track if the user has already rated
+    let expInterval;
 
     const ads = [
       { url: 'https://www.youtube.com/embed/rIUOFcHKvAU?autoplay=1&controls=0', duration: 6 },
@@ -115,6 +115,10 @@
         clearInterval(adCountdownInterval);
         adContainer.style.display = 'none';
         adFrame.src = '';
+
+        // Send a request to the server to add 10 points to the user
+        addPoints(10);
+
         onAdComplete(); // Resume the main video
       };
     }
@@ -141,38 +145,18 @@
       // Update videoPlaying state based on player state
       if (event.data === YT.PlayerState.PLAYING) {
         videoPlaying = true;
+        startExpGain(); // Start gaining exp when video is playing
       } else {
         videoPlaying = false;
+        stopExpGain(); // Stop gaining exp when video is paused or stopped
       }
     }
 
     // Initialize controls when the player is ready
     function onPlayerReady(event) {
-      const volumeSlider = document.getElementById('volume-slider');
-      const backwardButton = document.getElementById('backward-button');
-      const forwardButton = document.getElementById('forward-button');
-      const fullscreenButton = document.getElementById('fullscreen-button');
       const moviePlayerContainer = document.getElementById('movie-player-container');
-
-      volumeSlider.addEventListener('input', (e) => player.setVolume(e.target.value));
-      backwardButton.addEventListener('click', () => {
-        const currentTime = player.getCurrentTime();
-        player.seekTo(Math.max(0, currentTime - 10), true); // Skip backward 10 seconds
-      });
-      forwardButton.addEventListener('click', () => {
-        const currentTime = player.getCurrentTime();
-        player.seekTo(currentTime + 10, true); // Skip forward 10 seconds
-      });
-
-      fullscreenButton.addEventListener('click', () => {
-        if (moviePlayerContainer.requestFullscreen) {
-          moviePlayerContainer.requestFullscreen();
-        } else if (moviePlayerContainer.webkitRequestFullscreen) { // Safari
-          moviePlayerContainer.webkitRequestFullscreen();
-        } else if (moviePlayerContainer.msRequestFullscreen) { // IE/Edge
-          moviePlayerContainer.msRequestFullscreen();
-        }
-      });
+      const ratingContainer = document.getElementById('rating-container');
+      const starInputs = document.querySelectorAll('.star-rating input');
 
       // Toggle play/pause when the iframe container is clicked
       moviePlayerContainer.addEventListener('click', () => {
@@ -186,6 +170,22 @@
 
       // Force the video to start playing immediately
       player.playVideo();
+
+      // Show the rating option after 30 seconds
+      waitForDelay(30, () => {
+        ratingContainer.style.display = 'block';
+      });
+
+      // Handle rating submission
+      starInputs.forEach((input) => {
+        input.addEventListener('change', () => {
+          if (!ratingGiven) {
+            ratingGiven = true; // Prevent multiple ratings
+            ratingContainer.style.display = 'none'; // Hide the rating container after rating
+            addPoints(5); // Add 5 points and show popup
+          }
+        });
+      });
 
       // Handle ads
       waitForDelay(4, () => {
@@ -203,6 +203,68 @@
             });
           });
         });
+      });
+    }
+
+    // Start gaining exp passively every 10 seconds
+    function startExpGain() {
+      if (!expInterval) {
+        expInterval = setInterval(() => {
+          if (videoPlaying) {
+            addExp(1); // Add 1 exp point
+          }
+        }, 10000); // Every 10 seconds
+      }
+    }
+
+    // Stop gaining exp
+    function stopExpGain() {
+      if (expInterval) {
+        clearInterval(expInterval);
+        expInterval = null;
+      }
+    }
+
+    // Send a request to the server to add exp
+    function addExp(exp) {
+      fetch('/add-exp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ exp }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log(`${exp} exp added to the user.`);
+        } else {
+          console.error('Failed to add exp.');
+        }
+      });
+    }
+
+    function showPointsPopup(points) {
+      const popup = document.getElementById('points-popup');
+      popup.textContent = `${points} points added!`;
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2000); // Show popup for 2 seconds
+    }
+
+    function addPoints(points) {
+      fetch('/add-points', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ points }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log(`${points} points added to the user.`);
+          showPointsPopup(points); // Show popup notification
+        } else {
+          console.error('Failed to add points.');
+        }
       });
     }
 
