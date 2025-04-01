@@ -81,6 +81,20 @@
   </div>
 </div>
 
+<!-- Completion Popup Modal -->
+<div id="completion-popup" class="modal">
+  <div class="modal-content">
+    <h2>Thank You!</h2>
+    <p>Your questionnaire has been successfully submitted. Enjoy your personalized recommendations! You received <strong>50 points</strong>.</p>
+    <button id="close-popup-btn" class="submit-btn">Close</button>
+  </div>
+</div>
+
+<!-- Popup notification -->
+<div id="completion-popup" style="display: none; position: fixed; top: 10%; left: 50%; transform: translate(-50%, 0); background-color: rgba(0, 0, 0, 0.8); color: white; padding: 20px; border-radius: 10px; border: 2px solid white; z-index: 3000; text-align: center; font-size: 1.2em;">
+  Questionnaire submitted successfully!
+</div>
+
   <!-- Netflix-style Top Nav -->
   <header class="top-nav" id="dynamic-menu">
     <div class="nav-left">
@@ -265,8 +279,24 @@ document.getElementById('questionnaire-form').onsubmit = (e) => {
     alert('Please select at least 3 genres.');
     return;
   }
-  // Submeter o formulário
-  e.target.submit();
+
+  // Show the popup immediately
+  const popup = document.getElementById('completion-popup');
+  popup.style.display = 'block';
+
+  // Close popup on button click
+  document.getElementById('close-popup-btn').onclick = () => {
+    popup.style.display = 'none';
+    e.target.submit(); // Submit the form after closing the popup
+  };
+};
+
+// Prevent closing the modal by clicking outside
+window.onclick = function (event) {
+  const modal = document.getElementById('completion-popup');
+  if (event.target === modal) {
+    alert('Please close the popup to proceed.');
+  }
 };
 
   function scrollLeft(button) {
