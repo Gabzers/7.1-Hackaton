@@ -44,34 +44,34 @@
         </div>
         <div class="tier-progress-horizontal">
             <div class="tier">
-                <button class="reward" onclick="claimReward(1)">
+                <button class="reward" onclick="claimReward(this, 1)">
                     <img src="/images/reward1.png" alt="Reward 1">
                 </button>
-                <button class="reward" onclick="claimReward(2)">
+                <button class="reward" onclick="claimReward(this, 2)">
                     <img src="/images/reward2.png" alt="Reward 2">
                 </button>
-                <button class="reward" onclick="claimReward(3)">
+                <button class="reward" onclick="claimReward(this, 3)">
                     <img src="/images/reward3.png" alt="Reward 3">
                 </button>
-                <button class="reward" onclick="claimReward(4)">
+                <button class="reward" onclick="claimReward(this, 4)">
                     <img src="/images/reward4.png" alt="Reward 4">
                 </button>
-                <button class="reward" onclick="claimReward(5)">
+                <button class="reward" onclick="claimReward(this, 5)">
                     <img src="/images/reward5.png" alt="Reward 5">
                 </button>
-                <button class="reward" onclick="claimReward(6)">
+                <button class="reward" onclick="claimReward(this, 6)">
                     <img src="/images/reward6.png" alt="Reward 6">
                 </button>
-                <button class="reward" onclick="claimReward(7)">
+                <button class="reward" onclick="claimReward(this, 7)">
                     <img src="/images/reward7.png" alt="Reward 7">
                 </button>
-                <button class="reward" onclick="claimReward(8)">
+                <button class="reward" onclick="claimReward(this, 8)">
                     <img src="/images/reward8.png" alt="Reward 8">
                 </button>
-                <button class="reward" onclick="claimReward(9)">
+                <button class="reward" onclick="claimReward(this, 9)">
                     <img src="/images/reward9.png" alt="Reward 9">
                 </button>
-                <button class="reward" onclick="claimReward(10)">
+                <button class="reward" onclick="claimReward(this, 10)">
                     <img src="/images/reward10.png" alt="Reward 10">
                 </button>
             </div>
@@ -201,6 +201,23 @@
             progressBarFill.style.width = `${progressPercentage}%`;
             tierNumber.textContent = `Tier ${currentTier}`;
             progressValue.textContent = `${currentExp} / ${tierMaxExp}`;
+
+            // Enable rewards based on the current tier
+            enableRewards(currentTier);
+        }
+
+        function enableRewards(currentTier) {
+            const rewardButtons = document.querySelectorAll(".reward");
+            rewardButtons.forEach((button, index) => {
+                const rewardTier = index + 1; // Reward tier corresponds to button index + 1
+                if (rewardTier <= currentTier) {
+                    button.disabled = false;
+                    button.classList.remove("disabled");
+                } else {
+                    button.disabled = true;
+                    button.classList.add("disabled");
+                }
+            });
         }
 
         function completeMission(missionName, points) {
@@ -288,6 +305,27 @@
             tierNumber.textContent = `Tier ${currentTier}`;
             progressValue.textContent = `${newExp} / ${tierMaxExp}`;
         }
+
+        function claimReward(button, rewardTier) {
+            if (button.disabled) {
+                alert(`You need to reach Tier ${rewardTier} to claim this reward.`);
+                return;
+            }
+            button.classList.toggle("claimed");
+        }
     </script>
+    <style>
+        /* Add styles for claimed rewards */
+        .reward.claimed {
+            background-color: #4caf50; /* Green background for claimed rewards */
+            color: white;
+        }
+
+        /* Add styles for disabled rewards */
+        .reward.disabled {
+            background-color: #ccc; /* Gray background for disabled rewards */
+            cursor: not-allowed;
+        }
+    </style>
 </body>
 </html>
