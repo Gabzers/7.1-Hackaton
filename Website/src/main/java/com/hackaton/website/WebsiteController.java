@@ -16,7 +16,6 @@ public class WebsiteController {
         return "login"; // Return the view name without the "templates/" prefix
     }
 
-
     @GetMapping("/register")
     public String serveRegistrationPage() {
         return "registration"; // Serve registration.html
@@ -25,6 +24,11 @@ public class WebsiteController {
     @GetMapping("/movie")
     public String serveMoviePage() {
         return "movie"; // Serve movie.html
+    }
+
+    @GetMapping("/points-info")
+    public String servePointsInfoPage() {
+        return "points-info"; // Serve points-info.html
     }
 
 }
