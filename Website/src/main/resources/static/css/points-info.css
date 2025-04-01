@@ -31,14 +31,24 @@ body {
     cursor: pointer;
 }
 .nav-icon {
-    color: #E5E5E5;
+    color: #ffffff;
     font-size: 18px;
     text-decoration: none;
     margin: 0 15px;
-    transition: color 0.3s;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: #e50914;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.nav-icon i {
+    margin-right: 5px;
 }
 .nav-icon:hover {
-    color: #e50914;
+    background-color: #b20710;
+    transform: scale(1.05);
 }
 
 /* Content Styles */
