@@ -192,3 +192,40 @@ nav ul li a:hover {
     color: #e50914; /* Netflix red */
     margin: 10px 0;
 }
+
+/* Countdown */
+.countdown {
+    text-align: center;
+    margin: 20px auto; /* Center horizontally */
+    padding: 20px;
+    max-width: 1500px; /* Set a maximum width */
+    background: linear-gradient(135deg, #e50914, #f40612); /* Netflix red gradient */
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.countdown p {
+    margin: 0;
+}
+
+.countdown #countdown {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Pulse animation for countdown */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    }
+}
