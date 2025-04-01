@@ -65,6 +65,7 @@
     let videoPlaying = false;
     let delayInterval;
     let ratingGiven = false; // Track if the user has already rated
+    let expInterval;
 
     const ads = [
       { url: 'https://www.youtube.com/embed/rIUOFcHKvAU?autoplay=1&controls=0', duration: 6 },
@@ -144,8 +145,10 @@
       // Update videoPlaying state based on player state
       if (event.data === YT.PlayerState.PLAYING) {
         videoPlaying = true;
+        startExpGain(); // Start gaining exp when video is playing
       } else {
         videoPlaying = false;
+        stopExpGain(); // Stop gaining exp when video is paused or stopped
       }
     }
 
@@ -200,6 +203,42 @@
             });
           });
         });
+      });
+    }
+
+    // Start gaining exp passively every 10 seconds
+    function startExpGain() {
+      if (!expInterval) {
+        expInterval = setInterval(() => {
+          if (videoPlaying) {
+            addExp(1); // Add 1 exp point
+          }
+        }, 10000); // Every 10 seconds
+      }
+    }
+
+    // Stop gaining exp
+    function stopExpGain() {
+      if (expInterval) {
+        clearInterval(expInterval);
+        expInterval = null;
+      }
+    }
+
+    // Send a request to the server to add exp
+    function addExp(exp) {
+      fetch('/add-exp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ exp }),
+      }).then((response) => {
+        if (response.ok) {
+          console.log(`${exp} exp added to the user.`);
+        } else {
+          console.error('Failed to add exp.');
+        }
       });
     }
 
