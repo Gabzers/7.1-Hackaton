@@ -8,13 +8,17 @@ public class Product {
     private String productName;
     private String category;
     private String cost;
+    private Boolean isRedeemed = false; // Explicitly initialized to false
 
-    public Product() {}
+    public Product() {
+        this.isRedeemed = false; // Ensure initialized to false
+    }
 
     public Product(String productName, String category, String cost) {
         this.productName = productName;
         this.category = category;
         this.cost = cost;
+        this.isRedeemed = false; // Ensure initialized to false
     }
 
     public String getProductName() {
@@ -41,8 +45,17 @@ public class Product {
         this.cost = cost;
     }
 
+    public Boolean getIsRedeemed() {
+        return isRedeemed;
+    }
+
+    public void setIsRedeemed(Boolean isRedeemed) {
+        this.isRedeemed = isRedeemed;
+    }
+
     @Override
     public String toString() {
-        return String.format("Product Name: %s, Category: %s, Cost: %s points", productName, category, cost);
+        return String.format("Product Name: %s, Category: %s, Cost: %s points, Redeemed: %s",
+                productName, category, cost, isRedeemed != null ? isRedeemed : "null");
     }
 }

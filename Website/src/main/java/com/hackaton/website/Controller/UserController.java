@@ -25,6 +25,7 @@ import com.hackaton.website.Entity.Product;
 import com.hackaton.website.Entity.Movies;
 import com.hackaton.website.Repository.ShopRepository;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Controller
 public class UserController {
@@ -259,18 +260,15 @@ public class UserController {
 
     @GetMapping("/shop")
     public String serveShopPage(HttpSession session, Model model) {
-        // Check if the user is logged in
         User loggedUser = (User) session.getAttribute("loggedUser");
         if (loggedUser == null) {
             return "redirect:/login";
         }
 
-        // Fetch the user's shop
         Shop userShop = shopRepository.findByUserId(loggedUser.getId());
         LocalDateTime now = LocalDateTime.now();
 
         if (userShop == null || userShop.getCreationDate().plusDays(7).isBefore(now)) {
-            // Create a new shop if none exists or 7 days have passed
             List<Map<String, String>> randomProducts = userService.recommendRandomProducts();
             List<Map<String, String>> recommendedMovies = userService.recommendMovies(loggedUser);
 
@@ -297,20 +295,70 @@ public class UserController {
 
             userShop = new Shop(products);
             userShop.setMovies(movies);
-            userShop.setUser(loggedUser); // Associate the shop with the user
+            userShop.setUser(loggedUser);
             shopRepository.save(userShop);
         }
 
-        // Calculate the countdown for the next shop refresh
         LocalDateTime nextRefresh = userShop.getCreationDate().plusDays(7);
-        long days = java.time.Duration.between(now, nextRefresh).toDays();
-        long hours = java.time.Duration.between(now, nextRefresh).toHoursPart();
-        long minutes = java.time.Duration.between(now, nextRefresh).toMinutesPart();
+        String formattedCountdownDate = nextRefresh.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME); // Format as ISO 8601
 
         model.addAttribute("shop", userShop);
-        model.addAttribute("countdown", String.format("%d days, %d hours, %d minutes", days, hours, minutes));
-        model.addAttribute("countdownDate", nextRefresh.toString()); // Ensure ISO 8601 format
+        model.addAttribute("countdownDate", formattedCountdownDate);
+
+        // Log data for debugging
+        logger.info("Shop: {}", userShop);
+        logger.info("Products: {}", userShop.getProducts());
+        logger.info("Movies: {}", userShop.getMovies());
+        logger.info("Countdown Date: {}", formattedCountdownDate);
 
         return "shop";
+    }
+
+    @PostMapping("/redeem-movie")
+    @ResponseBody
+    public String redeemMovie(@RequestParam("movieTitle") String movieTitle, HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "User not logged in";
+        }
+
+        Shop userShop = shopRepository.findByUserId(loggedUser.getId());
+        if (userShop == null) {
+            return "Shop not found";
+        }
+
+        for (Movies movie : userShop.getMovies()) { // Ensure correct type is used
+            if (movie.getTitle().equals(movieTitle) && Boolean.FALSE.equals(movie.getIsRedeemed())) {
+                movie.setIsRedeemed(true);
+                shopRepository.save(userShop);
+                return "Movie redeemed successfully";
+            }
+        }
+
+        return "Movie already redeemed or not found";
+    }
+
+    @PostMapping("/redeem-product")
+    @ResponseBody
+    public String redeemProduct(@RequestParam("productName") String productName, HttpSession session) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "User not logged in";
+        }
+
+        Shop userShop = shopRepository.findByUserId(loggedUser.getId());
+        if (userShop == null) {
+            return "Shop not found";
+        }
+
+        for (Product product : userShop.getProducts()) { // Ensure correct type is used
+            if (product.getProductName().equals(productName) && Boolean.FALSE.equals(product.getIsRedeemed())) {
+                product.setIsRedeemed(true);
+                shopRepository.save(userShop);
+                return "Product redeemed successfully";
+            }
+        }
+
+        return "Product already redeemed or not found";
     }
 }

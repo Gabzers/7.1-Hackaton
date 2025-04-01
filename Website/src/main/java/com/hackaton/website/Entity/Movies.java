@@ -9,14 +9,18 @@ public class Movies {
     private String genres;
     private String averageRating;
     private String releaseYear;
+    private Boolean isRedeemed = false; // Explicitly initialized to false
 
-    public Movies() {}
+    public Movies() {
+        this.isRedeemed = false; // Ensure initialized to false
+    }
 
     public Movies(String title, String genres, String averageRating, String releaseYear) {
         this.title = title;
         this.genres = genres;
         this.averageRating = averageRating;
         this.releaseYear = releaseYear;
+        this.isRedeemed = false; // Ensure initialized to false
     }
 
     public String getTitle() {
@@ -51,8 +55,17 @@ public class Movies {
         this.releaseYear = releaseYear;
     }
 
+    public Boolean getIsRedeemed() {
+        return isRedeemed;
+    }
+
+    public void setIsRedeemed(Boolean isRedeemed) {
+        this.isRedeemed = isRedeemed;
+    }
+
     @Override
     public String toString() {
-        return String.format("Title: %s, Genres: %s, Rating: %s, Release Year: %s", title, genres, averageRating, releaseYear);
+        return String.format("Title: %s, Genres: %s, Rating: %s, Release Year: %s, Redeemed: %s",
+                title, genres, averageRating, releaseYear, isRedeemed != null ? isRedeemed : "null");
     }
 }

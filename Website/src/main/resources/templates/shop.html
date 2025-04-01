@@ -33,8 +33,10 @@
                 <img src="https://via.placeholder.com/300" alt="Product Image">
                 <h3 th:text="${product.productName}">Product Name</h3>
                 <p th:text="${product.category}">Category</p>
-                <span class="points" th:text="'Cost ' + ${product.cost} + ' points'">Cost and Points</span>
-                <a href="#" class="button">Redeem</a>
+                <span class="points" th:text="'Cost: ' + ${product.cost} + ' points'">Cost and Points</span>
+                <a href="#" class="button" th:if="${product.isRedeemed == false}" 
+                   data-product-name="${product.productName}" onclick="redeemProduct(this)">Redeem</a>
+                <span th:if="${product.isRedeemed == true}">Already redeemed</span>
             </div>
         </div>
     </div>
@@ -48,15 +50,17 @@
                 <p th:text="${movie.genres}">Genres</p>
                 <span class="points" th:text="'Rating: ' + ${movie.averageRating}">Average Rating</span>
                 <p th:text="'Release Year: ' + ${movie.releaseYear}">Release Year</p>
-                <span class="points">Cost 999 points</span>
-                <a href="#" class="button">Redeem</a>
+                <span class="points">Cost: 999 points</span>
+                <a href="#" class="button" th:if="${movie.isRedeemed == false}" 
+                   data-movie-title="${movie.title}" onclick="redeemMovie(this)">Redeem</a>
+                <span th:if="${movie.isRedeemed == true}">Already redeemed</span>
             </div>
         </div>
     </div>
 
     <script th:inline="javascript">
         const countdownElement = document.getElementById('countdown');
-        const nextRefreshTime = new Date(/*[[${countdownDate}]]*/).getTime(); // Ensure countdownDate is passed as a valid ISO string
+        const nextRefreshTime = new Date(/*[[${countdownDate}]]*/ '2025-04-08T03:04:05').getTime(); // Ensure valid ISO 8601 format
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -77,6 +81,30 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+    </script>
+
+    <script>
+        function redeemProduct(element) {
+            const productName = element.getAttribute('data-product-name');
+            fetch('/redeem-product', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ productName })
+            }).then(response => response.text())
+              .then(alert)
+              .then(() => location.reload());
+        }
+
+        function redeemMovie(element) {
+            const movieTitle = element.getAttribute('data-movie-title');
+            fetch('/redeem-movie', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ movieTitle })
+            }).then(response => response.text())
+              .then(alert)
+              .then(() => location.reload());
+        }
     </script>
 </body>
 </html>
