@@ -3,17 +3,17 @@ body {
     line-height: normal; /* Removed custom line-height */
     margin: 0;
     padding: 0;
-    background: linear-gradient(180deg, #121212, #1e1e1e); /* Smooth gradient background */
-    color: #f5f5f5; /* Softer white for better readability */
+    background: linear-gradient(180deg, #121212, #1e1e1e); /* Match site theme */
+    color: #ffffff; /* Bright white for readability */
     font-size: 16px; /* Base font size for scaling */
 }
 
 .header {
     text-align: center;
     padding: 20px; /* Reverted padding */
-    background: linear-gradient(90deg, #2b3c4d, #1e1e1e); /* Gradient header */
-    border-bottom: 2px solid #e50914; /* Add a red border for emphasis */
-    box-shadow: none; /* Removed shadow */
+    background: linear-gradient(90deg, #2b3c4d, #1e1e1e); /* Match site theme */
+    border-bottom: 3px solid #e50914; /* Netflix red for accent */
+    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.5); /* Red glow */
 }
 
 .header h1 {
@@ -23,16 +23,16 @@ body {
 .banner {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to bottom, #1e1e1e, #121212); /* Enhanced gradient */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Add depth */
+    background: linear-gradient(to bottom, #1e1e1e, #121212); /* Match site theme */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8); /* Add depth */
 }
 
 .banner-content h1 {
     font-size: 36px; /* Reverted font size */
     font-weight: normal; /* Removed bold styling */
     margin-bottom: 10px;
-    color: #e50914; /* Netflix red */
-    text-shadow: 0 4px 10px rgba(229, 9, 20, 0.7); /* Glow effect */
+    color: #e50914; /* Red accent */
+    text-shadow: 0 4px 15px rgba(229, 9, 20, 0.8); /* Red glow */
 }
 
 .banner h1 {
@@ -43,8 +43,8 @@ body {
 .banner-content p {
     font-size: 18px; /* Reverted font size */
     margin-bottom: 20px;
-    color: #fff; /* Reverted to white text */
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    color: #c5c6c7; /* Subtle metallic white */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Subtle shadow */
 }
 
 .banner p {
@@ -128,12 +128,12 @@ body {
 .battle-pass-container {
     max-width: 1200px;
     margin: 20px auto;
-    background: linear-gradient(135deg, #1e1e1e, #2b3c4d, #121212); /* Multi-tone gradient */
+    background: linear-gradient(135deg, #1e1e1e, #2b3c4d); /* Match site theme */
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 30px rgba(229, 9, 20, 0.5); /* Red glow */
     width: 90%;
-    border: 2px solid #e50914; /* Red border for emphasis */
+    border: 3px solid #e50914; /* Netflix red for accent */
     animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in */
 }
 
@@ -156,19 +156,20 @@ body {
 .progress-bar {
     position: relative;
     height: 30px;
-    background: linear-gradient(90deg, #333, #444, #555); /* Enhanced gradient */
+    background: linear-gradient(90deg, #3a3f44, #4b5358); /* Metallic gradient */
     border-radius: 15px;
     overflow: hidden;
     margin: 20px auto;
     width: 100%; /* Full width for better scaling */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #e50914; /* Red accent */
 }
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #e50914, #ff6f61); /* Vibrant gradient */
+    background: linear-gradient(90deg, #e50914, #b20710); /* Red gradient */
     transition: width 0.5s ease;
-    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.7); /* Glow effect */
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.8); /* Red glow */
 }
 
 .progress-text {
@@ -195,8 +196,8 @@ body {
     font-size: 1.8em; /* Reverted font size */
     font-weight: bold; /* Removed bold styling */
     margin-top: 15px;
-    color: #e50914; /* Reverted to red */
-    text-shadow: 0 4px 10px rgba(229, 9, 20, 0.7); /* Glow effect */
+    color: #e50914; /* Red accent */
+    text-shadow: 0 4px 15px rgba(229, 9, 20, 0.8); /* Red glow */
     text-align: center;
 }
 
@@ -247,21 +248,22 @@ body {
 .reward {
     flex: 1; /* Ensure buttons are evenly spaced */
     margin: 0; /* Remove individual margins */
-    background: linear-gradient(135deg, #444, #555, #666); /* Enhanced gradient */
+    background: linear-gradient(135deg, #2b3c4d, #1e1e1e); /* Match site theme */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 2px solid #e50914; /* Red border for emphasis */
+    border: 2px solid #e50914; /* Netflix red for accent */
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease; /* Simplify transition */
+    box-shadow: none; /* Remove glow */
 }
 
 .reward:hover {
-    transform: scale(1.1); /* Slightly larger hover effect */
-    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.7); /* Glow effect */
+    transform: scale(1.1); /* Zoom effect on hover */
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.8); /* Red glow */
 }
 
 .reward img {
@@ -305,7 +307,7 @@ body {
 }
 
 .purchase-button {
-    background: linear-gradient(90deg, #f1c40f, #d4ac0d); /* Vibrant gradient */
+    background: linear-gradient(90deg, #e50914, #b20710); /* Netflix red gradient */
     color: black;
     padding: 10px 20px; /* Reverted padding */
     border: none;
@@ -314,18 +316,18 @@ body {
     font-weight: normal; /* Removed bold styling */
     cursor: pointer;
     transition: background-color 0.3s ease; /* Simplified transition */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add depth */
+    box-shadow: none; /* Remove glow */
 }
 
 .purchase-button:hover {
-    background: linear-gradient(90deg, #d4ac0d, #b7950b); /* Darker hover gradient */
+    background: linear-gradient(90deg, #45a29e, #1f2833); /* Darker hover gradient */
 }
 
 .tier-progress-horizontal {
     display: flex;
     justify-content: center; /* Center the rewards horizontally */
     align-items: center; /* Center the rewards vertically */
-    gap: 20px; /* Increase spacing for better visual separation */
+    gap: 20px; /* Increased spacing for better visual separation */
     overflow-x: auto;
     padding: 10px 0;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
@@ -340,22 +342,23 @@ body {
     justify-content: space-between; /* Space between buttons */
     align-items: center;
     gap: 5px; /* Reduce gap to visually group buttons */
-    border: 2px solid #e50914; /* Red border for emphasis */
+    border: 2px solid #e50914; /* Netflix red for accent */
     border-radius: 15px;
     overflow: hidden;
-    background: linear-gradient(145deg, #222, #333, #444); /* Enhanced gradient */
+    background: linear-gradient(145deg, #1e1e1e, #2b3c4d); /* Match site theme */
     padding: 10px; /* Add padding to create a grouped effect */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     position: relative;
     width: auto;
     height: auto; /* Adjust height to fit content */
+    box-shadow: none; /* Remove glow */
 }
 
 .tier:hover {
     background-color: #222; /* Removed hover background */
-    transform: scale(1.15); /* Slightly larger hover effect */
-    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.7); /* Glow effect */
+    transform: none; /* Remove hover zoom effect */
+    box-shadow: none; /* No additional shadow */
 }
 
 .tier .reward {
@@ -397,17 +400,18 @@ body {
 }
 
 .mission-card {
-    background: linear-gradient(135deg, #222, #333, #444); /* Enhanced gradient */
-    border: 2px solid #e50914; /* Red border for emphasis */
+    background: linear-gradient(135deg, #1e1e1e, #2b3c4d); /* Match site theme */
+    border: 2px solid #e50914; /* Netflix red for accent */
     border-radius: 10px;
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none; /* Remove glow */
 }
 
 .mission-card:hover {
     transform: scale(1.1); /* Slightly larger hover effect */
-    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.7); /* Glow effect */
+    box-shadow: none; /* No additional shadow */
 }
 
 .mission-card span {
