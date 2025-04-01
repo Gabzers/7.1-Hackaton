@@ -133,27 +133,28 @@ p, span {
   color: #e50914;
 }
 
-/* Lado Direito do Nav (Ícones) */
-.nav-right {
-  position: absolute; /* Position it absolutely */
-  top: 10px; /* Align to the top */
-  right: 30px; /* Align to the right */
-  display: flex;
-  align-items: center; /* Align items vertically */
-  gap: 20px; /* Increased gap for more spacing */
-}
-
+/* Unified .nav-icon class */
 .nav-icon {
   display: flex;
-  align-items: center; /* Align icon and text vertically */
+  align-items: center;
   color: #fff;
-  font-size: 18px; /* Tamanho do ícone de logout */
+  font-size: 15px; /* Slightly increased font size */
+  padding: 10px 14px; /* Slightly increased padding */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-icon:hover {
-  color: #e50914; /* cor similar ao botão de logout do Netflix */
+  color: #e50914; /* Netflix red */
+}
+
+.nav-right {
+  display: flex; /* Ensure icons are side by side */
+  align-items: center; /* Align items vertically */
+  gap: 0px; /* Add spacing between icons */
+  position: relative; /* Remove absolute positioning */
+  top: 0; /* Reset top alignment */
+  right: -45px; /* Reset right alignment */
 }
 
 /* ---------- BANNER ---------- */

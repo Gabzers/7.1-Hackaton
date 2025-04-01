@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', Arial, sans-serif; /* Replace with the desired font */
     background-color: #121212;
     color: #E5E5E5;
     line-height: 1.5;
@@ -31,10 +31,14 @@ body {
 }
 
 .nav-right {
+    position: center; /* Position it absolutely */
+    top: 10px; /* Align to the top */
+    right: 20px; /* Align to the right */
     display: flex;
-    align-items: center;
-    gap: 20px;
-}
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Increased gap for more spacing */
+  }
+
 .logo-text {
     font-size: 24px;
     font-weight: bold;
