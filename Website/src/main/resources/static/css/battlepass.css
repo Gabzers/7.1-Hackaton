@@ -13,7 +13,7 @@ body {
     padding: 20px; /* Reverted padding */
     background: linear-gradient(90deg, #2b3c4d, #1e1e1e); /* Match site theme */
     border-bottom: 3px solid #e50914; /* Netflix red for accent */
-    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.5); /* Red glow */
+    box-shadow: none; /* Remove neon glow */
 }
 
 .header h1 {
@@ -32,7 +32,7 @@ body {
     font-weight: normal; /* Removed bold styling */
     margin-bottom: 10px;
     color: #e50914; /* Red accent */
-    text-shadow: 0 4px 15px rgba(229, 9, 20, 0.8); /* Red glow */
+    text-shadow: none; /* Remove neon glow */
 }
 
 .banner h1 {
@@ -128,13 +128,13 @@ body {
 .battle-pass-container {
     max-width: 1200px;
     margin: 20px auto;
-    background: linear-gradient(135deg, #1e1e1e, #2b3c4d); /* Match site theme */
-    border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 8px 30px rgba(229, 9, 20, 0.5); /* Red glow */
+    box-shadow: none; /* Remove neon glow */
     width: 90%;
-    border: 3px solid #e50914; /* Netflix red for accent */
+    border: none; /* Remove border */
+    border-radius: 0; /* Remove rounded corners */
     animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in */
+    background: none; /* Remove background */
 }
 
 .tier-progress {
@@ -161,7 +161,7 @@ body {
     overflow: hidden;
     margin: 20px auto;
     width: 100%; /* Full width for better scaling */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: none; /* Remove neon glow */
     border: 2px solid #e50914; /* Red accent */
 }
 
@@ -169,7 +169,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, #e50914, #b20710); /* Red gradient */
     transition: width 0.5s ease;
-    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.8); /* Red glow */
+    box-shadow: none; /* Remove neon glow */
 }
 
 .progress-text {
@@ -197,7 +197,7 @@ body {
     font-weight: bold; /* Removed bold styling */
     margin-top: 15px;
     color: #e50914; /* Red accent */
-    text-shadow: 0 4px 15px rgba(229, 9, 20, 0.8); /* Red glow */
+    text-shadow: none; /* Remove neon glow */
     text-align: center;
 }
 
@@ -263,7 +263,7 @@ body {
 
 .reward:hover {
     transform: scale(1.1); /* Zoom effect on hover */
-    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.8); /* Red glow */
+    box-shadow: none; /* Remove neon glow */
 }
 
 .reward img {
@@ -411,7 +411,7 @@ body {
 
 .mission-card:hover {
     transform: scale(1.1); /* Slightly larger hover effect */
-    box-shadow: none; /* No additional shadow */
+    box-shadow: none; /* Remove neon glow */
 }
 
 .mission-card span {
