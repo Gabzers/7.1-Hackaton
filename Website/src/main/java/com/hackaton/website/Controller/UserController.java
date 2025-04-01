@@ -20,6 +20,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Arrays;
+import com.hackaton.website.Entity.Shop;
+import com.hackaton.website.Entity.Product;
+import com.hackaton.website.Repository.ShopRepository;
 
 @Controller
 public class UserController {
@@ -31,6 +34,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ShopRepository shopRepository;
 
     @PostMapping("/register")
     public String registerUser(@RequestParam("name") String name,
@@ -260,27 +266,24 @@ public class UserController {
 
         List<Map<String, String>> randomProducts = userService.recommendRandomProducts();
 
-        // Format product data
-        randomProducts.forEach(product -> {
-            // Format cost: remove decimal and multiply by 100
-            String cost = product.get("cost");
-            if (cost != null) {
-                product.put("cost", cost.replace(".", ""));
-            }
-
-            // Limit product_name to 60 characters or 8 words
+        // Format product data and convert to Product objects
+        List<Product> products = randomProducts.stream().map(product -> {
+            String cost = product.get("cost").replace(".", ""); // Format cost
             String productName = product.get("product_name");
-            if (productName != null) {
-                String[] words = productName.split("\\s+");
-                if (productName.length() > 60) {
-                    product.put("product_name", productName.substring(0, 60) + "...");
-                } else if (words.length > 8) {
-                    product.put("product_name", String.join(" ", Arrays.copyOf(words, 8)) + "...");
-                }
+            String[] words = productName.split("\\s+");
+            if (productName.length() > 60) {
+                productName = productName.substring(0, 60) + "...";
+            } else if (words.length > 8) {
+                productName = String.join(" ", Arrays.copyOf(words, 8)) + "...";
             }
-        });
+            return new Product(productName, product.get("category"), cost);
+        }).toList();
 
-        model.addAttribute("randomProducts", randomProducts);
+        // Create and save the Shop entity
+        Shop shop = new Shop(products);
+        shopRepository.save(shop);
+
+        model.addAttribute("shop", shop);
         return "shop";
     }
 }

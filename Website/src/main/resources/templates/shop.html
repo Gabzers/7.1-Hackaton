@@ -5,7 +5,6 @@
     <title>Shop</title>
     <link rel="stylesheet" type="text/css" href="/css/shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer" />
-
 </head>
 <body>
     <header class="top-nav">
@@ -27,11 +26,11 @@
     <div class="container" id="rewards">
         <h2>Available Rewards</h2>
         <div class="grid">
-            <div class="card" th:each="product : ${randomProducts}">
+            <div class="card" th:each="product : ${shop.products}">
                 <img src="https://via.placeholder.com/300" alt="Product Image">
-                <h3 th:text="${product['product_name']}">Product Name</h3>
-                <p th:text="${product['category']}">Category</p>
-                <span class="points" th:text="'Cost ' + ${product['cost']} + ' points'">Cost and Points</span>
+                <h3 th:text="${product.productName}">Product Name</h3>
+                <p th:text="${product.category}">Category</p>
+                <span class="points" th:text="'Cost ' + ${product.cost} + ' points'">Cost and Points</span>
                 <a href="#" class="button">Redeem</a>
             </div>
         </div>
