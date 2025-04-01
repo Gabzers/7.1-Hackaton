@@ -63,16 +63,15 @@ body {
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 15px; /* Adjust spacing between logo and Home button */
+    gap: 30px; /* Adjusted gap for alignment */
 }
 
 .nav-icon {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1em;
     display: flex;
     align-items: center;
-    gap: 5px; /* Add spacing between icon and text */
+    color: #fff;
+    font-size: 16px; /* Match font size with nav-menu */
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
