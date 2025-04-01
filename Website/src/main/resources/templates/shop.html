@@ -96,23 +96,25 @@
         const apiKey = '50ce0-20'; // Amazon Product Advertising API key
         const affiliateBaseUrl = 'https://webservices.amazon.com/paapi5/getitems';
         const amazonRandomImages = [
-            '/imagesamazon/unnamed.jpg',
-            '/imagesAmazon/product2.jpg',
-            '/imagesAmazon/product3.jpg',
-            '/imagesAmazon/product4.jpg',
-            '/imagesAmazon/product5.jpg',
-            '/imagesAmazon/product6.jpg',
-            '/imagesAmazon/product7.jpg',
-            '/imagesAmazon/product8.jpg',
-            '/imagesAmazon/product9.jpg',
-            '/imagesAmazon/product10.jpg'
-        ];
+            'imagesAmazon/81SA93lYhzL.jpg',
+            'imagesAmazon/AmazonLogo.png',
 
+            //'/imagesAmazon/product2.jpg',
+            //'/imagesAmazon/product3.jpg',
+            //'/imagesAmazon/product4.jpg',
+            //'/imagesAmazon/product5.jpg',
+            //'/imagesAmazon/product6.jpg',
+            //'/imagesAmazon/product7.jpg',
+            //'/imagesAmazon/product8.jpg',
+            //'/imagesAmazon/product9.jpg',
+            //'/imagesAmazon/product10.jpg'
+        ];
+        
         function assignRandomAmazonImage(productElement) {
             const randomIndex = Math.floor(Math.random() * amazonRandomImages.length);
             productElement.src = amazonRandomImages[randomIndex];
         }
-
+        
         async function fetchAmazonRewardImage(productName, productElement) {
             if (!productName || !productElement) return;
 
