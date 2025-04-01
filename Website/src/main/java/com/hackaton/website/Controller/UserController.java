@@ -179,7 +179,7 @@ public class UserController {
     public String serveHomePage(HttpSession session, Model model) {
         User loggedUser = (User) session.getAttribute("loggedUser");
         if (loggedUser == null) {
-            return "redirect:/login";
+            return "redirect:/login"; // Redirect to login if no user is logged in
         }
 
         // Fetch the user with movieGenres eagerly loaded
@@ -525,5 +525,11 @@ public class UserController {
         session.setAttribute("loggedUser", loggedUser);
 
         return "Mission completed successfully";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // Invalidate the session
+        return "redirect:/login"; // Redirect to the login page
     }
 }
