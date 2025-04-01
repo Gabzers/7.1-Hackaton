@@ -29,26 +29,63 @@ public class ProductService {
         Collections.shuffle(productNames); // Shuffle the list to randomize the order
         return productNames.stream()
                 .limit(4) // Limit to 4 random products
-                .map(Product::new)
+                .map(name -> new Product(name, 0, 0)) // Default points and cost to 0
                 .collect(Collectors.toList());
     }
 
     public List<Product> getProductsFromCSV(String filePath) {
         List<Product> products = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
-                Product product = new Product(values[0]); // Apenas o nome do produto
-                products.add(product);
+            CSVParser parser = new CSVParser(br, CSVFormat.DEFAULT.builder()
+                    .setHeader()
+                    .setSkipHeaderRecord(true)
+                    .setIgnoreSurroundingSpaces(true)
+                    .setTrim(true)
+                    .build());
+
+            for (CSVRecord record : parser) {
+                try {
+                    String name = record.get("product_name");
+                    name = limitProductName(name); // Limit product name
+                    int points = parseInteger(record.get("noRatings"));
+                    int cost = (int) (parseDouble(record.get("cost")) * 100);
+                    Product product = new Product(name, points, cost);
+                    products.add(product);
+                } catch (Exception e) {
+                    logger.warn("Error processing record: {}", record, e);
+                }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Error reading CSV file: {}", filePath, e);
         }
         Collections.shuffle(products); // Shuffle the list to randomize the order
         return products.stream()
                 .limit(4) // Limit to 4 random products
                 .collect(Collectors.toList());
+    }
+
+    private String limitProductName(String name) {
+        String[] words = name.split("\\s+");
+        String limitedName = String.join(" ", Arrays.copyOfRange(words, 0, Math.min(words.length, 8))); // Limit to 8 words
+        return limitedName.length() > 50 ? limitedName.substring(0, 50) + "..." : limitedName; // Limit to 50 characters
+    }
+
+    private int parseInteger(String value) {
+        try {
+            return (int) Double.parseDouble(value); // Handle both integer and decimal formats
+        } catch (NumberFormatException e) {
+            logger.warn("Invalid integer value: {}", value);
+            return 0; // Default to 0 if parsing fails
+        }
+    }
+
+    private double parseDouble(String value) {
+        try {
+            return Double.parseDouble(value); // Parse double values
+        } catch (NumberFormatException e) {
+            logger.warn("Invalid double value: {}", value);
+            return 0.0; // Default to 0.0 if parsing fails
+        }
     }
 
     public int completeMission(User user, String missionName) {

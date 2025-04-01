@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,71 +26,77 @@ public class ProductController {
     @Autowired
     private UserService userService; // Add UserService as a dependency
 
- 
-@GetMapping("/shop")
+    @GetMapping("/shop")
     public String serveShopPage(HttpSession session, Model model) {
-    if (session.getAttribute("loggedUser") == null) {
-        return "redirect:/login";
+        if (session.getAttribute("loggedUser") == null) {
+            return "redirect:/login";
+        }
+
+        // Diretórios dos três conjuntos de CSVs
+        String directoryPath1 = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
+        String directoryPath2 = "Website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv";
+        String directoryPath3 = "Website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv";
+
+        // Obter produtos de cada categoria
+        List<Product> products1 = productService.getProductsFromCSV(directoryPath1);
+        List<Product> products2 = productService.getProductsFromCSV(directoryPath2);
+        List<Product> products3 = productService.getProductsFromCSV(directoryPath3);
+
+        // Combinar todas as categorias em uma única lista
+        List<Product> allProducts = new ArrayList<>();
+        allProducts.addAll(products1);
+        allProducts.addAll(products2);
+        allProducts.addAll(products3);
+
+        // Ordenar por pontos em ordem decrescente
+        allProducts.sort((p1, p2) -> Integer.compare(p2.getPoints(), p1.getPoints()));
+
+        // Adicionar ao modelo para serem usados no Thymeleaf
+        model.addAttribute("allProducts", allProducts);
+
+        return "shop";
     }
 
-    // Diretórios dos três conjuntos de CSVs
-    String directoryPath1 = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
-    String directoryPath2 = "Website/src/main/resources/csv/CostBenefit_Results/Products_5_To_10_Euros.csv";
-    String directoryPath3 = "Website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv";
+    @PostMapping("/completeMission")
+    @ResponseBody
+    public Map<String, Integer> completeMission(HttpSession session, @RequestParam String missionName) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            System.out.println("User not logged in. Returning 0 points.");
+            return Map.of("pointsEarned", 0); // Retorna 0 pontos se o usuário não estiver logado
+        }
 
-    // Obter produtos de cada categoria (limitar a 10 produtos)
-    List<Product> products1 = productService.getProductsFromCSV(directoryPath1).stream().limit(4).toList();
-    List<Product> products2 = productService.getProductsFromCSV(directoryPath2).stream().limit(4).toList();
-    List<Product> products3 = productService.getProductsFromCSV(directoryPath3).stream().limit(4).toList();
+        System.out.println("Mission name received: " + missionName);
+        System.out.println("Logged user: " + loggedUser.getName());
 
-    // Adicionar ao modelo para serem usados no Thymeleaf
-    model.addAttribute("products1", products1);
-    model.addAttribute("products2", products2);
-    model.addAttribute("products3", products3);
+        int pointsEarned = 0;
+        try {
+            pointsEarned = productService.completeMission(loggedUser, missionName);
+            session.setAttribute("loggedUser", loggedUser); // Atualiza a sessão com os novos pontos
+            System.out.println("Points earned: " + pointsEarned);
+        } catch (Exception e) {
+            System.err.println("Error completing mission: " + e.getMessage());
+            e.printStackTrace();
+        }
 
-    return "shop";
-}
-
-@PostMapping("/completeMission")
-@ResponseBody
-public Map<String, Integer> completeMission(HttpSession session, @RequestParam String missionName) {
-    User loggedUser = (User) session.getAttribute("loggedUser");
-    if (loggedUser == null) {
-        System.out.println("User not logged in. Returning 0 points.");
-        return Map.of("pointsEarned", 0); // Retorna 0 pontos se o usuário não estiver logado
+        return Map.of("pointsEarned", pointsEarned);
     }
 
-    System.out.println("Mission name received: " + missionName);
-    System.out.println("Logged user: " + loggedUser.getName());
+    @PostMapping("/claimReward")
+    @ResponseBody
+    public String claimReward(HttpSession session, @RequestParam int tier) {
+        User loggedUser = (User) session.getAttribute("loggedUser");
+        if (loggedUser == null) {
+            return "not_logged_in"; // Return a clean identifier for not logged in
+        }
 
-    int pointsEarned = 0;
-    try {
-        pointsEarned = productService.completeMission(loggedUser, missionName);
-        session.setAttribute("loggedUser", loggedUser); // Atualiza a sessão com os novos pontos
-        System.out.println("Points earned: " + pointsEarned);
-    } catch (Exception e) {
-        System.err.println("Error completing mission: " + e.getMessage());
-        e.printStackTrace();
+        try {
+            String result = userService.claimReward(loggedUser, tier);
+            session.setAttribute("loggedUser", loggedUser); // Update session with claimed reward
+            return result.isEmpty() ? "success" : "already_claimed"; // Return clean identifiers
+        } catch (Exception e) {
+            return "error"; // Return a clean identifier for errors
+        }
     }
-
-    return Map.of("pointsEarned", pointsEarned);
-}
-
-@PostMapping("/claimReward")
-@ResponseBody
-public String claimReward(HttpSession session, @RequestParam int tier) {
-    User loggedUser = (User) session.getAttribute("loggedUser");
-    if (loggedUser == null) {
-        return "not_logged_in"; // Return a clean identifier for not logged in
-    }
-
-    try {
-        String result = userService.claimReward(loggedUser, tier);
-        session.setAttribute("loggedUser", loggedUser); // Update session with claimed reward
-        return result.isEmpty() ? "success" : "already_claimed"; // Return clean identifiers
-    } catch (Exception e) {
-        return "error"; // Return a clean identifier for errors
-    }
-}
 
 }
