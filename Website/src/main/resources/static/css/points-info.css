@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px; /* Match padding with shop page */
+    padding: 10px 50px;
     background: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
     position: fixed;
     top: 0;
@@ -35,10 +35,16 @@ body {
     top: 10px; /* Align to the top */
     right: 20px; /* Align to the right */
     display: flex;
+<<<<<<< HEAD
     align-items: center; /* Align items vertically */
     gap: 20px; /* Increased gap for more spacing */
   }
 
+=======
+    align-items: center;
+    gap: 15px;
+}
+>>>>>>> parent of dc2d8ab (Merge branch 'main' of https://github.com/Gabzers/7.1-Hackaton)
 .logo-text {
     font-size: 24px;
     font-weight: bold;
@@ -52,9 +58,11 @@ body {
     display: flex;
     align-items: center;
     color: #fff;
-    font-size: 16px; /* Match font size with nav-menu */
+    font-size: 16px;
     text-decoration: none;
-    transition: color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .nav-icon i {
     margin-right: 5px;
