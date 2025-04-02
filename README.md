@@ -80,16 +80,22 @@ Ensure all prerequisites are installed and configured as described in the **Prer
    - Username: `root`
    - Password: `1234`
 
-### 5. Run the Data Analysis
-Navigate to the `DataAnalysis` folder and execute the Python scripts:
+### 5. Install Python Libraries
+Navigate to the `DataAnalysis` folder and install the required Python libraries:
+```bash
+pip install pandas numpy matplotlib seaborn
+```
+
+### 6. Run the Data Analysis
+Execute the Python scripts for data analysis:
 ```bash
 cd DataAnalysis
 python DataAnalysis.py
 python AmazonAnalysis.py
 ```
-These scripts perform statistical analysis and generate visualizations based on the IMDB and Amazon datasets. Ensure the required Python libraries are installed before running the scripts.
+These scripts perform statistical analysis and generate visualizations based on the IMDB and Amazon datasets.
 
-### 6. Build and Run the Application
+### 7. Build and Run the Application
 1. Open the terminal in VS Code and navigate to the project root directory.
 2. Build the project using Maven:
    ```bash
@@ -101,7 +107,7 @@ These scripts perform statistical analysis and generate visualizations based on 
    ```
 4. The application will be available at: [http://localhost:8080/](http://localhost:8080/).
 
-### 7. Test the Application
+### 8. Test the Application
 1. Access the application at [http://localhost:8080/](http://localhost:8080/).
 2. Verify that all features, including the shop, rewards system, and battle pass, are functioning as expected.
 3. Test the **registration and login system**:
