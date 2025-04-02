@@ -1,6 +1,6 @@
 # Hackathon Website Application
 
-This repository contains the **Hackathon Website** project, a web application that combines **data analysis** and a **basic streaming platform**. The project leverages datasets from **IMDB** and **Amazon Best Sellers** to provide insights and features such as personalized recommendations, a shop, and a rewards system.
+This repository contains the **Hackathon Website** project, a web application that combines **data analysis** and a **basic streaming platform**. The project leverages datasets from **IMDB** (movies) and **Amazon Best Sellers** to provide insights and features such as personalized recommendations, a shop, and a rewards system.
 
 ## Overview
 
