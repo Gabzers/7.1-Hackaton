@@ -227,10 +227,16 @@ public class UserController {
         int currentPoints = loggedUser.getPoints() != null ? loggedUser.getPoints() : 0;
         loggedUser.setPoints(currentPoints + pointsToAdd);
 
-        userRepository.save(loggedUser);
-        session.setAttribute("loggedUser", loggedUser);
-
-        return "Points added successfully";
+        try {
+            // Save the updated user to the database immediately
+            userRepository.save(loggedUser);
+            session.setAttribute("loggedUser", loggedUser); // Update the session with the updated user
+            logger.info("Points added successfully. New total: {}", loggedUser.getPoints());
+            return "Points added successfully";
+        } catch (Exception e) {
+            logger.error("Error saving points to the database: {}", e.getMessage());
+            return "Error saving points";
+        }
     }
 
     @PostMapping("/add-exp")

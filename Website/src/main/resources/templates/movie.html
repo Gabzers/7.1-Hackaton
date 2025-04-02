@@ -87,21 +87,6 @@
       }, 1000);
     }
 
-    function updateGenreScores(genres) {
-      fetch('/update-genre-scores', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ movieGenres: genres }), // Send genres as part of the request body
-      })
-      .then(response => response.text())
-      .then(message => {
-        console.log("Update genre scores response:", message);
-      })
-      .catch(error => console.error("Error updating genre scores:", error));
-    }
-
     function showAd(adIndex, onAdComplete, movieGenres) {
       const adContainer = document.getElementById('ad-container');
       const adFrame = document.getElementById('ad-frame');
@@ -208,9 +193,23 @@
           }
           videoPlaying = false;
           player.pauseVideo();
-          showAd(0, () => { // Sempre usa o primeiro anúncio (índice 0)
+          showAd(currentAdIndex, () => {
             currentAdIndex++;
-            showNextAd();
+            if (currentAdIndex === 1) {
+              // Resume the main video after the first ad finishes
+              videoPlaying = true;
+              player.playVideo();
+
+              // Start the second ad after 20 seconds
+              setTimeout(() => {
+                showAd(1, () => {
+                  currentAdIndex++; // Increment index after the second ad
+                  showNextAd();
+                }, ["Action", "Comedy"]); // Second ad with index 1
+              }, 20000);
+            } else {
+              showNextAd();
+            }
           }, ["Action", "Comedy"]); // Replace with actual genres of the clicked movie
         }
 
@@ -218,7 +217,7 @@
       }
 
       setTimeout(() => {
-        showAdsSequentially(5, () => {
+        showAdsSequentially(2, () => {
           videoPlaying = true;
           player.playVideo();
         });
@@ -297,14 +296,16 @@
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ points }),
-      }).then((response) => {
+      })
+      .then((response) => {
         if (response.ok) {
           console.log(`${points} points added to the user.`);
           showPointsPopup(points); // Show popup notification
         } else {
-          console.error('Failed to add points.');
+          console.error('Failed to add points. Response status:', response.status);
         }
-      });
+      })
+      .catch((error) => console.error('Error adding points:', error));
     }
 
     function markMissionAsAvailable(missionName) {
@@ -348,7 +349,7 @@
             if (data.found) {
               console.log(`Movie found: ${data.title}`);
               console.log(`Genres: ${data.genres.join(', ')}`);
-              updateGenreScores(data.genres); // Atualizar os scores com os gêneros do filme
+              updateGenreScores(data.genres); // Update scores with the movie's genres
             } else {
               console.log('Movie not found.');
             }
