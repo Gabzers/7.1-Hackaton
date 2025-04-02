@@ -46,7 +46,7 @@
                 <span class="points" th:text="'Cost: ' + ${product.cost} + ' points'">Cost and Points</span>
                 <a href="#" class="button" th:if="${product.isRedeemed == false}" 
                    th:attr="data-product-id=${product.id}" onclick="redeemProduct(this)">Redeem</a>
-                <span th:if="${product.isRedeemed == true}">Already redeemed</span>
+                <span th:if="${product.isRedeemed == true}" class="redeemed-text">Already redeemed</span>
             </div>
         </div>
     </div>
