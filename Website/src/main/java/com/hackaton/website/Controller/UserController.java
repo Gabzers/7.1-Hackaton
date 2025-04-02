@@ -555,45 +555,54 @@ public class UserController {
 
     @PostMapping("/update-genre-scores")
     @ResponseBody
-    public String updateGenreScores(@RequestBody Map<String, Object> requestBody, HttpSession session) {
+    public String updateGenreScores(@RequestBody Map<String, List<String>> requestBody, HttpSession session) {
         User loggedUser = (User) session.getAttribute("loggedUser");
         if (loggedUser == null) {
             return "User not logged in";
         }
 
-        // Safely cast to List<String>
-        Object genresObject = requestBody.get("movieGenres");
-        if (!(genresObject instanceof List<?>)) {
-            return "Invalid genres format";
-        }
-        List<String> movieGenres = ((List<?>) genresObject).stream()
-            .filter(item -> item instanceof String)
-            .map(String.class::cast)
-            .toList();
-
-        if (movieGenres.isEmpty()) {
-            return "No genres provided";
-        }
-
-        // Fetch the user from the database
-        User userFromDb = userRepository.findById(loggedUser.getId())
+        // Buscar o usuário com a coleção movieGenres inicializada
+        User userWithGenres = userRepository.findById(loggedUser.getId())
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
-        // Update genre scores
-        List<User.MovieGenre> updatedGenres = userFromDb.getMovieGenres().stream()
-                .map(genre -> {
-                    if (movieGenres.contains(genre.getGenre())) {
-                        int updatedScore = Integer.parseInt(genre.getScore()) + 10;
-                        genre.setScore(String.valueOf(updatedScore));
-                    }
-                    return genre;
-                })
-                .toList();
+        Hibernate.initialize(userWithGenres.getMovieGenres()); // Inicializar a coleção
 
-        userFromDb.setMovieGenres(updatedGenres); // Set the updated mutable list
-        userRepository.save(userFromDb);
-        session.setAttribute("loggedUser", userFromDb);
+        List<String> movieGenres = requestBody.get("movieGenres");
+        if (movieGenres == null || movieGenres.isEmpty()) {
+            return "Invalid movie genres";
+        }
+
+        // Atualizar a pontuação dos gêneros do usuário
+        List<User.MovieGenre> updatedGenres = userWithGenres.getMovieGenres().stream()
+            .map(genre -> {
+                if (movieGenres.contains(genre.getGenre())) {
+                    int updatedScore = Integer.parseInt(genre.getScore()) + 5; // Incrementar pontuação
+                    genre.setScore(String.valueOf(updatedScore));
+                }
+                return genre;
+            })
+            .toList();
+
+        userWithGenres.setMovieGenres(updatedGenres);
+        userRepository.save(userWithGenres);
+        session.setAttribute("loggedUser", userWithGenres);
 
         return "Genre scores updated successfully";
+    }
+
+    @GetMapping("/get-movie-genres")
+    @ResponseBody
+    public Map<String, Object> getMovieGenres(@RequestParam("title") String title) {
+        List<String> genres = userService.getGenresByMovieTitle(title);
+
+        if (genres.isEmpty()) {
+            return Map.of("found", false);
+        }
+
+        return Map.of(
+            "found", true,
+            "title", title,
+            "genres", genres
+        );
     }
 }

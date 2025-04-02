@@ -146,7 +146,7 @@
         <ul class="movie-list">
           <li class="movie-item" th:each="movie, iterStat : ${recommendations}" data-random-image>
             <div class="movie-thumbnail">
-              <a href="/movie">
+              <a th:href="'/movie?title=' + ${movie['title']}" th:attr="data-title=${movie['title']}">
                 <img th:alt="${movie['title']}" id="trending-image-${iterStat.index}" />
               </a>
             </div>
@@ -180,7 +180,7 @@
         <ul class="movie-list">
           <li class="movie-item" th:each="movie, movieStat : ${entry.value}" data-random-image>
             <div class="movie-thumbnail">
-              <a href="/movie">
+              <a th:href="'/movie?title=' + ${movie['title']}" th:attr="data-title=${movie['title']}">
                 <img th:alt="${movie['title']}" id="genre-image-${iterStat.index}-${movieStat.index}" />
               </a>
             </div>
@@ -209,7 +209,7 @@
           <ul class="movie-list">
             <li class="movie-item" th:each="movie, iterStat : ${leastPreferredRecommendations}" data-random-image>
               <div class="movie-thumbnail">
-                <a href="/movie">
+                <a th:href="'/movie?title=' + ${movie['title']}" th:attr="data-title=${movie['title']}">
                   <img th:alt="${movie['title']}" id="least-preferred-image-${iterStat.index}" />
                 </a>
               </div>
@@ -497,6 +497,27 @@ window.onclick = function (event) {
   backToTopButton.onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  function updateGenreScores(title) {
+    fetch('/update-genre-scores', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title })
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Genre scores updated successfully');
+      } else {
+        console.error('Failed to update genre scores');
+      }
+    })
+    .catch(error => console.error('Error:', error));
+  }
+
+  function handleMovieClick(element) {
+    const movieTitle = element.getAttribute('data-title');
+    console.log('Redirecting to movie:', movieTitle);
+  }
 </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
 </body>

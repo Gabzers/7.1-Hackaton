@@ -334,5 +334,45 @@
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   </script>
+
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const movieTitle = urlParams.get('title');
+
+      if (movieTitle) {
+        console.log(`Searching for movie: ${movieTitle}`);
+        fetch(`/get-movie-genres?title=${encodeURIComponent(movieTitle)}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.found) {
+              console.log(`Movie found: ${data.title}`);
+              console.log(`Genres: ${data.genres.join(', ')}`);
+              updateGenreScores(data.genres); // Atualizar os scores com os gêneros do filme
+            } else {
+              console.log('Movie not found.');
+            }
+          })
+          .catch(error => console.error('Error fetching movie genres:', error));
+      } else {
+        console.log('No movie title provided.');
+      }
+    };
+
+    function updateGenreScores(genres) {
+      fetch('/update-genre-scores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ movieGenres: genres }), // Enviar os gêneros como parte do corpo da requisição
+      })
+      .then(response => response.text())
+      .then(message => {
+        console.log("Update genre scores response:", message);
+      })
+      .catch(error => console.error("Error updating genre scores:", error));
+    }
+  </script>
 </body>
 </html>

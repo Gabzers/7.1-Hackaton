@@ -263,6 +263,31 @@ public class UserService {
         return genreMovies;
     }
 
+    public List<String> getGenresByMovieTitle(String movieTitle) {
+        File folder = Paths.get(GENRE_CSV_FOLDER).toFile();
+        if (!folder.exists() || !folder.isDirectory()) {
+            throw new IllegalStateException("Genre CSV folder not found: " + folder.getAbsolutePath());
+        }
+
+        for (File file : Objects.requireNonNull(folder.listFiles())) {
+            if (file.isFile() && file.getName().endsWith(".csv")) {
+                try (CSVParser parser = CSVParser.parse(file, java.nio.charset.StandardCharsets.UTF_8,
+                        CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).build())) {
+                    for (CSVRecord record : parser) {
+                        if (record.get("title").equalsIgnoreCase(movieTitle)) {
+                            String genres = record.get("genres");
+                            return Arrays.asList(genres.split(","));
+                        }
+                    }
+                } catch (IOException e) {
+                    System.err.println("Error reading CSV file: " + file.getName());
+                }
+            }
+        }
+
+        return Collections.emptyList(); // Retornar lista vazia se o filme não for encontrado
+    }
+
     public List<Map<String, String>> recommendRandomProducts() {
         String[] csvPaths = {
             "website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv",
