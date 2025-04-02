@@ -45,44 +45,44 @@
         <div class="tier-progress-horizontal">
             <div class="tier">
                 <button class="reward" onclick="claimReward(this, 1)">
-                    <img src="/images/reward1.png" alt="Reward 1">
-                    <span class="xp-text">10 XP</span>
+                    <span>Reward 1</span>
+                    <span class="xp-text">10 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 2)">
-                    <img src="/images/reward2.png" alt="Reward 2">
-                    <span class="xp-text">20 XP</span>
+                    <span>Reward 2</span>
+                    <span class="xp-text">20 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 3)">
-                    <img src="/images/reward3.png" alt="Reward 3">
-                    <span class="xp-text">30 XP</span>
+                    <span>Reward 3</span>
+                    <span class="xp-text">30 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 4)">
-                    <img src="/images/reward4.png" alt="Reward 4">
-                    <span class="xp-text">40 XP</span>
+                    <span>Reward 4</span>
+                    <span class="xp-text">40 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 5)">
-                    <img src="/images/reward5.png" alt="Reward 5">
-                    <span class="xp-text">50 XP</span>
+                    <span>Reward 5</span>
+                    <span class="xp-text">50 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 6)">
-                    <img src="/images/reward6.png" alt="Reward 6">
-                    <span class="xp-text">60 XP</span>
+                    <span>Reward 6</span>
+                    <span class="xp-text">60 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 7)">
-                    <img src="/images/reward7.png" alt="Reward 7">
-                    <span class="xp-text">70 XP</span>
+                    <span>Reward 7</span>
+                    <span class="xp-text">70 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 8)">
-                    <img src="/images/reward8.png" alt="Reward 8">
-                    <span class="xp-text">80 XP</span>
+                    <span>Reward 8</span>
+                    <span class="xp-text">80 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 9)">
-                    <img src="/images/reward9.png" alt="Reward 9">
-                    <span class="xp-text">90 XP</span>
+                    <span>Reward 9</span>
+                    <span class="xp-text">90 points</span>
                 </button>
                 <button class="reward" onclick="claimReward(this, 10)">
-                    <img src="/images/reward10.png" alt="Reward 10">
-                    <span class="xp-text">100 XP</span>
+                    <span>Reward 10</span>
+                    <span class="xp-text">100 points</span>
                 </button>
             </div>
         </div>
@@ -355,17 +355,35 @@
             saveClaimedRewards(); // Save claimed rewards to localStorage
 
             // Update the button to show "Redeemed"
-            const img = button.querySelector("img");
-            img.style.opacity = "0.5"; // Dim the image
             const redeemedText = document.createElement("span");
             redeemedText.textContent = "Redeemed";
             redeemedText.classList.add("redeemed-text");
             button.appendChild(redeemedText);
 
-            // Add XP to progress bar based on reward tier
-            const xpText = button.querySelector(".xp-text").textContent;
-            const xpValue = parseInt(xpText.replace(" XP", ""));
-            addExpToProgress(xpValue);
+            // Add points to the user's total based on reward tier
+            const pointsText = button.querySelector(".xp-text").textContent;
+            const pointsValue = parseInt(pointsText.replace(" points", ""));
+            addPointsToUser(pointsValue);
+        }
+
+        function addPointsToUser(pointsGained) {
+            const pointsElement = document.getElementById("points").querySelector("span");
+            const currentPoints = parseInt(pointsElement.textContent);
+            const newPoints = currentPoints + pointsGained;
+
+            // Update the DOM element with the new points value
+            pointsElement.textContent = newPoints;
+
+            // Optionally, send the updated points to the server
+            fetch('/add-points', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ points: pointsGained }),
+            }).then(response => response.text())
+              .then(message => console.log("Points updated:", message))
+              .catch(error => console.error("Error updating points:", error));
         }
     </script>
 </body>
