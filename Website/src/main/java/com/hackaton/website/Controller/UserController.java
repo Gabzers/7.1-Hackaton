@@ -285,7 +285,7 @@ public class UserController {
                 String[] words = productName.split("\\s+");
                 if (productName.length() > 60) {
                     productName = productName.substring(0, 60) + "...";
-                } else if (words.length > 8) { // Fix: Use .length instead of .length()
+                } else if (words.length > 8) {
                     productName = String.join(" ", Arrays.copyOf(words, 8)) + "...";
                 }
                 return new Product(productName, product.get("category"), cost);
@@ -561,17 +561,9 @@ public class UserController {
             return "User not logged in";
         }
 
-        // Safely cast to List<String>
-        Object genresObject = requestBody.get("movieGenres");
-        if (!(genresObject instanceof List<?>)) {
-            return "Invalid genres format";
-        }
-        List<String> movieGenres = ((List<?>) genresObject).stream()
-            .filter(item -> item instanceof String)
-            .map(String.class::cast)
-            .toList();
-
-        if (movieGenres.isEmpty()) {
+        // Extract movie genres from the request body
+        List<String> movieGenres = (List<String>) requestBody.get("movieGenres");
+        if (movieGenres == null || movieGenres.isEmpty()) {
             return "No genres provided";
         }
 

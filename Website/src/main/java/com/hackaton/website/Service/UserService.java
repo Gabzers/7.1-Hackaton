@@ -334,11 +334,11 @@ public class UserService {
     }
 
     public String claimReward(User user, int tier) {
-        int rewardPoints = tier * 10; // Points awarded for the given tier
+        int requiredProgress = tier * 50; // Progress required for the given tier
 
         // Ensure progressBar is initialized
-        if (user.getPoints() == null) {
-            user.setPoints(0);
+        if (user.getProgressBar() == null) {
+            user.setProgressBar(0);
         }
 
         Set<String> completedMissions = user.getCompletedMissions();
@@ -346,11 +346,17 @@ public class UserService {
             return "Reward for Tier " + tier + " has already been claimed.";
         }
 
-        // Add points to the user's total and mark reward as claimed
-        user.setPoints(user.getPoints() + rewardPoints);
-        completedMissions.add("Reward" + tier);
-        user.setCompletedMissions(completedMissions);
+        // Check if the user has enough progress to claim the reward
+        if (user.getProgressBar() >= requiredProgress) {
+            // Deduct only the progress required for this tier and mark reward as claimed
+            user.setProgressBar(user.getProgressBar() - 50); // Deduct 50 points for the current reward
+            completedMissions.add("Reward" + tier);
+            user.setCompletedMissions(completedMissions);
 
-        return "Reward for Tier " + tier + " claimed successfully!";
+            return "Reward for Tier " + tier + " claimed successfully!";
+        }
+
+        // If not enough progress, return an empty string (no message)
+        return "";
     }
 }
