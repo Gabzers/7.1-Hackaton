@@ -112,6 +112,14 @@ public class UserService {
                 .limit(3) // Limit to top 3 genres
                 .collect(Collectors.toList());
 
+        // Check if all top 3 genres have a score of 0
+        boolean allScoresZero = sortedGenres.stream()
+                .allMatch(genre -> Integer.parseInt(genre.getScore()) == 0);
+        if (allScoresZero) {
+            System.err.println("All top 3 genres have a score of 0. No recommendations available.");
+            return Collections.emptyMap(); // Return an empty map
+        }
+
         Map<String, List<Map<String, String>>> genreRecommendations = new HashMap<>();
         Map<String, List<Map<String, String>>> genreMovies = loadMoviesByGenre();
 

@@ -173,7 +173,7 @@
   </div>
 
   <!-- Section: Top Movies by Genre -->
-  <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry, iterStat : ${topGenresMovies}">
+  <section class="movies-by-genre" th:if="${topGenresMovies != null and !topGenresMovies.isEmpty()}" th:each="entry, iterStat : ${topGenresMovies}">
     <h2 th:text="'Top Movies in ' + ${entry.key}">Top Movies in Genre</h2>
     <div class="movie-list-wrapper">
       <div class="scroll-container">
@@ -195,6 +195,11 @@
       </div>
     </div>
   </section>
+
+  <!-- Error message if no top genres recommendations -->
+  <div th:if="${topGenresMovies == null or topGenresMovies.isEmpty()}" class="error-message">
+    <p>No recommendations available for your top genres. Please update your preferences or try again later.</p>
+  </div>
 
     <!-- Section: Least Preferred Movies -->
     <section class="movies-section" th:if="${leastPreferredRecommendations != null and !leastPreferredRecommendations.isEmpty()}">
