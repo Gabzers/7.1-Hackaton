@@ -144,6 +144,7 @@
     <h2>Trending Now</h2>
     <div class="movie-list-wrapper">
       <div class="scroll-container">
+        <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
         <ul class="movie-list">
           <li class="movie-item" th:each="movie, iterStat : ${recommendations}" data-random-image>
             <div class="movie-thumbnail">
@@ -159,6 +160,7 @@
             </div>
           </li>
         </ul>
+        <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
       </div>
     </div>
   </section>
@@ -178,6 +180,7 @@
     <h2 th:text="'Top Titles in ' + ${entry.key}">Top Titles in Genre</h2>
     <div class="movie-list-wrapper">
       <div class="scroll-container">
+        <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
         <ul class="movie-list">
           <li class="movie-item" th:each="movie, movieStat : ${entry.value}" data-random-image>
             <div class="movie-thumbnail">
@@ -193,6 +196,7 @@
             </div>
           </li>
         </ul>
+        <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
       </div>
     </div>
   </section>
@@ -202,6 +206,7 @@
       <h2>Other Movies</h2>
       <div class="movie-list-wrapper">
         <div class="scroll-container">
+          <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
           <ul class="movie-list">
             <li class="movie-item" th:each="movie, iterStat : ${leastPreferredRecommendations}" data-random-image>
               <div class="movie-thumbnail">
@@ -217,13 +222,13 @@
               </div>
             </li>
           </ul>
+          <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
         </div>
       </div>
     </section>
 
   <!-- Script to dynamically extract the dominant color of the image and apply it as the border color on hover -->
   <script>
-    
     document.querySelectorAll('.movie-card img').forEach((img) => {
       img.addEventListener('mouseenter', () => {
         const colorThief = new ColorThief();
