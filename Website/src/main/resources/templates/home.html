@@ -23,7 +23,8 @@
   <div id="intro-modal" class="modal">
     <div class="modal-content">
       <h2>Welcome to StreamFlix!</h2>
-      <p>StreamFlix is your personalized movie streaming platform. To provide you with the best recommendations, we need to know your favorite genres. Please take a moment to complete the quick questionnaire.</p>
+      <p>StreamFlix is your personalized movie streaming platform. Discover movies tailored to your tastes by answering a quick questionnaire.</p>
+      <p>Engage with the platform—rate movies, watch trailers, and complete activities to earn points. Use them for exclusive benefits, personalized recommendations, and premium features.</p>
       <button id="intro-continue-btn">Continue</button>
     </div>
   </div>
@@ -174,7 +175,7 @@
 
   <!-- Section: Top Movies by Genre -->
   <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry, iterStat : ${topGenresMovies}">
-    <h2 th:text="'Top Movies in ' + ${entry.key}">Top Movies in Genre</h2>
+    <h2 th:text="'Top Titles in ' + ${entry.key}">Top Titles in Genre</h2>
     <div class="movie-list-wrapper">
       <div class="scroll-container">
         <ul class="movie-list">
@@ -222,6 +223,7 @@
 
   <!-- Script to dynamically extract the dominant color of the image and apply it as the border color on hover -->
   <script>
+    
     document.querySelectorAll('.movie-card img').forEach((img) => {
       img.addEventListener('mouseenter', () => {
         const colorThief = new ColorThief();
