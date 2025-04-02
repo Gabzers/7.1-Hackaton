@@ -4,7 +4,7 @@ This repository contains the **Hackathon Website** project, a web application th
 
 ## Overview
 
-The Hackathon Website is designed to showcase the integration of data analysis and a streaming platform. It includes the following features:
+The Hackathon Website was developed in **6 days** as part of the **Hackathon 7.1 Taltal**. It is designed to showcase the integration of data analysis and a streaming platform. It includes the following features:
 
 - **Data Analysis**:
   - Insights derived from IMDB and Amazon datasets, such as movie ratings, popularity trends, and genre statistics.
@@ -64,11 +64,14 @@ Clone this repository to your local environment:
 git clone <REPOSITORY_URL>
 ```
 
-### 2. Open the Project in VS Code
+### 2. Install Required Software
+Ensure all prerequisites are installed and configured as described in the **Prerequisites** section.
+
+### 3. Open the Project in VS Code
 - Open the project directory in **VS Code**.
 - Ensure **Maven** is selected as the dependency manager.
 
-### 3. Configure the Database
+### 4. Configure the Database
 1. Open the **MySQL Command Line** and create the database:
    ```sql
    CREATE DATABASE hackatondb;
@@ -77,20 +80,34 @@ git clone <REPOSITORY_URL>
    - Username: `root`
    - Password: `1234`
 
-### 4. Run the Data Analysis
-Navigate to the `DataAnalysis` folder and execute the Python script:
+### 5. Run the Data Analysis
+Navigate to the `DataAnalysis` folder and execute the Python scripts:
 ```bash
+cd DataAnalysis
 python DataAnalysis.py
 python AmazonAnalysis.py
 ```
-This script performs statistical analysis and generates visualizations based on the IMDB and Amazon datasets.
+These scripts perform statistical analysis and generate visualizations based on the IMDB and Amazon datasets. Ensure the required Python libraries are installed before running the scripts.
 
-### 5. Run the Application
-- Open the terminal in VS Code and execute:
-  ```bash
-  mvn spring-boot:run
-  ```
-- The application will be available at: [http://localhost:8080/](http://localhost:8080/).
+### 6. Build and Run the Application
+1. Open the terminal in VS Code and navigate to the project root directory.
+2. Build the project using Maven:
+   ```bash
+   mvn clean install
+   ```
+3. Run the application:
+   ```bash
+   mvn spring-boot:run
+   ```
+4. The application will be available at: [http://localhost:8080/](http://localhost:8080/).
+
+### 7. Test the Application
+1. Access the application at [http://localhost:8080/](http://localhost:8080/).
+2. Verify that all features, including the shop, rewards system, and battle pass, are functioning as expected.
+3. Test the **registration and login system**:
+   - Create a new user account.
+   - Log in with the created credentials.
+   - Verify that personalized recommendations and rewards are displayed.
 
 ## Features
 
