@@ -12,7 +12,7 @@ body {
 /* Container do Login */
 .login-container {
     background-color: #1f1f1f;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -32,19 +32,20 @@ p {
 .input-group {
     margin: 10px 0;
     text-align: left;
+    margin-right: 15px;
 }
 
 label {
     display: block;
     font-size: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 input {
     width: 100%;
     padding: 8px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #333;
     color: white;
 }
@@ -52,10 +53,10 @@ input {
 /* Botão de Login */
 .login-btn {
     width: 100%;
-    padding: 10px;
+    padding: 10px ;
     background-color: #e50914;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
     font-size: 16px;
     cursor: pointer;
