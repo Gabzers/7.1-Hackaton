@@ -60,7 +60,7 @@ public class UserService {
             // Calculate the number of movies to recommend for this genre
             int genreQuota = Math.max(1, (score * 18) / totalScore); // Adjusted to allocate up to 18 slots
             for (Map<String, String> movie : movies) {
-                if (recommendedMovies.size() >= 20) break; // Limit total recommendations to 20
+                if (recommendedMovies.size() >= 10) break; // Limit total recommendations to 10
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                     if (--genreQuota == 0) break;
@@ -69,7 +69,7 @@ public class UserService {
         }
 
         // Add movies from non-preferred genres if slots are still available
-        if (recommendedMovies.size() < 20) {
+        if (recommendedMovies.size() < 10) {
             List<String> nonPreferredGenres = genreMovies.keySet().stream()
                     .filter(genre -> sortedGenres.stream().noneMatch(g -> g.getGenre().equals(genre)))
                     .collect(Collectors.toList());
@@ -81,12 +81,12 @@ public class UserService {
                 List<Map<String, String>> movies = genreMovies.get(genre);
                 Collections.shuffle(movies);
                 for (Map<String, String> movie : movies) {
-                    if (recommendedMovies.size() >= 20) break;
+                    if (recommendedMovies.size() >= 10) break;
                     if (recommendedMovies.add(movie.get("title"))) {
                         recommendations.add(movie);
                     }
                 }
-                if (recommendedMovies.size() >= 20) break;
+                if (recommendedMovies.size() >= 10) break;
             }
         }
 
@@ -127,7 +127,7 @@ public class UserService {
             Set<String> recommendedMovies = new HashSet<>();
 
             for (Map<String, String> movie : movies) {
-                if (recommendations.size() >= 10) break; // alterar numero de filmes escolhidos
+                if (recommendations.size() >= 10) break; // Limit to 10 movies
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                 }
@@ -190,7 +190,7 @@ public class UserService {
             Collections.shuffle(movies);
 
             for (Map<String, String> movie : movies) {
-                if (recommendedMovies.size() >= 10) break; // Limit to 20 movies
+                if (recommendedMovies.size() >= 10) break; // Limit to 10 movies
                 if (recommendedMovies.add(movie.get("title"))) {
                     recommendations.add(movie);
                 }

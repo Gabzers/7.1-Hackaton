@@ -23,8 +23,7 @@
   <div id="intro-modal" class="modal">
     <div class="modal-content">
       <h2>Welcome to StreamFlix!</h2>
-      <p>StreamFlix is your personalized movie streaming platform. Discover movies tailored to your tastes by answering a quick questionnaire.</p>
-      <p>Engage with the platform—rate movies, watch trailers, and complete activities to earn points. Use them for exclusive benefits, personalized recommendations, and premium features.</p>
+      <p>StreamFlix is your personalized movie streaming platform. To provide you with the best recommendations, we need to know your favorite genres. Please take a moment to complete the quick questionnaire.</p>
       <button id="intro-continue-btn">Continue</button>
     </div>
   </div>
@@ -144,7 +143,6 @@
     <h2>Trending Now</h2>
     <div class="movie-list-wrapper">
       <div class="scroll-container">
-        <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
         <ul class="movie-list">
           <li class="movie-item" th:each="movie, iterStat : ${recommendations}" data-random-image>
             <div class="movie-thumbnail">
@@ -160,7 +158,6 @@
             </div>
           </li>
         </ul>
-        <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
       </div>
     </div>
   </section>
@@ -177,10 +174,9 @@
 
   <!-- Section: Top Movies by Genre -->
   <section class="movies-by-genre" th:if="${topGenresMovies != null}" th:each="entry, iterStat : ${topGenresMovies}">
-    <h2 th:text="'Top Titles in ' + ${entry.key}">Top Titles in Genre</h2>
+    <h2 th:text="'Top Movies in ' + ${entry.key}">Top Movies in Genre</h2>
     <div class="movie-list-wrapper">
       <div class="scroll-container">
-        <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
         <ul class="movie-list">
           <li class="movie-item" th:each="movie, movieStat : ${entry.value}" data-random-image>
             <div class="movie-thumbnail">
@@ -196,7 +192,6 @@
             </div>
           </li>
         </ul>
-        <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
       </div>
     </div>
   </section>
@@ -206,7 +201,6 @@
       <h2>Other Movies</h2>
       <div class="movie-list-wrapper">
         <div class="scroll-container">
-          <button class="scroll-button left" onclick="scrollLeft(this)">&#8249;</button>
           <ul class="movie-list">
             <li class="movie-item" th:each="movie, iterStat : ${leastPreferredRecommendations}" data-random-image>
               <div class="movie-thumbnail">
@@ -222,7 +216,6 @@
               </div>
             </li>
           </ul>
-          <button class="scroll-button right" onclick="scrollRight(this)">&#8250;</button>
         </div>
       </div>
     </section>
@@ -274,7 +267,6 @@ window.onclick = function (event) {
     alert('You must complete the questionnaire to proceed.');
   }
 };
-
 
 // Handle form submission
 document.getElementById('questionnaire-form').onsubmit = (e) => {
