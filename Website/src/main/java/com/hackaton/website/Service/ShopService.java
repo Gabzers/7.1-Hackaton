@@ -5,11 +5,17 @@ import java.util.Set;
 
 import com.hackaton.website.Entity.User;
 
+/**
+ * Service class responsible for shop-related business logic.
+ * Provides methods for redeeming offers and checking user points.
+ * 
+ * @author Gabriel Proença
+ */
 public class ShopService {
 
     /**
      * Checks if the user has sufficient points to redeem a product or offer.
-     * 
+     *
      * @param user The user attempting to redeem.
      * @param cost The cost of the product or offer.
      * @return true if the user has enough points, false otherwise.
@@ -21,6 +27,14 @@ public class ShopService {
         return true;
     }
 
+    /**
+     * Redeems a shop offer for the user.
+     *
+     * @param user      the user redeeming the offer
+     * @param offerName the name of the offer
+     * @param offerCost the cost of the offer
+     * @return a message indicating the result of the operation
+     */
     public String redeemShopOffer(User user, String offerName, int offerCost) {
         // Check if user has enough points
         if (!hasSufficientPoints(user, offerCost)) {

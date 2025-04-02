@@ -241,7 +241,7 @@
       });
     });
 
-// Mostrar o modal automaticamente se o parâmetro "showQuestionnaire" estiver na URL
+// Automatically show the modal if the "showQuestionnaire" parameter is in the URL
 window.onload = function () {
   const urlParams = new URLSearchParams(window.location.search);
   const userId = urlParams.get('userId');
@@ -266,7 +266,7 @@ window.onload = function () {
   }
 };
 
-// Remover a funcionalidade de fechar o modal ao clicar fora dele
+// Remove the functionality to close the modal by clicking outside of it
 window.onclick = function (event) {
   const modal = document.getElementById('questionnaire-modal');
   if (event.target === modal) {
@@ -438,11 +438,11 @@ window.onclick = function (event) {
             movieElement.src = imageUrl; // Replace random image with API image
           }
         } else {
-          console.error('Imagem não encontrada para o filme:', movieTitle);
+          console.error('Image not found for the movie:', movieTitle);
         }
       })
       .catch(error => {
-        console.error('Erro ao buscar imagem:', error);
+        console.error('Error fetching image:', error);
       });
   }
 

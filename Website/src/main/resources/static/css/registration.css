@@ -1,4 +1,4 @@
-/* Reseta margens e paddings */
+/* Reset margins and paddings */
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #141414; /* Fundo estilo Netflix */
+  background-color: #141414; /* Netflix-style background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ body {
   color: white;
 }
 
-/* Container do Registro */
+/* Registration container */
 .register-container {
   background-color: #1f1f1f;
   padding: 20px;
@@ -34,7 +34,7 @@ p {
   color: #bbb;
 }
 
-/* Campos de Entrada */
+/* Input fields */
 .input-group {
   margin: 10px 0;
   text-align: left;
@@ -55,7 +55,7 @@ input {
   color: white;
 }
 
-/* Botão de Registro */
+/* Registration button */
 .register-btn {
   width: 100%;
   padding: 10px;
@@ -72,7 +72,7 @@ input {
   background-color: #b20710;
 }
 
-/* Link de Login */
+/* Login link */
 .login-link {
   margin-top: 10px;
 }

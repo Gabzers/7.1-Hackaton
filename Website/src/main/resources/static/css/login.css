@@ -9,7 +9,7 @@ body {
     color: white;
 }
 
-/* Container do Login */
+/* General styles */
 .login-container {
     background-color: #1f1f1f;
     padding: 40px;
@@ -28,7 +28,7 @@ p {
     color: #bbb;
 }
 
-/* Campos de Entrada */
+/* Input fields */
 .input-group {
     margin: 10px 0;
     text-align: left;
@@ -50,7 +50,7 @@ input {
     color: white;
 }
 
-/* Botão de Login */
+/* Login button */
 .login-btn {
     width: 100%;
     padding: 10px ;
@@ -67,7 +67,7 @@ input {
     background-color: #b20710;
 }
 
-/* Link de Registro */
+/* Registration link */
 .register-link {
     margin-top: 10px;
 }

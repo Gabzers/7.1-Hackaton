@@ -222,23 +222,23 @@
             const tierNumber = document.getElementById("tier-number");
             const progressSummary = document.getElementById("progress-summary");
 
-            // Obter o valor atual de exp
+            // Get the current exp value
             const currentExp = parseInt(progressValue.textContent.split(" / ")[0]);
 
-            // Calcular o tier com base no exp
+            // Calculate the tier based on exp
             const currentTier = Math.floor(currentExp / 1000) + 1;
 
-            // Calcular o exp mínimo e máximo para o tier atual
+            // Calculate the minimum and maximum exp for the current tier
             const tierMinExp = (currentTier - 1) * 1000;
             const tierMaxExp = currentTier * 1000;
 
-            // Atualizar a barra de progresso e o tier
+            // Update the progress bar and tier
             const progressPercentage = ((currentExp - tierMinExp) / (tierMaxExp - tierMinExp)) * 100;
             progressBarFill.style.width = `${progressPercentage}%`;
             tierNumber.textContent = `Tier ${currentTier}`;
             progressValue.textContent = `${currentExp} / ${tierMaxExp}`;
 
-            // Atualizar o resumo de progresso (Unlocked Tiers)
+            // Update the progress summary (Unlocked Tiers)
             progressSummary.textContent = `Unlocked Tiers: ${currentTier} / 10`;
 
             // Enable rewards based on the current tier

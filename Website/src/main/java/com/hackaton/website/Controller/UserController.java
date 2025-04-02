@@ -31,6 +31,17 @@ import org.hibernate.Hibernate;
 import java.time.Duration;
 import java.util.Set;
 
+/**
+ * Controller responsible for handling user-related endpoints.
+ * 
+ * @author Gabriel Proença
+ * @author Diogo Sequeira
+ * @author André Ferreira
+ * @author Ruben Silva
+ * @author João Rebelo
+ * @author Rafael Barbosa
+ * @author Paulo Brochado
+ */
 @Controller
 public class UserController {
 
@@ -45,6 +56,17 @@ public class UserController {
     @Autowired
     private ShopRepository shopRepository;
 
+    /**
+     * Registers a new user and initializes their data.
+     * Redirects to the home page upon successful registration.
+     *
+     * @param name     the name of the user
+     * @param email    the email of the user
+     * @param password the password of the user
+     * @param model    the model to pass attributes to the view
+     * @param session  the HTTP session
+     * @return the name of the view to render
+     */
     @PostMapping("/register")
     public String registerUser(@RequestParam("name") String name,
                                @RequestParam("email") String email,
@@ -60,16 +82,16 @@ public class UserController {
             return "registration"; // Redirect back to the registration page
         }
 
-        // Criar um novo objeto User com os dados recebidos
+        // Create a new User object with the received data
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setPassword(password);
-        user.setPoints(0); // Inicializar pontos como 0
-        user.setExp(0); // Inicializar exp como 0
+        user.setPoints(0); // Initialize points as 0
+        user.setExp(0); // Initialize exp as 0
         logger.debug("User object created: {}", user);
 
-        // Inicializar os gêneros com score 0
+        // Initialize genres with score 0
         List<MovieGenre> movieGenres = new ArrayList<>();
         List<String> allGenres = List.of("Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", 
                                          "Documentary", "Drama", "Family", "Fantasy", "Film-Noir", "Game-Show", 
@@ -77,7 +99,7 @@ public class UserController {
                                          "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western");
 
         for (String genre : allGenres) {
-            movieGenres.add(new MovieGenre(genre, "0")); // Inicializar todos os gêneros com score 0
+            movieGenres.add(new MovieGenre(genre, "0")); // Initialize all genres with score 0
         }
         user.setMovieGenres(movieGenres);
         logger.debug("Initialized movie genres for user: {}", movieGenres);
@@ -85,7 +107,7 @@ public class UserController {
         // Initialize missions as unavailable
         user.setCompletedMissions(Set.of("RateAMovie", "Watch5Ads")); // Mark these missions as completed initially
 
-        // Salvar o usuário no banco de dados
+        // Save the user to the database
         userRepository.save(user);
         logger.info("User saved to database: {}", user);
 
@@ -96,6 +118,16 @@ public class UserController {
         return "redirect:/home?userId=" + user.getId() + "&firstTime=true";
     }
 
+    /**
+     * Saves the selected movie genres for a user.
+     * Adds points to the user for completing the action.
+     *
+     * @param userId          the ID of the user
+     * @param selectedGenres  the list of selected genres
+     * @param model           the model to pass attributes to the view
+     * @param session         the HTTP session
+     * @return the name of the view to render
+     */
     @PostMapping("/save-genres")
     public String saveGenres(@RequestParam("userId") Long userId,
                              @RequestParam(value = "genres", required = false) List<String> selectedGenres,
@@ -103,16 +135,16 @@ public class UserController {
                              HttpSession session) {
         logger.info("Saving genres for user with ID: {}", userId);
 
-        // Buscar o usuário pelo ID
+        // Fetch the user by ID
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found: " + userId));
 
-        // Garantir que a lista de gêneros selecionados não seja nula
+        // Ensure the list of selected genres is not null
         if (selectedGenres == null) {
             selectedGenres = new ArrayList<>();
         }
 
-        // Atualizar os gêneros do usuário
+        // Update the user's genres
         List<MovieGenre> updatedGenres = new ArrayList<>();
         List<String> allGenres = List.of("Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", 
                                          "Documentary", "Drama", "Family", "Fantasy", "Film-Noir", "Game-Show", 
@@ -121,32 +153,42 @@ public class UserController {
 
         for (String genre : allGenres) {
             if (selectedGenres.contains(genre)) {
-                updatedGenres.add(new MovieGenre(genre, "10")); // Checkbox selecionado, score = 10
+                updatedGenres.add(new MovieGenre(genre, "10")); // Checkbox selected, score = 10
             } else {
-                updatedGenres.add(new MovieGenre(genre, "0")); // Checkbox não selecionado, score = 0
+                updatedGenres.add(new MovieGenre(genre, "0")); // Checkbox not selected, score = 0
             }
         }
 
-        // Atualizar os gêneros do usuário
+        // Update the user's genres
         user.setMovieGenres(updatedGenres);
 
-        // Adicionar 100 pontos ao usuário
+        // Add 100 points to the user
         int currentPoints = user.getPoints() != null ? user.getPoints() : 0;
         user.setPoints(currentPoints + 100); // Updated from 50 to 100
         logger.info("Added 100 points to user. New total: {}", user.getPoints());
 
-        // Salvar as alterações no banco de dados
+        // Save the changes to the database
         userRepository.save(user);
         logger.info("Updated user saved to database: {}", user);
 
-        // Adicionar o usuário ao modelo e à sessão
+        // Add the user to the model and session
         session.setAttribute("loggedUser", user);
         model.addAttribute("loggedUser", user);
 
-        // Redirecionar para /home
+        // Redirect to /home
         return "redirect:/home";
     }
 
+    /**
+     * Logs in a user by verifying their email and password.
+     * Redirects to the home page upon successful login.
+     *
+     * @param email    the email of the user
+     * @param password the password of the user
+     * @param model    the model to pass attributes to the view
+     * @param session  the HTTP session
+     * @return the name of the view to render
+     */
     @PostMapping("/login")
     public String loginUser(@RequestParam("email") String email,
                             @RequestParam("password") String password,
@@ -154,27 +196,35 @@ public class UserController {
                             HttpSession session) {
         logger.info("Attempting to log in user with email: {}", email);
 
-        // Verificar se o usuário existe no banco de dados
+        // Verify if the user exists in the database
         User user = userRepository.findByEmailAndPassword(email, password);
         if (user != null) {
             logger.info("User logged in successfully: {}", user);
 
-            // Adicionar o usuário à sessão
+            // Add the user to the session
             session.setAttribute("loggedUser", user);
 
-            // Redirecionar para /home
+            // Redirect to /home
             return "redirect:/home";
         } else {
             logger.error("Login failed for email: {}", email);
 
-            // Adicionar mensagem de erro ao modelo
+            // Add error message to the model
             model.addAttribute("error", "Email or password wrong. Try again.");
 
-            // Redirecionar para a página de login
-            return "login"; // Certifique-se de que a página login.html existe
+            // Redirect to the login page
+            return "login"; // Ensure the login.html page exists
         }
     }
 
+    /**
+     * Serves the home page for the logged-in user.
+     * Fetches movie recommendations based on user preferences.
+     *
+     * @param session the HTTP session
+     * @param model   the model to pass attributes to the view
+     * @return the name of the view to render
+     */
     @GetMapping("/home")
     public String serveHomePage(HttpSession session, Model model) {
         User loggedUser = (User) session.getAttribute("loggedUser");
@@ -215,6 +265,13 @@ public class UserController {
         return "home";
     }
 
+    /**
+     * Adds points to the logged-in user.
+     *
+     * @param requestBody the request body containing the points to add
+     * @param session     the HTTP session
+     * @return a response message indicating success or failure
+     */
     @PostMapping("/add-points")
     @ResponseBody
     public String addPoints(@RequestBody Map<String, Integer> requestBody, HttpSession session) {
@@ -239,6 +296,13 @@ public class UserController {
         }
     }
 
+    /**
+     * Adds experience points (EXP) to the logged-in user.
+     *
+     * @param requestBody the request body containing the EXP to add
+     * @param session     the HTTP session
+     * @return a response message indicating success or failure
+     */
     @PostMapping("/add-exp")
     @ResponseBody
     public String addExp(@RequestBody Map<String, Integer> requestBody, HttpSession session) {
@@ -251,7 +315,7 @@ public class UserController {
         int currentExp = loggedUser.getExp() != null ? loggedUser.getExp() : 0;
         loggedUser.setExp(currentExp + expToAdd);
 
-        // Atualizar o tier com base no exp
+        // Update the tier based on EXP
         int newTier = (loggedUser.getExp() / 1000) + 1;
         logger.info("User EXP updated: {}, New Tier: {}", loggedUser.getExp(), newTier);
 
@@ -261,6 +325,13 @@ public class UserController {
         return "Exp added successfully";
     }
 
+    /**
+     * Serves the Battle Pass page for the logged-in user.
+     *
+     * @param session the HTTP session
+     * @param model   the model to pass attributes to the view
+     * @return the name of the view to render
+     */
     @GetMapping("/battlepass")
     public String serveBattlePassPage(HttpSession session, Model model) {
         User loggedUser = (User) session.getAttribute("loggedUser");
@@ -271,6 +342,14 @@ public class UserController {
         return "battlepass";
     }
 
+    /**
+     * Serves the Shop page for the logged-in user.
+     * Refreshes the shop if the last refresh was more than 7 days ago.
+     *
+     * @param session the HTTP session
+     * @param model   the model to pass attributes to the view
+     * @return the name of the view to render
+     */
     @GetMapping("/shop")
     public String serveShopPage(HttpSession session, Model model) {
         User loggedUser = (User) session.getAttribute("loggedUser");
@@ -327,6 +406,13 @@ public class UserController {
         return "shop";
     }
 
+    /**
+     * Redeems a product for the logged-in user.
+     *
+     * @param productId the ID of the product to redeem
+     * @param session   the HTTP session
+     * @return a response map indicating success or failure
+     */
     @PostMapping("/redeem-product")
     @ResponseBody
     public Map<String, Object> redeemProduct(@RequestParam("productId") Long productId, HttpSession session) {
@@ -360,6 +446,13 @@ public class UserController {
         return Map.of("success", false, "message", "Product not found");
     }
 
+    /**
+     * Redeems a movie for the logged-in user.
+     *
+     * @param movieId the ID of the movie to redeem
+     * @param session the HTTP session
+     * @return a response map indicating success or failure
+     */
     @PostMapping("/redeem-movie")
     @ResponseBody
     public Map<String, Object> redeemMovie(@RequestParam("movieId") Long movieId, HttpSession session) {
@@ -393,6 +486,12 @@ public class UserController {
         return Map.of("success", false, "message", "Movie not found");
     }
 
+    /**
+     * Checks the status of missions for the logged-in user.
+     *
+     * @param session the HTTP session
+     * @return a map indicating the availability of missions
+     */
     @GetMapping("/check-mission-status")
     @ResponseBody
     public Map<String, Boolean> checkMissionStatus(HttpSession session) {
@@ -424,6 +523,13 @@ public class UserController {
         );
     }
 
+    /**
+     * Marks a mission as available for the logged-in user.
+     *
+     * @param requestBody the request body containing the mission name
+     * @param session     the HTTP session
+     * @return a response message indicating success or failure
+     */
     @PostMapping("/mark-mission-available")
     @ResponseBody
     public String markMissionAsAvailable(@RequestBody Map<String, String> requestBody, HttpSession session) {
@@ -454,6 +560,13 @@ public class UserController {
         return "Invalid mission name";
     }
 
+    /**
+     * Completes a mission for the logged-in user.
+     *
+     * @param requestBody the request body containing the mission name and points
+     * @param session     the HTTP session
+     * @return a response message indicating success or failure
+     */
     @PostMapping("/complete-mission")
     @ResponseBody
     public String completeMission(@RequestBody Map<String, Object> requestBody, HttpSession session) {
@@ -500,6 +613,12 @@ public class UserController {
         return "Invalid mission name";
     }
 
+    /**
+     * Checks the daily login status for the logged-in user.
+     *
+     * @param session the HTTP session
+     * @return a map indicating the availability of the daily login mission
+     */
     @GetMapping("/check-daily-login-status")
     @ResponseBody
     public Map<String, Object> checkDailyLoginStatus(HttpSession session) {
@@ -519,6 +638,12 @@ public class UserController {
         return Map.of("missionAvailable", false, "timeRemaining", secondsRemaining);
     }
 
+    /**
+     * Completes the daily login mission for the logged-in user.
+     *
+     * @param session the HTTP session
+     * @return a response message indicating success or failure
+     */
     @PostMapping("/complete-daily-login-mission")
     @ResponseBody
     public String completeDailyLoginMission(HttpSession session) {
@@ -543,12 +668,25 @@ public class UserController {
         return "Mission completed successfully";
     }
 
+    /**
+     * Logs out the user by invalidating the session.
+     *
+     * @param session the HTTP session
+     * @return the name of the view to render
+     */
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // Invalidate the session
         return "redirect:/login"; // Redirect to the login page
     }
 
+    /**
+     * Serves the Points Info page for the logged-in user.
+     *
+     * @param session the HTTP session
+     * @param model   the model to pass attributes to the view
+     * @return the name of the view to render
+     */
     @GetMapping("/points-info")
     public String servePointsInfoPage(HttpSession session, Model model) {
         User loggedUser = (User) session.getAttribute("loggedUser");
@@ -559,6 +697,13 @@ public class UserController {
         return "points-info"; // Ensure the points-info.html template exists
     }
 
+    /**
+     * Updates the genre scores for the logged-in user.
+     *
+     * @param requestBody the request body containing the movie genres
+     * @param session     the HTTP session
+     * @return a response message indicating success or failure
+     */
     @PostMapping("/update-genre-scores")
     @ResponseBody
     public String updateGenreScores(@RequestBody Map<String, List<String>> requestBody, HttpSession session) {
@@ -567,22 +712,22 @@ public class UserController {
             return "User not logged in";
         }
 
-        // Buscar o usuário com a coleção movieGenres inicializada
+        // Fetch the user with the movieGenres collection initialized
         User userWithGenres = userRepository.findById(loggedUser.getId())
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
-        Hibernate.initialize(userWithGenres.getMovieGenres()); // Inicializar a coleção
+        Hibernate.initialize(userWithGenres.getMovieGenres()); // Initialize the collection
 
         List<String> movieGenres = requestBody.get("movieGenres");
         if (movieGenres == null || movieGenres.isEmpty()) {
             return "Invalid movie genres";
         }
 
-        // Atualizar a pontuação dos gêneros do usuário
+        // Update the user's genre scores
         List<User.MovieGenre> updatedGenres = userWithGenres.getMovieGenres().stream()
             .map(genre -> {
                 if (movieGenres.contains(genre.getGenre())) {
-                    int updatedScore = Integer.parseInt(genre.getScore()) + 5; // Incrementar pontuação
+                    int updatedScore = Integer.parseInt(genre.getScore()) + 5; // Increment score
                     genre.setScore(String.valueOf(updatedScore));
                 }
                 return genre;
@@ -596,6 +741,12 @@ public class UserController {
         return "Genre scores updated successfully";
     }
 
+    /**
+     * Retrieves the genres of a movie based on its title.
+     *
+     * @param title the title of the movie
+     * @return a map containing the genres and other information
+     */
     @GetMapping("/get-movie-genres")
     @ResponseBody
     public Map<String, Object> getMovieGenres(@RequestParam("title") String title) {

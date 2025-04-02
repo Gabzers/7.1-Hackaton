@@ -1,3 +1,4 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif; /* Reverted to original font */
     line-height: normal; /* Removed custom line-height */
@@ -8,6 +9,7 @@ body {
     font-size: 16px; /* Base font size for scaling */
 }
 
+/* Header */
 .header {
     text-align: center;
     padding: 20px; /* Reverted padding */
@@ -20,6 +22,7 @@ body {
     margin: 0;
 }
 
+/* Banner */
 .banner {
     text-align: center;
     padding: 50px 20px;
@@ -52,6 +55,7 @@ body {
     margin-top: 10px;
 }
 
+/* Top Navigation */
 .top-nav {
     display: flex;
     justify-content: space-between;
@@ -126,6 +130,7 @@ body {
     font-size: 1.5em;
 }
 
+/* Battle Pass container */
 .battle-pass-container {
     max-width: 1200px;
     margin: 20px auto;
@@ -149,6 +154,7 @@ body {
     font-size: 18px;
 }
 
+/* Progress bar */
 .progress-bar-container {
     text-align: center;
     margin-bottom: 20px;
@@ -240,6 +246,7 @@ body {
     border: 2px solid #1e2a3a; /* Matches the background for a clean look */
 }
 
+/* Rewards grid */
 .rewards-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

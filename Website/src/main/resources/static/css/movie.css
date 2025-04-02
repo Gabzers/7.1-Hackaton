@@ -1,3 +1,4 @@
+/* General styles */
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: #000;
@@ -7,6 +8,7 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Top Navigation */
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -69,12 +71,7 @@ body {
   color: #e50914;
 }
 
-.movie-title {
-  font-size: 32px;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
+/* Movie container */
 .movie-container {
   position: absolute;
   top: 50px; /* Space for the top navigation */
@@ -226,6 +223,7 @@ iframe {
   }
 }
 
+/* Footer */
 footer {
   position: relative; /* Ensure footer doesn't overlap content */
   bottom: 0;
@@ -382,6 +380,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .movie-player-wrapper {
     padding: 0 10px; /* Add padding for smaller screens */

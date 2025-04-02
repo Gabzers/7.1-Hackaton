@@ -1,4 +1,4 @@
-/* Reseta margens e paddings */
+/* Reset margins and paddings */
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +29,7 @@ p, span {
   font-weight: 300; /* Use lighter font weight for paragraphs and spans */
 }
 
-/* ---------- NAV SUPERIOR ---------- */
+/* Top Navigation */
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -90,7 +90,7 @@ p, span {
 }
 
 .nav-menu li a#logout:hover {
-  color: #e50914; /* cor similar ao botão de logout do Netflix */
+  color: #e50914; /* Similar color to Netflix logout button */
 }
 
 .nav-menu li a#coins {
@@ -133,7 +133,7 @@ p, span {
   color: #e50914;
 }
 
-/* Lado Direito do Nav (Ícones) */
+/* Right Side of Nav (Icons) */
 .nav-right {
   position: absolute; /* Position it absolutely */
   top: 10px; /* Align to the top */
@@ -147,16 +147,16 @@ p, span {
   display: flex;
   align-items: center; /* Align icon and text vertically */
   color: #fff;
-  font-size: 18px; /* Tamanho do ícone de logout */
+  font-size: 18px; /* Logout icon size */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-icon:hover {
-  color: #e50914; /* cor similar ao botão de logout do Netflix */
+  color: #e50914; /* Similar color to Netflix logout button */
 }
 
-/* ---------- BANNER ---------- */
+/* Banner */
 .banner {
   width: 100%;
   height: 90vh; /* Larger banner height */
@@ -248,7 +248,7 @@ p, span {
   background-color: #f40612;
 }
 
-/* ---------- GENRE FILTER ---------- */
+/* Genre filter */
 .genre-filter {
   margin: 30px 50px;
   text-align: center;
@@ -322,7 +322,7 @@ p, span {
   margin: 0; /* Remove default margin for better alignment */
 }
 
-/* ---------- MOVIES SECTIONS ---------- */
+/* Movies sections */
 .movies-section {
   margin: 50px 50px;
 }
@@ -344,8 +344,8 @@ p, span {
   position: relative; /* Enable positioning for child elements */
   background: #222;
   border-radius: 5px;
-  width: 182px; /* Atualizado para 182px */
-  height: 268px; /* Atualizado para 268px */
+  width: 182px; /* Updated to 182px */
+  height: 268px; /* Updated to 268px */
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0; /* Prevent shrinking in horizontal scroll */
@@ -372,13 +372,13 @@ p, span {
 }
 
 .movie-card img {
-  width: 100%; /* Ajusta a largura para preencher o quadrado */
-  height: 100%; /* Ajusta a altura para preencher o quadrado */
-  object-fit: cover; /* Garante que o poster cubra todo o espaço */
-  aspect-ratio: 1 / 1.47; /* Mantém a proporção de 1:1.47 (altura maior que largura) */
+  width: 100%; /* Adjust width to fill the square */
+  height: 100%; /* Adjust height to fill the square */
+  object-fit: cover; /* Ensure the poster covers the entire space */
+  aspect-ratio: 1 / 1.47; /* Maintain the ratio of 1:1.47 (height greater than width) */
   display: block;
-  border-radius: 5px; /* Mantém os cantos arredondados */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito suave */
+  border-radius: 5px; /* Keep rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth effect */
 }
 
 .movie-card p {
@@ -407,7 +407,7 @@ p, span {
   text-align: center;
 }
 
-/* ---------- MOVIES BY GENRE ---------- */
+/* Movies by genre */
 .movies-by-genre {
   margin: 50px 50px;
 }
@@ -498,7 +498,7 @@ p, span {
   display: none;
 }
 
-/* ---------- MODAL STYLES ---------- */
+/* Modal styles */
 .modal {
   display: none; /* Hidden by default */
   position: fixed;
@@ -630,7 +630,7 @@ p, span {
   transform: scale(1.1);
 }
 
-/* ---------- INTRODUCTION MODAL ---------- */
+/* Introduction Modal */
 #intro-modal {
   display: none; /* Hidden by default */
   position: fixed;

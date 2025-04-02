@@ -21,30 +21,42 @@ import java.util.HashSet;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
+/**
+ * Entity representing a user in the system.
+ * 
+ * @author Gabriel Proença
+ * @author Diogo Sequeira
+ * @author André Ferreira
+ * @author Ruben Silva
+ * @author João Rebelo
+ * @author Rafael Barbosa
+ * @author Paulo Brochado
+ */
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true) // Permitir que o nome seja opcional
+    @Column(nullable = true) // Allow name to be optional
     private String name;
 
-    @Column(nullable = true, unique = true) // Permitir que o email seja opcional
+    @Column(nullable = true, unique = true) // Allow email to be optional
     private String email;
 
-    @Column(nullable = true) // Permitir que a senha seja opcional
+    @Column(nullable = true) // Allow password to be optional
     private String password;
 
-    @Column(nullable = true) // Permitir que os pontos sejam opcionais
-    private Integer points; // Alterado para Integer para suportar valores nulos
+    @Column(nullable = true) // Allow points to be optional
+    private Integer points; // Changed to Integer to support null values
 
-    @Column(nullable = true) // Permitir que a barra de progresso seja opcional
+    @Column(nullable = true) // Allow progress bar to be optional
     private Integer progressBar;
 
-    @Column(nullable = true) // Permitir que o exp seja opcional
-    private Integer exp; // Novo atributo para armazenar pontos de experiência
+    @Column(nullable = true) // Allow experience points (EXP) to be optional
+    private Integer exp;
 
     @Column(nullable = true)
     private LocalDateTime lastDailyLogin; // Track the last daily login time
@@ -59,6 +71,7 @@ public class User {
 
     @ElementCollection
     private Set<String> completedMissions;
+
     @ElementCollection
     private Set<String> redeemedOffers;
 
@@ -68,15 +81,27 @@ public class User {
     @ElementCollection
     @CollectionTable(name = "user_missions", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "mission", nullable = false)
-    private List<String> missions; // New attribute for storing missions
+    private List<String> missions; // Attribute for storing missions
 
-    // Default constructor
+    /**
+     * Default constructor.
+     * Initializes missions and completed missions with default values.
+     */
     public User() {
         this.missions = List.of("rate a movie"); // Initialize with the "rate a movie" mission
         this.completedMissions = new HashSet<>(Set.of("RateAMovie", "Watch5Ads")); // Initialize as unavailable
     }
-    
-    // Constructor for initialization
+
+    /**
+     * Constructor for initialization.
+     *
+     * @param name           the name of the user
+     * @param email          the email of the user
+     * @param password       the password of the user
+     * @param movieGenres    the list of movie genres
+     * @param points         the points of the user
+     * @param redeemedOffers the redeemed offers of the user
+     */
     public User(String name, String email, String password, List<MovieGenre> movieGenres, Integer points, String redeemedOffers) {
         this.name = name;
         this.email = email;
@@ -85,7 +110,6 @@ public class User {
         this.points = points;
         this.missions = List.of("rate a movie"); // Initialize with the "rate a movie" mission
         this.redeemedOffers = Set.of(redeemedOffers);
-
     }
 
     // Getters and setters
@@ -169,13 +193,25 @@ public class User {
         this.redeemedOffers = redeemedOffers;
     }
 
+    /**
+     * Embeddable class representing a movie genre and its score.
+     */
     @Embeddable
     public static class MovieGenre {
         private String genre;
         private String score;
 
+        /**
+         * Default constructor.
+         */
         public MovieGenre() {}
 
+        /**
+         * Constructor for initialization.
+         *
+         * @param genre the genre name
+         * @param score the score for the genre
+         */
         public MovieGenre(String genre, String score) {
             this.genre = genre;
             this.score = score;

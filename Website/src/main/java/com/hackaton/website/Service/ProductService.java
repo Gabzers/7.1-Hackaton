@@ -13,18 +13,36 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Service class responsible for product-related business logic.
+ * Provides methods for managing products and missions.
+ * 
+ * @author Gabriel Proença
+ */
 @Service
 public class ProductService {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
     private static final String COST_BENEFIT_CSV_FILE = "Website/src/main/resources/csv/CostBenefit_Results/Products_Under_5_Euros.csv";
 
+    /**
+     * Limits the length of a product name to a maximum of 50 characters or 8 words.
+     *
+     * @param name the original product name
+     * @return the limited product name
+     */
     private String limitProductName(String name) {
         String[] words = name.split("\\s+");
         String limitedName = String.join(" ", Arrays.copyOfRange(words, 0, Math.min(words.length, 8))); // Limit to 8 words
         return limitedName.length() > 50 ? limitedName.substring(0, 50) + "..." : limitedName; // Limit to 50 characters
     }
 
+    /**
+     * Parses a string value into an integer.
+     *
+     * @param value the string value to parse
+     * @return the parsed integer, or 0 if parsing fails
+     */
     private int parseInteger(String value) {
         try {
             return (int) Double.parseDouble(value); // Handle both integer and decimal formats
@@ -34,6 +52,12 @@ public class ProductService {
         }
     }
 
+    /**
+     * Parses a string value into a double.
+     *
+     * @param value the string value to parse
+     * @return the parsed double, or 0.0 if parsing fails
+     */
     private double parseDouble(String value) {
         try {
             return Double.parseDouble(value); // Parse double values
@@ -43,14 +67,25 @@ public class ProductService {
         }
     }
 
+    /**
+     * Completes a mission for the user and awards points.
+     *
+     * @param user        the user completing the mission
+     * @param missionName the name of the mission
+     * @return the points earned for completing the mission
+     */
     public int completeMission(User user, String missionName) {
-        // Example logic for completing a mission and awarding points
         int pointsEarned = 100; // Example points
         user.setPoints(user.getPoints() + pointsEarned); // Assuming User has a setPoints method
         logger.info("Mission '{}' completed by user '{}'. Points earned: {}", missionName, user.getName(), pointsEarned);
         return pointsEarned;
     }
 
+    /**
+     * Extracts product names from a CSV file.
+     *
+     * @return a list of product names
+     */
     private List<String> extractProductNamesFromCSV() {
         List<String> productNames = new ArrayList<>();
 

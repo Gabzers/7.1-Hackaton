@@ -1,4 +1,4 @@
-/* CSS - style.css */
+/* Reset margins and paddings */
 * {
     margin: 0;
     padding: 0;
@@ -35,16 +35,10 @@ body {
     top: 10px; /* Align to the top */
     right: 20px; /* Align to the right */
     display: flex;
-<<<<<<< HEAD
     align-items: center; /* Align items vertically */
     gap: 20px; /* Increased gap for more spacing */
-  }
-
-=======
-    align-items: center;
-    gap: 15px;
 }
->>>>>>> parent of dc2d8ab (Merge branch 'main' of https://github.com/Gabzers/7.1-Hackaton)
+
 .logo-text {
     font-size: 24px;
     font-weight: bold;
@@ -92,7 +86,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Content Styles */
+/* Content styles */
 .points-info-container {
     max-width: 900px;
     margin: 120px auto 30px;

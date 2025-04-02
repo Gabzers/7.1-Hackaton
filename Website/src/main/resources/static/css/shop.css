@@ -1,4 +1,4 @@
-/* Estilos gerais */
+/* General styles */
 body {
     font-family: 'Roboto', Arial, sans-serif; /* Replace with the desired font */
     margin: 0;
@@ -7,7 +7,7 @@ body {
     color: #fff;
 }
 
-/* Cabeçalho */
+/* Header */
 header {
     background: #181818;
     padding: 15px 20px;
@@ -147,7 +147,7 @@ nav ul li a:hover {
     background: #f40612; /* Slightly lighter red */
 }
 
-/* Container principal */
+/* Main container */
 .container {
     max-width: 1200px;
     margin: 40px auto;
@@ -155,7 +155,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* Grid de produtos */
+/* Product grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

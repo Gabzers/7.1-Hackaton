@@ -13,11 +13,23 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+/**
+ * Service class responsible for user-related business logic.
+ * Provides methods for recommending movies, managing missions, and more.
+ * 
+ * @author Gabriel Proença
+ */
 @Service
 public class UserService {
 
     private static final String GENRE_CSV_FOLDER = "website/src/main/resources/csv/MovieGenresCSV";
 
+    /**
+     * Recommends movies based on the user's preferred genres.
+     *
+     * @param user the user for whom to recommend movies
+     * @return a list of recommended movies
+     */
     public List<Map<String, String>> recommendMovies(User user) {
         List<User.MovieGenre> movieGenres = user.getMovieGenres();
         if (movieGenres == null || movieGenres.isEmpty()) {
@@ -93,6 +105,12 @@ public class UserService {
         return recommendations;
     }
 
+    /**
+     * Recommends movies for the user's top 3 preferred genres.
+     *
+     * @param user the user for whom to recommend movies
+     * @return a map of genres to their recommended movies
+     */
     public Map<String, List<Map<String, String>>> recommendTop3GenresMovies(User user) {
         List<User.MovieGenre> movieGenres = user.getMovieGenres();
         if (movieGenres == null || movieGenres.isEmpty()) {
@@ -147,6 +165,12 @@ public class UserService {
         return genreRecommendations;
     }
 
+    /**
+     * Recommends the top 10 movies based on the user's preferences.
+     *
+     * @param user the user for whom to recommend movies
+     * @return a list of the top 10 recommended movies
+     */
     public List<Map<String, String>> recommendTop10Movies(User user) {
         // Simulate a database or external API call to fetch all movies
         List<Map<String, String>> allMovies = fetchAllMovies();
@@ -169,6 +193,12 @@ public class UserService {
         return filteredMovies.stream().limit(10).collect(Collectors.toList());
     }
 
+    /**
+     * Recommends movies from the user's least preferred genres.
+     *
+     * @param user the user for whom to recommend movies
+     * @return a list of recommended movies from non-preferred genres
+     */
     public List<Map<String, String>> recommendLeastPreferredMovies(User user) {
         List<User.MovieGenre> movieGenres = user.getMovieGenres();
         if (movieGenres == null || movieGenres.isEmpty()) {
@@ -209,7 +239,11 @@ public class UserService {
         return recommendations;
     }
 
-    // Simulated method to fetch all movies (replace with actual implementation)
+    /**
+     * Fetches all movies from a simulated database or external API.
+     *
+     * @return a list of all movies
+     */
     private List<Map<String, String>> fetchAllMovies() {
         // Example movie data
         List<Map<String, String>> movies = new ArrayList<>();
@@ -219,6 +253,11 @@ public class UserService {
         return movies;
     }
 
+    /**
+     * Loads movies by genre from CSV files.
+     *
+     * @return a map of genres to their movies
+     */
     private Map<String, List<Map<String, String>>> loadMoviesByGenre() {
         Map<String, List<Map<String, String>>> genreMovies = new HashMap<>();
         File folder = Paths.get(GENRE_CSV_FOLDER).toFile();
@@ -263,6 +302,12 @@ public class UserService {
         return genreMovies;
     }
 
+    /**
+     * Retrieves genres for a movie based on its title.
+     *
+     * @param movieTitle the title of the movie
+     * @return a list of genres for the movie
+     */
     public List<String> getGenresByMovieTitle(String movieTitle) {
         File folder = Paths.get(GENRE_CSV_FOLDER).toFile();
         if (!folder.exists() || !folder.isDirectory()) {
@@ -288,6 +333,11 @@ public class UserService {
         return Collections.emptyList(); // Retornar lista vazia se o filme não for encontrado
     }
 
+    /**
+     * Recommends random products from predefined CSV files.
+     *
+     * @return a list of recommended products
+     */
     public List<Map<String, String>> recommendRandomProducts() {
         String[] csvPaths = {
             "website/src/main/resources/csv/CostBenefit_Results/Products_10_To_15_Euros.csv",
@@ -324,6 +374,11 @@ public class UserService {
         return selectedProducts;
     }
 
+    /**
+     * Prints the recommended movies to the console.
+     *
+     * @param recommendations the list of recommended movies
+     */
     public void printRecommendedMovies(List<Map<String, String>> recommendations) {
         System.out.println("Recommended Movies:");
         for (Map<String, String> movie : recommendations) {
@@ -332,6 +387,13 @@ public class UserService {
         }
     }
 
+    /**
+     * Completes a mission for the user and awards points.
+     *
+     * @param user        the user completing the mission
+     * @param missionName the name of the mission
+     * @return a map containing the points earned
+     */
     public Map<String, Integer> completeMission(User user, String missionName) {
         System.out.println("Completing mission: " + missionName);
         System.out.println("User before update: Points = " + user.getPoints() + ", ProgressBar = " + user.getProgressBar());
@@ -366,6 +428,13 @@ public class UserService {
         return Map.of("pointsEarned", pointsEarned);
     }
 
+    /**
+     * Claims a reward for the user based on the specified tier.
+     *
+     * @param user the user claiming the reward
+     * @param tier the tier of the reward
+     * @return a message indicating the result of the operation
+     */
     public String claimReward(User user, int tier) {
         int rewardPoints = tier * 10; // Points awarded for the given tier
 
