@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StreamFlix - Home</title>
+  <!-- Font Awesome Icons -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  referrerpolicy="no-referrer"
+  />
+
+  <!-- CSS File -->
+  <link rel="stylesheet" href="/Website/app/src/main/resources/style/home.css" />
+</head>
+<body>
+  <!-- Netflix-style Top Nav -->
+  <header class="top-nav" id="dynamic-menu">
+    <div class="nav-left">
+      <img src="images/logo.png" alt="Logo" class="logo" />
+      <ul class="nav-menu">
+        <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="shop.html"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
+      </ul>
+    </div>
+    <!-- Right side of the bar with the logout icon -->
+    <div class="nav-right">
+      <a href="login.html" class="nav-icon" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+  </header>
+  
+  <!-- Chatbot (hidden by default) -->
+  <div id="chatbot" class="chatbot">
+    <div class="chatbot-header">
+      <h3>Chatbot</h3>
+      <button id="close-chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="chatbot-body">
+      <p>Hello! How can I help you?</p>
+      <!-- Chatbot content -->
+    </div>
+  </div>
+
+  <!-- Main Banner -->
+  <section class="banner" id="dynamic-banner">
+    <div class="banner-content" id="banner-content">
+      <h1>Welcome to StreamFlix</h1>
+      <p>Watch the best series and movies in one place!</p>
+    </div>
+  </section>
+
+  <!-- Genre Filter (optional) -->
+  <section class="genre-filter">
+    <label for="genre">Choose a Genre:</label>
+    <select id="genre">
+      <option value="all">All</option>
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+      <option value="horror">Horror</option>
+      <option value="sci-fi">Science Fiction</option>
+      <option value="romance">Romance</option>
+    </select>
+  </section>
+
+  <!-- Section: Top 10 in Your Country -->
+  <section class="movies-section">
+    <h2>Top 10 in Your Country</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="Style/images/FaíscMcQueen.jpg" alt="Movie 1" />
+        <p>Movie Title 1</p>
+      </div>
+      <div class="movie-card">
+        <img src="Style/images/transferir (1).jpg" alt="Movie 2" />
+        <p>Movie Title 2</p>
+      </div>
+      <!-- Repeat up to 10 items -->
+    </div>
+  </section>
+
+  <!-- Section: Top 10 Worldwide -->
+  <section class="movies-section">
+    <h2>Top 10 Worldwide</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="images/movie3.jpg" alt="Movie 3" />
+        <p>Movie Title 3</p>
+      </div>
+      <div class="movie-card">
+        <img src="images/movie4.jpg" alt="Movie 4" />
+        <p>Movie Title 4</p>
+      </div>
+      <!-- Repeat up to 10 items -->
+    </div>
+  </section>
+
+  <!-- Section: Series & Movies -->
+  <section class="movies-section">
+    <h2>Series & Movies</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img src="Style/images/FaíscMcQueen.jpg" alt="Series 1" />
+        <p>Series Title 1</p>
+      </div>
+      <div class="movie-card">
+        <img src="images/series2.jpg" alt="Series 2" />
+        <p>Series Title 2</p>
+      </div>
+      <!-- Add more items -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 StreamFlix. All rights reserved.</p>
+  </footer>
+
+  <!-- Script to show/hide the chatbot -->
+  <script>
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const closeChat = document.getElementById("close-chat");
+
+    chatbotToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      chatbot.classList.toggle("active");
+    });
+
+    closeChat.addEventListener("click", () => {
+      chatbot.classList.remove("active");
+    });
+  </script>
+
+  <!-- Script to dynamically change the background color and image -->
+  <script>
+    const header = document.getElementById("dynamic-menu");
+    const chatbot = document.getElementById("chatbot");
+    const banner = document.getElementById("dynamic-banner");
+    const bannerContent = document.getElementById("banner-content");
+
+    const images = [
+      { src: "Style/images/FaíscMcQueen.jpg", color: "#ff4500" }, // Movie 1
+      { src: "Style/images/transferir (1).jpg", color: "#1e90ff" } // Movie 2
+    ];
+
+    let currentIndex = 0;
+
+    function changeTheme() {
+      const { src, color } = images[currentIndex];
+      banner.style.backgroundImage = `url(${src})`;
+      banner.style.backgroundSize = "cover";
+      banner.style.backgroundPosition = "center";
+      header.style.backgroundColor = color;
+      chatbot.style.backgroundColor = color;
+      bannerContent.style.backgroundColor = color;
+
+      banner.style.transition = "background 1s ease-in-out";
+      header.style.transition = "background-color 1s ease-in-out";
+      chatbot.style.transition = "background-color 1s ease-in-out";
+      bannerContent.style.transition = "background-color 1s ease-in-out";
+
+      currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    setInterval(changeTheme, 5000); // Change every 5 seconds
+  </script>
+</body>
+</html>
