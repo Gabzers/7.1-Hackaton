@@ -130,10 +130,10 @@ public class UserController {
         // Atualizar os gêneros do usuário
         user.setMovieGenres(updatedGenres);
 
-        // Adicionar 50 pontos ao usuário
+        // Adicionar 100 pontos ao usuário
         int currentPoints = user.getPoints() != null ? user.getPoints() : 0;
-        user.setPoints(currentPoints + 50);
-        logger.info("Added 50 points to user. New total: {}", user.getPoints());
+        user.setPoints(currentPoints + 100); // Updated from 50 to 100
+        logger.info("Added 100 points to user. New total: {}", user.getPoints());
 
         // Salvar as alterações no banco de dados
         userRepository.save(user);
